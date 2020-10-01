@@ -36,7 +36,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'Wadge.BackEnd.App'
+    mainClassName = 'Wadge.BackEnd.Application'
 }
 
 test {
