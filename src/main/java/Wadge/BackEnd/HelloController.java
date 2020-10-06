@@ -13,21 +13,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Stream;
 
 @RestController
 public class HelloController {
-
     @CrossOrigin
     @RequestMapping("/food_list")
-    public ResponseEntity<Map> ReadFiles() throws java.io.IOException{
+    public ResponseEntity<Map<String, List<String>>> readFile() throws java.io.IOException{
         Path pathIngredients = Paths.get("food_list.txt");
         List<String> ingredients = new ArrayList<>();
-        Files.lines(pathIngredients).forEach(l-> {
-            ingredients.add(l);
-        });
-        Map m = new HashMap<String, String>();
+        try(Stream<String> input = Files.lines(pathIngredients)) {
+            input.forEach(l -> ingredients.add(l));
+        }
+        
+        Map<String, List<String>> m = new HashMap<>();
         m.put("Food", ingredients);
-        return new ResponseEntity<Map>(m, HttpStatus.OK);
+        return new ResponseEntity<>(m, HttpStatus.OK);
     }
-    //public String index() { return "Greetings from Spring Boot!"; }
 }
