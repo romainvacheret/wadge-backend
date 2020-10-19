@@ -9,6 +9,7 @@
 plugins {
     id 'org.springframework.boot' version '2.3.3.RELEASE'
     id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+
     // Apply the java plugin to add support for Java
     id 'java'
 
@@ -26,6 +27,8 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
 
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation 'org.testng:testng:7.2.0'
