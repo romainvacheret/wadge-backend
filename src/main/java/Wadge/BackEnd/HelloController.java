@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.FileReader;
+import java.lang.reflect.Array;
 import java.util.*;
 
 
@@ -20,7 +21,7 @@ public class HelloController {
 
     @CrossOrigin
     @RequestMapping("/food_list")
-    public ResponseEntity<List<Map<String,String>>> ReadFiles() throws java.io.IOException{
+    public ResponseEntity<List<Map<String,String>>> readFile() throws java.io.IOException{
         JSONParser jsonP = new JSONParser();
         List<Map<String,String>> list = new ArrayList<>();
         try{
@@ -37,9 +38,36 @@ public class HelloController {
                 list.add(m);
             }
         }
-       catch (Exception e) {
+        catch (Exception e) {
             e.printStackTrace();
-       }
+        }
+        return new ResponseEntity<List<Map<String,String>>>(list, HttpStatus.OK);
+    }
+    @CrossOrigin
+    @RequestMapping("/food_list/october")
+    private ResponseEntity<List<Map<String,String>>> getOctobre() throws java.io.IOException{
+        JSONParser jsonP = new JSONParser();
+        List<Map<String,String>> list = new ArrayList<>();
+        try {
+            Object obj = jsonP.parse(new FileReader("food_list.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray arr = (JSONArray) jsonObject.get("aliments");
+            Iterator<JSONObject> iterator = arr.iterator();
+            while (iterator.hasNext()) {
+                Map m = new HashMap<String, String>();
+                JSONObject aliment = iterator.next();
+                ArrayList<String> truc = new ArrayList<String>();
+                truc = (ArrayList) aliment.get("consommation");
+                if (truc.contains("octobre")) {
+                    m.put("nom", aliment.get("nom"));
+                    m.put("type",aliment.get("type"));
+                    list.add(m);
+                }
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
         return new ResponseEntity<List<Map<String,String>>>(list, HttpStatus.OK);
     }
 }
