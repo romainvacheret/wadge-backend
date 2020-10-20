@@ -14,6 +14,13 @@ plugins {
 
     // Apply the application plugin to add support for building a CLI application.
     id 'application'
+    id 'org.sonarqube' version '3.0'
+}
+
+sonarqube {
+  properties {
+    property 'sonar.projectKey', 'RomainVacheret_Wadge-BackEnd'
+  }
 }
 
 repositories {
@@ -29,8 +36,6 @@ dependencies {
 
     // Use TestNG framework, also requires calling test.useTestNG() below
     testImplementation 'org.testng:testng:7.2.0'
-
-
 
 }
 
