@@ -9,4 +9,8 @@ build
 .idea
 
 #Ignore for VSCode
-.vscode
+.settings
+.classpath
+.project
+
+bin
