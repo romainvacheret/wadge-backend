@@ -11,27 +11,15 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-<<<<<<< HEAD
 import java.io.FileReader;
-import java.lang.reflect.Array;
+
 import java.util.*;
 
-=======
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
->>>>>>> 0d1d58ac21b5ba3b169f7a02f16c9a896631358d
 
 @RestController
 public class HelloController {
     @CrossOrigin
     @RequestMapping("/food_list")
-<<<<<<< HEAD
     public ResponseEntity<List<Map<String,String>>> readFile() throws java.io.IOException{
         JSONParser jsonP = new JSONParser();
         List<Map<String,String>> list = new ArrayList<>();
@@ -56,9 +44,9 @@ public class HelloController {
     }
     @CrossOrigin
     @RequestMapping("/food_list/october")
-    private ResponseEntity<List<Map<String,String>>> getOctobre() throws java.io.IOException{
+    private ResponseEntity<List<Map<String,String>>> getOctobre() throws java.io.IOException {
         JSONParser jsonP = new JSONParser();
-        List<Map<String,String>> list = new ArrayList<>();
+        List<Map<String, String>> list = new ArrayList<>();
         try {
             Object obj = jsonP.parse(new FileReader("food_list.json"));
             JSONObject jsonObject = (JSONObject) obj;
@@ -71,26 +59,13 @@ public class HelloController {
                 truc = (ArrayList) aliment.get("consommation");
                 if (truc.contains("octobre")) {
                     m.put("nom", aliment.get("nom"));
-                    m.put("type",aliment.get("type"));
+                    m.put("type", aliment.get("type"));
                     list.add(m);
                 }
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ResponseEntity<List<Map<String,String>>>(list, HttpStatus.OK);
-=======
-    public ResponseEntity<Map<String, List<String>>> readFile() throws java.io.IOException{
-        Path pathIngredients = Paths.get("food_list.txt");
-        List<String> ingredients = new ArrayList<>();
-        try(Stream<String> input = Files.lines(pathIngredients)) {
-            input.forEach(l -> ingredients.add(l));
-        }
-        
-        Map<String, List<String>> m = new HashMap<>();
-        m.put("Food", ingredients);
-        return new ResponseEntity<>(m, HttpStatus.OK);
->>>>>>> 0d1d58ac21b5ba3b169f7a02f16c9a896631358d
+        return new ResponseEntity<List<Map<String, String>>>(list, HttpStatus.OK);
     }
 }
