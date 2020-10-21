@@ -6,14 +6,13 @@ addons:
   sonarcloud:
     organization: "wadge"
     token:
-      secure: "yeRo6vypao4CdYHakULvSYDP8jR5w8zhmfFhJn/epcizIlRdlkZbvLTNw6yLjv2GUPFmWE/ejI6Uelb1BNPJjx8Yy+50Xr0VpKVq2jF3/eVdDNTLbkAuUATQy269id6Gl+ID/h3FDPlQG4xZjoCm/LBjyzRJdWN4QKdrxJIjBXfyvWn5eUxcNWwf5W45VBBcA6lIfEw9O/xIWAflbUZ8R7sg4TPPS76Z3OZmYBfJgcIIKsYZV+wK9tOC1VNsNT8f8uoH1S/Abvq+CnVVTFzMnxesTcczaLMqxz6xwhxKHwEOC4jUfRMIUNCP9r7FMk1fVgsh3bc3or0hvNuQV+t5XFQPCv69hr/Mu9bNvLlKoj0HENwU2S4MZNFkT+Q3FrCppBQQ6CsW1K4YsytL4ikKUknie1HfZZ12q8qIy8tAV50Fny343gW9UHIsLDWB48gJ/Hzw9VrTJlOzfnzt6qv6IFY8KyE7TqKnnpqvbxTioMOgPlTcmsPlQRyxYK739EOyAQ/7ujpUmdgBwjxerXoumDg5DFg1alZ94x7ApJayEZYh7PA0BtflU9fPNkspcZrvaf6yay2gwv6Is7gcz9jNDBzYdVmcGtfjuxtAlDQ861ue1GYMKzUyYs/ECL7VlQ68oaQvOR1VclAPC600+g/Q114abZebFkQKtGsJ4ogEnXg="
-
+      secure: "P209y+njLr7gSr9DQCVhlAaPgldWqdxe0Ti5kIPUPVBrkABCoFNYuo3CXInoLjdQ+xnaSPEt6l7m4+j2bilbdnT/vbWBhrg0AEhy5e1jCMJU2E3D2aC2j16j8pBTjHZhHi+KNnz2XAxAzdRnc2Kqza+CeKKNQVqn5gNlNB0Kutscmk2oCvUun5cJ1RssXpX2eb6XYvRlEu9/8BTxNdewV31hIGUDyswnIlj0wwVOw4/FVOjs8sfin+KyRq+J/TnqOfBL+JsD2/aXVSfoewziP6L5lnQDjACQGF6I4Zr5v/n4s7zWKq8wBwmTV2qGuR1OaJBSbJgLp0PwaQ8xSo0Ks+BxYEqYQWwkLE3YrO2OBbsdVtvlJnNrhOKrGeW4wTEJW2eLUANPbEVjF77apWFK/rzX0JAhcuXf/q/i6jbr0ZBok2CZumckkjel0Zal2ywv+vECgYdMaMqgx1XuJ8QktNa2UmQYsz75AXxAt2o/ajO+jMDcFdMrU7YAAZFuOj2Z5t18OZaLTkaAiYyLJLKDnrQIMYKVtsh9ZlgA/H53DcWprQlrCss8gVcTBWDFXO5xef1N+uNvxNJ5rWKaTEdX9IG8LBKfvVjYVwS5qkmRM/80VLPtidVANtHrN/BKYgFHZ97D1MU4RWqk/lI2IgtqXbdG/KpUhuAnOSakLDRo0jI="
 before_install:
   - chmod a+x ./gradlew
 script:
   - ./gradlew --version
   - ./gradlew check 
-  - ./gradlew sonarqube --stacktrace
+  - ./gradlew sonarqube
 
 
 after_success:
