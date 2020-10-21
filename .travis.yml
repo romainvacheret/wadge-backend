@@ -13,7 +13,7 @@ before_install:
 script:
   - ./gradlew --version
   - ./gradlew check 
-  - ./gradlew sonarqube
+  - ./gradlew sonarqube --debug
 
 
 after_success:
