@@ -20,6 +20,7 @@ Si vous ne lancez que cette partie de l'application, vous aurez uniquement l'API
 ```Bash
 git clone git@github.com:RomainVacheret/Wadge-BackEnd.git
 cd Wadge-BackEnd
+chmod a+x ./gradlew
 ./gradlew bootRun
 ```
 
