@@ -7,12 +7,14 @@ addons:
     organization: "wadge"
     token:
       secure: "hPd3bt1bCrKw0Ilq9XmVvitjExxzN7vC6xRreqIyq30EyYMGU468qbLPPKiW6T5eUFnfDxN9ipNFm4wSeGKSL8PX720TvwjmIaJWgVucv9GHUM7sojOBQssGKpQ2s+VXFFkIIUOx/t5wbzWpGe+rrSC71u3mwWHGgglnBudJB6LrlASOgTUPKzSUI1cwXVXZFYKLLtIAEOOtxc6HaiZwIWalZdQfI50gsfozR7Jc2AoTKQqR64XgYFRv8seDfFqM5jTuzN31UwB5ILOWPZ8RZSoIsi3EJMWOOleVLFc5uu3Vxz8R62iXwu6SvOWiDSA+JNavWfKDvWY92Lb/6rxB/1C+6RD1m9NXb6ODkEyTTWijReDKYRNtlsUwbOX71ezFC9dEyJCuGZAb7TJ/x4i8ZZrhoVkhnSQ95taHwRqbU9NZ+478tLV4YVvouUMYF+0YmD/DE7zSj2q0Qw6tldy8KWXgFUZjICkZO+9zar6Oxl6sjClw9uujsAe9NHEhlGB2EhZTNUe8khcOyTE0PjZPHbbGyATQhtMtLsXr0MPw8XPB+pGJzrxWx7slYRVMrmQlMuzER3rqVwTMjco4xT+fpkux5oPViKIBCPP6VpZkQW+1/DqnPsFAkeX2uXOVLLz7pJ0haRQ8++UX5CrZDc04SOolM/3YVRv4QtjlIanFdi8="
+
 before_install:
   - chmod a+x ./gradlew
 script:
   - ./gradlew --version
   - ./gradlew check 
-  - ./gradlew sonarqube
+  - ./gradlew jacocoTestReport coveralls
+  # - ./gradlew sonarqube
 
 
 after_success:
