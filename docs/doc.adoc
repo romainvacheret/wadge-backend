@@ -1,0 +1,34 @@
+= Wadge-BackEnd
+Doc Writer <project.wadge@gmail.com>
+
+== Routes
+[cols="h,5a"]
+|===
+| URL
+| /food_list
+| Method
+| GET
+| Response Body
+| [...
+    {
+        "nom": "mandarine",
+        "type": "fruit",
+        "consommation": ["janvier", "fevrier", "octobre", "novembre", "decembre"]   
+    }...
+]
+|===
+
+[cols="h,5a"]
+|===
+| URL
+| /food_list/october
+| Method
+| GET
+| Response Body
+| [
+    {
+        "type": "legume",
+        "nom": "ail"
+    }...
+]
+|===

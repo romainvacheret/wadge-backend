@@ -1,33 +1,71 @@
 package Wadge.BackEnd;
 
+
+import org.json.simple.parser.JSONParser;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
+import java.io.FileReader;
+
+import java.util.*;
+
 
 @RestController
 public class HelloController {
     @CrossOrigin
     @RequestMapping("/food_list")
-    public ResponseEntity<Map<String, List<String>>> readFile() throws java.io.IOException{
-        Path pathIngredients = Paths.get("food_list.txt");
-        List<String> ingredients = new ArrayList<>();
-        try(Stream<String> input = Files.lines(pathIngredients)) {
-            input.forEach(l -> ingredients.add(l));
+    public ResponseEntity<List<Map<String,String>>> readFile() throws java.io.IOException{
+        JSONParser jsonP = new JSONParser();
+        List<Map<String,String>> list = new ArrayList<>();
+        try{
+            Object obj = jsonP.parse(new FileReader("food_list.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray arr = (JSONArray) jsonObject.get("aliments");
+            Iterator<JSONObject> iterator = arr.iterator();
+            while (iterator.hasNext()) {
+                Map m = new HashMap<String, String>();
+                JSONObject aliment = iterator.next();
+                m.put("nom",aliment.get("nom"));
+                m.put("type",aliment.get("type"));
+                m.put("consommation",((ArrayList) aliment.get("consommation")).toString());
+                list.add(m);
+            }
         }
-        
-        Map<String, List<String>> m = new HashMap<>();
-        m.put("Food", ingredients);
-        return new ResponseEntity<>(m, HttpStatus.OK);
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<List<Map<String,String>>>(list, HttpStatus.OK);
+    }
+    @CrossOrigin
+    @RequestMapping("/food_list/october")
+    private ResponseEntity<List<Map<String,String>>> getOctobre() throws java.io.IOException {
+        JSONParser jsonP = new JSONParser();
+        List<Map<String, String>> list = new ArrayList<>();
+        try {
+            Object obj = jsonP.parse(new FileReader("food_list.json"));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray arr = (JSONArray) jsonObject.get("aliments");
+            Iterator<JSONObject> iterator = arr.iterator();
+            while (iterator.hasNext()) {
+                Map m = new HashMap<String, String>();
+                JSONObject aliment = iterator.next();
+                List<String> truc = new ArrayList<String>();
+                truc = (ArrayList) aliment.get("consommation");
+                if (truc.contains("octobre")) {
+                    m.put("nom", aliment.get("nom"));
+                    m.put("type", aliment.get("type"));
+                    list.add(m);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ResponseEntity<List<Map<String, String>>>(list, HttpStatus.OK);
     }
 }
