@@ -8,11 +8,13 @@ import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.FileReader;
 
+import java.nio.file.Path;
 import java.util.*;
 
 
@@ -43,8 +45,11 @@ public class HelloController {
         return new ResponseEntity<List<Map<String,String>>>(list, HttpStatus.OK);
     }
     @CrossOrigin
-    @RequestMapping("/food_list/october")
-    private ResponseEntity<List<Map<String,String>>> getOctobre() throws java.io.IOException {
+    @RequestMapping(path = "/filter/{month}")
+    private ResponseEntity<List<Map<String,String>>> getMonth(@PathVariable("month") String month) throws java.io.IOException {
+        if (month.length() != 0) {
+            month = month.toLowerCase();
+        }
         JSONParser jsonP = new JSONParser();
         List<Map<String, String>> list = new ArrayList<>();
         try {
@@ -53,14 +58,14 @@ public class HelloController {
             JSONArray arr = (JSONArray) jsonObject.get("aliments");
             Iterator<JSONObject> iterator = arr.iterator();
             while (iterator.hasNext()) {
-                Map m = new HashMap<String, String>();
+                Map mapFilter = new HashMap<String, String>();
                 JSONObject aliment = iterator.next();
-                List<String> truc = new ArrayList<String>();
-                truc = (ArrayList) aliment.get("consommation");
-                if (truc.contains("octobre")) {
-                    m.put("nom", aliment.get("nom"));
-                    m.put("type", aliment.get("type"));
-                    list.add(m);
+                List<String> listCompare = new ArrayList<String>();
+                listCompare = (ArrayList) aliment.get("consommation");
+                if (listCompare.contains(month)) {
+                    mapFilter.put("nom", aliment.get("nom"));
+                    mapFilter.put("type", aliment.get("type"));
+                    list.add(mapFilter);
                 }
             }
         } catch (Exception e) {
