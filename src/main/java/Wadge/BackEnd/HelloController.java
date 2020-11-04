@@ -1,20 +1,24 @@
 package Wadge.BackEnd;
 
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 
-import org.json.simple.parser.JSONParser;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
+import org.json.simple.parser.JSONParser;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.io.FileReader;
-
-import java.util.*;
+import Wadge.google.Search;
 
 
 @RestController
@@ -43,9 +47,11 @@ public class HelloController {
         }
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+
     @CrossOrigin
     @RequestMapping(path = "/filter/{month}")
-    private ResponseEntity<List<Map<String,String>>> getMonth(@PathVariable("month") String month){
+    public ResponseEntity<List<Map<String,String>>> getMonth(@PathVariable("month") String month){
         if (month.length() != 0) {
             month = month.toLowerCase();
         }
@@ -70,6 +76,17 @@ public class HelloController {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
         return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @CrossOrigin
+    @RequestMapping("/map/{lat}/{lng}")
+    public ResponseEntity<JSONObject> getCloseShops(@PathVariable("lat") double lat, @PathVariable("lng") double lng) {
+        Search s = new Search();
+        JSONObject json = s.request(lat, lng);
+        JSONObject tmp = new JSONObject();
+        tmp.put("candidates", s.parseJSON((JSONArray) json.get("candidates")));
+        return new ResponseEntity<>(tmp, HttpStatus.OK);
     }
 }
