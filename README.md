@@ -1,6 +1,6 @@
 # Wadge-BackEnd
 
-[![Build Status](https://img.shields.io/travis/RomainVacheret/Wadge-BackEnd/master.svg?style=flat-square)](https://travis-ci.org/RomainVacheret/Wadge-BackEnd)
+![Build Status](https://img.shields.io/travis/com/RomainVacheret/Wadge-BackEnd/master)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/RomainVacheret/Wadge-BackEnd)
 [![Code Quality](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=alert_status)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=sqale_index)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
