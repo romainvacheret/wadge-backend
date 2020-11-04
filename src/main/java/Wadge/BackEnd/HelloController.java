@@ -89,4 +89,5 @@ public class HelloController {
         tmp.put("candidates", s.parseJSON((JSONArray) json.get("candidates")));
         return new ResponseEntity<>(tmp, HttpStatus.OK);
     }
+
 }
