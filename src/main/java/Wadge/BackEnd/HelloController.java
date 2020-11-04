@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.FileReader;
 
-import java.nio.file.Path;
 import java.util.*;
 
 
@@ -22,7 +21,7 @@ import java.util.*;
 public class HelloController {
     @CrossOrigin
     @RequestMapping("/food_list")
-    public ResponseEntity<List<Map<String,String>>> readFile() throws java.io.IOException{
+    public ResponseEntity<List<Map<String,String>>> readFile() {
         JSONParser jsonP = new JSONParser();
         List<Map<String,String>> list = new ArrayList<>();
         try{
@@ -35,18 +34,18 @@ public class HelloController {
                 JSONObject aliment = iterator.next();
                 m.put("nom",aliment.get("nom"));
                 m.put("type",aliment.get("type"));
-                m.put("consommation",((ArrayList) aliment.get("consommation")).toString());
+                m.put("consommation",( aliment.get("consommation")).toString());
                 list.add(m);
             }
         }
         catch (Exception e) {
             e.printStackTrace();
         }
-        return new ResponseEntity<List<Map<String,String>>>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
     @CrossOrigin
     @RequestMapping(path = "/filter/{month}")
-    private ResponseEntity<List<Map<String,String>>> getMonth(@PathVariable("month") String month) throws java.io.IOException {
+    private ResponseEntity<List<Map<String,String>>> getMonth(@PathVariable("month") String month){
         if (month.length() != 0) {
             month = month.toLowerCase();
         }
@@ -60,7 +59,7 @@ public class HelloController {
             while (iterator.hasNext()) {
                 Map mapFilter = new HashMap<String, String>();
                 JSONObject aliment = iterator.next();
-                List<String> listCompare = new ArrayList<String>();
+                List<String> listCompare;
                 listCompare = (ArrayList) aliment.get("consommation");
                 if (listCompare.contains(month)) {
                     mapFilter.put("nom", aliment.get("nom"));
@@ -71,6 +70,6 @@ public class HelloController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new ResponseEntity<List<Map<String, String>>>(list, HttpStatus.OK);
+        return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }
