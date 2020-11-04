@@ -18,17 +18,15 @@ public class Search {
 
 
     public void jsonToFile(String fileName, JSONObject json) { 
-        try {
-            FileWriter file = new FileWriter(fileName);
+        try(FileWriter file = new FileWriter(fileName)) {
             file.write(json.toJSONString());
-            file.close();
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         } 
+
     }
 
     public JSONObject request(double lat, double lng) {
-        // String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000@48.8566,2.3522&key=" + Search.KEY);
         String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000@" + String.format("%f,%f", lat, lng) + "&key=" + Search.KEY);
         
         try {
@@ -61,7 +59,6 @@ public class Search {
             tmp.put("formatted_address", ((JSONObject) place).get("formatted_address"));
             tmp.put("opening_hours", ((JSONObject) place).get("opening_hours"));
             JSONObject viewport = (JSONObject) ((JSONObject) place).get("geometry");
-            System.out.println(viewport);
             tmp.put("location", ((JSONObject) viewport).get("location"));
 
             array.add(tmp);
