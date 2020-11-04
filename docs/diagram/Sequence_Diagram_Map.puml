@@ -1,0 +1,8 @@
+@startuml
+autonumber
+actor User
+User -> Front: Requête Map
+Front -> ApiGoogleMap: Requête affichage de la Map
+ApiGoogleMap->Front: Réponse affichage de la Map
+Front -> User: Affichage de la Map
+@enduml
