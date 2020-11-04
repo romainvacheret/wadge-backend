@@ -13,6 +13,7 @@ before_install:
 script:
   - ./gradlew --version
   - ./gradlew check 
+  - sonar-scanner
   - ./gradlew jacocoTestReport coveralls
   # - ./gradlew sonarqube
 
