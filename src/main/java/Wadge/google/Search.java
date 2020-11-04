@@ -27,8 +27,9 @@ public class Search {
         } 
     }
 
-    public JSONObject request() {
-        String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000@48.8566,2.3522&key=" + Search.KEY);
+    public JSONObject request(double lat, double lng) {
+        // String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000@48.8566,2.3522&key=" + Search.KEY);
+        String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000@" + String.format("%f,%f", lat, lng) + "&key=" + Search.KEY);
         
         try {
             URL url = new URL(requestUrl);
@@ -52,7 +53,7 @@ public class Search {
         return null;
     }
 
-    private JSONArray parseJSON(JSONArray json) {
+    public JSONArray parseJSON(JSONArray json) {
         JSONArray array = new JSONArray();
 
         json.forEach(place -> {
@@ -71,7 +72,7 @@ public class Search {
     public static void main(String[] args) throws IOException, ParseException {
         Search obj = new Search();
 
-        JSONObject json = obj.request();
+        JSONObject json = obj.request(0, 0);
         JSONObject tmp = new JSONObject();
         tmp.put("candidates", obj.parseJSON((JSONArray) json.get("candidates")));
         obj.jsonToFile("test4.json", tmp);
