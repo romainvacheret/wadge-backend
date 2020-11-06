@@ -13,7 +13,7 @@ Doc Writer <project.wadge@gmail.com>
     {
         "nom": "mandarine",
         "type": "fruit",
-        "consommation": ["janvier", "fevrier", "octobre", "novembre", "decembre"]   
+        "consommation": ["janvier", "fevrier", "octobre", "novembre", "decembre"]
     }...
 ]
 |===
@@ -21,7 +21,17 @@ Doc Writer <project.wadge@gmail.com>
 [cols="h,5a"]
 |===
 | URL
-| /food_list/october
+| /map/{lat}/{lng}
+| Method
+| GET
+| Response Body
+|{"candidates":[{"formatted_address":"58 Rue du Général de Gaulle, 95880 Enghien-les-Bains, France","opening_hours":{"open_now":true},"location":{"lng":2.3052543,"lat":48.9695271}}]}
+|===
+
+[cols="h,5a"]
+|===
+| URL
+| /filter/{month}
 | Method
 | GET
 | Response Body

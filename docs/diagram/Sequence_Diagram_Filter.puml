@@ -1,0 +1,11 @@
+@startuml
+
+autonumber
+actor User
+User -> Front: choix d'un mois
+Front -> Back: Requête de la liste aliments {month}
+Back -> "getMonth()": Requête de la liste aliments pour le mois {month}
+"getMonth()"-> Back: Retourne un Json
+Back -> Front: Réponse Json
+Front -> User: Affichage
+@enduml
