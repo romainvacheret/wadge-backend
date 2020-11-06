@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Wadge.google.Search;
 
-
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class HelloController {
-    @CrossOrigin
+
     @RequestMapping("/food_list")
     public ResponseEntity<List<Map<String,String>>> readFile() {
         JSONParser jsonP = new JSONParser();
@@ -49,7 +49,7 @@ public class HelloController {
     }
 
 
-    @CrossOrigin
+
     @RequestMapping(path = "/filter/{month}")
     public ResponseEntity<List<Map<String,String>>> getMonth(@PathVariable("month") String month){
         if (month.length() != 0) {
@@ -80,7 +80,7 @@ public class HelloController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @CrossOrigin
+
     @RequestMapping("/map/{lat}/{lng}")
     public ResponseEntity<JSONObject> getCloseShops(@PathVariable("lat") double lat, @PathVariable("lng") double lng) {
         Search s = new Search();
