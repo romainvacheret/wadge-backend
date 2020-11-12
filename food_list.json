@@ -4,79 +4,79 @@
 			"nom" : "abricot",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "ail",
 			"type" : "legume",
 			"consommation" : ["aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 182
 		},
 		{
 			"nom" : "amande",
 			"type" : "fruit",
 			"consommation" : ["septembre", "octobre"],
-			"vie" : 15
+			"vie" : 150
 		},
 		{
 			"nom" : "ananas",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "artichaut",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "asperge",
 			"type" : "legume",
 			"consommation" : ["avril", "mai", "juin"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "aubergine",
 			"type" : "legume",
 			"consommation" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "avocat",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "banane",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 8
 		},
 		{
 			"nom" : "betterave",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 21
 		},
 		{
 			"nom" : "blette",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 6
 		},
 		{
 			"nom" : "brocoli",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "butternut",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 30
 		},
 		{
 			"nom" : "carotte",
@@ -88,31 +88,31 @@
 			"nom" : "cassis",
 			"type" : "fruit",
 			"consommation" : ["aout", "septembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "cedrat",
 			"type" : "fruit",
 			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 10
 		},
 		{
 			"nom" : "celeri",
 			"type" : "legume",
 			"consommation" : ["janvier", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "cerise",
 			"type" : "fruit",
 			"consommation" : ["mai", "juin", "juillet"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "champignons",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai" ,"octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "chataigne",
@@ -136,31 +136,31 @@
 			"nom" : "chou-fleur",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 10
 		},
 		{
 			"nom" : "chous de Bruxelles",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "citron",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juillet", "aout", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 12
 		},
 		{
 			"nom" : "citrouille",
 			"type" : "legume",
 			"consommation" : ["janvier", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 60
 		},
 		{
 			"nom" : "clementine",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "coing",
@@ -172,121 +172,121 @@
 			"nom" : "concombre",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "courge spaghetti",
 			"type" : "legume",
 			"consommation" : ["aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 80
 		},
 		{
 			"nom" : "courgette",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "datte",
 			"type" : "fruit",
 			"consommation" : ["octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 180
 		},
 		{
 			"nom" : "echalote",
 			"type" : "legume",
 			"consommation" : ["juillet", "aout"],
-			"vie" : 15
+			"vie" : 30
 		},
 		{
 			"nom" : "endive",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 6
 		},
 		{
 			"nom" : "epinard",
 			"type" : "legume",
 			"consommation" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "fenouil",
 			"type" : "legume",
 			"consommation" : ["mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "feve",
 			"type" : "legume",
 			"consommation" : ["mai", "juin"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "figue",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 2
 		},
 		{
 			"nom" : "fraise",
 			"type" : "fruit",
 			"consommation" : ["avril", "mai", "juin"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "framboise",
 			"type" : "fruit",
 			"consommation" : ["juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "fruit de la passion",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "goyave",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "decembre"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "grenade",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "groseille",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "haricot",
 			"type" : "legume",
 			"consommation" : ["juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "haricot mungo",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 2
 		},
 		{
 			"nom" : "kaki",
 			"type" : "fruit",
 			"consommation" : ["janvier", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 6
 		},
 		{
 			"nom" : "kiwi",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "kumquat",
@@ -298,13 +298,13 @@
 			"nom" : "laitue",
 			"type" : "fruit",
 			"consommation" : ["mai", "juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 2
 		},
 		{
 			"nom" : "lentille",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "litchi",
@@ -316,43 +316,43 @@
 			"nom" : "mache",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 2
 		},
 		{
 			"nom" : "mais",
 			"type" : "legume",
 			"consommation" : ["juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "mandarine",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 12
 		},
 		{
 			"nom" : "mangue",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "decembre"],
-			"vie" : 15
+			"vie" : 8
 		},
 		{
 			"nom" : "melon",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 6
 		},
 		{
 			"nom" : "mure",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "myrtille",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "navet",
@@ -364,91 +364,91 @@
 			"nom" : "nectarine",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 3
 		},
 		{
 			"nom" : "noisette",
 			"type" : "fruit",
 			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 60
 		},
 		{
 			"nom" : "noix",
 			"type" : "fruit",
 			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 80
 		},
 		{
 			"nom" : "noix de coco",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 120
 		},
 		{
 			"nom" : "oignon",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 60
 		},
 		{
 			"nom" : "orange",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "decembre"],
-			"vie" : 15
+			"vie" : 10
 		},
 		{
 			"nom" : "oseille",
 			"type" : "legume",
 			"consommation" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 2
 		},
 		{
 			"nom" : "panais",
 			"type" : "legume",
 			"consommation" : ["septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 30
 		},
 		{
 			"nom" : "pasteque",
 			"type" : "fruit",
 			"consommation" : ["mai", "juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 6
 		},
 		{
 			"nom" : "patate douce",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 8
 		},
 		{
 			"nom" : "peche",
 			"type" : "fruit",
 			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "petits pois",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "poire",
 			"type" : "fruit",
 			"consommation" : ["janvier", "fevrier", "mars", "avril", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "poireau",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 12
 		},
 		{
 			"nom" : "poivron",
 			"type" : "legume",
 			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "pomelo",
@@ -472,13 +472,13 @@
 			"nom" : "potimarron",
 			"type" : "legume",
 			"consommation" : ["septembre", "octobre"],
-			"vie" : 15
+			"vie" : 60
 		},
 		{
 			"nom" : "potiron",
 			"type" : "legume",
 			"consommation" : ["septembre", "octobre"],
-			"vie" : 15
+			"vie" : 60
 		},
 		{
 			"nom" : "prune",
@@ -490,19 +490,19 @@
 			"nom" : "radis",
 			"type" : "legume",
 			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "raisin",
 			"type" : "fruit",
 			"consommation" : ["mars", "avril", "mai", "juin"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "rhubarbe",
 			"type" : "fruit",
 			"consommation" : ["avril", "mai", "juin", "juillet"],
-			"vie" : 15
+			"vie" : 4
 		},
 		{
 			"nom" : "rutabaga",
@@ -514,19 +514,19 @@
 			"nom" : "salsifis",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 5
 		},
 		{
 			"nom" : "tomate",
 			"type" : "fruit",
 			"consommation" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 15
+			"vie" : 7
 		},
 		{
 			"nom" : "topinambour",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"vie" : 12
 		}
 	]
 }
