@@ -1,4 +1,4 @@
-package Wadge.BackEnd;
+package wadge.backend;
 
 import java.io.FileReader;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import Wadge.google.Search;
+import wadge.google.Search;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
