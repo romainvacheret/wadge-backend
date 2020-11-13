@@ -3,6 +3,8 @@ package wadge.backend;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Nullable;
+
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import wadge.food_list.FoodList;
+import wadge.fridge.ExpirationRecall;
+import wadge.fridge.ExpirationRecall.RecallType;
 import wadge.google.Search;
 
 
@@ -50,6 +54,20 @@ public class HelloController {
         JSONObject tmp = new JSONObject();
         tmp.put("candidates", s.parseJSON((JSONArray) json.get("candidates")));
         return new ResponseEntity<>(tmp, HttpStatus.OK);
+    }
+
+    @Nullable
+    @RequestMapping("/alert/{type}")
+    public ResponseEntity<List<Map<String, String>>> getExpirationAlerts(@PathVariable("type") String type) {
+        List<String> correctTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
+        
+        if(!correctTypes.contains(type)) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        List<Map<String, String>> result = ExpirationRecall.getExpirationList(RecallType.valueOf(type));
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }
