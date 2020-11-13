@@ -66,8 +66,7 @@ public class ExpirationRecall {
         List<Map<String, Object>> fridgeList = null;
         try {
             fridgeList = mapper.readValue(Files.readAllBytes(Paths.get("fridge.json")),
-                    new TypeReference<List<Map<String, Object>>>() {
-                    });
+                    new TypeReference<List<Map<String, Object>>>() {});
 
         } catch (JsonParseException | JsonMappingException e) {
             e.printStackTrace();
@@ -98,8 +97,4 @@ public class ExpirationRecall {
         return result;
 
     }    
-
-    public static void main(String[] args) {
-        System.out.println(ExpirationRecall.getExpirationList(RecallType.EXPIRED));
-    }
 }
