@@ -74,25 +74,27 @@ public class ExpirationRecall {
             e.printStackTrace();
         }
         List<Map<String, String>> result = new ArrayList<>();
+        
+        if(fridgeList != null) {
+            fridgeList.forEach(foodElement -> {
+                Object products = foodElement.get("produits");
 
-        fridgeList.forEach(foodElement -> {
-            Object products = foodElement.get("produits");
-
-            ((List<Map<String, Object>>) products).forEach(product -> {
-                try {
-                    Date expirationDate = dateFormater.parse((String) product.get("dateLimite"));
-                    long dayDifference = dateDifference(expirationDate, currentDate);
-                    if(predicate.test(dayDifference)) {
-                        result.add(Map.of(
-                            "dateAjout", (String) product.get("dateAjout"),
-                            "quantite", product.get("quantite").toString()
-                        ));
+                ((List<Map<String, Object>>) products).forEach(product -> {
+                    try {
+                        Date expirationDate = dateFormater.parse((String) product.get("dateLimite"));
+                        long dayDifference = dateDifference(expirationDate, currentDate);
+                        if(predicate.test(dayDifference)) {
+                            result.add(Map.of(
+                                "dateAjout", (String) product.get("dateAjout"),
+                                "quantite", product.get("quantite").toString()
+                            ));
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
                     }
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+                });
             });
-        });
+        }
 
         return result;
 
