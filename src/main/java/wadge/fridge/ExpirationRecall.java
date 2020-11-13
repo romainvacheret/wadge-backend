@@ -83,14 +83,10 @@ public class ExpirationRecall {
                 try {
                     Date expirationDate = dateFormater.parse((String) product.get("dateLimite"));
                     long dayDifference = dateDifference(expirationDate, currentDate);
-                    System.out.println(dayDifference);
-                    System.out.println(product.get("quantite"));
-                    System.out.println(product.get("quantite").getClass());
                     if(predicate.test(dayDifference)) {
                         result.add(Map.of(
                             "dateAjout", (String) product.get("dateAjout"),
                             "quantite", product.get("quantite").toString(),
-                            "distance", String.format("%d", dayDifference)
                         ));
                     }
                 } catch (ParseException e) {
