@@ -86,7 +86,7 @@ public class ExpirationRecall {
                     if(predicate.test(dayDifference)) {
                         result.add(Map.of(
                             "dateAjout", (String) product.get("dateAjout"),
-                            "quantite", product.get("quantite").toString(),
+                            "quantite", product.get("quantite").toString()
                         ));
                     }
                 } catch (ParseException e) {
@@ -98,4 +98,8 @@ public class ExpirationRecall {
         return result;
 
     }    
+
+    public static void main(String[] args) {
+        System.out.println(ExpirationRecall.getExpirationList(RecallType.EXPIRED));
+    }
 }
