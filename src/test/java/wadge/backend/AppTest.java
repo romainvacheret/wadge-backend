@@ -14,7 +14,8 @@ import java.util.Map;
 import static org.testng.Assert.*;
 
 public class AppTest {
-    List<Map<String, Object>> list;
+    List<Map<String, Object>> foodList;
+    List<Map<String, Object>> filter;
     List<Map<String, Object>> empty;
 
     @Test public void appHasAGreeting() {
@@ -24,24 +25,55 @@ public class AppTest {
 
     @BeforeMethod
     public void setUp(){
-        list = new ArrayList<>();
-        list = FoodList.readFile("./src/test/resources/food_list_test.json");
+        foodList = new ArrayList<>();
+        foodList = FoodList.readFile("./src/test/resources/food_list_test.json");
+        filter = new ArrayList<>();
+        try{
+            filter = FoodList.foodFromMonth("janvier");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
     @AfterMethod
     public void tearDown() {
-        list = null;
+        foodList = null;
+        filter = null;
         empty = null;
     }
     @Test
     public void testGoodReadFile(){
-        System.out.println(list);
+        System.out.println(foodList);
         System.out.println(FoodList.readFile("./src/test/resources/food_list_test.json"));
-        assertEquals(FoodList.readFile("./src/test/resources/food_list_test.json"),list);
+        assertEquals(FoodList.readFile("./src/test/resources/food_list_test.json"), foodList);
     }
     @Test
     public void testBadStructureReadFile(){
-        assertNotEquals(FoodList.readFile("./src/test/resources/food_test_bad_structure.json"),list);
+        assertNotEquals(FoodList.readFile("./src/test/resources/food_test_bad_structure.json"), foodList);
 
+    }
+    @Test
+    public void testFilterMonth(){
+        try {
+            assertEquals(FoodList.foodFromMonth("janvier"), filter);
+        }catch(Exception e){
+                e.printStackTrace();
+            }
+    }
+    @Test
+    public void testBadMonth(){
+        try {
+            assertEquals(FoodList.foodFromMonth("january"), filter);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+    @Test
+    public void testEmpty(){
+        try {
+            assertNotEquals(FoodList.foodFromMonth("janvier"), empty);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 //    @Test
 //    public void testNoFile() {
