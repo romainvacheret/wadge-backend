@@ -27,12 +27,11 @@ public class Fridge {
                 fridge.add(food);
             });
 
-        try (FileWriter file = new FileWriter("fridge1.json")) {
+        try (FileWriter file = new FileWriter("fridge.json")) {
             file.write(fridge.toJSONString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         System.out.print(fridge);
     }
 }
