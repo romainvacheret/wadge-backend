@@ -1,0 +1,16 @@
+{
+	"aliments" : [
+		{
+			"nom" : 7,
+			"type" : "fruit",
+			"consommation" : ["juin", "juillet", "aout"],
+			"vie" : "abricot"
+		},
+		{
+			"nom" : 182,
+			"type" : "legume",
+			"consommation" : ["aout", "septembre", "octobre", "novembre", "decembre"],
+			"vie" : "ail"
+		}
+	]
+}
