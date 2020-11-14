@@ -1,5 +1,6 @@
 package wadge.backend;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -23,6 +24,8 @@ import wadge.google.Search;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class HelloController {
+
+    private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
 
     @RequestMapping("/food_list")
     public ResponseEntity<List<Map<String, Object>>> readFile() {
@@ -58,14 +61,22 @@ public class HelloController {
 
     @Nullable
     @RequestMapping("/alert/{type}")
-    public ResponseEntity<List<Map<String, String>>> getExpirationAlerts(@PathVariable("type") String type) {
-        List<String> correctTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
-        
-        if(!correctTypes.contains(type)) {
+    public ResponseEntity<List<Map<String, String>>> getExpirationAlert(@PathVariable("type") String type) {
+        if(!expirationTypes.contains(type)) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
         List<Map<String, String>> result = ExpirationRecall.getExpirationList(RecallType.valueOf(type));
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @RequestMapping("/alerts")
+    public ResponseEntity<Map<String, List<Map<String, String>>>> getExpirationAlerts() {
+        Map<String, List<Map<String, String>>> result = new HashMap<>();
+        expirationTypes.forEach(type -> {
+            result.put(type, ExpirationRecall.getExpirationList(RecallType.valueOf(type)));
+        });
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
