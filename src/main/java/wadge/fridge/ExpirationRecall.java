@@ -19,16 +19,14 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ExpirationRecall {
-    private static SimpleDateFormat dateFormater;
-    private static Date currentDate;
+    private final SimpleDateFormat dateFormater;
+    private final Date currentDate;
 
     public enum RecallType {
         TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED
     }
 
-    private ExpirationRecall() {}
-
-    private static void preProcessing() {
+    public ExpirationRecall() {
         dateFormater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
         currentDate = new Date();
     }
@@ -38,30 +36,29 @@ public class ExpirationRecall {
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
 
-    public static List<Map<String, String>> getExpirationList(RecallType type) {
+    public List<Map<String, String>> getExpirationList(RecallType type) {
         List<Map<String, String>> rtr = null;
-        preProcessing();
         switch(type) {
             case TWO_DAYS:
-                rtr = getExpirationDateFromPredicate(x -> x < 3 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 3 && x >= 0);
                 break;
             case FIVE_DAYS:
-                rtr = getExpirationDateFromPredicate(x -> x < 5 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 5 && x >= 0);
                 break;
             case SEVEN_DAYS:
-                rtr = getExpirationDateFromPredicate(x -> x < 7 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 7 && x >= 0);
                 break;
             case FORTEEN_DAYS:
-                rtr = getExpirationDateFromPredicate(x -> x < 14 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 14 && x >= 0);
                 break;
             case EXPIRED:
-                rtr = getExpirationDateFromPredicate(x -> x < 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 0);
                 break;
         }
         return rtr;
     }
 
-    private static List<Map<String, String>> getExpirationDateFromPredicate(Predicate<Long> predicate) {
+    private List<Map<String, String>> getExpirationDateFromPredicate(Predicate<Long> predicate) {
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> fridgeList = null;
         try {

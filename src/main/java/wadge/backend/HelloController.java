@@ -66,7 +66,8 @@ public class HelloController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
-        List<Map<String, String>> result = ExpirationRecall.getExpirationList(RecallType.valueOf(type));
+        ExpirationRecall recall = new ExpirationRecall();
+        List<Map<String, String>> result = recall.getExpirationList(RecallType.valueOf(type));
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
@@ -74,8 +75,10 @@ public class HelloController {
     @RequestMapping("/alerts")
     public ResponseEntity<Map<String, List<Map<String, String>>>> getExpirationAlerts() {
         Map<String, List<Map<String, String>>> result = new HashMap<>();
+        ExpirationRecall recall = new ExpirationRecall();
+
         expirationTypes.forEach(type -> {
-            result.put(type, ExpirationRecall.getExpirationList(RecallType.valueOf(type)));
+            result.put(type, recall.getExpirationList(RecallType.valueOf(type)));
         });
 
         return new ResponseEntity<>(result, HttpStatus.OK);
