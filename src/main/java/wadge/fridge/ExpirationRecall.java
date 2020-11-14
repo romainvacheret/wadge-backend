@@ -43,13 +43,13 @@ public class ExpirationRecall {
                 rtr = this.getExpirationDateFromPredicate(x -> x < 3 && x >= 0);
                 break;
             case FIVE_DAYS:
-                rtr = this.getExpirationDateFromPredicate(x -> x < 5 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 5 && x >= 2);
                 break;
             case SEVEN_DAYS:
-                rtr = this.getExpirationDateFromPredicate(x -> x < 7 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 7 && x >= 5);
                 break;
             case FORTEEN_DAYS:
-                rtr = this.getExpirationDateFromPredicate(x -> x < 14 && x >= 0);
+                rtr = this.getExpirationDateFromPredicate(x -> x < 14 && x >= 7);
                 break;
             case EXPIRED:
                 rtr = this.getExpirationDateFromPredicate(x -> x < 0);
@@ -83,6 +83,7 @@ public class ExpirationRecall {
                         if(predicate.test(dayDifference)) {
                             result.add(Map.of(
                                 "dateAjout", (String) product.get("dateAjout"),
+                                "nom", (String) foodElement.get("nom"),
                                 "quantite", product.get("quantite").toString()
                             ));
                         }
