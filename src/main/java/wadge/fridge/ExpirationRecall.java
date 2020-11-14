@@ -83,6 +83,7 @@ public class ExpirationRecall {
                         if(predicate.test(dayDifference)) {
                             result.add(Map.of(
                                 "dateAjout", (String) product.get("dateAjout"),
+                                "nom", (String) foodElement.get("nom"),
                                 "quantite", product.get("quantite").toString()
                             ));
                         }
