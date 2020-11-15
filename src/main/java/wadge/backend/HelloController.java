@@ -24,13 +24,14 @@ import wadge.google.Search;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@Api(tags = {"Ensemble des fonctions"})
+@Api(tags = {"sets of functions"})
 public class HelloController {
 
 
     private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
 
-    @RequestMapping("/food_list")
+    @ApiOperation(value = "View the food list of fruits & vegetables")
+    @RequestMapping(path = "/food_list", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFile() {
         List<Map<String, Object>> list = FoodList.readFile("food_list.json");
         return new ResponseEntity<>(list, HttpStatus.OK);
@@ -62,7 +63,8 @@ public class HelloController {
         return new ResponseEntity<>(tmp, HttpStatus.OK);
     }
     @Nullable
-    @RequestMapping("/alert/{type}")
+    @ApiOperation(value = "Alerts the user on the foods passed in parameters")
+    @RequestMapping(path = "/alert/{type}", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, String>>> getExpirationAlert(@PathVariable("type") String type) {
         if(!expirationTypes.contains(type)) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -73,8 +75,8 @@ public class HelloController {
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-
-    @RequestMapping("/alerts")
+    @ApiOperation(value = "Alerts the user on all his foods without exceptions")
+    @RequestMapping(path = "/alerts", method= RequestMethod.GET)
     public ResponseEntity<Map<String, List<Map<String, String>>>> getExpirationAlerts() {
         Map<String, List<Map<String, String>>> result = new HashMap<>();
         ExpirationRecall recall = new ExpirationRecall();

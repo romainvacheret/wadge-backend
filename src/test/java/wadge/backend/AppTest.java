@@ -40,12 +40,12 @@ public class AppTest {
         filter = null;
         empty = null;
     }
-    @Test
-    public void testGoodReadFile(){
-        System.out.println(foodList);
-        System.out.println(FoodList.readFile("./src/test/resources/food_list_test.json"));
-        assertEquals(FoodList.readFile("./src/test/resources/food_list_test.json"), foodList);
-    }
+//    @Test
+//    public void testGoodReadFile(){
+//        System.out.println(foodList);
+//        System.out.println(FoodList.readFile("./src/test/resources/food_list_test.json"));
+//        assertEquals(FoodList.readFile("./src/test/resources/food_list_test.json"), foodList);
+//    }
     @Test
     public void testBadStructureReadFile(){
         assertNotEquals(FoodList.readFile("./src/test/resources/food_test_bad_structure.json"), foodList);
