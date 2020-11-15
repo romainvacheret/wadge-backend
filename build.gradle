@@ -41,6 +41,7 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
 
     asciidoctorGems 'rubygems:rouge:3.15.0'
