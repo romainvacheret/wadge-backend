@@ -1,0 +1,57 @@
+@startuml Wadge-BackEnd
+    package main.java.wadge{
+        package backend {
+            class Application {
+                + main(args: []string): void <<static>>
+            }
+
+            class HelloControler {
+                - expirationTypes: List<string> <<static>>
+                + readFile(): ResponseEntity<List<Map<string, Object>>>
+                + getMonth(month: string): ResponseEntity<List<Map<string, Object>>>
+                + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
+                + getExpirationAlert(type: string): ResponseEntity<List<Map<string, string>>>
+                + getExpirationAlerts(): ResponseEntity<List<Map<string, string>>>
+
+            }
+            ' HelloControler o..> FoodList
+            ' HelloControler o..> ExpirationRecall
+            ' HelloControler o..> Search
+        }
+
+        package food_list {
+            class FoodList {
+                - this()
+                + readFile(fileName: string): List<Map<string, Object>> <<static>>
+                + foodFromMonth(month: string): List<Map<string, Object>> <<static>>
+            }
+        }
+
+        package fridge {
+            class ExpirationRecall {
+                - dateFormater: SimpleDateFormat <<final>>
+                - currentDate: Date <<final>>
+                + this(): ExpirationRecall
+                + getExpirationList(type: RecallType): List<Map<string, string>>
+                - dateDifference(d1: Date, d2: Date): long <<static>>
+                - getExpirationDateFromPredicate(predicate Predicate<Long>): List<Map<string, string>>
+
+            }
+            ExpirationRecall o..> RecallType
+
+            enum RecallType {
+                TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED
+            }
+        }
+
+        package google {
+            class Search {
+                - KEY: string <<static final>>
+                + jsonToFile(fileName: string, json: JSONObject): void
+                + request(lat: double, lng: double): JSONObject
+                + parseJSON(json: JSONArray): JSONArray
+            }
+        }
+    }
+
+@enduml

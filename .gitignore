@@ -12,8 +12,10 @@ build
 .settings
 .classpath
 .project
+.vscode
 
 bin
+out
 
 # Env
 .env
