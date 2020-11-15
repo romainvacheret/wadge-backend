@@ -16,7 +16,15 @@ script:
   - sonar-scanner
   - ./gradlew jacocoTestReport coveralls
   # - ./gradlew sonarqube
+  - ./gradlew asciidoctor
 
+before_deploy:
+- export VERSION=`.gradlew -q version`
+- export DOCDIR="build/docs"
+- export DOCFILE="doc"
+- mv "${DOCDIR}/{DOCFILE}.pdf" "${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
+- export DOCUMENTATION="${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
+- echo documentation is {DOCUMENTATION}
 
 after_success:
 
