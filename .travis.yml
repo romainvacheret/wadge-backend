@@ -28,7 +28,7 @@ before_deploy:
 - echo documentation is {DOCUMENTATION}
 
 deploy:
-- provider: releases
+  provider: releases
     api_key:
       secure: "cTnQ2d+sWDavvmZRH5ccdpGXTkjdHB3m9orkdbzqwW7gtWC7p0UliqTAbAOPC/y4xUUYkJFi6LgwtBvaMvpYk2hz483w3GNe/bL2+kqiCLaMFyCz48HRLJxwahr6TMCX5n7yRSyYDBziydZBSUcR86BtVrs0CKAly1EeMABcEVQsuyh8QwY4Hl+WAywGnngnWa88n6FvWsaqhHQ9g4xWF4St7H+oupuzjiDC9guFG+leJchbHxq0kusDmUYidHfdMIEuJLmdFnn1wTW/X1Oy6ntieRGIF/mLHLXRIn82xfU4QjVzK+VYGo2dar3wti8/7ZgNPKFqz2f/IiHtIYaOODwfMn/kdx7xdYhTJiYg07D+8ba7Vf+fCnSyJcGrbXuIfYOvhfQQK6y0GJPvNKIjMGryB0V6eyGfb/ePQvYwzG+lEhVJm5hzOoEqCCP9s7lo2o25mRZ/T++tzKG2ohq2cQjZcyA26FH0j3/f4mn/E2+Thc6UxZ/cOwXW9H9gh5wa1MarUmeMjm/Cl+AenVTx78SHWyVEJQNBlSoQiZw/w5dhYPxsrJXhduYSfzQYdKs2ERnUJdp/76DJkEX7Uwav+bzCoP5mfKpt0vT3EQtnZTBxyUNHETgCoF0YCfamm6uK6QnTJQRWmO0naUts+g6HV/y8XtS08JdwBcLLPdxwQUA="
     file:
