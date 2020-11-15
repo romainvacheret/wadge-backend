@@ -24,7 +24,7 @@ public class SpringFoxConfig extends WebMvcConfigurationSupport {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("Wadge-BackEnd.src.main.java.wadge.backend"))
-                .paths(PathSelectors.ant("GET"))
+                .paths(PathSelectors.any())
                 .build()
                 .apiInfo(apiInfo());
     }
