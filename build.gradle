@@ -23,6 +23,20 @@ plugins {
     id 'org.asciidoctor.jvm.gems' version '3.2.0'
 }
 
+apply plugin: VersionPlugin
+
+version '0.4'
+
+class VersionPlugin implements Plugin<Project> {
+    public void apply(Project project) {
+        project.task('version') {
+            project.gradle.projectsEvaluated {
+                println "0.4"
+            }
+        }
+    }
+}
+
 sonarqube {
   properties {
     property 'sonar.projectKey', 'RomainVacheret_Wadge-BackEnd'
