@@ -2,9 +2,13 @@ package wadge.fridge;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -32,6 +36,28 @@ public class Fridge {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.print(fridge);
+    }
+
+    public static List<Map<String, Object>> readFile(String fileName) {
+        JSONParser jsonP = new JSONParser();
+        List<Map<String, Object>> list = new ArrayList<>();
+
+        try{
+            Object obj = jsonP.parse(new FileReader(fileName));
+            JSONObject jsonObject = (JSONObject) obj;
+            JSONArray arr = (JSONArray) jsonObject.get("aliments");
+            Iterator<JSONObject> iterator = arr.iterator();
+            while (iterator.hasNext()) {
+                JSONObject aliment = iterator.next();
+                list.add(Map.of(
+                        "nom",aliment.get("nom"),
+                        "consommation",(((JSONArray) aliment.get("produits")).toArray())
+                ));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
     }
 }

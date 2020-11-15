@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import wadge.food_list.FoodList;
+import wadge.fridge.Fridge;
 import wadge.google.Search;
 
 
@@ -23,6 +24,12 @@ public class HelloController {
     @RequestMapping("/food_list")
     public ResponseEntity<List<Map<String, Object>>> readFile() {
         List<Map<String, Object>> list = FoodList.readFile("food_list.json");
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @RequestMapping("/fridge/food")
+    public ResponseEntity<List<Map<String, Object>>> readFridge() {
+        List<Map<String, Object>> list = Fridge.readFile("fridge.json");
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
