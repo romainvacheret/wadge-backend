@@ -15,6 +15,7 @@ build
 .vscode
 
 bin
+/out
 
 # Env
 .env
