@@ -16,9 +16,46 @@ script:
   - sonar-scanner
   - ./gradlew jacocoTestReport coveralls
   # - ./gradlew sonarqube
+  - ./gradlew asciidoctor
 
+before_deploy:
+- export VERSION=`./gradlew -q version`
+- export DOCDIR="build/docs"
+- export DOCFILE="doc"
+- mv "${DOCDIR}/${DOCFILE}.pdf" "${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
+- export TRAVIS_TAG=v${VERSION}
+- export DOCUMENTATION="${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
+- echo documentation is ${DOCUMENTATION}
+
+deploy:
+  - provider: releases
+    api_key:
+      secure: "OUPQIX7pb6x6OIWRN9glcHq+4C2FxRbbFRusi6JdIRmS+QmIW+Y3M5IiUgSYl/1W6Ot8ZerPJt5lPkEmjeCdECXbS7d1qnk/knQc5J1CD0j16QiiGrYIkmsn17fBxvH0FPb3UcXo1OLw5UQKpuehques/W36vS3hmj3MU08JN385I3b3j8b2138oUSzi1lQq6Cit9fBTxroi1qJM12SmxbGNIdxePJsaihnCTtMt/w5s+iJ09mQ88uUY57zm3WMA27H851Cdo4EFOL9HIXikaRpwgyS1HFUo3OMJbtS6fn5fOYYTVChdBLRh5U7JnOMefBIZ6drZ49TAC2FxXmW20U36wMzNlvaUMwuquLsl6lVOMeSh9t4tI8F8LZk2Ug85NQtXXtKmgv1HwXqJeoFuFbU22wI4d3c/Vqfl+Wj2zmpO3kaxxKjrdzxcMaJVllI4mvYQVcsVtrlYXOdb0eb0xMDZOo8ue58SZh8ijJOTmNHQeFNH2hJ6Tpxn0z9XSFdRlULALn2iQ73nSeUA619d2qFMvOy1ARodHcUOEPm88pl252LFwMs+DhpXvcqI2kRaCMPMT+AMqeJIxeYD/mNRpExowrxIWbxGm2RcUX6BFyunbVsfukhJaQUrdPIdL8Jo5gWx4sV1Ok2URJwy4hvuzD7wfgFC2eYsycg42FW0Nxg="
+    file:
+      - ${DOCUMENTATION}
+    skip_cleanup: true
+    overwrite: true
+    draft: true
+    on:
+      branch: master
+      tags: true
+    name: ${TRAVIS_TAG}
+  - provider: releases
+    api_key:
+      secure: "OUPQIX7pb6x6OIWRN9glcHq+4C2FxRbbFRusi6JdIRmS+QmIW+Y3M5IiUgSYl/1W6Ot8ZerPJt5lPkEmjeCdECXbS7d1qnk/knQc5J1CD0j16QiiGrYIkmsn17fBxvH0FPb3UcXo1OLw5UQKpuehques/W36vS3hmj3MU08JN385I3b3j8b2138oUSzi1lQq6Cit9fBTxroi1qJM12SmxbGNIdxePJsaihnCTtMt/w5s+iJ09mQ88uUY57zm3WMA27H851Cdo4EFOL9HIXikaRpwgyS1HFUo3OMJbtS6fn5fOYYTVChdBLRh5U7JnOMefBIZ6drZ49TAC2FxXmW20U36wMzNlvaUMwuquLsl6lVOMeSh9t4tI8F8LZk2Ug85NQtXXtKmgv1HwXqJeoFuFbU22wI4d3c/Vqfl+Wj2zmpO3kaxxKjrdzxcMaJVllI4mvYQVcsVtrlYXOdb0eb0xMDZOo8ue58SZh8ijJOTmNHQeFNH2hJ6Tpxn0z9XSFdRlULALn2iQ73nSeUA619d2qFMvOy1ARodHcUOEPm88pl252LFwMs+DhpXvcqI2kRaCMPMT+AMqeJIxeYD/mNRpExowrxIWbxGm2RcUX6BFyunbVsfukhJaQUrdPIdL8Jo5gWx4sV1Ok2URJwy4hvuzD7wfgFC2eYsycg42FW0Nxg="
+    file:
+      - ${DOCUMENTATION}
+    skip_cleanup: true
+    overwrite: true
+    draft: false
+    on:
+      all_branches: true
+      tags: false
+    name: ${TRAVIS_TAG}
 
 after_success:
 
 cache:
   directories:
+
+
