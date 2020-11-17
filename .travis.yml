@@ -22,10 +22,10 @@ before_deploy:
 - export VERSION=`./gradlew -q version`
 - export DOCDIR="build/docs"
 - export DOCFILE="doc"
-- mv "${DOCDIR}/{DOCFILE}.pdf" "${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
+- mv "${DOCDIR}/${DOCFILE}.pdf" "${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
 - export TRAVIS_TAG=v${VERSION}
 - export DOCUMENTATION="${DOCDIR}/${DOCFILE}-${VERSION}.pdf"
-- echo documentation is {DOCUMENTATION}
+- echo documentation is ${DOCUMENTATION}
 
 deploy:
   - provider: releases
