@@ -18,6 +18,23 @@ plugins {
     id 'jacoco'
     id 'com.github.kt3k.coveralls' version '2.10.2'
     id 'org.sonarqube' version '3.0'
+
+    id 'org.asciidoctor.jvm.pdf' version '3.2.0'
+    id 'org.asciidoctor.jvm.gems' version '3.2.0'
+}
+
+apply plugin: VersionPlugin
+
+version '0.4'
+
+class VersionPlugin implements Plugin<Project> {
+    public void apply(Project project) {
+        project.task('version') {
+            project.gradle.projectsEvaluated {
+                println "0.4"
+            }
+        }
+    }
 }
 
 sonarqube {
@@ -30,13 +47,18 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+
+    ruby.gems()
 }
 
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+
+    asciidoctorGems 'rubygems:rouge:3.15.0'
 
 
     // Use TestNG framework, also requires calling test.useTestNG() below
@@ -67,3 +89,26 @@ jacocoTestReport {
 }
 
 
+asciidoctorPdf {
+//   dependsOn asciidoctorGemsPrepare
+
+  baseDirFollowsSourceFile()
+
+  asciidoctorj {
+    requires 'rouge'
+    sourceDir file('docs')
+    outputDir file('build/docs')
+    attributes 'build-gradle': file('build.gradle'),
+        'sourcedir': file('docs'), //project.sourceSets.main.java.srcDirs[0],
+        'outputDir': file("${buildDir}/docs"),
+        'endpoint-url': 'http://example.org',
+        'source-highlighter': 'rouge',
+        // 'imagesdir': './images',
+        'toc': 'left',
+        'icons': 'font',
+        'idprefix': '',
+        'idseparator': '-'
+  }
+}
+
+task asciidoctor(dependsOn: asciidoctorPdf)

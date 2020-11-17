@@ -42,3 +42,52 @@ Doc Writer <project.wadge@gmail.com>
     }...
 ]
 |===
+
+[cols="h,5a"]
+|===
+| URL
+| /alerts
+| Method
+| GET
+| Response Body
+| 
+    {
+        "TWO_DAYS":[
+            {"dateAjout":"01/11/2020","quantite":"24","nom":"poire"},{"dateAjout":"10/10/2020","quantite":"2","nom":"poireau"}
+        ], 
+        "FIVE_DAYS":[], 
+        "EXPIRED":[
+            {"dateAjout":"10/10/2020","quatite":"2","nom":"poire"},{"dateAjout":"01/11/2020","quantite":"12","nom":"poireau"}
+        ], ...
+    }
+|===
+
+[cols="h,5a"]
+|===
+| URL
+| /alert/{type}
+| Method
+| GET
+| Response Body
+| 
+    [
+        {"dateAjout":"01/11/2020","quantite":"24","nom":"poire"},{"dateAjout":"10/10/2020","quantite":"2","nom":"poireau"},
+        ...
+    ]
+|===
+
+
+
+== Diagramme de classe
+image::./diagram/out/Wadge-BackEnd.svg[]
+== Différents diagrammes de séquences
+=== Carte
+image::./diagram/out/SequenceDiagramMap.svg[]
+=== Liste des aliments en fonction d'un mois donné
+image::./diagram/out/SequenceDiagramFilter.svg[]
+=== Liste des aliments avec leur mois de consommation
+image::./diagram/out/SequenceDiagramFoodList.svg[]
+=== Liste des aliments à manger avant une certaine date
+image::./diagram/out/SequenceDiagramAlert.svg[]
+=== Liste des aliments à manger aux différents dates
+image::./diagram/out/SequenceDiagramAlerts.svg[]
