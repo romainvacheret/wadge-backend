@@ -42,3 +42,16 @@ Doc Writer <project.wadge@gmail.com>
     }...
 ]
 |===
+
+image::./diagram/out/Wadge-BackEnd.svg[]
+== Différents diagrammes de séquences
+=== Carte
+image::./diagram/out/SequenceDiagramMap.svg[]
+=== Liste des aliments en fonction d'un mois donné
+image::./diagram/out/SequenceDiagramFilter.svg[]
+=== Liste des aliments avec leur mois de consommation
+image::./diagram/out/SequenceDiagramFoodList.svg[]
+=== Liste des aliments à manger avant une certaine date
+image::./diagram/out/SequenceDiagramAlert.svg[]
+=== Liste des aliments à manger aux différents dates
+image::./diagram/out/SequenceDiagramAlerts.svg[]

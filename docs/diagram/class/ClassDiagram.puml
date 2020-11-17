@@ -14,9 +14,7 @@
                 + getExpirationAlerts(): ResponseEntity<List<Map<string, string>>>
 
             }
-            ' HelloControler o..> FoodList
-            ' HelloControler o..> ExpirationRecall
-            ' HelloControler o..> Search
+            
         }
 
         package food_list {
@@ -53,5 +51,9 @@
             }
         }
     }
+
+    HelloControler o..> FoodList
+    HelloControler o..> ExpirationRecall
+    HelloControler o..> Search
 
 @enduml
