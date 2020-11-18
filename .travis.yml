@@ -35,7 +35,7 @@ deploy:
       - ${DOCUMENTATION}
     skip_cleanup: true
     overwrite: true
-    draft: true
+    draft: false
     on:
       branch: master
       tags: true
@@ -47,9 +47,9 @@ deploy:
       - ${DOCUMENTATION}
     skip_cleanup: true
     overwrite: true
-    draft: false
+    draft: true
     on:
-      all_branches: true
+      branch: develop
       tags: false
     name: ${TRAVIS_TAG}
 
