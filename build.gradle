@@ -25,13 +25,13 @@ plugins {
 
 apply plugin: VersionPlugin
 
-version '0.4'
+version '0.4.1'
 
 class VersionPlugin implements Plugin<Project> {
     public void apply(Project project) {
         project.task('version') {
             project.gradle.projectsEvaluated {
-                println "0.4"
+                println "0.4.1"
             }
         }
     }
@@ -68,7 +68,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'Wadge.BackEnd.Application'
+    mainClassName = 'wadge.backend.Application'
 }
 
 test {
