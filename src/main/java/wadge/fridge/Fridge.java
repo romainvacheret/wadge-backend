@@ -12,22 +12,23 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import javax.print.DocFlavor.STRING;
+
 public class Fridge {
-    public static void writeFridge(List<Map<String, Object>> foodlist) {
+    public static void writeFridge(List<Map<String,Object>> foodlist) {
         JSONArray fridge = new JSONArray();
             foodlist.forEach(foodElement -> {
                 JSONObject food = new JSONObject();
                 food.put("nom", foodElement.get("nom"));
-                Object products = foodElement.get("produits");
-                JSONArray list = new JSONArray();
-                ((List<Map<String, String>>) products).forEach(product -> {
-                    JSONObject obj = new JSONObject();
-                    obj.put("dateLimite", product.get("dateLimite"));
-                    obj.put("dateAjout", product.get("dateAjout"));
-                    obj.put("quantite", product.get("quantite"));
-                    list.add(obj);
-                });
-                food.put("produits",list);
+               // Object products = foodElement.get("products");
+               Map products =( Map)foodElement.get("products");
+               //JSONObject job = (JSONObject) products;
+                JSONObject obj = new JSONObject();
+                obj.put("datelimite",products.get("datelimite"));
+                obj.put("dateAjoutee", products.get("dateAjoutee"));
+                obj.put("quantity",products.get("quantity"));
+
+                food.put("produits",obj);
                 fridge.add(food);
             });
 

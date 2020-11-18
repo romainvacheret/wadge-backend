@@ -17,13 +17,13 @@ public class DeleteFood {
         fridgeList.forEach(foodElement -> {
             deleteList.forEach(foodDelete -> {
                 if(foodElement.get("nom").equals(foodDelete.get("nom"))) {
-                    Object productList = foodElement.get("produits");
-                    Object productDelete = foodDelete.get("produits");
+                    Object productList = foodElement.get("products");
+                    Object productDelete = foodDelete.get("produics");
                     ((List<Map<String, Object>>) productList).forEach(productL -> {
                         ((List<Map<String, Object>>) productDelete).forEach(productD -> {
-                            if(productL.get("dateAjout").equals(productD.get("dateAjout"))){
-                                Integer qDelete = (Integer) productD.get("quantite");
-                                Integer qStrock = (Integer) productL.get("quantite");
+                            if(productL.get("dateAjoutee").equals(productD.get("dateAjoutee"))){
+                                Integer qDelete = (Integer) productD.get("quantity");
+                                Integer qStrock = (Integer) productL.get("quantity");
                                 int quantiteFinal = qStrock - qDelete;
                                 /*if(quantiteFinal == 0) {
 
@@ -35,6 +35,6 @@ public class DeleteFood {
                 }
             });
         });
-        writeFridge(fridgeList);
+       // writeFridge(fridgeList);
     }
 }

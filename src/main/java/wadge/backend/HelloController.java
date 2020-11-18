@@ -7,10 +7,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import wadge.food_list.FoodList;
 import wadge.fridge.Fridge;
@@ -20,6 +17,11 @@ import wadge.google.Search;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class HelloController {
+
+    @PostMapping("/food")
+    public void createFridge(@RequestBody List<Map<String,  Object>> foodlist) {
+         Fridge.writeFridge(foodlist);
+    }
 
     @RequestMapping("/food_list")
     public ResponseEntity<List<Map<String, Object>>> readFile() {
