@@ -11,11 +11,11 @@ import java.util.*;
 import static wadge.fridge.Fridge.writeFridge;
 
 public class DeleteFood {
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> fridge = mapper.readValue(Files.readAllBytes(Paths.get("fridge2.json")), new TypeReference<List<Map<String, Object>>>(){});
         delete(fridge);
-    }
+    }*/
     public static void delete(List<Map<String, Object>> deleteList) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         List<Map<String, Object>> fridgeList = mapper.readValue(Files.readAllBytes(Paths.get("fridge1.json")), new TypeReference<List<Map<String, Object>>>(){});
