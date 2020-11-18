@@ -45,10 +45,8 @@ public class HelloController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-
 
     @RequestMapping("/map/{lat}/{lng}")
     public ResponseEntity<JSONObject> getCloseShops(@PathVariable("lat") double lat, @PathVariable("lng") double lng) {
@@ -58,5 +56,4 @@ public class HelloController {
         tmp.put("candidates", s.parseJSON((JSONArray) json.get("candidates")));
         return new ResponseEntity<>(tmp, HttpStatus.OK);
     }
-
 }
