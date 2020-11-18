@@ -11,9 +11,14 @@ import java.util.*;
 import static wadge.fridge.Fridge.writeFridge;
 
 public class DeleteFood {
+    public static void main(String[] args) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Map<String, Object>> fridge = mapper.readValue(Files.readAllBytes(Paths.get("fridge2.json")), new TypeReference<List<Map<String, Object>>>(){});
+        delete(fridge);
+    }
     public static void delete(List<Map<String, Object>> deleteList) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        List<Map<String, Object>> fridgeList = mapper.readValue(Files.readAllBytes(Paths.get("fridge.json")), new TypeReference<List<Map<String, Object>>>(){});
+        List<Map<String, Object>> fridgeList = mapper.readValue(Files.readAllBytes(Paths.get("fridge1.json")), new TypeReference<List<Map<String, Object>>>(){});
         fridgeList.forEach(foodElement -> {
             deleteList.forEach(foodDelete -> {
                 if(foodElement.get("nom").equals(foodDelete.get("nom"))) {
@@ -25,10 +30,10 @@ public class DeleteFood {
                                 Integer qDelete = (Integer) productD.get("quantite");
                                 Integer qStrock = (Integer) productL.get("quantite");
                                 int quantiteFinal = qStrock - qDelete;
-                                /*if(quantiteFinal == 0) {
-
+                                if(quantiteFinal == 0) {
+                                    productL.clear();
                                 }
-                                else*/ productL.replace("quantite" ,quantiteFinal);
+                                else productL.replace("quantite" ,quantiteFinal);
                             }
                         });
                     });
