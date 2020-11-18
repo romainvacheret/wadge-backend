@@ -1,5 +1,7 @@
 package wadge.fridge;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -7,6 +9,8 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -40,16 +44,23 @@ public class Fridge {
         }
     }
 
+    public static void main(String[] args) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        List<Map<String, Object>> toto = mapper.readValue(Files.readAllBytes(Paths.get("fridge1.json")), new TypeReference<List<Map<String, Object>>>(){});
+        addFood(toto);
+    }
+
     public static void addFood(List<Map<String,Object>> foodlist) {
-        List<Map<String, Object>> fridgeList = readFile("fridge.json");
+        List<Map<String, Object>> fridgeList = readFile("fridge2.json");
         fridgeList.forEach(foodElement ->
                 foodlist.forEach(foodAdd -> {
                     if (foodElement.get("nom").equals(foodAdd.get("nom"))) {
                         Object productList = foodElement.get("produits");
-                        Object productDelete = foodAdd.get("produits");
-                        writeFridge(foodlist);
+                        Object productAdd = foodAdd.get("produits");
+                        //((List<Map<String, Object>>) productAdd).forEach(productD -> ((List<Map<String, Object>>) productList).add(productD));
                     }
                 }));
+         // writeFridge(foodlist);
     }
 
     public static List<Map<String, Object>> readFile(String fileName) {
@@ -58,14 +69,14 @@ public class Fridge {
 
         try{
             Object obj = jsonP.parse(new FileReader(fileName));
-            JSONObject jsonObject = (JSONObject) obj;
-            JSONArray arr = (JSONArray) jsonObject.get("aliments");
+            //JSONObject jsonObject = (JSONObject) obj;
+            JSONArray arr = (JSONArray) obj;
             Iterator<JSONObject> iterator = arr.iterator();
             while (iterator.hasNext()) {
                 JSONObject aliment = iterator.next();
                 list.add(Map.of(
                         "nom",aliment.get("nom"),
-                        "consommation",(((JSONArray) aliment.get("produits")).toArray())
+                        "produits",(((JSONArray) aliment.get("produits")).toArray())
                 ));
             }
         }
