@@ -1,0 +1,10 @@
+@startuml
+autonumber
+actor User
+User -> Front: Demande liste péremptions
+Front -> Back: Requête de la liste des péremptions
+Back -> "getExpirationAlerts()": Requête de la liste des péremptions
+"getExpirationAlerts()"-> Back: Retourne un Json
+Back -> Front: Réponse Json
+Front -> User: Affichage
+@enduml
