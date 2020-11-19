@@ -19,8 +19,7 @@ import java.util.Map;
 import javax.print.DocFlavor.STRING;
 
 public class Fridge {
-<<<<<<< HEAD
-    public static void writeFridge(List<Map<String,Object>> foodlist) {
+    public static void writeFridges(List<Map<String,Object>> foodlist) {
         
         JSONArray fridge = new JSONArray();
             foodlist.forEach(foodElement -> {
@@ -29,25 +28,14 @@ public class Fridge {
                // Object products = foodElement.get("products");
                Map products =( Map)foodElement.get("products");
                
-=======
-    public static void writeFridge(List<Map<String, Object>> foodlist) {
-        JSONArray fridge = new JSONArray();
-        foodlist.forEach(foodElement -> {
-            JSONObject food = new JSONObject();
-            food.put("nom", foodElement.get("nom"));
-            Object products = foodElement.get("produits");
-            JSONArray list = new JSONArray();
-            ((List<Map<String, String>>) products).forEach(product -> {
->>>>>>> f0657be257c6d2cc07e409cffcfcaceda90b1c80
                 JSONObject obj = new JSONObject();
-                obj.put("dateLimite", product.get("dateLimite"));
-                obj.put("dateAjout", product.get("dateAjout"));
-                obj.put("quantite", product.get("quantite"));
-                list.add(obj);
+                obj.put("datelimite",products.get("datelimite"));
+                obj.put("dateAjoutee", products.get("dateAjoutee"));
+                obj.put("quantity",products.get("quantity"));
+
+                food.put("produits",obj);
+                fridge.add(food);
             });
-            food.put("produits",list);
-            fridge.add(food);
-        });
 
         try (FileWriter file = new FileWriter("fridge.json")) {
             file.write(fridge.toJSONString());
