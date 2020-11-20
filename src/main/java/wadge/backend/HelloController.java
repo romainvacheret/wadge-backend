@@ -24,18 +24,19 @@ import wadge.google.Search;
 //@Api(tags = {"sets of functions"})
 public class HelloController {
 
-<<<<<<< HEAD
 
     private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
-=======
-    private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
+
 
     @PostMapping("/food")
     public void createFridge(@RequestBody List<Map<String,  Object>> foodlist) {
          Fridge.writeFridge(foodlist);
     }
->>>>>>> f0657be257c6d2cc07e409cffcfcaceda90b1c80
-
+    @GetMapping(path = "/fridge")
+    public ResponseEntity<List<Map<String, Object>>> readMyFridge() {
+        List<Map<String, Object>> list = Fridge.readFridge("fridge.json");
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
     //@ApiOperation(value = "View the food list of fruits & vegetables")
     @RequestMapping(path = "/food_list", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFile() {
@@ -63,19 +64,13 @@ public class HelloController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-<<<<<<< HEAD
 
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     //@ApiOperation(value = "displays stores close to the user's position")
-    @RequestMapping(path = "/map/{lat}/{lng}", method= RequestMethod.GET)
-=======
-        return new ResponseEntity<>(list, HttpStatus.OK);
-    }
 
     @RequestMapping("/map/{lat}/{lng}")
->>>>>>> f0657be257c6d2cc07e409cffcfcaceda90b1c80
     public ResponseEntity<JSONObject> getCloseShops(@PathVariable("lat") double lat, @PathVariable("lng") double lng) {
         Search s = new Search();
         JSONObject json = s.request(lat, lng);

@@ -19,23 +19,71 @@ import java.util.Map;
 import javax.print.DocFlavor.STRING;
 
 public class Fridge {
-    public static void writeFridges(List<Map<String,Object>> foodlist) {
-        
-        JSONArray fridge = new JSONArray();
-            foodlist.forEach(foodElement -> {
+    public static List<Map<String, Object>> readFridge(String fileName) {
+        JSONParser jsonP = new JSONParser();
+        List<Map<String, Object>> list = new ArrayList<>();
+        try {
+            Object obj = jsonP.parse(new FileReader(fileName));
+            JSONArray arr = (JSONArray) obj;
+            Iterator<JSONObject> iterator = arr.iterator();
+            while (iterator.hasNext()) {
                 JSONObject food = new JSONObject();
-                food.put("nom", foodElement.get("nom"));
-               // Object products = foodElement.get("products");
-               Map products =( Map)foodElement.get("products");
-               
-                JSONObject obj = new JSONObject();
-                obj.put("datelimite",products.get("datelimite"));
-                obj.put("dateAjoutee", products.get("dateAjoutee"));
-                obj.put("quantity",products.get("quantity"));
+                JSONObject aliment = iterator.next();
+                food.put("nom", aliment.get("nom"));
+                JSONObject product = (JSONObject) aliment.get("products");
+                JSONObject object = new JSONObject();
+                object.put("datelimite", product.get("datelimite"));
+                object.put("dateAjoutee", product.get("dateAjoutee"));
+                object.put("quantity", Integer.parseInt(product.get("quantity").toString()));
+                food.put("products", object);
+                System.out.println(food);
+                list.add(food);
+            }
 
-                food.put("produits",obj);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return list;
+    }
+
+    public static void writeFridge(List<Map<String, Object>> foodlist) {
+        JSONArray fridge = new JSONArray();
+        List<Map<String, Object>> frigo = Fridge.readFridge("fridge.json");
+        frigo.forEach(frigoElement -> {
+            JSONObject food = new JSONObject();
+            food.put("nom", frigoElement.get("nom"));
+            Map product = (Map) frigoElement.get("products");
+            System.out.println("le produit existants:"+product);
+            try {
+                JSONObject obj = new JSONObject();
+                obj.put("dateAjoutee", product.get("dateAjoutee"));
+                obj.put("datelimite", product.get("datelimite"));
+                obj.put("quantity", product.get("quantity"));
+                food.put("products", obj);
+                System.out.println("OBJET 1" + food);
                 fridge.add(food);
-            });
+            } catch (Exception e) {
+            }
+        });
+        
+        foodlist.forEach(foodElement -> {
+            JSONObject food = new JSONObject();
+            food.put("nom", foodElement.get("nom"));
+            Map product = (Map) foodElement.get("products");
+
+            try {
+                JSONObject obj = new JSONObject();
+                obj.put("dateAjoutee", product.get("dateAjoutee"));
+                obj.put("datelimite", product.get("datelimite"));
+                obj.put("quantity", Integer.parseInt((String) product.get("quantity")));
+                food.put("products", obj);
+                System.out.println("OBJET 2" + food);
+                fridge.add(food);
+
+            } catch (Exception e) {
+            }
+
+        });
 
         try (FileWriter file = new FileWriter("fridge.json")) {
             file.write(fridge.toJSONString());
@@ -44,43 +92,21 @@ public class Fridge {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        List<Map<String, Object>> toto = mapper.readValue(Files.readAllBytes(Paths.get("fridge1.json")), new TypeReference<List<Map<String, Object>>>(){});
-        addFood(toto);
-    }
-
-    public static void addFood(List<Map<String,Object>> foodlist) {
-        List<Map<String, Object>> fridgeList = readFile("fridge2.json");
-        fridgeList.forEach(foodElement ->
-                foodlist.forEach(foodAdd -> {
-                    if (foodElement.get("nom").equals(foodAdd.get("nom"))) {
-                        Object productList = foodElement.get("produits");
-                        Object productAdd = foodAdd.get("produits");
-                        //((List<Map<String, Object>>) productAdd).forEach(productD -> ((List<Map<String, Object>>) productList).add(productD));
-                    }
-                }));
-         // writeFridge(foodlist);
-    }
-
     public static List<Map<String, Object>> readFile(String fileName) {
         JSONParser jsonP = new JSONParser();
         List<Map<String, Object>> list = new ArrayList<>();
 
-        try{
+        try {
             Object obj = jsonP.parse(new FileReader(fileName));
-            //JSONObject jsonObject = (JSONObject) obj;
+            // JSONObject jsonObject = (JSONObject) obj;
             JSONArray arr = (JSONArray) obj;
             Iterator<JSONObject> iterator = arr.iterator();
             while (iterator.hasNext()) {
                 JSONObject aliment = iterator.next();
-                list.add(Map.of(
-                        "nom",aliment.get("nom"),
-                        "produits",(((JSONArray) aliment.get("produits")).toArray())
-                ));
+                list.add(Map.of("nom", aliment.get("nom"), "produits",
+                        (((JSONArray) aliment.get("produits")).toArray())));
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return list;
