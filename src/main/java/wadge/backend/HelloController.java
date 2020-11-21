@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import wadge.food_list.FoodList;
+import wadge.fridge.Fridge;
 import wadge.fridge.ExpirationRecall;
 import wadge.fridge.ExpirationRecall.RecallType;
 import wadge.google.Search;
@@ -25,11 +26,29 @@ public class HelloController {
 
     private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
 
+
+    @PostMapping("/food")
+    public void createFridge(@RequestBody List<Map<String,  Object>> foodlist) {
+         Fridge.writeFridge(foodlist);
+    }
+    @GetMapping(path = "/fridge")
+    public ResponseEntity<List<Map<String, Object>>> readMyFridge() {
+        List<Map<String, Object>> list = Fridge.readFridge("fridge.json");
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
     @RequestMapping(path = "/food_list", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFile() {
         List<Map<String, Object>> list = FoodList.readFile("food_list.json");
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
+    @RequestMapping("/fridge/food")
+    public ResponseEntity<List<Map<String, Object>>> readFridge() {
+        List<Map<String, Object>> list = Fridge.readFile("fridge.json");
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
     @RequestMapping(path = "/filter/{month}", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> getMonth(@PathVariable("month") String month){
         if (month.length() != 0) {
@@ -46,7 +65,7 @@ public class HelloController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/map/{lat}/{lng}", method= RequestMethod.GET)
+    @RequestMapping(path ="/map/{lat}/{lng}" , method= RequestMethod.GET)
     public ResponseEntity<JSONObject> getCloseShops(@PathVariable("lat") double lat, @PathVariable("lng") double lng) {
         Search s = new Search();
         JSONObject json = s.request(lat, lng);

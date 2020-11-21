@@ -4,19 +4,8 @@
 package wadge.backend;
 
 import org.testng.annotations.*;
-import wadge.food_list.FoodList;
-
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-import static org.testng.Assert.*;
 
 public class AppTest {
-    List<Map<String, Object>> foodList;
-    List<Map<String, Object>> filter;
-    List<Map<String, Object>> empty;
 
     @Test public void appHasAGreeting() {
         // App classUnderTest = new App();
