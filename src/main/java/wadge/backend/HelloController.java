@@ -21,6 +21,7 @@ import wadge.google.Search;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+//@Api(tags = {"sets of functions"})
 public class HelloController {
 
 
@@ -30,13 +31,14 @@ public class HelloController {
     @PostMapping("/food")
     public void createFridge(@RequestBody List<Map<String,  Object>> foodlist) {
          Fridge.writeFridge(foodlist);
+        
     }
     @GetMapping(path = "/fridge")
     public ResponseEntity<List<Map<String, Object>>> readMyFridge() {
         List<Map<String, Object>> list = Fridge.readFridge("fridge.json");
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
-
+    //@ApiOperation(value = "View the food list of fruits & vegetables")
     @RequestMapping(path = "/food_list", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFile() {
         List<Map<String, Object>> list = FoodList.readFile("food_list.json");
@@ -49,6 +51,8 @@ public class HelloController {
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
+   
+    //@ApiOperation(value = "Return a list depending on the month chosen")
     @RequestMapping(path = "/filter/{month}", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> getMonth(@PathVariable("month") String month){
         if (month.length() != 0) {
@@ -57,15 +61,17 @@ public class HelloController {
 
         List<Map<String, Object>> list = null;
         try {
-             list = FoodList.foodFromMonth(month);
+            list = FoodList.foodFromMonth(month);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
-    @RequestMapping(path ="/map/{lat}/{lng}" , method= RequestMethod.GET)
+    //@ApiOperation(value = "displays stores close to the user's position")
+
+    @RequestMapping("/map/{lat}/{lng}")
     public ResponseEntity<JSONObject> getCloseShops(@PathVariable("lat") double lat, @PathVariable("lng") double lng) {
         Search s = new Search();
         JSONObject json = s.request(lat, lng);
@@ -74,6 +80,7 @@ public class HelloController {
         return new ResponseEntity<>(tmp, HttpStatus.OK);
     }
     @Nullable
+    //@ApiOperation(value = "Alerts the user on the foods passed in parameters")
     @RequestMapping(path = "/alert/{type}", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, String>>> getExpirationAlert(@PathVariable("type") String type) {
         if(!expirationTypes.contains(type)) {
@@ -86,6 +93,7 @@ public class HelloController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    //@ApiOperation(value = "Alerts the user on all his foods without exceptions")
     @RequestMapping(path = "/alerts", method= RequestMethod.GET)
     public ResponseEntity<Map<String, List<Map<String, String>>>> getExpirationAlerts() {
         Map<String, List<Map<String, String>>> result = new HashMap<>();

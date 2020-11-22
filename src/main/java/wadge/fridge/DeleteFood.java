@@ -18,8 +18,8 @@ public class DeleteFood {
         fridgeList.forEach(foodElement -> {
             deleteList.forEach(foodDelete -> {
                 if(foodElement.get("nom").equals(foodDelete.get("nom"))) {
-                    Object productList = foodElement.get("produits");
-                    Object productDelete = foodDelete.get("produits");
+                    Object productList = foodElement.get("products");
+                    Object productDelete = foodDelete.get("produitcs");
                     ((List<Map<String, Object>>) productList).forEach(productL -> {
                         ((List<Map<String, Object>>) productDelete).forEach(productD -> {
                             if(productL.get("dateAjout").equals(productD.get("dateAjout"))){
@@ -36,6 +36,6 @@ public class DeleteFood {
                 }
             });
         });
-        writeFridge(fridgeList);
+       // writeFridge(fridgeList);
     }
 }

@@ -1,7 +1,5 @@
 package wadge.fridge;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -9,14 +7,12 @@ import org.json.simple.parser.JSONParser;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.DocFlavor.STRING;
 
 public class Fridge {
     public static List<Map<String, Object>> readFridge(String fileName) {
@@ -30,12 +26,12 @@ public class Fridge {
                 JSONObject food = new JSONObject();
                 JSONObject aliment = iterator.next();
                 food.put("nom", aliment.get("nom"));
-                JSONObject product = (JSONObject) aliment.get("products");
+                JSONObject product = (JSONObject) aliment.get("produits");
                 JSONObject object = new JSONObject();
-                object.put("datelimite", product.get("datelimite"));
-                object.put("dateAjoutee", product.get("dateAjoutee"));
-                object.put("quantity", Integer.parseInt(product.get("quantity").toString()));
-                food.put("products", object);
+                object.put("dateLimite", product.get("dateLimite"));
+                object.put("dateAjout", product.get("dateAjout"));
+                object.put("quantite", Integer.parseInt(product.get("quantite").toString()));
+                food.put("produits", object);
                 System.out.println(food);
                 list.add(food);
             }
@@ -52,31 +48,31 @@ public class Fridge {
         frigo.forEach(frigoElement -> {
             JSONObject food = new JSONObject();
             food.put("nom", frigoElement.get("nom"));
-            Map product = (Map) frigoElement.get("products");
-            System.out.println("le produit existants:"+product);
+            Map product = (Map) frigoElement.get("produits");
+            System.out.println("le produit existants:" + product);
             try {
                 JSONObject obj = new JSONObject();
-                obj.put("dateAjoutee", product.get("dateAjoutee"));
-                obj.put("datelimite", product.get("datelimite"));
-                obj.put("quantity", product.get("quantity"));
-                food.put("products", obj);
+                obj.put("dateAjout", product.get("dateAjout"));
+                obj.put("dateLimite", product.get("dateLimite"));
+                obj.put("quantite", product.get("quantite"));
+                food.put("produits", obj);
                 System.out.println("OBJET 1" + food);
                 fridge.add(food);
             } catch (Exception e) {
             }
         });
-        
+
         foodlist.forEach(foodElement -> {
             JSONObject food = new JSONObject();
             food.put("nom", foodElement.get("nom"));
-            Map product = (Map) foodElement.get("products");
+            Map product = (Map) foodElement.get("produits");
 
             try {
                 JSONObject obj = new JSONObject();
-                obj.put("dateAjoutee", product.get("dateAjoutee"));
-                obj.put("datelimite", product.get("datelimite"));
-                obj.put("quantity", Integer.parseInt((String) product.get("quantity")));
-                food.put("products", obj);
+                obj.put("dateAjout", product.get("dateAjout"));
+                obj.put("dateLimite", product.get("dateLimite"));
+                obj.put("quantite", Integer.parseInt((String) product.get("quantite")));
+                food.put("produits", obj);
                 System.out.println("OBJET 2" + food);
                 fridge.add(food);
 
@@ -87,6 +83,7 @@ public class Fridge {
 
         try (FileWriter file = new FileWriter("fridge.json")) {
             file.write(fridge.toJSONString());
+            
         } catch (IOException e) {
             e.printStackTrace();
         }
