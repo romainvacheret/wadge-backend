@@ -41,3 +41,6 @@ Ce repository contient la partie back end de notre application web. Vous trouver
 * **Trystan Roches** - [Github](https://github.com/Trystan4) - [LinkedIn](https://www.linkedin.com/in/trystan-roches-4a6ba0171/)
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
 * **Maodo Laba Sow** - [Github](https://github.com/sowJamng) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
+
+## Plus d'informations sur l'API
+Retrouvez notre API via l'interface [d'OpenAPI](http://localhost:8080/swagger-ui.html/)
