@@ -16,6 +16,7 @@ import wadge.food_list.FoodList;
 import wadge.fridge.ExpirationRecall;
 import wadge.fridge.ExpirationRecall.RecallType;
 import wadge.google.Search;
+import wadge.recipe.Recipe;
 
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -82,6 +83,12 @@ public class HelloController {
             result.put(type, recall.getExpirationList(RecallType.valueOf(type)));
         });
 
+        return new ResponseEntity<>(result, HttpStatus.OK);
+    }
+
+    @RequestMapping(path="/recipes", method= RequestMethod.GET)
+    public ResponseEntity<List<Map<String, Object>>> getRecipes() {
+        List<Map<String, Object>> result = Recipe.readRecipes();
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
