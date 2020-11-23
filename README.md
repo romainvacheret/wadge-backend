@@ -19,10 +19,10 @@ Une application proposant des recettes de cuisine à partir de fruits et légume
 * [Installer Gradle](https://gradle.org/install/)
 * [Créer une clef Google API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-Clonez le repository 
-Créez un fichier .env à la racine du projet
-Ajoutez la ligne `GOOGLE_API="VOTRE_CLEF_API"`
-Lancez le projet. 
+Clonez le repository   
+Créez un fichier .env à la racine du projet  
+Ajoutez la ligne `GOOGLE_API="VOTRE_CLEF_API"`  
+Lancez le projet.   
 
 Si vous ne lancez que cette partie de l'application, vous aurez uniquement l'API. Pour utiliser l'interface utilisateur, vous devez également utiliser le front end.
 ```Bash
