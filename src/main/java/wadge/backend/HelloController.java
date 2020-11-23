@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import wadge.food_list.FoodList;
 
-import wadge.fridge.DisplayFridge;
 import wadge.fridge.Fridge;
 import wadge.fridge.ExpirationRecall;
 import wadge.fridge.ExpirationRecall.RecallType;
@@ -38,8 +37,9 @@ public class HelloController {
 
     @RequestMapping(path="/fridge", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readMyFridge() {
-        List<Map<String, Object>> list = Fridge.readFridge(FRIDGE_FILE);
-        return new ResponseEntity<>(list, HttpStatus.OK);
+        // List<Map<String, Object>> list = Fridge.readFridge(FRIDGE_FILE);
+        // return new ResponseEntity<>(list, HttpStatus.OK);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 
     @RequestMapping(path="/fridge/food", method= RequestMethod.GET)
@@ -112,7 +112,7 @@ public class HelloController {
 
     @RequestMapping(path = "/display-fridge", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFridge() {
-        List<Map<String, Object>> list = DisplayFridge.displayFridge(FRIDGE_FILE);
+        List<Map<String, Object>> list = Fridge.readFile(FRIDGE_FILE);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }
