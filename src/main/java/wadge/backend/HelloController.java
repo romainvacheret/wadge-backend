@@ -13,22 +13,47 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import wadge.food_list.FoodList;
+
 import wadge.fridge.DisplayFridge;
+import wadge.fridge.Fridge;
 import wadge.fridge.ExpirationRecall;
 import wadge.fridge.ExpirationRecall.RecallType;
+
 import wadge.google.Search;
+
 import wadge.recipe.Recipe;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class HelloController {
     private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
+    private static String FRIDGE_FILE = "fridge.json";
+    private static String FOOD_FILE = "food_list.json";
+
+    @RequestMapping(path="/food", method= RequestMethod.POST)
+    public void createFridge(@RequestBody List<Map<String,  Object>> foodlist) {
+         Fridge.writeFridge(foodlist);
+      
+    }
+
+    @RequestMapping(path="/fridge", method= RequestMethod.GET)
+    public ResponseEntity<List<Map<String, Object>>> readMyFridge() {
+        List<Map<String, Object>> list = Fridge.readFridge(FRIDGE_FILE);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
+
+    @RequestMapping(path="/fridge/food", method= RequestMethod.GET)
+    public ResponseEntity<List<Map<String, Object>>> readFridge2() {
+        List<Map<String, Object>> list = Fridge.readFile(FRIDGE_FILE);
+        return new ResponseEntity<>(list, HttpStatus.OK);
+    }
 
     @RequestMapping(path = "/food_list", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFile() {
-        List<Map<String, Object>> list = FoodList.readFile("food_list.json");
+        List<Map<String, Object>> list = FoodList.readFile(FOOD_FILE);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
+
     @RequestMapping(path = "/filter/{month}", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> getMonth(@PathVariable("month") String month){
         if (month.length() != 0) {
@@ -87,7 +112,7 @@ public class HelloController {
 
     @RequestMapping(path = "/display-fridge", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFridge() {
-        List<Map<String, Object>> list = DisplayFridge.displayFridge("fridge.json");
+        List<Map<String, Object>> list = DisplayFridge.displayFridge(FRIDGE_FILE);
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 }
