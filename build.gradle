@@ -26,13 +26,13 @@ plugins {
 
 apply plugin: VersionPlugin
 
-version '0.4.1'
+version '0.5'
 
 class VersionPlugin implements Plugin<Project> {
     public void apply(Project project) {
         project.task('version') {
             project.gradle.projectsEvaluated {
-                println "0.4.1"
+                println "0.5"
             }
         }
     }
