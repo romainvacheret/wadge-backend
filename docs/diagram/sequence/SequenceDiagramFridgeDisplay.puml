@@ -1,3 +1,4 @@
+@startuml
 autonumber
 actor User
 User -> Front: Demande la liste des aliments dans son frigo

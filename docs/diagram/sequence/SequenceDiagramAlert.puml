@@ -1,3 +1,4 @@
+@startuml
 autonumber
 actor User
 User -> Front: Demande liste péremptions à une date donnée
