@@ -91,3 +91,9 @@ image::./diagram/out/SequenceDiagramFoodList.svg[]
 image::./diagram/out/SequenceDiagramAlert.svg[]
 === Liste des aliments à manger aux différents dates
 image::./diagram/out/SequenceDiagramAlerts.svg[]
+=== Liste des recettes
+image::./diagram/out/SequenceDiagramRecipes.svg[]
+=== Liste des aliments présents dans le frigo
+image::./diagram/out/SequenceDiagramFridgeDisplay.svg[]
+=== Ajout d'aliments au frigo
+image::./diagram/out/SequenceDiagramFridgeAddition.svg[]

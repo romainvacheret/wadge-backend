@@ -1,0 +1,122 @@
+[
+    {
+        "nom": "Soupe d'automne à la courge de butternut",
+        "etapes": [
+            "Faire revenir ensemble dans une cocotte, avec une cuillère d'huile d'olive, l'oignon, le céleri et le navet émincés.",
+            "Faire revenir ensemble dans une poêle haute, carottes, courge et pomme de terre, épluchées et coupées en petites cubes. Dès que c'est grillé, verser ces légumes dans la cocotte.",
+            "Verser 1.25 litre d'eau froide.",
+            "Ajouter le bouillon cube et une petite cuillerée de cumin.",
+            "Dès le bouillonnement de l'eau, baisser le feu et laisser cuire 20, 25 min.",
+            "En cours de cuisson, ajouter une poignée de persil frisé émincé.",
+            "En fin de cuisson, mixer le tout et vérifier l'assaisonnement."
+        ],
+        "personnes": 3,
+        "preparation": 45,
+        "difficulte": 1,
+        "lien": "https://www.marmiton.org/recettes/recette_soupe-d-automne-courge-butternut_84058.aspx",
+        "ingredients": [
+            {
+                "nom": "carotte",
+                "quantite": 2
+            },
+            {
+                "nom": "butternut",
+                "quantite": 0.5
+            },
+            {
+                "nom": "pomme de terre",
+                "quantite": 1
+            },
+            {
+                "nom": "oignon",
+                "quantite": 1
+            },
+            {
+                "nom": "celeri",
+                "quantite": 0.75
+            },
+            {
+                "nom": "navet",
+                "quantite": 1
+            },
+            {
+                "nom": "persil",
+                "quantite": -1
+            },
+            {
+                "nom": "bouillon cube",
+                "quantite": -1
+            },
+            {
+                "nom": "cumin",
+                "quantite": -1
+            }
+        ]
+    },
+    {
+        "nom": "Ratatouille",
+        "etapes": [
+            "Coupez les tomates pelées en quartiers,",
+            "les aubergines et les courgettes en rondelles.",
+            "Emincez les poivrons en lamelles",
+            "et l'oignon en rouelles.",
+            "Chauffez 2 cuillères à soupe d'huile dans une poêle",
+            "et faites-y fondre les oignons et les poivrons.",
+            "Lorsqu'ils sont tendres, ajoutez les tomates, l'ail haché, le thym et le laurier.",
+            "Salez, poivrez et laissez mijoter doucement à couvert durant 45 minutes.",
+            "Pendant ce temps, préparez les aubergines et les courgettes. Faites les cuire séparemment ou non dans l'huile d'olive pendant 15 minutes.",
+            "Vérifiez la cuisson des légumes pour qu'ils ne soient plus fermes. Ajoutez les alors au mélange de tomates et prolongez la cuisson sur tout petit feu pendant 10 min.",
+            "Salez et poivrez si besoin."
+        ],
+        "personnes": 4,
+        "preparation": 140,
+        "difficulte": 2,
+        "lien": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
+        "ingredients": [
+            {
+                "nom": "aubergine",
+                "quantite": "350g"
+            },
+            {
+                "nom": "courgette",
+                "quantite": "350g"
+            },
+            {
+                "nom": "poivron",
+                "quantite": "350g"
+            },
+            {
+                "nom": "oignon",
+                "quantite": "350g"
+            },
+            {
+                "nom": "tomate",
+                "quantite": "500g"
+            },
+            {
+                "nom": "ail",
+                "quantite": 3
+            },
+            {
+                "nom": "huile d'olive",
+                "quantite": "6 cuillère à soupe"
+            },
+            {
+                "nom": "thyn",
+                "quantite": "un brin"
+            },
+            {
+                "nom": "laurier",
+                "quantite": "une feuille"
+            },
+            {
+                "nom": "poivre",
+                "quantite": -1
+            },
+            {
+                "nom": "sel",
+                "quantite": -1
+            }
+        ]
+    }
+]

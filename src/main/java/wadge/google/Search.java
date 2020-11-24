@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -13,8 +12,15 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import io.github.cdimascio.dotenv.Dotenv;
+
 public class Search {
-    private static final String KEY = System.getenv("GOOGLE_API");
+    private static final String KEY;
+    static {
+        Dotenv dotenv = Dotenv.load();
+        KEY = dotenv.get("GOOGLE_API");
+        System.out.println(KEY);
+    }
 
 
     public void jsonToFile(String fileName, JSONObject json) { 

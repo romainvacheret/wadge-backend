@@ -17,17 +17,23 @@ Une application proposant des recettes de cuisine à partir de fruits et légume
 * [Télécharger le JDK](https://www.oracle.com/java/technologies/javase-downloads.html)
 * [Télécharger Git](https://git-scm.com/downloads)
 * [Installer Gradle](https://gradle.org/install/)
+* [Créer une clef Google API](https://developers.google.com/maps/documentation/javascript/get-api-key)
 
-Clonez le repository et lancez le projet. 
+Clonez le repository   
+Créez un fichier .env à la racine du projet  
+Ajoutez la ligne `GOOGLE_API="VOTRE_CLEF_API"`  
+Lancez le projet.   
 
 Si vous ne lancez que cette partie de l'application, vous aurez uniquement l'API. Pour utiliser l'interface utilisateur, vous devez également utiliser le front end.
 ```Bash
 git clone git@github.com:RomainVacheret/Wadge-BackEnd.git
 cd Wadge-BackEnd
+touch .env
 chmod a+x ./gradlew
 ./gradlew bootRun
 ```
 
+###### Note : La clef Google API n'est pas obligatoire pour faire fonctionner l'application. Seulement les parties impliquées.
 # Un projet découpé en deux parties
 Ce repository contient la partie back end de notre application web. Vous trouverez le front end à [cette adresse](https://github.com/RomainVacheret/Wadge-FrontEnd).
 # Auteurs
@@ -35,3 +41,6 @@ Ce repository contient la partie back end de notre application web. Vous trouver
 * **Trystan Roches** - [Github](https://github.com/Trystan4) - [LinkedIn](https://www.linkedin.com/in/trystan-roches-4a6ba0171/)
 * **Romain Vacheret** - [Github](https://github.com/RomainVacheret) - [LinkedIn](https://www.linkedin.com/in/romain-vacheret-b58270189/)
 * **Maodo Laba Sow** - [Github](https://github.com/sowJamng) - [LinkedIn](https://www.linkedin.com/in/maodo-laba-sow-668244184/)
+
+## Plus d'informations sur l'API
+Retrouvez notre API via l'interface [d'OpenAPI](http://localhost:8080/swagger-ui.html/)
