@@ -1,0 +1,9 @@
+autonumber
+actor User
+User -> Front: Demande liste des recettes
+Front -> Back: Requête de la des recettes
+Back -> "getRecipes()": Requête de la liste des recettes
+"getExpirationAlert()"-> Back: Retourne un Json
+Back -> Front: Réponse Json
+Front -> User: Affichage
+@enduml
