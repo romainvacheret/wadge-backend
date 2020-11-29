@@ -23,7 +23,7 @@ public class ExpirationRecall {
     private final Date currentDate;
 
     public enum RecallType {
-        TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED
+        TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER;
     }
 
     public ExpirationRecall() {
@@ -54,6 +54,8 @@ public class ExpirationRecall {
             case EXPIRED:
                 rtr = this.getExpirationDateFromPredicate(x -> x < 0);
                 break;
+            default:
+                rtr = this.getExpirationDateFromPredicate(x -> x > 14);
         }
         return rtr;
     }
@@ -97,4 +99,8 @@ public class ExpirationRecall {
         return result;
 
     }    
+
+    public static void main(String[] args) {
+        
+    }
 }
