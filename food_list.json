@@ -139,7 +139,7 @@
 			"vie" : 10
 		},
 		{
-			"nom" : "chous de Bruxelles",
+			"nom" : "choux de Bruxelles",
 			"type" : "legume",
 			"consommation" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
 			"vie" : 7
