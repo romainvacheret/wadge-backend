@@ -55,7 +55,7 @@ public class ExpirationRecall {
                 rtr = this.getExpirationDateFromPredicate(x -> x < 0);
                 break;
             default:
-                rtr = this.getExpirationDateFromPredicate(x -> x > 14);
+                rtr = this.getExpirationDateFromPredicate(x -> x >= 14);
         }
         return rtr;
     }
