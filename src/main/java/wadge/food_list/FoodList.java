@@ -59,7 +59,9 @@ public class FoodList {
                 if(listCompare.contains(month)) {
                     foodList.add(Map.of(
                         "nom", food.get("nom"),
-                        "type", food.get("type")
+                        "type", food.get("type"),
+                            "vie", food.get("vie")
+
                     ));
                 }
         });

@@ -45,6 +45,7 @@ public class Fridge {
     private static List<Map<String, Object>> formatConverter(List<Map<String, Object>> elements) {
         return elements.stream().map(element -> {
             element = (Map<String, Object>) element;
+            System.out.println(element);
             Map<String, Object> products = (Map<String, Object>) element.get("produits");
             return Map.of(
                 "nom", (String) element.get("nom"),

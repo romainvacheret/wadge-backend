@@ -25,7 +25,7 @@ import wadge.recipe.Recipe;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class HelloController {
-    private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED");
+    private static List<String> expirationTypes = List.of("TWO_DAYS", "FIVE_DAYS", "SEVEN_DAYS", "FORTEEN_DAYS", "EXPIRED", "OTHER");
     private static String FRIDGE_FILE = "fridge.json";
     private static String FOOD_FILE = "food_list.json";
 
@@ -98,6 +98,7 @@ public class HelloController {
         ExpirationRecall recall = new ExpirationRecall();
 
         expirationTypes.forEach(type -> {
+            System.out.println(type);
             result.put(type, recall.getExpirationList(RecallType.valueOf(type)));
         });
 
