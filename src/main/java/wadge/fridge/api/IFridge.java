@@ -11,4 +11,5 @@ public interface IFridge {
     void readFridge(String fileName);
     List<FridgeFood> readFile(String fileName);
     void addToFridge(List<FridgeFood> newFoods);
+    List<FridgeFood> stringToFridgeFood(String content);
 }

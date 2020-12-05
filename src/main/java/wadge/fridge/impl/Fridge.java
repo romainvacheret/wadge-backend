@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import wadge.fridge.api.IFridge;
@@ -15,8 +16,8 @@ public class Fridge implements IFridge {
     private final ObjectMapper mapper;
     private static Fridge instance;
 
-    private Fridge() { 
-        this.mapper = new ObjectMapper(); 
+    private Fridge() {
+        this.mapper = new ObjectMapper();
         this.foods = new ArrayList<>();
     }
 
@@ -54,7 +55,22 @@ public class Fridge implements IFridge {
         this.foods.addAll(newFoods);
     }
 
-    public List<FridgeFood> getFood() { return this.foods; }
+    public List<FridgeFood> getFood() {
+        return this.foods;
+    }
+
+    @Override
+    public  List<FridgeFood> stringToFridgeFood(String content) {
+        try {
+            return Arrays.asList(this.mapper.readValue(content, FridgeFood[].class));
+        } catch (JsonProcessingException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        // TODO Add return type of add exception
+        return null;
+    }
 
     public static void main(String[] args) throws IOException {
         Fridge f = Fridge.getInstance();
