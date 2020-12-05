@@ -15,16 +15,16 @@ import wadge.fridge.impl.FridgeFood;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class FridgeController {
-    private static final String FRIDGE = "fridge2.json";
+    private static final String FRIDGE = "fridge.json";
 
-    @RequestMapping(path = "my-fridge", method = RequestMethod.GET)
+    @RequestMapping(path = "/fridge", method = RequestMethod.GET)
     public List<FridgeFood> getFridge() {
         Fridge f = Fridge.getInstance();
         f.readFridge(FRIDGE);
         return f.getFood();
     }
 
-    @RequestMapping(path = "fridge/addition", method = RequestMethod.POST)
+    @RequestMapping(path = "/fridge/addition", method = RequestMethod.POST)
     public List<FridgeFood> addToFridge(@RequestBody String foodList) {
         Fridge f = Fridge.getInstance();
         f.readFridge(FRIDGE);

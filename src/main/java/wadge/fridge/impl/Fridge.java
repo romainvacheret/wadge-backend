@@ -72,12 +72,4 @@ public class Fridge implements IFridge {
         return null;
     }
 
-    public static void main(String[] args) throws IOException {
-        Fridge f = Fridge.getInstance();
-        f.readFridge("fridge2.json");
-        List<FridgeFood> list = f.readFile("fridge4.json");
-        f.addToFridge(list);
-        f.writeFridge("fridge5.json");
-        f.getFood().forEach(System.out::println);
-    }
 }
