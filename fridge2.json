@@ -1,0 +1,22 @@
+[
+    {
+        "name": "banane",
+        "products": [
+            {
+                "insertionDate": "17/11/2020",
+                "peremptionDate": "01/12/2020",
+                "quantity": 2
+            }
+        ]
+    },
+    {
+        "name": "pomme",
+        "products": [
+            {
+                "insertionDate": "17/12/2020",
+                "peremptionDate": "03/01/2021",
+                "quantity": 1
+            }
+        ]
+    }
+]
