@@ -1,6 +1,10 @@
 package wadge.food.api;
 
+import java.util.List;
+
+import wadge.food.impl.Food;
+
 public interface IFoodList {
      void readFile(String fileName);
-     void getFoodFromGivenMonth(Month month);
+     List<Food> getFoodFromGivenMonth(Month month) throws Exception;
 }

@@ -2,11 +2,9 @@ package wadge.food.impl;
 
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -19,9 +17,8 @@ public class FoodList implements IFoodList {
     private static FoodList instance;
 
 
-    public FoodList() {
-        // this.foods = new HashSet<>();
-        this.foods = new ArrayList<>();
+    private FoodList() {
+        this.foods = null;
         this.mapper = new ObjectMapper();
     }
 
@@ -33,9 +30,12 @@ public class FoodList implements IFoodList {
     }
 
     @Override
-    public void getFoodFromGivenMonth(Month month) {
-        // TODO Auto-generated method stub
-        this.foods.stream().filter(food -> food.getAvailability().contains(month.valueOf())).forEach(System.out::println);
+    public List<Food> getFoodFromGivenMonth(Month month) throws Exception {
+        if(this.foods == null) {
+            throw new Exception("Call FoodList::readFile first.");
+        }
+        return this.foods.stream().filter(food -> 
+            food.getAvailability().contains(month.valueOf())).collect(Collectors.toList());
     }
 
     @Override
@@ -47,9 +47,5 @@ public class FoodList implements IFoodList {
         }
 	}
 
-    public static void main(String[] args) {
-        FoodList f = new FoodList();
-        f.readFile("food_list2.json");
-        f.getFoodFromGivenMonth(Month.DECEMBER);
-    }
+    public List<Food> getFoods() { return this.foods; }
 }
