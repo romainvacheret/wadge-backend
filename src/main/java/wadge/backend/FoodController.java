@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import wadge.food.impl.Food;
 import wadge.food.impl.FoodList;
 
-@CrossOrigin(origins = "http;//localhost:3000")
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-public class FoodListController {
+public class FoodController {
     private static final String FOOD_LIST = "food_list.json";
 
     @RequestMapping(path="/foods", method=RequestMethod.GET)
