@@ -18,7 +18,9 @@ public class ExpirationRecall {
         List<FridgeFood> result = new ArrayList<>();
         fridgeList.forEach(food -> {
             List<FoodElement> elements = food.getProducts().stream().filter(predicate).collect(Collectors.toList());
-            result.add(new FridgeFood(food.getName(), elements));
+            if(!elements.isEmpty()) {
+                result.add(new FridgeFood(food.getName(), elements));
+            }
         });
         return result;
     }
@@ -26,6 +28,5 @@ public class ExpirationRecall {
     public static List<FridgeFood> getExpirationList(RecallType type, String fileName) {
         FoodElementPredicatesFactory factory = FoodElementPredicatesFactory.getInstance();
         return getExpirationDateFromPredicate(factory.getPredicate(type), fileName);
-    }
-    
+    }   
 }

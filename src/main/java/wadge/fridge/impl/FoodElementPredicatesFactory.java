@@ -3,6 +3,7 @@ package wadge.fridge.impl;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 
@@ -13,7 +14,11 @@ public class FoodElementPredicatesFactory {
     private Date currentDate;
     private static FoodElementPredicatesFactory instance;
 
-    private FoodElementPredicatesFactory() {}
+
+    private FoodElementPredicatesFactory() {
+        this.dateFormater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
+        this.currentDate = new Date();
+    }
 
     private static long dateDifference(Date d1, Date d2) {
         long diff = d1.getTime() - d2.getTime();
@@ -72,5 +77,9 @@ public class FoodElementPredicatesFactory {
                     rtr = x -> this.dateProcessing(x.getPeremptionDate()) > 14;
             }
         return rtr;
+    }
+
+    public static void main(String[] args) {
+        Date a = new Date();
     }
 }
