@@ -1,0 +1,530 @@
+[
+		{
+			"name" : "abricot",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout"],
+			"days" : 7
+		},
+		{
+			"name" : "ail",
+			"type" : "legume",
+			"availability" : ["aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 182
+		},
+		{
+			"name" : "amande",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre"],
+			"days" : 150
+		},
+		{
+			"name" : "ananas",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 5
+		},
+		{
+			"name" : "artichaut",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 5
+		},
+		{
+			"name" : "asperge",
+			"type" : "legume",
+			"availability" : ["avril", "mai", "juin"],
+			"days" : 3
+		},
+		{
+			"name" : "aubergine",
+			"type" : "legume",
+			"availability" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
+		},
+		{
+			"name" : "avocat",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 3
+		},
+		{
+			"name" : "banane",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 8
+		},
+		{
+			"name" : "betterave",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 21
+		},
+		{
+			"name" : "blette",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 6
+		},
+		{
+			"name" : "brocoli",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 5
+		},
+		{
+			"name" : "butternut",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 30
+		},
+		{
+			"name" : "carotte",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 15
+		},
+		{
+			"name" : "cassis",
+			"type" : "fruit",
+			"availability" : ["aout", "septembre"],
+			"days" : 3
+		},
+		{
+			"name" : "cedrat",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 10
+		},
+		{
+			"name" : "celeri",
+			"type" : "legume",
+			"availability" : ["janvier", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "cerise",
+			"type" : "fruit",
+			"availability" : ["mai", "juin", "juillet"],
+			"days" : 4
+		},
+		{
+			"name" : "champignons",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai" ,"octobre", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "chataigne",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "chou chinois",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "chou pomme",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "chou-fleur",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 10
+		},
+		{
+			"name" : "choux de Bruxelles",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "citron",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juillet", "aout", "novembre", "decembre"],
+			"days" : 12
+		},
+		{
+			"name" : "citrouille",
+			"type" : "legume",
+			"availability" : ["janvier", "octobre", "novembre", "decembre"],
+			"days" : 60
+		},
+		{
+			"name" : "clementine",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
+			"days" : 4
+		},
+		{
+			"name" : "coing",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 15
+		},
+		{
+			"name" : "concombre",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 4
+		},
+		{
+			"name" : "courge spaghetti",
+			"type" : "legume",
+			"availability" : ["aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 80
+		},
+		{
+			"name" : "courgette",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
+		},
+		{
+			"name" : "datte",
+			"type" : "fruit",
+			"availability" : ["octobre", "novembre", "decembre"],
+			"days" : 180
+		},
+		{
+			"name" : "echalote",
+			"type" : "legume",
+			"availability" : ["juillet", "aout"],
+			"days" : 30
+		},
+		{
+			"name" : "endive",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 6
+		},
+		{
+			"name" : "epinard",
+			"type" : "legume",
+			"availability" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 5
+		},
+		{
+			"name" : "fenouil",
+			"type" : "legume",
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "feve",
+			"type" : "legume",
+			"availability" : ["mai", "juin"],
+			"days" : 4
+		},
+		{
+			"name" : "figue",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 2
+		},
+		{
+			"name" : "fraise",
+			"type" : "fruit",
+			"availability" : ["avril", "mai", "juin"],
+			"days" : 3
+		},
+		{
+			"name" : "framboise",
+			"type" : "fruit",
+			"availability" : ["juillet", "aout", "septembre"],
+			"days" : 3
+		},
+		{
+			"name" : "fruit de la passion",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "goyave",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "decembre"],
+			"days" : 4
+		},
+		{
+			"name" : "grenade",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
+			"days" : 5
+		},
+		{
+			"name" : "groseille",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 3
+		},
+		{
+			"name" : "haricot",
+			"type" : "legume",
+			"availability" : ["juillet", "aout", "septembre"],
+			"days" : 3
+		},
+		{
+			"name" : "haricot mungo",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 2
+		},
+		{
+			"name" : "kaki",
+			"type" : "fruit",
+			"availability" : ["janvier", "octobre", "novembre", "decembre"],
+			"days" : 6
+		},
+		{
+			"name" : "kiwi",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "kumquat",
+			"type" : "fruit",
+			"availability" : ["janvier", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "laitue",
+			"type" : "fruit",
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre"],
+			"days" : 2
+		},
+		{
+			"name" : "lentille",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
+			"days" : 7
+		},
+		{
+			"name" : "litchi",
+			"type" : "fruit",
+			"availability" : ["janvier", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "mache",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "novembre", "decembre"],
+			"days" : 2
+		},
+		{
+			"name" : "mais",
+			"type" : "legume",
+			"availability" : ["juillet", "aout", "septembre", "octobre"],
+			"days" : 3
+		},
+		{
+			"name" : "mandarine",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
+			"days" : 12
+		},
+		{
+			"name" : "mangue",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "decembre"],
+			"days" : 8
+		},
+		{
+			"name" : "melon",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 6
+		},
+		{
+			"name" : "mure",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 3
+		},
+		{
+			"name" : "myrtille",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 3
+		},
+		{
+			"name" : "navet",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 15
+		},
+		{
+			"name" : "nectarine",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 3
+		},
+		{
+			"name" : "noisette",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 60
+		},
+		{
+			"name" : "noix",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 80
+		},
+		{
+			"name" : "noix de coco",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "novembre", "decembre"],
+			"days" : 120
+		},
+		{
+			"name" : "oignon",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 60
+		},
+		{
+			"name" : "orange",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "decembre"],
+			"days" : 10
+		},
+		{
+			"name" : "oseille",
+			"type" : "legume",
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 2
+		},
+		{
+			"name" : "panais",
+			"type" : "legume",
+			"availability" : ["septembre", "octobre", "novembre", "decembre"],
+			"days" : 30
+		},
+		{
+			"name" : "pasteque",
+			"type" : "fruit",
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre"],
+			"days" : 6
+		},
+		{
+			"name" : "patate douce",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 8
+		},
+		{
+			"name" : "peche",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 4
+		},
+		{
+			"name" : "petits pois",
+			"type" : "legume",
+			"availability" : ["juin", "juillet"],
+			"days" : 5
+		},
+		{
+			"name" : "poire",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 5
+		},
+		{
+			"name" : "poireau",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 12
+		},
+		{
+			"name" : "poivron",
+			"type" : "legume",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
+		},
+		{
+			"name" : "pomelo",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai"],
+			"days" : 15
+		},
+		{
+			"name" : "pomme",
+			"type" : "fruit",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "pomme de terre",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "potimarron",
+			"type" : "legume",
+			"availability" : ["septembre", "octobre"],
+			"days" : 60
+		},
+		{
+			"name" : "potiron",
+			"type" : "legume",
+			"availability" : ["septembre", "octobre"],
+			"days" : 60
+		},
+		{
+			"name" : "prune",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 15
+		},
+		{
+			"name" : "radis",
+			"type" : "legume",
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 7
+		},
+		{
+			"name" : "raisin",
+			"type" : "fruit",
+			"availability" : ["mars", "avril", "mai", "juin"],
+			"days" : 5
+		},
+		{
+			"name" : "rhubarbe",
+			"type" : "fruit",
+			"availability" : ["avril", "mai", "juin", "juillet"],
+			"days" : 4
+		},
+		{
+			"name" : "rutabaga",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 15
+		},
+		{
+			"name" : "salsifis",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
+			"days" : 5
+		},
+		{
+			"name" : "tomate",
+			"type" : "fruit",
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
+		},
+		{
+			"name" : "topinambour",
+			"type" : "legume",
+			"availability" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
+			"days" : 12
+		}
+	]
