@@ -13,7 +13,7 @@ import wadge.food.impl.FoodList;
 @CrossOrigin(origins = "http;//localhost:3000")
 @RestController
 public class FoodListController {
-    private static final String FOOD_LIST = "food_list2.json";
+    private static final String FOOD_LIST = "food_list.json";
 
     @RequestMapping(path="/foods", method=RequestMethod.GET)
     public List<Food> getFridgeList() {

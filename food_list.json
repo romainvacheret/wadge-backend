@@ -1,532 +1,530 @@
-{
-	"aliments" : [
+[
 		{
-			"nom" : "abricot",
+			"name" : "abricot",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout"],
-			"vie" : 7
+			"availability" : ["juin", "juillet", "aout"],
+			"days" : 7
 		},
 		{
-			"nom" : "ail",
+			"name" : "ail",
 			"type" : "legume",
-			"consommation" : ["aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 182
+			"availability" : ["aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 182
 		},
 		{
-			"nom" : "amande",
+			"name" : "amande",
 			"type" : "fruit",
-			"consommation" : ["septembre", "octobre"],
-			"vie" : 150
+			"availability" : ["septembre", "octobre"],
+			"days" : 150
 		},
 		{
-			"nom" : "ananas",
+			"name" : "ananas",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 5
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "artichaut",
+			"name" : "artichaut",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 5
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "asperge",
+			"name" : "asperge",
 			"type" : "legume",
-			"consommation" : ["avril", "mai", "juin"],
-			"vie" : 3
+			"availability" : ["avril", "mai", "juin"],
+			"days" : 3
 		},
 		{
-			"nom" : "aubergine",
+			"name" : "aubergine",
 			"type" : "legume",
-			"consommation" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 7
+			"availability" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
 		},
 		{
-			"nom" : "avocat",
+			"name" : "avocat",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 3
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "banane",
+			"name" : "banane",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 8
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 8
 		},
 		{
-			"nom" : "betterave",
+			"name" : "betterave",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 21
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 21
 		},
 		{
-			"nom" : "blette",
+			"name" : "blette",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 6
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 6
 		},
 		{
-			"nom" : "brocoli",
+			"name" : "brocoli",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 5
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "butternut",
+			"name" : "butternut",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 30
+			"availability" : ["janvier", "fevrier", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 30
 		},
 		{
-			"nom" : "carotte",
+			"name" : "carotte",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "cassis",
+			"name" : "cassis",
 			"type" : "fruit",
-			"consommation" : ["aout", "septembre"],
-			"vie" : 3
+			"availability" : ["aout", "septembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "cedrat",
+			"name" : "cedrat",
 			"type" : "fruit",
-			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 10
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 10
 		},
 		{
-			"nom" : "celeri",
+			"name" : "celeri",
 			"type" : "legume",
-			"consommation" : ["janvier", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["janvier", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "cerise",
+			"name" : "cerise",
 			"type" : "fruit",
-			"consommation" : ["mai", "juin", "juillet"],
-			"vie" : 4
+			"availability" : ["mai", "juin", "juillet"],
+			"days" : 4
 		},
 		{
-			"nom" : "champignons",
+			"name" : "champignons",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai" ,"octobre", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai" ,"octobre", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "chataigne",
+			"name" : "chataigne",
 			"type" : "fruit",
-			"consommation" : ["septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "chou chinois",
+			"name" : "chou chinois",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "fevrier", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "chou pomme",
+			"name" : "chou pomme",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "fevrier", "mars", "avril", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "chou-fleur",
+			"name" : "chou-fleur",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 10
+			"availability" : ["janvier", "fevrier", "mars", "avril", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 10
 		},
 		{
-			"nom" : "choux de Bruxelles",
+			"name" : "choux de Bruxelles",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "citron",
+			"name" : "citron",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juillet", "aout", "novembre", "decembre"],
-			"vie" : 12
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juillet", "aout", "novembre", "decembre"],
+			"days" : 12
 		},
 		{
-			"nom" : "citrouille",
+			"name" : "citrouille",
 			"type" : "legume",
-			"consommation" : ["janvier", "octobre", "novembre", "decembre"],
-			"vie" : 60
+			"availability" : ["janvier", "octobre", "novembre", "decembre"],
+			"days" : 60
 		},
 		{
-			"nom" : "clementine",
+			"name" : "clementine",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
-			"vie" : 4
+			"availability" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
+			"days" : 4
 		},
 		{
-			"nom" : "coing",
+			"name" : "coing",
 			"type" : "fruit",
-			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 15
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "concombre",
+			"name" : "concombre",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 4
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 4
 		},
 		{
-			"nom" : "courge spaghetti",
+			"name" : "courge spaghetti",
 			"type" : "legume",
-			"consommation" : ["aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 80
+			"availability" : ["aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 80
 		},
 		{
-			"nom" : "courgette",
+			"name" : "courgette",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 7
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
 		},
 		{
-			"nom" : "datte",
+			"name" : "datte",
 			"type" : "fruit",
-			"consommation" : ["octobre", "novembre", "decembre"],
-			"vie" : 180
+			"availability" : ["octobre", "novembre", "decembre"],
+			"days" : 180
 		},
 		{
-			"nom" : "echalote",
+			"name" : "echalote",
 			"type" : "legume",
-			"consommation" : ["juillet", "aout"],
-			"vie" : 30
+			"availability" : ["juillet", "aout"],
+			"days" : 30
 		},
 		{
-			"nom" : "endive",
+			"name" : "endive",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 6
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 6
 		},
 		{
-			"nom" : "epinard",
+			"name" : "epinard",
 			"type" : "legume",
-			"consommation" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 5
+			"availability" : ["avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "fenouil",
+			"name" : "fenouil",
 			"type" : "legume",
-			"consommation" : ["mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "feve",
+			"name" : "feve",
 			"type" : "legume",
-			"consommation" : ["mai", "juin"],
-			"vie" : 4
+			"availability" : ["mai", "juin"],
+			"days" : 4
 		},
 		{
-			"nom" : "figue",
+			"name" : "figue",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 2
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 2
 		},
 		{
-			"nom" : "fraise",
+			"name" : "fraise",
 			"type" : "fruit",
-			"consommation" : ["avril", "mai", "juin"],
-			"vie" : 3
+			"availability" : ["avril", "mai", "juin"],
+			"days" : 3
 		},
 		{
-			"nom" : "framboise",
+			"name" : "framboise",
 			"type" : "fruit",
-			"consommation" : ["juillet", "aout", "septembre"],
-			"vie" : 3
+			"availability" : ["juillet", "aout", "septembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "fruit de la passion",
+			"name" : "fruit de la passion",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "goyave",
+			"name" : "goyave",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "decembre"],
-			"vie" : 4
+			"availability" : ["janvier", "fevrier", "decembre"],
+			"days" : 4
 		},
 		{
-			"nom" : "grenade",
+			"name" : "grenade",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
-			"vie" : 5
+			"availability" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "groseille",
+			"name" : "groseille",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 3
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "haricot",
+			"name" : "haricot",
 			"type" : "legume",
-			"consommation" : ["juillet", "aout", "septembre"],
-			"vie" : 3
+			"availability" : ["juillet", "aout", "septembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "haricot mungo",
+			"name" : "haricot mungo",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 2
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 2
 		},
 		{
-			"nom" : "kaki",
+			"name" : "kaki",
 			"type" : "fruit",
-			"consommation" : ["janvier", "octobre", "novembre", "decembre"],
-			"vie" : 6
+			"availability" : ["janvier", "octobre", "novembre", "decembre"],
+			"days" : 6
 		},
 		{
-			"nom" : "kiwi",
+			"name" : "kiwi",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "kumquat",
+			"name" : "kumquat",
 			"type" : "fruit",
-			"consommation" : ["janvier", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "laitue",
+			"name" : "laitue",
 			"type" : "fruit",
-			"consommation" : ["mai", "juin", "juillet", "aout", "septembre"],
-			"vie" : 2
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre"],
+			"days" : 2
 		},
 		{
-			"nom" : "lentille",
+			"name" : "lentille",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
-			"vie" : 7
+			"availability" : ["janvier", "fevrier", "mars", "novembre", "decembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "litchi",
+			"name" : "litchi",
 			"type" : "fruit",
-			"consommation" : ["janvier", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "mache",
+			"name" : "mache",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "novembre", "decembre"],
-			"vie" : 2
+			"availability" : ["janvier", "fevrier", "novembre", "decembre"],
+			"days" : 2
 		},
 		{
-			"nom" : "mais",
+			"name" : "mais",
 			"type" : "legume",
-			"consommation" : ["juillet", "aout", "septembre", "octobre"],
-			"vie" : 3
+			"availability" : ["juillet", "aout", "septembre", "octobre"],
+			"days" : 3
 		},
 		{
-			"nom" : "mandarine",
+			"name" : "mandarine",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
-			"vie" : 12
+			"availability" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
+			"days" : 12
 		},
 		{
-			"nom" : "mangue",
+			"name" : "mangue",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "decembre"],
-			"vie" : 8
+			"availability" : ["janvier", "fevrier", "decembre"],
+			"days" : 8
 		},
 		{
-			"nom" : "melon",
+			"name" : "melon",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 6
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 6
 		},
 		{
-			"nom" : "mure",
+			"name" : "mure",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 3
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 3
 		},
 		{
-			"nom" : "myrtille",
+			"name" : "myrtille",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 3
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "navet",
+			"name" : "navet",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 15
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "nectarine",
+			"name" : "nectarine",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 3
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 3
 		},
 		{
-			"nom" : "noisette",
+			"name" : "noisette",
 			"type" : "fruit",
-			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 60
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 60
 		},
 		{
-			"nom" : "noix",
+			"name" : "noix",
 			"type" : "fruit",
-			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 80
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 80
 		},
 		{
-			"nom" : "noix de coco",
+			"name" : "noix de coco",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "novembre", "decembre"],
-			"vie" : 120
+			"availability" : ["janvier", "fevrier", "novembre", "decembre"],
+			"days" : 120
 		},
 		{
-			"nom" : "oignon",
+			"name" : "oignon",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 60
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 60
 		},
 		{
-			"nom" : "orange",
+			"name" : "orange",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "decembre"],
-			"vie" : 10
+			"availability" : ["janvier", "fevrier", "mars", "avril", "decembre"],
+			"days" : 10
 		},
 		{
-			"nom" : "oseille",
+			"name" : "oseille",
 			"type" : "legume",
-			"consommation" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 2
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 2
 		},
 		{
-			"nom" : "panais",
+			"name" : "panais",
 			"type" : "legume",
-			"consommation" : ["septembre", "octobre", "novembre", "decembre"],
-			"vie" : 30
+			"availability" : ["septembre", "octobre", "novembre", "decembre"],
+			"days" : 30
 		},
 		{
-			"nom" : "pasteque",
+			"name" : "pasteque",
 			"type" : "fruit",
-			"consommation" : ["mai", "juin", "juillet", "aout", "septembre"],
-			"vie" : 6
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre"],
+			"days" : 6
 		},
 		{
-			"nom" : "patate douce",
+			"name" : "patate douce",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 8
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 8
 		},
 		{
-			"nom" : "peche",
+			"name" : "peche",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre"],
-			"vie" : 4
+			"availability" : ["juin", "juillet", "aout", "septembre"],
+			"days" : 4
 		},
 		{
-			"nom" : "petits pois",
+			"name" : "petits pois",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet"],
-			"vie" : 5
+			"availability" : ["juin", "juillet"],
+			"days" : 5
 		},
 		{
-			"nom" : "poire",
+			"name" : "poire",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 5
+			"availability" : ["janvier", "fevrier", "mars", "avril", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "poireau",
+			"name" : "poireau",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 12
+			"availability" : ["janvier", "fevrier", "mars", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 12
 		},
 		{
-			"nom" : "poivron",
+			"name" : "poivron",
 			"type" : "legume",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 7
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
 		},
 		{
-			"nom" : "pomelo",
+			"name" : "pomelo",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai"],
-			"vie" : 15
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai"],
+			"days" : 15
 		},
 		{
-			"nom" : "pomme",
+			"name" : "pomme",
 			"type" : "fruit",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "mai", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "fevrier", "mars", "avril", "mai", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "pomme de terre",
+			"name" : "pomme de terre",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "fevrier", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "potimarron",
+			"name" : "potimarron",
 			"type" : "legume",
-			"consommation" : ["septembre", "octobre"],
-			"vie" : 60
+			"availability" : ["septembre", "octobre"],
+			"days" : 60
 		},
 		{
-			"nom" : "potiron",
+			"name" : "potiron",
 			"type" : "legume",
-			"consommation" : ["septembre", "octobre"],
-			"vie" : 60
+			"availability" : ["septembre", "octobre"],
+			"days" : 60
 		},
 		{
-			"nom" : "prune",
+			"name" : "prune",
 			"type" : "fruit",
-			"consommation" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
-			"vie" : 15
+			"availability" : ["juin", "juillet", "aout", "septembre", "octobre", "novembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "radis",
+			"name" : "radis",
 			"type" : "legume",
-			"consommation" : ["septembre", "octobre", "novembre"],
-			"vie" : 7
+			"availability" : ["septembre", "octobre", "novembre"],
+			"days" : 7
 		},
 		{
-			"nom" : "raisin",
+			"name" : "raisin",
 			"type" : "fruit",
-			"consommation" : ["mars", "avril", "mai", "juin"],
-			"vie" : 5
+			"availability" : ["mars", "avril", "mai", "juin"],
+			"days" : 5
 		},
 		{
-			"nom" : "rhubarbe",
+			"name" : "rhubarbe",
 			"type" : "fruit",
-			"consommation" : ["avril", "mai", "juin", "juillet"],
-			"vie" : 4
+			"availability" : ["avril", "mai", "juin", "juillet"],
+			"days" : 4
 		},
 		{
-			"nom" : "rutabaga",
+			"name" : "rutabaga",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
-			"vie" : 15
+			"availability" : ["janvier", "fevrier", "mars", "avril", "octobre", "novembre", "decembre"],
+			"days" : 15
 		},
 		{
-			"nom" : "salsifis",
+			"name" : "salsifis",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
-			"vie" : 5
+			"availability" : ["janvier", "fevrier", "mars", "octobre", "novembre", "decembre"],
+			"days" : 5
 		},
 		{
-			"nom" : "tomate",
+			"name" : "tomate",
 			"type" : "fruit",
-			"consommation" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
-			"vie" : 7
+			"availability" : ["mai", "juin", "juillet", "aout", "septembre", "octobre"],
+			"days" : 7
 		},
 		{
-			"nom" : "topinambour",
+			"name" : "topinambour",
 			"type" : "legume",
-			"consommation" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
-			"vie" : 12
+			"availability" : ["janvier", "fevrier", "octobre", "novembre", "decembre"],
+			"days" : 12
 		}
 	]
-}
