@@ -8,8 +8,6 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
 
-import static wadge.fridge.Fridge.writeFridge;
-
 public class DeleteFood {
 
     public static void delete(List<Map<String, Object>> deleteList) throws IOException {

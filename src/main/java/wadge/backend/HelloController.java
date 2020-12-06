@@ -29,25 +29,6 @@ public class HelloController {
     private static String FRIDGE_FILE = "fridge.json";
     private static String FOOD_FILE = "food_list.json";
 
-    @RequestMapping(path="/food", method= RequestMethod.POST)
-    public void createFridge(@RequestBody List<Map<String,  Object>> foodlist) {
-         Fridge.writeFridge(foodlist);
-      
-    }
-
-    @RequestMapping(path="/fridge", method= RequestMethod.GET)
-    public ResponseEntity<List<Map<String, Object>>> readMyFridge() {
-        // List<Map<String, Object>> list = Fridge.readFridge(FRIDGE_FILE);
-        // return new ResponseEntity<>(list, HttpStatus.OK);
-        return new ResponseEntity<>(null, HttpStatus.OK);
-    }
-
-    @RequestMapping(path="/fridge/food", method= RequestMethod.GET)
-    public ResponseEntity<List<Map<String, Object>>> readFridge2() {
-        List<Map<String, Object>> list = Fridge.readFile(FRIDGE_FILE);
-        return new ResponseEntity<>(list, HttpStatus.OK);
-    }
-
     @RequestMapping(path = "/food_list", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> readFile() {
         List<Map<String, Object>> list = FoodList.readFile(FOOD_FILE);
@@ -111,9 +92,4 @@ public class HelloController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/display-fridge", method= RequestMethod.GET)
-    public ResponseEntity<List<Map<String, Object>>> readFridge() {
-        List<Map<String, Object>> list = Fridge.readFile(FRIDGE_FILE);
-        return new ResponseEntity<>(list, HttpStatus.OK);
-    }
 }

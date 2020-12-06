@@ -100,7 +100,4 @@ public class ExpirationRecall {
 
     }    
 
-    public static void main(String[] args) {
-        
-    }
 }
