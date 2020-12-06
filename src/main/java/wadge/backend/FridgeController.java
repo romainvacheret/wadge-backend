@@ -1,14 +1,21 @@
 package wadge.backend;
 
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import wadge.fridge.impl.ExpirationRecall.RecallType;
+import wadge.fridge.impl.ExpirationRecall;
 import wadge.fridge.impl.Fridge;
 import wadge.fridge.impl.FridgeFood;
 
@@ -40,5 +47,15 @@ public class FridgeController {
         
         // TODO Add return value
         return null;
+    }
+
+    @RequestMapping(path = "/alerts", method= RequestMethod.GET)
+    public  Map<String, List<FridgeFood>> getExpirationAlerts() {
+        Map<String, List<FridgeFood>> result = new HashMap<>();
+        Arrays.asList(RecallType.values()).forEach(type -> 
+            result.put(type.toString(), ExpirationRecall.getExpirationList(type, FRIDGE))
+        );
+
+        return result;
     }
 }

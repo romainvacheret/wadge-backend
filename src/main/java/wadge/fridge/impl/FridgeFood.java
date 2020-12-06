@@ -14,6 +14,11 @@ public class FridgeFood {
         this.products = Arrays.asList(products);
     }
 
+    public FridgeFood(String name, List<FoodElement> products) {
+        this.name = name;
+        this.products = products;
+    }
+
     public String getName() { return this.name; }
     public List<FoodElement> getProducts() { return this.products; }
 

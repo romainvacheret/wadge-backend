@@ -73,18 +73,18 @@ public class HelloController {
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @RequestMapping(path = "/alerts", method= RequestMethod.GET)
-    public ResponseEntity<Map<String, List<Map<String, String>>>> getExpirationAlerts() {
-        Map<String, List<Map<String, String>>> result = new HashMap<>();
-        ExpirationRecall recall = new ExpirationRecall();
+    // @RequestMapping(path = "/alerts", method= RequestMethod.GET)
+    // public ResponseEntity<Map<String, List<Map<String, String>>>> getExpirationAlerts() {
+    //     Map<String, List<Map<String, String>>> result = new HashMap<>();
+    //     ExpirationRecall recall = new ExpirationRecall();
 
-        expirationTypes.forEach(type -> {
-            System.out.println(type);
-            result.put(type, recall.getExpirationList(RecallType.valueOf(type)));
-        });
+    //     expirationTypes.forEach(type -> {
+    //         System.out.println(type);
+    //         result.put(type, recall.getExpirationList(RecallType.valueOf(type)));
+    //     });
 
-        return new ResponseEntity<>(result, HttpStatus.OK);
-    }
+    //     return new ResponseEntity<>(result, HttpStatus.OK);
+    // }
 
     @RequestMapping(path="/recipes", method= RequestMethod.GET)
     public ResponseEntity<List<Map<String, Object>>> getRecipes() {
