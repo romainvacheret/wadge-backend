@@ -26,7 +26,7 @@ Lancez le projet.
 
 Si vous ne lancez que cette partie de l'application, vous aurez uniquement l'API. Pour utiliser l'interface utilisateur, vous devez également utiliser le front end.
 ```Bash
-git clone git@github.com:RomainVacheret/Wadge-BackEnd.git
+git clone https://github.com/RomainVacheret/Wadge-BackEnd.git
 cd Wadge-BackEnd
 touch .env
 chmod a+x ./gradlew
