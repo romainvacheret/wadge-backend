@@ -1,0 +1,22 @@
+@startuml getFridgeSystem
+actor User
+autonumber
+
+participant ": Front" as frontend
+participant ": Back" as backend
+
+User -> frontend: cliquer sur "Frigo"
+activate frontend
+frontend -> backend: GET /fridge
+activate backend
+backend --> frontend: liste des légumes du frigo
+deactivate backend
+User <-- frontend: afficher liste des légumes du frigo
+deactivate frontend
+
+User -> frontend: cliquer sur un légume X
+activate frontend
+User <-- frontend: afficher informations du légume X
+deactivate frontend
+
+@enduml
