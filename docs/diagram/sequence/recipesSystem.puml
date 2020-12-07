@@ -1,10 +1,9 @@
-@startuml
+@startuml recipesSystem
 autonumber
 actor User
 participant ": Front" as frontend
 participant ": Back" as backend
 
- 
 User -> frontend: cliquer sur "Recettes"
 activate frontend
 frontend -> backend: GET /recipes
