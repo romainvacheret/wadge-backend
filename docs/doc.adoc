@@ -16,7 +16,7 @@ NavBar plus simple.
 [cols="h,5a"]
 |===
 | URL
-| /food_list
+| /foods
 | Method
 | GET
 | Response Body
@@ -42,14 +42,40 @@ NavBar plus simple.
 [cols="h,5a"]
 |===
 | URL
-| /filter/{month}
+| /foods/{month}
 | Method
 | GET
 | Response Body
 | [
     {
-        "type": "legume",
-        "nom": "ail"
+        "name":"ananas",
+        "type":"fruit",
+        "availability":
+        [
+            "janvier",
+            "fevrier",
+            "mars",
+            "avril",
+            "octobre",
+            "novembre",
+            "decembre"
+        ],
+        "days":5
+    },
+    {
+        "name":"avocat",
+        "type":"fruit",
+        "availability":
+        [
+            "janvier",
+            "fevrier",
+            "mars",
+            "avril",
+            "octobre",
+            "novembre",
+            "decembre"
+        ],
+        "days":3
     }...
 ]
 |===
@@ -87,6 +113,45 @@ NavBar plus simple.
     ]
 |===
 
+[cols="h,5a"]
+|===
+| URL
+| /fridge
+| Method
+| GET
+| Response Body
+| 
+    [
+        {"name":"banane","products":[{"insertionDate":"17/11/2020","peremptionDate":"01/12/2020","quantity":2}
+        ...
+    ]
+|===
+
+[cols="h,5a"]
+|===
+| URL
+| /fridge/addition
+| Method
+| POST
+| Response Body
+| 
+    []
+|===
+
+[cols="h,5a"]
+|===
+| URL
+| /recipes
+| Method
+| GET
+| Response Body
+| 
+    [
+        {"personnes":3,"ingredients":[{"nom":"carotte","quantite":2},{"nom":"butternut","quantite":0.5},{"nom":"pomme de terre","quantite":1},{"nom":"oignon","quantite":1},{"nom":"celeri","quantite":0.75},{"nom":"navet","quantite":1},{"nom":"persil","quantite":-1},{"nom":"bouillon cube","quantite":-1},{"nom":"cumin","quantite":-1}],"difficulte":1,"nom":"Soupe d'automne à la courge de butternut","etapes":["Faire revenir ensemble dans une cocotte, avec une cuillère d'huile d'olive, l'oignon, le céleri et le navet émincés.","Faire revenir ensemble dans une poèle haute, carottes, courge et pomme de terre, épluchées et coupées en petites cubes. Dès que c'est grillé, verser ces légumes dans la cocotte.","Verser 1.25 litre d'eau froide.","Ajouter le bouillon cube et une petite cuillerée de cumin.","Dès le bouillonnement de l'eau, baisser le feu et laisser cuire 20, 25 min.","En cours de cuisson, ajouter une poignée de persil frisé émincé.","En fin de cuisson, mixer le tout et vérifier l'assaisonnement."
+        }...
+    ]
+        
+|===
 
 == Diagramme de classe
 
@@ -115,8 +180,7 @@ image::./diagram/out/map.svg[]
 image::./diagram/out/monthFilter.svg[]
 === Liste des aliments à manger aux différents dates
 image::./diagram/out/getFridge.svg[]
-// TODO
-// === Liste des recettes
-// image::./diagram/out/recipies.svg[] 
+=== Liste des recettes
+image::./diagram/out/recipes.svg[] 
 === Ajout d'aliments au frigo
 image::./diagram/out/addToFridge.svg[]
