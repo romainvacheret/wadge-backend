@@ -1,4 +1,4 @@
-@startuml Get fridge
+@startuml getFridge
 participant ": Front" as ft
 participant ": Back" as bk
 participant ": FridgeController" as fc

@@ -1,4 +1,4 @@
-@startuml Add to fridge_
+@startuml addToFridge
 
 participant ": Front" as ft
 participant ": Back" as bk

@@ -1,4 +1,4 @@
-@startuml Wadge-BackEnd
+@startuml wadgeBackEnd
 
 package main.java.wadge{
     package backend{

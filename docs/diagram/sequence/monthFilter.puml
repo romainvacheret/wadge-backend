@@ -1,4 +1,4 @@
-@startuml Month filter
+@startuml monthFilter
 participant ": Front" as ft
 participant ": Back" as bk
 participant ": FoodController" as fc
