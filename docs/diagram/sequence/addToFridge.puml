@@ -21,7 +21,7 @@ ft -> bk: POST /fridge/addition
 activate bk
 bk -> fc: addToFridge()
 activate fc
-create "FridgeContoller.f: Fridge" as f
+create "FridgeController.f: Fridge" as f
 fc -> f: getInstance()
 activate f
 f --> f: readFridge()

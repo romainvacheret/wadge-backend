@@ -8,7 +8,7 @@ ft -> bk: GET /foods/{month}
 activate bk
 bk -> fc: getMonth()
 activate fc
-create "FoodContoller.foodList: FoodList" as fd1
+create "FoodController.foodList: FoodList" as fd1
 fc -> fd1: getInstance()
 activate fd1
 fd1 --> fd1: readFile()

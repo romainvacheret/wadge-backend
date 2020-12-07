@@ -8,7 +8,7 @@ ft -> bk: GET /fridge
 activate bk
 bk -> fc: getFridge()
 activate fc
-create "FridgeContoller.f: Fridge" as f
+create "FridgeController.f: Fridge" as f
 fc -> f: getInstance()
 activate f
 f --> f: readFridge()
