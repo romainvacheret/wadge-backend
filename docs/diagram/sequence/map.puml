@@ -1,0 +1,23 @@
+@startuml map
+
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": HelloController" as c
+
+activate ft
+ft -> bk: GET /map/{lat}/{lng}
+activate bk
+bk -> c: getCloseShops()
+activate c
+create "FridgeController.s: Seach" as s
+c -> s: new()
+activate s
+s --> c: request()
+deactivate s
+c --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
+
+@enduml
