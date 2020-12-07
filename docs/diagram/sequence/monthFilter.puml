@@ -1,0 +1,10 @@
+@startuml Month filter
+autonumber
+actor Utilisateur
+Utilisateur -> Front: Clique sur l'un des mois du filtre
+Front -> "FoodController::getMonth": Demande la liste des produits disponibles pour un mois donné
+"FoodController::getMonth" -> "FoodList::getFoodFromGivenMonth": Récupère les aliments à consommer ce mois-ci
+"FoodList::getFoodFromGivenMonth" -> "FoodController::getMonth"
+"FoodController::getMonth"-> Front: Envoie du résultat de la requête
+Front -> Utilisateur: Affichage des aliments 
+@enduml

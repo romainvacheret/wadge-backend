@@ -1,0 +1,10 @@
+@startuml Get Filtre
+autonumber
+actor Utilisateur
+Utilisateur -> Front: Clique sur l'onglet "Frigo"
+Front -> "FridgeController::getFridge": Demande le contenu du frigo
+"FridgeController::getFridge" -> "Fridge::getFood": Récupère le contenu
+"Fridge::getFood" -> "FridgeController::getFridge"
+"FridgeController::getFridge"-> Front: Envoie du résultat de la requête
+Front -> Utilisateur: Affichage du frigo
+@enduml
