@@ -1,0 +1,204 @@
+@startuml Wadge-BackEnd
+
+package main.java.wadge{
+    package backend{
+        class Application {
+            + main(args: []string): void <<static>>
+        }
+        class HelloController {
+            + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
+            + getRecipes(): ResponseEntity<List<Map<string, Object>>>
+            }
+        class FoodController{
+            - FOOD_LIST: string <<final>> <<static>>
+            + getFridgeList(): List<Food>
+            + getMonth(month: string): List<Food>
+        }
+        class FridgeController{
+            - FRIDGE: string <<static>>
+            + getFridge(): List<FridgeFood>
+            + addToFridge(foodList: String): List<FridgeFood>
+            + getExpirationAlerts(): List<Map<string, FridgeFood>>
+        }
+    }
+    package fridge{
+
+        package fridge.api{
+            interface IFridge {
+                writeFridge(fileName: String): void
+                readFridge(fileName: String): void
+                readFile(fileName: String): List<FridgeFood>
+                addToFridge(newFoods: List<FridgeFood>): void
+                stringToFridgeFood(content: String): List<FridgeFood>
+             }
+        }
+
+        package fridge.impl{
+
+            class ExpirationRecall {
+                - getExpirationDateFromPredicate(predicate: Predicate<FoodElement>, fileName: String): List<FridgeFood> <<static>>
+                - getExpirationList(type: RecallType, fileName: String): List<FridgeFood> <<static>>
+            }
+            
+            
+            enum RecallType {
+                TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED
+            }
+
+            ExpirationRecall o..> RecallType
+
+            class FoodElement {
+                - insertionDate: String
+                - peremptionDate: String
+                - quantity: int
+                + this()
+                + this(insertionDate: String, peremptionDate: String, quantity: int)
+                + getInsertionDate(): String
+                + getPeremptionDate(): String
+                + getQuantity(): int
+                + toString(): String
+                + hashCode(): int
+                + equals(obj: Object): boolean
+            }
+
+            class FoodElementPredicatesFactory {
+                - dateFormater: SimpleDateFormat
+                - currentDate: Date
+                - instance: FoodElementPredicatesFactory
+                - this()
+                - dateDifference(d1: Date, d2: Date): long <<static>>
+                + getInstance(): FoodElementPredicatesFactory <<static>>
+                + dateProcessing(date: String): long
+                - getPredicate(type: RecallType): Predicate<FoodElement>
+                + main(args: String[]): void
+            }
+
+            class Fridge implements IFridge{
+                - foods: List<FridgeFood>
+                - <<final>> mapper: ObjectMapper
+                - <<static>> instance: FridgeFridge
+                - this()
+                + getInstance(): Fridge <<static>>
+                + readFile(fileName: string): List<FridgeFood> <<static>>
+                + readFridge(fileName: String): void
+                + writeFridge(fileName: String): void
+                + addToFridge(newFoods: List<FridgeFood>): void
+                + getFood(): List<FridgeFood>
+                + stringToFridgeFood(content: String): List<FridgeFood>
+            }
+
+            class FridgeFood{
+                - name: String
+                - products: List<FoodElement>
+                - this()
+                - this(name: String, products: List<FoodElement>)
+                + getName(): String
+                + getProducts(): List<FoodELement>
+                + toString(): String
+                + hashCode(): int
+                + equals(obj: Object): boolean
+            }
+
+        }
+        
+    }
+
+    package food{
+
+        package food.api{
+            interface IFoodList{
+                readFile(fileName: String): void
+                getFoodFromGivenMonth(month: Month): List<Food> 
+            }
+            enum Month{
+                JANUARY,
+                FEBRUARY,
+                MARCH,
+                APRIL,
+                MAY,
+                JUN,
+                JULY,
+                AUGUST,
+                SEPTEMBER,
+                OCTOBER,
+                NOVEMBER,
+                DECEMBER;
+            }
+        }
+
+        package food.impl{
+            class Food {
+                - name: String
+                - type: String
+                - availability: List<String>
+                - days: int
+                + this()
+                + this(name: String, type: String, availability: String[], days: int)
+                + getName(): String
+                + getType(): String
+                + getAvailability(): List<String>
+                + getDays(): int
+                + hashCode(): int
+                + equals(obj: Object): boolean
+                + toString(): String
+            }
+            
+            class FoodList implements IFoodList {
+                - foods: List<Food>
+                - <<final>> mapper: ObjectMapper
+                - <<static>> instance: FoodList
+                - this()
+                + <<static>> getInstance(): FoodList
+                + getFoodFromGivenMonth(month: Month): List<Food>
+                + readFile(fileName: String): void
+                + getFoods(): List<Food>
+            }
+        }
+    }
+    
+    package google{
+
+         class Search {
+            - KEY: string <<static final>>
+            + jsonToFile(fileName: string, json: JSONObject): void
+            + request(lat: double, lng: double): JSONObject
+            + parseJSON(json: JSONArray): JSONArray
+        }
+    }
+
+    package recipe{
+
+        class Recipe {
+            - name: string <<final>>
+            - steps: List<string> <<final>>
+            - quantity: Object <<final>>
+            - ingredient: List<Map<string, Object>>
+            + this(name: String, steps: List<string>, quantity: Object, ingredients: List<Map<string, Object>>): Recipe
+            + readRecipes(): List<Map<string, Object>> <<static>>
+        }
+
+        class RecipeBuilder {
+            - name: string <<final>>
+            - steps: List<string> <<final>>
+            - quantity: Object <<final>>
+            - ingredient: List<Map<string, Object>>
+            + this(name: string): RecipeBuilder
+            + readRecipes(): List<Map<String, Object>>
+        }
+
+        RecipeBuilder o..> Recipe
+    }
+
+    HelloController o..> Search
+    HelloController o..> Recipe
+    FoodController o..> FoodList
+    FridgeController o..> Fridge
+    FridgeController o..> RecallType
+    FridgeController o..> ExpirationRecall
+    FoodList o..> Food
+    Fridge o..> FridgeFood
+    FridgeFood o..> FoodElement
+
+}
+
+@enduml
