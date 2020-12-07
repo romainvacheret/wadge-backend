@@ -1,0 +1,20 @@
+@startuml
+actor User
+autonumber
+
+participant ": Front" as frontend
+participant ": Back" as backend
+
+User -> frontend: cliquer sur mois X
+activate frontend
+frontend -> backend: GET /foods/{X}
+activate backend
+backend --> frontend: liste des légumes du mois X
+deactivate backend
+User <-- frontend: afficher liste des légumes du mois X
+deactivate frontend
+User -> frontend: cliquer sur un légume Y
+activate frontend
+User <-- frontend: afficher informations du légume Y
+deactivate frontend
+@enduml
