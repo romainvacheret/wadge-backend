@@ -1,20 +1,8 @@
-' @startuml Add to fridge
-' autonumber
-' actor Utilisateur
-' Utilisateur -> Front: Clique sur l'onglet "Ajout au frigo"
-' Front -> "FridgeController::addToFridge": Demande le contenu du frigo
-' "FridgeController::addToFridge" -> "Fridge::addToFridge": Récupère le contenu
-' "Fridge::addToFridge" -> "FridgeController::addToFridge"
-' "FridgeController::addToFridge"-> Front: Envoie du résultat de la requête
-' Front -> Utilisateur: Redirection vers le frigo
-' @enduml
-@startuml Add to fridge_
-
+@startuml addToFridge
 
 participant ": Front" as ft
 participant ": Back" as bk
 participant ": FridgeController" as fc
-
 
 activate ft
 ft -> bk: POST /fridge/addition

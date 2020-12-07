@@ -26,7 +26,7 @@ public enum Month {
             case OCTOBER:
                 return "octobre";
             case NOVEMBER:
-                return "nomvembre";
+                return "novembre";
             case DECEMBER:
                 return "decembre";
             default:
