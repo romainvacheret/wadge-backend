@@ -70,7 +70,6 @@ package main.java.wadge{
                 + getInstance(): FoodElementPredicatesFactory <<static>>
                 + dateProcessing(date: String): long
                 - getPredicate(type: RecallType): Predicate<FoodElement>
-                + main(args: String[]): void
             }
 
             class Fridge implements IFridge{
