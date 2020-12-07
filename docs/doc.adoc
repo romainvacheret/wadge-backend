@@ -1,6 +1,15 @@
 = Wadge-BackEnd
 Doc Writer <project.wadge@gmail.com>
 
+Beaucoup de personnes ne portent pas une grande attention à ce qu’elles achètent et se retrouvent avec des aliments périmés. Elles doivent donc les jeter. Certaines mangent systématiquement la même chose et seraient contentes de découvrir de nouvelles recettes.
+D’autant plus s’ils ont déjà tous les aliments nécessaires chez eux. D’autres encore souhaitent consommer les aliments de saison pour ne pas faire importer de produits.
+
+Nous avons créer une application pour gérer divers aspect de l’univers culinaire. Le gachis alimentaire est adressé au travers d’un suivi des dates de péremption des produits que l’on possède chez soi. Les nombreuses importations de produits sont limitées par la mise en évidence des fruits et légumes de saison directement dans des recettes associées.
+
+Wadge est une application composée en deux parties. La première, Wadge-BackEnd correspond au code métier Java qui a pour but de gérer toutes requêtes ( création du frigo, modifier le frigo, lire et afficher les aliments ). Tandis que Wadge-FrontEnd à pour objectif de simplifier l'interaction entre le BackEnd et l'utilisateur.
+
+NavBar plus simple. 
+
 == Routes
 [cols="h,5a"]
 |===
@@ -79,6 +88,12 @@ Doc Writer <project.wadge@gmail.com>
 
 
 == Diagramme de classe
+
+Les classes dans le BackEnd sont dispatcher dans les packages.
+Le package Fridge aura pour but de gérer les requetes liées au Frigo de l'utilisateur (le créer, le modifier...).
+Les classes Foods et FridgeFood nous permettent de raccourcir les listes utilisées. Pour chaque fruits & légumes nous créons un objet Food.
+Nous avons aussi 3 controleurs. Chacun gérant une partie de l'application.
+
 image::./diagram/out/Wadge-BackEnd.svg[]
 == Différents diagrammes de séquences
 === Carte
