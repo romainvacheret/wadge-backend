@@ -1,4 +1,4 @@
-@startuml
+@startuml monthFilterSystem
 actor User
 autonumber
 

@@ -1,0 +1,22 @@
+@startuml getFridge
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": FridgeController" as fc
+
+activate ft
+ft -> bk: GET /fridge
+activate bk
+bk -> fc: getFridge()
+activate fc
+create "FridgeController.f: Fridge" as f
+fc -> f: getInstance()
+activate f
+f --> f: readFridge()
+f --> fc: getFood()
+deactivate f
+fc --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml addToFridge
+
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": FridgeController" as fc
+
+activate ft
+ft -> bk: POST /fridge/addition
+activate bk
+bk -> fc: addToFridge()
+activate fc
+create "FridgeController.f: Fridge" as f
+fc -> f: getInstance()
+activate f
+f --> f: readFridge()
+f --> fc: stringToFridgeFood()
+fc --> f: addToFridge()
+f --> f: writeFridge()
+deactivate f
+fc --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
+
+@enduml

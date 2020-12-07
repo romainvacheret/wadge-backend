@@ -1,7 +1,0 @@
-@startuml
-autonumber
-actor User
-User -> Front: Sélectionne les aliments présents dans son frigo
-Front -> Back: Requête de la liste des aliments sélectionnés par l'utilisateur
-Back -> "createFridge()": Requête de la liste des péremptions à la date donnée
-@enduml
