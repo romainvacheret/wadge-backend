@@ -26,13 +26,14 @@ plugins {
 
 apply plugin: VersionPlugin
 
-version '1.0.0-alpha.1'
+
+version '1.0.0-beta.0'
 
 class VersionPlugin implements Plugin<Project> {
     public void apply(Project project) {
         project.task('version') {
             project.gradle.projectsEvaluated {
-                println '1.0.0-alpha.1'
+                println "$project.version"
             }
         }
     }
