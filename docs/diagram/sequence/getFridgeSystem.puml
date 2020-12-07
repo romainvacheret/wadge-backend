@@ -1,4 +1,4 @@
-@startuml
+@startuml get Fridge system
 actor User
 autonumber
 

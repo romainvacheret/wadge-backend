@@ -1,4 +1,4 @@
-@startuml Get filtre
+@startuml Get fridge
 participant ": Front" as ft
 participant ": Back" as bk
 participant ": FridgeController" as fc
