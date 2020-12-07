@@ -1,10 +1,38 @@
-@startuml Add to fridge
-autonumber
-actor Utilisateur
-Utilisateur -> Front: Clique sur l'onglet "Ajout au frigo"
-Front -> "FridgeController::addToFridge": Demande le contenu du frigo
-"FridgeController::addToFridge" -> "Fridge::addToFridge": Récupère le contenu
-"Fridge::addToFridge" -> "FridgeController::addToFridge"
-"FridgeController::addToFridge"-> Front: Envoie du résultat de la requête
-Front -> Utilisateur: Redirection vers le frigo
+' @startuml Add to fridge
+' autonumber
+' actor Utilisateur
+' Utilisateur -> Front: Clique sur l'onglet "Ajout au frigo"
+' Front -> "FridgeController::addToFridge": Demande le contenu du frigo
+' "FridgeController::addToFridge" -> "Fridge::addToFridge": Récupère le contenu
+' "Fridge::addToFridge" -> "FridgeController::addToFridge"
+' "FridgeController::addToFridge"-> Front: Envoie du résultat de la requête
+' Front -> Utilisateur: Redirection vers le frigo
+' @enduml
+@startuml Add to fridge_
+
+
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": FridgeController" as fc
+
+
+activate ft
+ft -> bk: POST /fridge/addition
+activate bk
+bk -> fc: addToFridge()
+activate fc
+create "FridgeContoller.f: Fridge" as f
+fc -> f: getInstance()
+activate f
+f --> f: readFridge()
+f --> fc: stringToFridgeFood()
+fc --> f: addToFridge()
+f --> f: writeFridge()
+deactivate f
+fc --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
+
 @enduml

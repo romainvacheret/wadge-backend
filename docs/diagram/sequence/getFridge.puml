@@ -1,10 +1,22 @@
-@startuml Get Filtre
-autonumber
-actor Utilisateur
-Utilisateur -> Front: Clique sur l'onglet "Frigo"
-Front -> "FridgeController::getFridge": Demande le contenu du frigo
-"FridgeController::getFridge" -> "Fridge::getFood": Récupère le contenu
-"Fridge::getFood" -> "FridgeController::getFridge"
-"FridgeController::getFridge"-> Front: Envoie du résultat de la requête
-Front -> Utilisateur: Affichage du frigo
+@startuml Get filtre
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": FridgeController" as fc
+
+activate ft
+ft -> bk: GET /fridge
+activate bk
+bk -> fc: getFridge()
+activate fc
+create "FridgeContoller.f: Fridge" as f
+fc -> f: getInstance()
+activate f
+f --> f: readFridge()
+f --> fc: getFood()
+deactivate f
+fc --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
 @enduml

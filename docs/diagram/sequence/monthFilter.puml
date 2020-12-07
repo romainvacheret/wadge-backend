@@ -1,10 +1,22 @@
 @startuml Month filter
-autonumber
-actor Utilisateur
-Utilisateur -> Front: Clique sur l'un des mois du filtre
-Front -> "FoodController::getMonth": Demande la liste des produits disponibles pour un mois donné
-"FoodController::getMonth" -> "FoodList::getFoodFromGivenMonth": Récupère les aliments à consommer ce mois-ci
-"FoodList::getFoodFromGivenMonth" -> "FoodController::getMonth"
-"FoodController::getMonth"-> Front: Envoie du résultat de la requête
-Front -> Utilisateur: Affichage des aliments 
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": FoodController" as fc
+
+activate ft
+ft -> bk: GET /foods/{month}
+activate bk
+bk -> fc: getMonth()
+activate fc
+create "FoodContoller.foodList: FoodList" as fd1
+fc -> fd1: getInstance()
+activate fd1
+fd1 --> fd1: readFile()
+fd1 --> fc: getFoodFromGivenMonth()
+deactivate fd1
+fc --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
 @enduml
