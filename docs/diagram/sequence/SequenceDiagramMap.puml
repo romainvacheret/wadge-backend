@@ -1,8 +1,17 @@
 @startuml 
 autonumber
 actor User
-User -> Front: Requête Map
-Front -> ApiGoogleMap: Requête affichage de la Map
-ApiGoogleMap->Front: Réponse affichage de la Map
-Front -> User: Affichage de la Map
+participant ": Front" as frontend
+participant ": Back" as backend
+
+User -> frontend: cliquer sur "Cartes des magasins"
+activate frontend
+frontend ->backend:GET /map/lat/lng
+deactivate frontend
+activate backend
+backend-->frontend: réponse affichage de la map
+deactivate backend
+activate frontend
+frontend --> User: afficher map de la liste des magasins
+deactivate frontend
 @enduml
