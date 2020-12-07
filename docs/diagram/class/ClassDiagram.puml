@@ -20,6 +20,7 @@
                 + readFridge(): ResponseEntity<List<Map<string, Object>>>
             }
             
+            
         }
 
         package food_list {
