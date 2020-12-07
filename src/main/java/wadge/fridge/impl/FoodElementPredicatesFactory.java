@@ -55,19 +55,19 @@ public class FoodElementPredicatesFactory {
                 case FIVE_DAYS:
                     rtr = x -> {
                         long result = this.dateProcessing(x.getPeremptionDate());
-                        return result < 5 && result >= 2;
+                        return result < 6 && result > 2;
                     } ;
                     break;
                 case SEVEN_DAYS:
                     rtr = x -> {
                         long result = this.dateProcessing(x.getPeremptionDate());
-                        return result < 7 && result >= 5;
+                        return result < 8 && result > 5;
                     } ;
                     break;
                 case FORTEEN_DAYS:
                     rtr = x -> {
                         long result = this.dateProcessing(x.getPeremptionDate());
-                        return result < 14 && result >= 7;
+                        return result < 15 && result > 7;
                     } ;
                     break;
                 case EXPIRED:
@@ -77,9 +77,5 @@ public class FoodElementPredicatesFactory {
                     rtr = x -> this.dateProcessing(x.getPeremptionDate()) > 14;
             }
         return rtr;
-    }
-
-    public static void main(String[] args) {
-        Date a = new Date();
     }
 }
