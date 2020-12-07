@@ -1,0 +1,23 @@
+@startuml recipes
+
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": HelloController" as hc
+
+activate ft
+ft -> bk : GET /recipes
+activate bk
+bk -> hc : getRecipes()
+activate hc
+create "HelloController.r: Recipes" as r
+hc -> r : readRecipes()
+activate r
+r --> hc
+deactivate r
+hc --> bk
+deactivate hc
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
+@enduml

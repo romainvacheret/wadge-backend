@@ -1,0 +1,22 @@
+@startuml monthFilter
+participant ": Front" as ft
+participant ": Back" as bk
+participant ": FoodController" as fc
+
+activate ft
+ft -> bk: GET /foods/{month}
+activate bk
+bk -> fc: getMonth()
+activate fc
+create "FoodController.foodList: FoodList" as fd1
+fc -> fd1: getInstance()
+activate fd1
+fd1 --> fd1: readFile()
+fd1 --> fc: getFoodFromGivenMonth()
+deactivate fd1
+fc --> bk
+bk --> ft
+deactivate bk
+ft <-- ft: Traiter les données reçues
+
+@enduml

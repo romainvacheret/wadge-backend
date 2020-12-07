@@ -1,11 +1,22 @@
 = Wadge-BackEnd
 Doc Writer <project.wadge@gmail.com>
 
+Beaucoup de personnes ne portent pas une grande attention à ce qu’elles achètent et se retrouvent avec des aliments périmés. Elles doivent donc les jeter. Certaines mangent systématiquement la même chose et seraient ravies de découvrir de nouvelles recettes.
+D’autant plus s’ils ont déjà tous les aliments nécessaires chez eux. D’autres encore souhaitent consommer les aliments de saison pour ne pas faire importer de produits.
+
+Nous avons créer une application pour gérer divers aspect de l’univers culinaire. Le gachis alimentaire est adressé au travers d’un suivi des dates de péremption des produits que l’on possède chez soi. Les nombreuses importations de produits sont limitées par la mise en évidence des fruits et légumes de saison directement dans des recettes associées.
+
+Wadge est une application composée en deux parties. La première, 
+link:https://github.com/RomainVacheret/Wadge-BackEnd[Wadge-BackEnd] correspond au code métier Java qui a pour but de gérer toutes requêtes ( création du frigo, modifier le frigo, lire et afficher les aliments ). Tandis que 
+link:https://github.com/RomainVacheret/Wadge-FrontEnd[Wadge-FrontEnd] à pour objectif de simplifier l'interaction entre le BackEnd et l'utilisateur.
+
+NavBar plus simple. 
+
 == Routes
 [cols="h,5a"]
 |===
 | URL
-| /food_list
+| /foods
 | Method
 | GET
 | Response Body
@@ -31,14 +42,40 @@ Doc Writer <project.wadge@gmail.com>
 [cols="h,5a"]
 |===
 | URL
-| /filter/{month}
+| /foods/{month}
 | Method
 | GET
 | Response Body
 | [
     {
-        "type": "legume",
-        "nom": "ail"
+        "name":"ananas",
+        "type":"fruit",
+        "availability":
+        [
+            "janvier",
+            "fevrier",
+            "mars",
+            "avril",
+            "octobre",
+            "novembre",
+            "decembre"
+        ],
+        "days":5
+    },
+    {
+        "name":"avocat",
+        "type":"fruit",
+        "availability":
+        [
+            "janvier",
+            "fevrier",
+            "mars",
+            "avril",
+            "octobre",
+            "novembre",
+            "decembre"
+        ],
+        "days":3
     }...
 ]
 |===
@@ -76,24 +113,74 @@ Doc Writer <project.wadge@gmail.com>
     ]
 |===
 
+[cols="h,5a"]
+|===
+| URL
+| /fridge
+| Method
+| GET
+| Response Body
+| 
+    [
+        {"name":"banane","products":[{"insertionDate":"17/11/2020","peremptionDate":"01/12/2020","quantity":2}
+        ...
+    ]
+|===
 
+[cols="h,5a"]
+|===
+| URL
+| /fridge/addition
+| Method
+| POST
+| Response Body
+| 
+    []
+|===
+
+[cols="h,5a"]
+|===
+| URL
+| /recipes
+| Method
+| GET
+| Response Body
+| 
+    [
+        {"personnes":3,"ingredients":[{"nom":"carotte","quantite":2},{"nom":"butternut","quantite":0.5},{"nom":"pomme de terre","quantite":1},{"nom":"oignon","quantite":1},{"nom":"celeri","quantite":0.75},{"nom":"navet","quantite":1},{"nom":"persil","quantite":-1},{"nom":"bouillon cube","quantite":-1},{"nom":"cumin","quantite":-1}],"difficulte":1,"nom":"Soupe d'automne à la courge de butternut","etapes":["Faire revenir ensemble dans une cocotte, avec une cuillère d'huile d'olive, l'oignon, le céleri et le navet émincés.","Faire revenir ensemble dans une poèle haute, carottes, courge et pomme de terre, épluchées et coupées en petites cubes. Dès que c'est grillé, verser ces légumes dans la cocotte.","Verser 1.25 litre d'eau froide.","Ajouter le bouillon cube et une petite cuillerée de cumin.","Dès le bouillonnement de l'eau, baisser le feu et laisser cuire 20, 25 min.","En cours de cuisson, ajouter une poignée de persil frisé émincé.","En fin de cuisson, mixer le tout et vérifier l'assaisonnement."
+        }...
+    ]
+        
+|===
 
 == Diagramme de classe
-image::./diagram/out/Wadge-BackEnd.svg[]
-== Différents diagrammes de séquences
+
+image::./diagram/out/wadgeBackEnd.svg[]
+
+Notre code est ordonné autour de cinq packages : "backend", "food", "fridge", "google", "recipe". Ils sont s'occupent respectivement des controlleurs de l'API, des aliments, du frigo, de l'utilisation de l'API Google et des recettes.
+Plus précisément, le package "food" est un intermédaire entre les aliments stockés et le reste de l'application. Le package "fridge" se concentre sur les requêtes autour du frigo. Par exemple l'affichage ou le remplissage de celui-ci. L'API Google est utlisé pour informé l'utilisateur des magasins à sa disposition dans ses environs. Enfin, le package "recipe" est une première approche de la gestion de recettes proposées à l'utilisateur.
+Chacun de ces quatre dernier packages ont un controlleur servant d'intermédaire pour l'API.
+
+== Différents diagrammes de séquences (système)
 === Carte
-image::./diagram/out/SequenceDiagramMap.svg[]
+image::./diagram/out/mapSystem.svg[]
 === Liste des aliments en fonction d'un mois donné
-image::./diagram/out/SequenceDiagramFilter.svg[]
-=== Liste des aliments avec leur mois de consommation
-image::./diagram/out/SequenceDiagramFoodList.svg[]
-=== Liste des aliments à manger avant une certaine date
-image::./diagram/out/SequenceDiagramAlert.svg[]
+image::./diagram/out/monthFilterSystem.svg[]
 === Liste des aliments à manger aux différents dates
-image::./diagram/out/SequenceDiagramAlerts.svg[]
+image::./diagram/out/getFridgeSystem.svg[]
 === Liste des recettes
-image::./diagram/out/SequenceDiagramRecipes.svg[]
-=== Liste des aliments présents dans le frigo
-image::./diagram/out/SequenceDiagramFridgeDisplay.svg[]
+image::./diagram/out/recipesSystem.svg[]
 === Ajout d'aliments au frigo
-image::./diagram/out/SequenceDiagramFridgeAddition.svg[]
+image::./diagram/out/addToFridgeSystem.svg[]
+
+== Différents diagrammes de séquences (classiques)
+=== Carte
+image::./diagram/out/map.svg[]
+=== Liste des aliments en fonction d'un mois donné
+image::./diagram/out/monthFilter.svg[]
+=== Liste des aliments à manger aux différents dates
+image::./diagram/out/getFridge.svg[]
+=== Liste des recettes
+image::./diagram/out/recipes.svg[] 
+=== Ajout d'aliments au frigo
+image::./diagram/out/addToFridge.svg[]
