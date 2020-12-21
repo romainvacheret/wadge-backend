@@ -1,7 +1,6 @@
 package wadge.fridge.api;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import wadge.fridge.impl.FridgeFood;

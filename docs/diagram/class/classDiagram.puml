@@ -31,6 +31,10 @@ package main.java.wadge{
                 addToFridge(newFoods: List<FridgeFood>): void
                 stringToFridgeFood(content: string): List<FridgeFood>
              }
+             interface IDataManager {
+                 readFile(fileName: string): List<FridgeFood>
+                 writeFile(data: List<FridgeFood>, fileName: string): void
+             }
         }
 
         package fridge.impl{
@@ -45,7 +49,14 @@ package main.java.wadge{
                 TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER
             }
 
-            ExpirationRecall o..> RecallType
+            class DataManager implements IDataManager{
+                - mapper: ObjectMapper <<final>>
+                - instance: IDataManager <<static>>
+                - this(): DataManager
+                + getInstance(): IDataManager
+                + readFile(fileName: string): List<FridgeFood>
+                + writeFile(data: List<FridgeFood>, fileName: string): void
+             }
 
             class FoodElement {
                 - insertionDate: string
@@ -74,11 +85,11 @@ package main.java.wadge{
 
             class Fridge implements IFridge{
                 - foods: List<FridgeFood>
-                - <<final>> mapper: ObjectMapper
-                - <<static>> instance: FridgeFridge
-                - this()
+                - mapper: ObjectMapper <<final>>
+                - manager: IDataManager <<final>>
+                - instance: FridgeFridge <<static>>
+                - this(): Fridge
                 + getInstance(): Fridge <<static>>
-                + readFile(fileName: string): List<FridgeFood> <<static>>
                 + readFridge(fileName: string): void
                 + writeFridge(fileName: string): void
                 + addToFridge(newFoods: List<FridgeFood>): void
@@ -185,18 +196,24 @@ package main.java.wadge{
             + readRecipes(): List<Map<string, Object>>
         }
 
-        RecipeBuilder o..> Recipe
+        
     }
 
     HelloController o..> Search
     HelloController o..> Recipe
     FoodController o..> FoodList
+    RecipeBuilder o..> Recipe
     FridgeController o..> Fridge
     FridgeController o..> RecallType
     FridgeController o..> ExpirationRecall
     FoodList o..> Food
-    Fridge o..> FridgeFood
+    Fridge *--> FridgeFood
+    Fridge *--> IDataManager
+    Fridge *--> ObjectMapper
     FridgeFood o..> FoodElement
+    ExpirationRecall o..> RecallType
+    DataManager *--> IDataManager
+    DataManager *--> ObjectMapper
 
 }
 
