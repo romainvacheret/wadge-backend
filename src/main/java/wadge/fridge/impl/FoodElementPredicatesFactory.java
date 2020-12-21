@@ -7,6 +7,8 @@ import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 
+import org.apache.commons.lang3.time.DateUtils;
+
 import wadge.fridge.impl.ExpirationRecall.RecallType;
 
 public class FoodElementPredicatesFactory {
@@ -20,7 +22,9 @@ public class FoodElementPredicatesFactory {
         this.currentDate = new Date();
     }
 
-    private static long dateDifference(Date d1, Date d2) {
+    protected static long dateDifference(Date d1, Date d2) {
+        d1 = DateUtils.truncate(d1, java.util.Calendar.DAY_OF_MONTH);
+        d2 = DateUtils.truncate(d2, java.util.Calendar.DAY_OF_MONTH);
         long diff = d1.getTime() - d2.getTime();
         return TimeUnit.DAYS.convert(diff, TimeUnit.MILLISECONDS);
     }
