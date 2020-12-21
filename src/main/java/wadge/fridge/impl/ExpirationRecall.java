@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
+import wadge.fridge.api.IDataManager;
+
 
 public class ExpirationRecall {
 
@@ -13,8 +15,8 @@ public class ExpirationRecall {
     }
 
     private static List<FridgeFood> getExpirationDateFromPredicate(Predicate<FoodElement> predicate, String fileName) {
-        Fridge f = Fridge.getInstance();
-        List<FridgeFood> fridgeList = f.readFile(fileName);
+        IDataManager manager = DataManager.getInstance();
+        List<FridgeFood> fridgeList = manager.readFile(fileName);
         List<FridgeFood> result = new ArrayList<>();
         fridgeList.forEach(food -> {
             List<FoodElement> elements = food.getProducts().stream().filter(predicate).collect(Collectors.toList());
