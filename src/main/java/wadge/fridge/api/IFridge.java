@@ -9,5 +9,4 @@ public interface IFridge {
     void writeFridge(String fileName) throws IOException;
     void readFridge(String fileName);
     void addToFridge(List<FridgeFood> newFoods);
-    List<FridgeFood> stringToFridgeFood(String content);
 }

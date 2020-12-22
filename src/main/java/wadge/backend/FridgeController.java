@@ -6,16 +6,18 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import com.fasterxml.jackson.databind.JsonNode;
+
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import wadge.fridge.impl.ExpirationRecall.RecallType;
+import wadge.fridge.api.IDataManager;
+import wadge.fridge.impl.DataManager;
 import wadge.fridge.impl.ExpirationRecall;
+import wadge.fridge.impl.ExpirationRecall.RecallType;
 import wadge.fridge.impl.Fridge;
 import wadge.fridge.impl.FridgeFood;
 
@@ -32,10 +34,11 @@ public class FridgeController {
     }
 
     @RequestMapping(path = "/fridge/addition", method = RequestMethod.POST)
-    public List<FridgeFood> addToFridge(@RequestBody String foodList) {
+    public List<FridgeFood> addToFridge(@RequestBody JsonNode foodList) {
         Fridge f = Fridge.getInstance();
+        IDataManager manager = DataManager.getInstance();
         f.readFridge(FRIDGE);
-        List<FridgeFood> list = f.stringToFridgeFood(foodList);
+        List<FridgeFood> list = manager.readJson(foodList);
         f.addToFridge(list);
         try {
             f.writeFridge(FRIDGE);

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import wadge.fridge.api.IDataManager;
@@ -19,7 +20,7 @@ public class DataManager implements IDataManager {
     }
 
     public static IDataManager getInstance() {
-        if(instance == null) {
+        if (instance == null) {
             instance = new DataManager();
         }
         return instance;
@@ -41,4 +42,8 @@ public class DataManager implements IDataManager {
         mapper.writeValue(Paths.get(fileName).toFile(), data);
     }
 
+    @Override
+    public List<FridgeFood> readJson(JsonNode node) {
+        return Arrays.asList(this.mapper.convertValue(node, FridgeFood[].class));
+    }
 }
