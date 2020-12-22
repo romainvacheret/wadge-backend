@@ -67,8 +67,8 @@ package main.java.wadge{
                 - insertionDate: string
                 - peremptionDate: string
                 - quantity: int
-                + this()
-                + this(insertionDate: string, peremptionDate: string, quantity: int)
+                + this(): FoodElement
+                + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
                 + getInsertionDate(): string
                 + getPeremptionDate(): string
                 + getQuantity(): int
@@ -81,7 +81,7 @@ package main.java.wadge{
                 - dateFormater: SimpleDateFormat
                 - currentDate: Date
                 - instance: FoodElementPredicatesFactory
-                - this()
+                - this(): FoodElementPredicatesFactory
                 - dateDifference(d1: Date, d2: Date): long <<static>>
                 + getInstance(): FoodElementPredicatesFactory <<static>>
                 + dateProcessing(date: string): long
@@ -104,8 +104,8 @@ package main.java.wadge{
             class FridgeFood{
                 - name: string
                 - products: List<FoodElement>
-                - this()
-                - this(name: string, products: List<FoodElement>)
+                - this(): FridgeFood
+                - this(name: string, products: List<FoodElement>): FridgeFood
                 + getName(): string
                 + getProducts(): List<FoodELement>
                 + toString(): string
@@ -145,8 +145,8 @@ package main.java.wadge{
                 - type: string
                 - availability: List<string>
                 - days: int
-                + this()
-                + this(name: string, type: string, availability: string[], days: int)
+                + this(): Food
+                + this(name: string, type: string, availability: string[], days: int): Food
                 + getName(): string
                 + getType(): string
                 + getAvailability(): List<string>
@@ -158,10 +158,10 @@ package main.java.wadge{
             
             class FoodList implements IFoodList {
                 - foods: List<Food>
-                - <<final>> mapper: ObjectMapper
-                - <<static>> instance: FoodList
-                - this()
-                + <<static>> getInstance(): FoodList
+                - mapper: ObjectMapper <<final>>
+                - instance: FoodList <<static>>
+                - this(): FoodList
+                + getInstance(): FoodList <<static>>
                 + getFoodFromGivenMonth(month: Month): List<Food>
                 + readFile(fileName: string): void
                 + getFoods(): List<Food>
@@ -198,23 +198,22 @@ package main.java.wadge{
             + this(name: string): RecipeBuilder
             + readRecipes(): List<Map<string, Object>>
         }
-
-        
     }
 
     HelloController o..> Search
-    HelloController o..> Recipe
-    FoodController o..> FoodList
-    RecipeBuilder o..> Recipe
-    FridgeController o..> Fridge
-    FridgeController o..> RecallType
-    FridgeController o..> ExpirationRecall
-    FoodList o..> Food
+    HelloController *..> Recipe
+    FoodController *..> FoodList
+    FridgeController *..> Fridge
+    FridgeController *..> RecallType
+    FridgeController *..> ExpirationRecall
+    FridgeController o..> DataManager
+    RecipeBuilder *..> Recipe
+    FoodList *--> Food
     Fridge *--> FridgeFood
     Fridge *--> IDataManager
     Fridge *--> ObjectMapper
     FridgeFood o..> FoodElement
-    ExpirationRecall o..> RecallType
+    ExpirationRecall *..> RecallType
     DataManager *--> IDataManager
     DataManager *--> ObjectMapper
     DataManager *..> JsonNode
