@@ -10,24 +10,14 @@ activate frontend
 frontend -> backend: GET /foods
 activate backend
 backend --> frontend: liste des légumes
-deactivate backend
 User <-- frontend: afficher liste des légumes
-deactivate frontend
-
 User -> frontend: chercher le légume X
-activate frontend
 User <-- frontend: afficher légume X
-deactivate frontend
 User -> frontend: appuyer sur le "+" 2 fois
-activate frontend
 User <-- frontend: afficher 2 quantités du légume x
-deactivate frontend
-
 User -> frontend: cliquer sur "Enregistrer"
-activate frontend
-activate backend
 frontend -> backend: POST /fridge/addition
-backend --> backend: addToFridge()
+backend --> backend: addToFridge(foodList)
 frontend --> frontend: rediriger vers le "Frigo"
 deactivate backend
 User <-- frontend: afficher le frigo

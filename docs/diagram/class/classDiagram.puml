@@ -18,7 +18,7 @@ package main.java.wadge{
             - FOOD_LIST: string <<static final>>
             - foodList: FoodList <<static final>>
             + getFoodList(): List<Food>
-            + getMonth(month: string): List<Food>
+            + getFoodFromMonth(month: string): List<Food>
         }
         class FridgeController{
             - FRIDGE_FILE: string <<static final>>

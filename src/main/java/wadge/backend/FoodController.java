@@ -29,7 +29,7 @@ public class FoodController {
     }
 
     @RequestMapping(path = "/foods/{month}", method= RequestMethod.GET)
-    public List<Food> getMonth(@PathVariable("month") String month) throws Exception {
+    public List<Food> getFoodFromMonth(@PathVariable("month") String month) throws Exception {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
