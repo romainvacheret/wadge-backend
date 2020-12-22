@@ -15,12 +15,14 @@ package main.java.wadge{
             + getRecipes(): ResponseEntity<List<Map<string, Object>>>
             }
         class FoodController{
-            - FOOD_LIST: string <<final>> <<static>>
+            - FOOD_LIST: string <<static final>>
+            - foodList: FoodList <<static final>>
             + getFoodList(): List<Food>
             + getMonth(month: string): List<Food>
         }
         class FridgeController{
-            - FRIDGE: string <<static>>
+            - FRIDGE_FILE: string <<static final>>
+            - fridge: Fridge <<static final>>
             + getFridge(): List<FridgeFood>
             + addToFridge(foodList: string): List<FridgeFood>
             + getExpirationAlerts(): Map<string, List<FridgeFood>>
@@ -202,8 +204,8 @@ package main.java.wadge{
 
     HelloController o..> Search
     HelloController *..> Recipe
-    FoodController *..> FoodList
-    FridgeController *..> Fridge
+    FoodController *--> FoodList
+    FridgeController *--> Fridge
     FridgeController *..> RecallType
     FridgeController *..> ExpirationRecall
     FridgeController o..> DataManager
