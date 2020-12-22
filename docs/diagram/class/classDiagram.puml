@@ -1,5 +1,10 @@
 @startuml wadgeBackEnd
 
+package com.fastxml.jackson.databind {
+    class JsonNode {}
+    class ObjectMapper {}
+}
+
 package main.java.wadge{
     package backend{
         class Application {
@@ -10,12 +15,14 @@ package main.java.wadge{
             + getRecipes(): ResponseEntity<List<Map<string, Object>>>
             }
         class FoodController{
-            - FOOD_LIST: string <<final>> <<static>>
+            - FOOD_LIST: string <<static final>>
+            - foodList: FoodList <<static final>>
             + getFoodList(): List<Food>
-            + getMonth(month: string): List<Food>
+            + getFoodFromMonth(month: string): List<Food>
         }
         class FridgeController{
-            - FRIDGE: string <<static>>
+            - FRIDGE_FILE: string <<static final>>
+            - fridge: Fridge <<static final>>
             + getFridge(): List<FridgeFood>
             + addToFridge(foodList: string): List<FridgeFood>
             + getExpirationAlerts(): Map<string, List<FridgeFood>>
@@ -27,10 +34,14 @@ package main.java.wadge{
             interface IFridge {
                 writeFridge(fileName: string): void
                 readFridge(fileName: string): void
-                readFile(fileName: string): List<FridgeFood>
                 addToFridge(newFoods: List<FridgeFood>): void
-                stringToFridgeFood(content: string): List<FridgeFood>
              }
+
+            interface IDataManager {
+                readFile(fileName: string): List<FridgeFood>
+                readJson(node: JsonNode): List<FridgeFood>
+                writeFile(data: List<FridgeFood>, fileName: string): void
+            }
         }
 
         package fridge.impl{
@@ -40,19 +51,26 @@ package main.java.wadge{
                 - getExpirationList(type: RecallType, fileName: string): List<FridgeFood> <<static>>
             }
             
-            
             enum RecallType {
                 TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER
             }
 
-            ExpirationRecall o..> RecallType
+            class DataManager implements IDataManager{
+                - mapper: ObjectMapper <<final>>
+                - instance: IDataManager <<static>>
+                - this(): DataManager
+                + getInstance(): IDataManager
+                + readFile(fileName: string): List<FridgeFood>
+                + readJson(node: JsonNode): List<FridgeFood>
+                + writeFile(data: List<FridgeFood>, fileName: string): void
+             }
 
             class FoodElement {
                 - insertionDate: string
                 - peremptionDate: string
                 - quantity: int
-                + this()
-                + this(insertionDate: string, peremptionDate: string, quantity: int)
+                + this(): FoodElement
+                + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
                 + getInsertionDate(): string
                 + getPeremptionDate(): string
                 + getQuantity(): int
@@ -65,7 +83,7 @@ package main.java.wadge{
                 - dateFormater: SimpleDateFormat
                 - currentDate: Date
                 - instance: FoodElementPredicatesFactory
-                - this()
+                - this(): FoodElementPredicatesFactory
                 - dateDifference(d1: Date, d2: Date): long <<static>>
                 + getInstance(): FoodElementPredicatesFactory <<static>>
                 + dateProcessing(date: string): long
@@ -74,32 +92,29 @@ package main.java.wadge{
 
             class Fridge implements IFridge{
                 - foods: List<FridgeFood>
-                - <<final>> mapper: ObjectMapper
-                - <<static>> instance: FridgeFridge
-                - this()
+                - mapper: ObjectMapper <<final>>
+                - manager: IDataManager <<final>>
+                - instance: FridgeFridge <<static>>
+                - this(): Fridge
                 + getInstance(): Fridge <<static>>
-                + readFile(fileName: string): List<FridgeFood> <<static>>
                 + readFridge(fileName: string): void
                 + writeFridge(fileName: string): void
                 + addToFridge(newFoods: List<FridgeFood>): void
                 + getFood(): List<FridgeFood>
-                + stringToFridgeFood(content: string): List<FridgeFood>
             }
 
             class FridgeFood{
                 - name: string
                 - products: List<FoodElement>
-                - this()
-                - this(name: string, products: List<FoodElement>)
+                - this(): FridgeFood
+                - this(name: string, products: List<FoodElement>): FridgeFood
                 + getName(): string
                 + getProducts(): List<FoodELement>
                 + toString(): string
                 + hashCode(): int
                 + equals(obj: Object): boolean
             }
-
         }
-        
     }
 
     package food{
@@ -109,6 +124,7 @@ package main.java.wadge{
                 readFile(fileName: string): void
                 getFoodFromGivenMonth(month: Month): List<Food> 
             }
+
             enum Month{
                 JANUARY,
                 FEBRUARY,
@@ -131,8 +147,8 @@ package main.java.wadge{
                 - type: string
                 - availability: List<string>
                 - days: int
-                + this()
-                + this(name: string, type: string, availability: string[], days: int)
+                + this(): Food
+                + this(name: string, type: string, availability: string[], days: int): Food
                 + getName(): string
                 + getType(): string
                 + getAvailability(): List<string>
@@ -144,10 +160,10 @@ package main.java.wadge{
             
             class FoodList implements IFoodList {
                 - foods: List<Food>
-                - <<final>> mapper: ObjectMapper
-                - <<static>> instance: FoodList
-                - this()
-                + <<static>> getInstance(): FoodList
+                - mapper: ObjectMapper <<final>>
+                - instance: FoodList <<static>>
+                - this(): FoodList
+                + getInstance(): FoodList <<static>>
                 + getFoodFromGivenMonth(month: Month): List<Food>
                 + readFile(fileName: string): void
                 + getFoods(): List<Food>
@@ -184,20 +200,25 @@ package main.java.wadge{
             + this(name: string): RecipeBuilder
             + readRecipes(): List<Map<string, Object>>
         }
-
-        RecipeBuilder o..> Recipe
     }
 
     HelloController o..> Search
-    HelloController o..> Recipe
-    FoodController o..> FoodList
-    FridgeController o..> Fridge
-    FridgeController o..> RecallType
-    FridgeController o..> ExpirationRecall
-    FoodList o..> Food
-    Fridge o..> FridgeFood
+    HelloController *..> Recipe
+    FoodController *--> FoodList
+    FridgeController *--> Fridge
+    FridgeController *..> RecallType
+    FridgeController *..> ExpirationRecall
+    FridgeController o..> DataManager
+    RecipeBuilder *..> Recipe
+    FoodList *--> Food
+    Fridge *--> FridgeFood
+    Fridge *--> IDataManager
+    Fridge *--> ObjectMapper
     FridgeFood o..> FoodElement
-
+    ExpirationRecall *..> RecallType
+    DataManager *--> IDataManager
+    DataManager *--> ObjectMapper
+    DataManager *..> JsonNode
 }
 
 @enduml

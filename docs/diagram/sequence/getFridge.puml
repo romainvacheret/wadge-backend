@@ -8,10 +8,10 @@ ft -> bk: GET /fridge
 activate bk
 bk -> fc: getFridge()
 activate fc
-create "FridgeController.f: Fridge" as f
+create "FridgeController.fridge: Fridge" as f
 fc -> f: getInstance()
 activate f
-f --> f: readFridge()
+f --> f: readFridge(fileName)
 f --> fc: getFood()
 deactivate f
 fc --> bk

@@ -6,13 +6,13 @@ participant ": FoodController" as fc
 activate ft
 ft -> bk: GET /foods/{month}
 activate bk
-bk -> fc: getMonth()
+bk -> fc: getFoodFromMonth(month)
 activate fc
 create "FoodController.foodList: FoodList" as fd1
 fc -> fd1: getInstance()
 activate fd1
-fd1 --> fd1: readFile()
-fd1 --> fc: getFoodFromGivenMonth()
+fd1 --> fd1: readFile(fileName)
+fd1 --> fc: getFoodFromGivenMonth(month)
 deactivate fd1
 fc --> bk
 bk --> ft
