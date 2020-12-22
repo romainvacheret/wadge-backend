@@ -24,24 +24,26 @@ import wadge.fridge.impl.FridgeFood;
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class FridgeController {
-    private static final String FRIDGE = "fridge.json";
+    private static final String FRIDGE_FILE = "fridge.json";
+    private static final Fridge fridge;
+
+    static {
+        fridge = Fridge.getInstance();
+        fridge.readFridge(FRIDGE_FILE);
+    }
 
     @RequestMapping(path = "/fridge", method = RequestMethod.GET)
     public List<FridgeFood> getFridge() {
-        Fridge f = Fridge.getInstance();
-        f.readFridge(FRIDGE);
-        return f.getFood();
+        return fridge.getFood();
     }
 
     @RequestMapping(path = "/fridge/addition", method = RequestMethod.POST)
     public List<FridgeFood> addToFridge(@RequestBody JsonNode foodList) {
-        Fridge f = Fridge.getInstance();
         IDataManager manager = DataManager.getInstance();
-        f.readFridge(FRIDGE);
         List<FridgeFood> list = manager.readJson(foodList);
-        f.addToFridge(list);
+        fridge.addToFridge(list);
         try {
-            f.writeFridge(FRIDGE);
+            fridge.writeFridge(FRIDGE_FILE);
             
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -56,7 +58,7 @@ public class FridgeController {
     public  Map<String, List<FridgeFood>> getExpirationAlerts() {
         Map<String, List<FridgeFood>> result = new HashMap<>();
         Arrays.asList(RecallType.values()).forEach(type -> 
-            result.put(type.toString(), ExpirationRecall.getExpirationList(type, FRIDGE))
+            result.put(type.toString(), ExpirationRecall.getExpirationList(type, FRIDGE_FILE))
         );
 
         return result;
