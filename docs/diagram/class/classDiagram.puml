@@ -1,5 +1,10 @@
 @startuml wadgeBackEnd
 
+package com.fastxml.jackson.databind {
+    class JsonNode {}
+    class ObjectMapper {}
+}
+
 package main.java.wadge{
     package backend{
         class Application {
@@ -27,14 +32,14 @@ package main.java.wadge{
             interface IFridge {
                 writeFridge(fileName: string): void
                 readFridge(fileName: string): void
-                readFile(fileName: string): List<FridgeFood>
                 addToFridge(newFoods: List<FridgeFood>): void
-                stringToFridgeFood(content: string): List<FridgeFood>
              }
-             interface IDataManager {
-                 readFile(fileName: string): List<FridgeFood>
-                 writeFile(data: List<FridgeFood>, fileName: string): void
-             }
+
+            interface IDataManager {
+                readFile(fileName: string): List<FridgeFood>
+                readJson(node: JsonNode): List<FridgeFood>
+                writeFile(data: List<FridgeFood>, fileName: string): void
+            }
         }
 
         package fridge.impl{
@@ -43,7 +48,6 @@ package main.java.wadge{
                 - getExpirationDateFromPredicate(predicate: Predicate<FoodElement>, fileName: string): List<FridgeFood> <<static>>
                 - getExpirationList(type: RecallType, fileName: string): List<FridgeFood> <<static>>
             }
-            
             
             enum RecallType {
                 TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER
@@ -55,6 +59,7 @@ package main.java.wadge{
                 - this(): DataManager
                 + getInstance(): IDataManager
                 + readFile(fileName: string): List<FridgeFood>
+                + readJson(node: JsonNode): List<FridgeFood>
                 + writeFile(data: List<FridgeFood>, fileName: string): void
              }
 
@@ -94,7 +99,6 @@ package main.java.wadge{
                 + writeFridge(fileName: string): void
                 + addToFridge(newFoods: List<FridgeFood>): void
                 + getFood(): List<FridgeFood>
-                + stringToFridgeFood(content: string): List<FridgeFood>
             }
 
             class FridgeFood{
@@ -108,9 +112,7 @@ package main.java.wadge{
                 + hashCode(): int
                 + equals(obj: Object): boolean
             }
-
         }
-        
     }
 
     package food{
@@ -120,6 +122,7 @@ package main.java.wadge{
                 readFile(fileName: string): void
                 getFoodFromGivenMonth(month: Month): List<Food> 
             }
+
             enum Month{
                 JANUARY,
                 FEBRUARY,
@@ -214,7 +217,7 @@ package main.java.wadge{
     ExpirationRecall o..> RecallType
     DataManager *--> IDataManager
     DataManager *--> ObjectMapper
-
+    DataManager *..> JsonNode
 }
 
 @enduml
