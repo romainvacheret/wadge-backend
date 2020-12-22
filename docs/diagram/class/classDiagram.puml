@@ -11,52 +11,52 @@ package main.java.wadge{
             }
         class FoodController{
             - FOOD_LIST: string <<final>> <<static>>
-            + getFridgeList(): List<Food>
+            + getFoodList(): List<Food>
             + getMonth(month: string): List<Food>
         }
         class FridgeController{
             - FRIDGE: string <<static>>
             + getFridge(): List<FridgeFood>
-            + addToFridge(foodList: String): List<FridgeFood>
-            + getExpirationAlerts(): List<Map<string, FridgeFood>>
+            + addToFridge(foodList: string): List<FridgeFood>
+            + getExpirationAlerts(): Map<string, List<FridgeFood>>
         }
     }
     package fridge{
 
         package fridge.api{
             interface IFridge {
-                writeFridge(fileName: String): void
-                readFridge(fileName: String): void
-                readFile(fileName: String): List<FridgeFood>
+                writeFridge(fileName: string): void
+                readFridge(fileName: string): void
+                readFile(fileName: string): List<FridgeFood>
                 addToFridge(newFoods: List<FridgeFood>): void
-                stringToFridgeFood(content: String): List<FridgeFood>
+                stringToFridgeFood(content: string): List<FridgeFood>
              }
         }
 
         package fridge.impl{
 
             class ExpirationRecall {
-                - getExpirationDateFromPredicate(predicate: Predicate<FoodElement>, fileName: String): List<FridgeFood> <<static>>
-                - getExpirationList(type: RecallType, fileName: String): List<FridgeFood> <<static>>
+                - getExpirationDateFromPredicate(predicate: Predicate<FoodElement>, fileName: string): List<FridgeFood> <<static>>
+                - getExpirationList(type: RecallType, fileName: string): List<FridgeFood> <<static>>
             }
             
             
             enum RecallType {
-                TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED
+                TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER
             }
 
             ExpirationRecall o..> RecallType
 
             class FoodElement {
-                - insertionDate: String
-                - peremptionDate: String
+                - insertionDate: string
+                - peremptionDate: string
                 - quantity: int
                 + this()
-                + this(insertionDate: String, peremptionDate: String, quantity: int)
-                + getInsertionDate(): String
-                + getPeremptionDate(): String
+                + this(insertionDate: string, peremptionDate: string, quantity: int)
+                + getInsertionDate(): string
+                + getPeremptionDate(): string
                 + getQuantity(): int
-                + toString(): String
+                + toString(): string
                 + hashCode(): int
                 + equals(obj: Object): boolean
             }
@@ -68,7 +68,7 @@ package main.java.wadge{
                 - this()
                 - dateDifference(d1: Date, d2: Date): long <<static>>
                 + getInstance(): FoodElementPredicatesFactory <<static>>
-                + dateProcessing(date: String): long
+                + dateProcessing(date: string): long
                 - getPredicate(type: RecallType): Predicate<FoodElement>
             }
 
@@ -79,21 +79,21 @@ package main.java.wadge{
                 - this()
                 + getInstance(): Fridge <<static>>
                 + readFile(fileName: string): List<FridgeFood> <<static>>
-                + readFridge(fileName: String): void
-                + writeFridge(fileName: String): void
+                + readFridge(fileName: string): void
+                + writeFridge(fileName: string): void
                 + addToFridge(newFoods: List<FridgeFood>): void
                 + getFood(): List<FridgeFood>
-                + stringToFridgeFood(content: String): List<FridgeFood>
+                + stringToFridgeFood(content: string): List<FridgeFood>
             }
 
             class FridgeFood{
-                - name: String
+                - name: string
                 - products: List<FoodElement>
                 - this()
-                - this(name: String, products: List<FoodElement>)
-                + getName(): String
+                - this(name: string, products: List<FoodElement>)
+                + getName(): string
                 + getProducts(): List<FoodELement>
-                + toString(): String
+                + toString(): string
                 + hashCode(): int
                 + equals(obj: Object): boolean
             }
@@ -106,7 +106,7 @@ package main.java.wadge{
 
         package food.api{
             interface IFoodList{
-                readFile(fileName: String): void
+                readFile(fileName: string): void
                 getFoodFromGivenMonth(month: Month): List<Food> 
             }
             enum Month{
@@ -127,19 +127,19 @@ package main.java.wadge{
 
         package food.impl{
             class Food {
-                - name: String
-                - type: String
-                - availability: List<String>
+                - name: string
+                - type: string
+                - availability: List<string>
                 - days: int
                 + this()
-                + this(name: String, type: String, availability: String[], days: int)
-                + getName(): String
-                + getType(): String
-                + getAvailability(): List<String>
+                + this(name: string, type: string, availability: string[], days: int)
+                + getName(): string
+                + getType(): string
+                + getAvailability(): List<string>
                 + getDays(): int
                 + hashCode(): int
                 + equals(obj: Object): boolean
-                + toString(): String
+                + toString(): string
             }
             
             class FoodList implements IFoodList {
@@ -149,7 +149,7 @@ package main.java.wadge{
                 - this()
                 + <<static>> getInstance(): FoodList
                 + getFoodFromGivenMonth(month: Month): List<Food>
-                + readFile(fileName: String): void
+                + readFile(fileName: string): void
                 + getFoods(): List<Food>
             }
         }
@@ -172,7 +172,7 @@ package main.java.wadge{
             - steps: List<string> <<final>>
             - quantity: Object <<final>>
             - ingredient: List<Map<string, Object>>
-            + this(name: String, steps: List<string>, quantity: Object, ingredients: List<Map<string, Object>>): Recipe
+            + this(name: string, steps: List<string>, quantity: Object, ingredients: List<Map<string, Object>>): Recipe
             + readRecipes(): List<Map<string, Object>> <<static>>
         }
 
@@ -182,7 +182,7 @@ package main.java.wadge{
             - quantity: Object <<final>>
             - ingredient: List<Map<string, Object>>
             + this(name: string): RecipeBuilder
-            + readRecipes(): List<Map<String, Object>>
+            + readRecipes(): List<Map<string, Object>>
         }
 
         RecipeBuilder o..> Recipe
