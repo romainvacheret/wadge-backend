@@ -153,6 +153,10 @@ NavBar plus simple.
         
 |===
 
+== Les Personas
+image::./img/personas/persona-couple.png[]
+image::./img/personas/persona-student.png[]
+image::./img/personas/persona-worker.png[]
 == Diagramme de classe
 
 image::./diagram/out/wadgeBackEnd.svg[]
