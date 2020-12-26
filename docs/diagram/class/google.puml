@@ -1,4 +1,6 @@
 @startuml google
+    !include ../style/commons.style
+    
     package google{
 
          class Search {

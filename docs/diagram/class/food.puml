@@ -1,6 +1,7 @@
 @startuml food
 
 package wadge.food {
+        !include ../style/commons.style
 
         package com.fastxml.jackson.databind {
             class ObjectMapper {}

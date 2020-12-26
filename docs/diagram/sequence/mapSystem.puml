@@ -1,25 +1,27 @@
 @startuml mapSystem
-autonumber
-actor User
-participant ": Front" as frontend
-participant ": Back" as backend
-participant ": API Google" as google
+    !include ../style/commons.style
 
-User -> frontend: cliquer sur "Cartes des magasins"
-activate frontend
-frontend -> google: authentifier au service
-activate google
-google --> frontend: permission de l'affichage de la carte
-deactivate google
-frontend --> User: afficher la carte
+    autonumber
+    actor User
+    participant ": Front" as frontend
+    participant ": Back" as backend
+    participant ": API Google" as google
 
-frontend -> backend: GET /map/{lat}/{lng}
-backend -> google: demande des magasins proches
-activate backend
-google --> backend: informations sur les magasins proches
-backend --> frontend: réponse liste des magasins proches
-deactivate backend
-frontend --> User: afficher map de la liste des magasins
-deactivate frontend
+    User -> frontend: cliquer sur "Cartes des magasins"
+    activate frontend
+    frontend -> google: authentifier au service
+    activate google
+    google --> frontend: permission de l'affichage de la carte
+    deactivate google
+    frontend --> User: afficher la carte
+
+    frontend -> backend: GET /map/{lat}/{lng}
+    backend -> google: demande des magasins proches
+    activate backend
+    google --> backend: informations sur les magasins proches
+    backend --> frontend: réponse liste des magasins proches
+    deactivate backend
+    frontend --> User: afficher map de la liste des magasins
+    deactivate frontend
 
 @enduml

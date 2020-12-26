@@ -1,20 +1,21 @@
 @startuml recipesSystem
-autonumber
-actor User
-participant ": Front" as frontend
-participant ": Back" as backend
+    !include ../style/commons.style
 
-User -> frontend: cliquer sur "Recettes"
-activate frontend
-frontend -> backend: GET /recipes
-deactivate frontend
-activate backend
-backend --> frontend: liste  des recettes
-deactivate backend
-activate frontend
-frontend --> User: afficher la liste des recettes
+    autonumber
+    actor User
+    participant ": Front" as frontend
+    participant ": Back" as backend
 
-deactivate frontend
- 
+    User -> frontend: cliquer sur "Recettes"
+    activate frontend
+    frontend -> backend: GET /recipes
+    deactivate frontend
+    activate backend
+    backend --> frontend: liste  des recettes
+    deactivate backend
+    activate frontend
+    frontend --> User: afficher la liste des recettes
+
+    deactivate frontend
  
 @endum
