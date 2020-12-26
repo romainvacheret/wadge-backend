@@ -1,33 +1,119 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="298px" preserveAspectRatio="none" style="width:612px;height:298px;" version="1.1" viewBox="0 0 612 298" width="612px" zoomAndPan="magnify"><defs><filter height="300%" id="f1jz2bu3nweysl" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="193.6641" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="30" y="51.6094"/><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="118.9609" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="207" y="73.9609"/><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="74.6094" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="309" y="104.3125"/><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="20.2578" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="507.5" y="144.6641"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="35" x2="35" y1="41.6094" y2="254.2734"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="211.5" x2="211.5" y1="41.6094" y2="254.2734"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="313.5" x2="313.5" y1="41.6094" y2="254.2734"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="512" x2="512" y1="145.6172" y2="254.2734"/><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="56" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="12" y="26.5332">: Front</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="56" x="5" y="253.2734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="12" y="274.8066">: Front</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="53" x="183.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="190.5" y="26.5332">: Back</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="53" x="183.5" y="253.2734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="190.5" y="274.8066">: Back</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="115" x="254.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="101" x="261.5" y="26.5332">: HelloController</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="115" x="254.5" y="253.2734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="101" x="261.5" y="274.8066">: HelloController</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="175" x="423" y="253.2734"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="161" x="430" y="274.8066">HelloController.r: Recipes</text><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="193.6641" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="30" y="51.6094"/><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="118.9609" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="207" y="73.9609"/><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="74.6094" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="309" y="104.3125"/><rect fill="#FFFFFF" filter="url(#f1jz2bu3nweysl)" height="20.2578" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="507.5" y="144.6641"/><polygon fill="#A80036" points="195,69.9609,205,73.9609,195,77.9609,199,73.9609" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="40" x2="201" y1="73.9609" y2="73.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="76" x="47" y="69.1045">GET /recipes</text><polygon fill="#A80036" points="297,100.3125,307,104.3125,297,108.3125,301,104.3125" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="217" x2="303" y1="104.3125" y2="104.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="73" x="224" y="99.4561">getRecipes()</text><polygon fill="#A80036" points="411,130.6641,421,134.6641,411,138.6641,415,134.6641" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="319" x2="417" y1="134.6641" y2="134.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="80" x="326" y="129.8076">readRecipes()</text><rect fill="#FEFECE" filter="url(#f1jz2bu3nweysl)" height="31.6094" style="stroke: #A80036; stroke-width: 1.5;" width="175" x="423" y="112.3125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="161" x="430" y="133.8457">HelloController.r: Recipes</text><polygon fill="#A80036" points="330,160.9219,320,164.9219,330,168.9219,326,164.9219" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="324" x2="511.5" y1="164.9219" y2="164.9219"/><polygon fill="#A80036" points="228,174.9219,218,178.9219,228,182.9219,224,178.9219" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="222" x2="313" y1="178.9219" y2="178.9219"/><polygon fill="#A80036" points="51,188.9219,41,192.9219,51,196.9219,47,192.9219" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="45" x2="211" y1="192.9219" y2="192.9219"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="40" x2="82" y1="223.2734" y2="223.2734"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="82" x2="82" y1="223.2734" y2="236.2734"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="41" x2="82" y1="236.2734" y2="236.2734"/><polygon fill="#A80036" points="51,232.2734,41,236.2734,51,240.2734,47,236.2734" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="153" x="47" y="218.417">Traiter les données reçues</text><!--MD5=[44d1d95786a17e09e65f7748c971cead]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="246px" preserveAspectRatio="none" style="width:648px;height:246px;" version="1.1" viewBox="0 0 648 246" width="648px" zoomAndPan="magnify"><defs/><g><rect fill="#F8F8FF" height="184.6953" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="29.5" y="46.2969"/><rect fill="#F8F8FF" height="112.4297" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="222.5" y="67.4297"/><rect fill="#F8F8FF" height="69.2969" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="331.5" y="96.5625"/><rect fill="#F8F8FF" height="16.1641" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="543" y="135.6953"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="34" x2="34" y1="36.2969" y2="239.9922"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="227" x2="227" y1="36.2969" y2="239.9922"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="336.5" x2="336.5" y1="36.2969" y2="239.9922"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="547.5" x2="547.5" y1="135.2109" y2="239.9922"/><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="59" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="12" y="24.9951">: Front</text><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="57" x="199" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="206" y="24.9951">: Back</text><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="124" x="274.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="110" x="281.5" y="24.9951">: HelloController</text><rect fill="#F8F8FF" height="184.6953" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="29.5" y="46.2969"/><rect fill="#F8F8FF" height="112.4297" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="222.5" y="67.4297"/><rect fill="#F8F8FF" height="69.2969" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="331.5" y="96.5625"/><rect fill="#F8F8FF" height="16.1641" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="543" y="135.6953"/><polygon fill="#808080" points="210.5,63.4297,220.5,67.4297,210.5,71.4297,214.5,67.4297" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="39.5" x2="216.5" y1="67.4297" y2="67.4297"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="46.5" y="62.3638">GET /recipes</text><polygon fill="#808080" points="319.5,92.5625,329.5,96.5625,319.5,100.5625,323.5,96.5625" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="232.5" x2="325.5" y1="96.5625" y2="96.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="80" x="239.5" y="91.4966">getRecipes()</text><polygon fill="#808080" points="441.5,121.6953,451.5,125.6953,441.5,129.6953,445.5,125.6953" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="341.5" x2="447.5" y1="125.6953" y2="125.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="88" x="348.5" y="120.6294">readRecipes()</text><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="189" x="453.5" y="104.5625"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="175" x="460.5" y="124.5576">HelloController.r: Recipes</text><polygon fill="#808080" points="352.5,147.8594,342.5,151.8594,352.5,155.8594,348.5,151.8594" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="346.5" x2="547" y1="151.8594" y2="151.8594"/><polygon fill="#808080" points="243.5,161.8594,233.5,165.8594,243.5,169.8594,239.5,165.8594" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="237.5" x2="335.5" y1="165.8594" y2="165.8594"/><polygon fill="#808080" points="50.5,175.8594,40.5,179.8594,50.5,183.8594,46.5,179.8594" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="44.5" x2="226.5" y1="179.8594" y2="179.8594"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="39.5" x2="81.5" y1="208.9922" y2="208.9922"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="81.5" x2="81.5" y1="208.9922" y2="221.9922"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="40.5" x2="81.5" y1="221.9922" y2="221.9922"/><polygon fill="#808080" points="50.5,217.9922,40.5,221.9922,50.5,225.9922,46.5,221.9922" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="169" x="46.5" y="203.9263">Traiter les données reçues</text><!--MD5=[45b664f8bd79f6127d0f3cf2cc13ab16]
 @startuml recipes
+    !include ../style/commons.style
 
-participant ": Front" as ft
-participant ": Back" as bk
-participant ": HelloController" as hc
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": HelloController" as hc
 
-activate ft
-ft -> bk : GET /recipes
-activate bk
-bk -> hc : getRecipes()
-activate hc
-create "HelloController.r: Recipes" as r
-hc -> r : readRecipes()
-activate r
-r - -> hc
-deactivate r
-hc - -> bk
-deactivate hc
-bk - -> ft
-deactivate bk
-ft <- - ft: Traiter les données reçues
+    activate ft
+    ft -> bk : GET /recipes
+    activate bk
+    bk -> hc : getRecipes()
+    activate hc
+    create "HelloController.r: Recipes" as r
+    hc -> r : readRecipes()
+    activate r
+    r - -> hc
+    deactivate r
+    hc - -> bk
+    deactivate hc
+    bk - -> ft
+    deactivate bk
+    ft <- - ft: Traiter les données reçues
 
 @enduml
 
-PlantUML version 1.2020.18(Wed Sep 30 21:40:44 CEST 2020)
+@startuml recipes
+
+skinparam nodesep 75
+skinparam ranksep 75
+hide empty members
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+skinparam monochrome  false
+skinparam shadowing   false
+skinparam roundcorner 10
+skinparam linetype polyline
+
+skinparam class {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam state {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam object {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+}
+
+skinparam package<<Layout>> {
+  borderColor         Transparent
+  backgroundColor     Transparent
+  fontColor           Transparent
+  stereotypeFontColor Transparent
+}
+
+skinparam sequence {
+	ArrowColor                  Gray
+  LifeLineBorderColor         CornFlowerBlue
+  LifeLineBackgroundColor     GhostWhite
+	ParticipantBorderColor      CornFlowerBlue
+	ParticipantBackgroundColor  GhostWhite
+  ActorBorderColor            CornFlowerBlue
+	ActorBackgroundColor        GhostWhite
+  BoxBorderColor         CornFlowerBlue
+  BoxBackgroundColor         GhostWhite
+}
+
+skinparam stereotypeCBackgroundColor CornflowerBlue
+
+hide footbox
+hide empty members
+
+skinparam note {
+ BackgroundColor GhostWhite
+ BorderColor         CornFlowerBlue
+}
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": HelloController" as hc
+
+    activate ft
+    ft -> bk : GET /recipes
+    activate bk
+    bk -> hc : getRecipes()
+    activate hc
+    create "HelloController.r: Recipes" as r
+    hc -> r : readRecipes()
+    activate r
+    r - -> hc
+    deactivate r
+    hc - -> bk
+    deactivate hc
+    bk - -> ft
+    deactivate bk
+    ft <- - ft: Traiter les données reçues
+
+@enduml
+
+PlantUML version 1.2020.22(Sun Dec 06 10:36:27 CET 2020)
 (GPL source distribution)
-Java Runtime: Java(TM) SE Runtime Environment
-JVM: Java HotSpot(TM) 64-Bit Server VM
-Default Encoding: Cp1252
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: UTF-8
 Language: fr
 Country: FR
 --></g></svg>

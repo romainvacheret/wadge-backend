@@ -1,35 +1,28 @@
 @startuml addToFridgeSystem
-actor User
-autonumber
+    !include ../style/commons.style
 
-participant ": Front" as frontend
-participant ": Back" as backend
+    actor User
+    autonumber
 
-User -> frontend: cliquer sur "Ajout au Frigo"
-activate frontend
-frontend -> backend: GET /foods
-activate backend
-backend --> frontend: liste des légumes
-deactivate backend
-User <-- frontend: afficher liste des légumes
-deactivate frontend
+    participant ": Front" as frontend
+    participant ": Back" as backend
 
-User -> frontend: chercher le légume X
-activate frontend
-User <-- frontend: afficher légume X
-deactivate frontend
-User -> frontend: appuyer sur le "+" 2 fois
-activate frontend
-User <-- frontend: afficher 2 quantités du légume x
-deactivate frontend
-
-User -> frontend: cliquer sur "Enregistrer"
-activate frontend
-activate backend
-frontend -> backend: POST /fridge/addition
-backend --> backend: addToFridge()
-frontend --> frontend: rediriger vers le "Frigo"
-deactivate backend
-User <-- frontend: afficher le frigo
-deactivate frontend
+    User -> frontend: cliquer sur "Ajout au Frigo"
+    activate frontend
+    frontend -> backend: GET /foods
+    activate backend
+    backend --> frontend: liste des légumes
+    User <-- frontend: afficher liste des légumes
+    User -> frontend: chercher le légume X
+    User <-- frontend: afficher légume X
+    User -> frontend: appuyer sur le "+" 2 fois
+    User <-- frontend: afficher 2 quantités du légume x
+    User -> frontend: cliquer sur "Enregistrer"
+    frontend -> backend: POST /fridge/addition
+    backend --> backend: addToFridge(foodList)
+    frontend --> frontend: rediriger vers le "Frigo"
+    deactivate backend
+    User <-- frontend: afficher le frigo
+    deactivate frontend
+    
 @enduml

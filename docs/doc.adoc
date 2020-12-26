@@ -10,9 +10,55 @@ Wadge est une application composée en deux parties. La première,
 link:https://github.com/RomainVacheret/Wadge-BackEnd[Wadge-BackEnd] correspond au code métier Java qui a pour but de gérer toutes requêtes ( création du frigo, modifier le frigo, lire et afficher les aliments ). Tandis que 
 link:https://github.com/RomainVacheret/Wadge-FrontEnd[Wadge-FrontEnd] à pour objectif de simplifier l'interaction entre le BackEnd et l'utilisateur.
 
-NavBar plus simple. 
+== Les Personas
+image::./img/personas/persona-couple.png[]
+image::./img/personas/persona-student.png[]
+image::./img/personas/persona-worker.png[]
+== Diagrammes de classe
+Notre code est ordonné autour de cinq packages : `backend`, `food`, `fridge`, `google`, `recipe`. Ils s'occupent respectivement des controlleurs de l'API, des aliments, du frigo, de l'utilisation de l'API Google et des recettes.
 
-== Routes
+image::./diagram/out/backEnd.png[]
+Le package `backEnd` contient l'ensemble des controlleurs. Ils sont l'intermédiaire entre le code métier et l'API.
+
+image::./diagram/out/food.png[]
+Le package `food` gère les aliments pris en compte par notre produit.
+
+image::./diagram/out/fridge.png[]
+Le package `fridge` se concentre sur les requêtes autour du frigo. Par exemple l'affichage ou le remplissage de celui-ci.
+
+image::./diagram/out/google.png[]
+Le package `google` utilise API Google pour informé l'utilisateur des magasins à sa disposition dans ses environs.
+
+image::./diagram/out/recipe.png[]
+Enfin, le package "recipe" est une première approche de la gestion de recettes proposées à l'utilisateur.
+
+== Différents diagrammes de séquences (système)
+=== Carte
+image::./diagram/out/mapSystem.svg[]
+=== Liste des aliments en fonction d'un mois donné
+image::./diagram/out/monthFilterSystem.svg[]
+=== Liste des aliments à manger aux différents dates
+image::./diagram/out/getFridgeSystem.svg[]
+=== Liste des recettes
+image::./diagram/out/recipesSystem.svg[]
+=== Ajout d'aliments au frigo
+image::./diagram/out/addToFridgeSystem.svg[]
+
+== Différents diagrammes de séquences (internes)
+=== Carte
+image::./diagram/out/map.svg[]
+=== Liste des aliments en fonction d'un mois donné
+image::./diagram/out/monthFilter.svg[]
+=== Liste des aliments à manger aux différents dates
+image::./diagram/out/getFridge.svg[]
+=== Liste des recettes
+image::./diagram/out/recipes.svg[] 
+=== Ajout d'aliments au frigo
+image::./diagram/out/addToFridge.svg[]
+
+== Annexes
+
+=== Routes
 [cols="h,5a"]
 |===
 | URL
@@ -152,35 +198,3 @@ NavBar plus simple.
     ]
         
 |===
-
-== Diagramme de classe
-
-image::./diagram/out/wadgeBackEnd.svg[]
-
-Notre code est ordonné autour de cinq packages : "backend", "food", "fridge", "google", "recipe". Ils sont s'occupent respectivement des controlleurs de l'API, des aliments, du frigo, de l'utilisation de l'API Google et des recettes.
-Plus précisément, le package "food" est un intermédaire entre les aliments stockés et le reste de l'application. Le package "fridge" se concentre sur les requêtes autour du frigo. Par exemple l'affichage ou le remplissage de celui-ci. L'API Google est utlisé pour informé l'utilisateur des magasins à sa disposition dans ses environs. Enfin, le package "recipe" est une première approche de la gestion de recettes proposées à l'utilisateur.
-Chacun de ces quatre dernier packages ont un controlleur servant d'intermédaire pour l'API.
-
-== Différents diagrammes de séquences (système)
-=== Carte
-image::./diagram/out/mapSystem.svg[]
-=== Liste des aliments en fonction d'un mois donné
-image::./diagram/out/monthFilterSystem.svg[]
-=== Liste des aliments à manger aux différents dates
-image::./diagram/out/getFridgeSystem.svg[]
-=== Liste des recettes
-image::./diagram/out/recipesSystem.svg[]
-=== Ajout d'aliments au frigo
-image::./diagram/out/addToFridgeSystem.svg[]
-
-== Différents diagrammes de séquences (classiques)
-=== Carte
-image::./diagram/out/map.svg[]
-=== Liste des aliments en fonction d'un mois donné
-image::./diagram/out/monthFilter.svg[]
-=== Liste des aliments à manger aux différents dates
-image::./diagram/out/getFridge.svg[]
-=== Liste des recettes
-image::./diagram/out/recipes.svg[] 
-=== Ajout d'aliments au frigo
-image::./diagram/out/addToFridge.svg[]

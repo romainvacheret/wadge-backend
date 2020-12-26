@@ -1,0 +1,66 @@
+@startuml food
+
+package wadge.food {
+        !include ../style/commons.style
+
+        package com.fastxml.jackson.databind {
+            class ObjectMapper {}
+        }
+
+        package api{
+            interface IFoodList{
+                readFile(fileName: string): void
+                getFoodFromGivenMonth(month: Month): List<Food> 
+            }
+
+            enum Month{
+                JANUARY,
+                FEBRUARY,
+                MARCH,
+                APRIL,
+                MAY,
+                JUN,
+                JULY,
+                AUGUST,
+                SEPTEMBER,
+                OCTOBER,
+                NOVEMBER,
+                DECEMBER;
+            }
+        }
+
+        package impl{
+            class Food {
+                - name: string
+                - type: string
+                - availability: List<string>
+                - days: int
+                + this(): Food
+                + this(name: string, type: string, availability: string[], days: int): Food
+                + getName(): string
+                + getType(): string
+                + getAvailability(): List<string>
+                + getDays(): int
+                + hashCode(): int
+                + equals(obj: Object): boolean
+                + toString(): string
+            }
+            
+            class FoodList implements IFoodList {
+                - foods: List<Food>
+                - mapper: ObjectMapper <<final>>
+                - instance: FoodList <<static>>
+                - this(): FoodList
+                + getInstance(): FoodList <<static>>
+                + getFoodFromGivenMonth(month: Month): List<Food>
+                + readFile(fileName: string): void
+                + getFoods(): List<Food>
+            }
+        }
+    }
+
+    FoodList *--> Food
+    FoodList o--> ObjectMapper
+    FoodList o..> Month
+
+@enduml
