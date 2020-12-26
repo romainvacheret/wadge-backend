@@ -7,7 +7,7 @@
 
     package wadge.fridge{
 
-        package fridge.api{
+        package api{
             interface IFridge {
                 writeFridge(fileName: string): void
                 readFridge(fileName: string): void
@@ -21,7 +21,7 @@
             }
         }
 
-        package fridge.impl{
+        package impl{
 
             class ExpirationRecall {
                 - getExpirationDateFromPredicate(predicate: Predicate<FoodElement>, fileName: string): List<FridgeFood> <<static>>

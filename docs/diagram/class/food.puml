@@ -6,7 +6,7 @@ package wadge.food {
             class ObjectMapper {}
         }
 
-        package food.api{
+        package api{
             interface IFoodList{
                 readFile(fileName: string): void
                 getFoodFromGivenMonth(month: Month): List<Food> 
@@ -28,7 +28,7 @@ package wadge.food {
             }
         }
 
-        package food.impl{
+        package impl{
             class Food {
                 - name: string
                 - type: string
