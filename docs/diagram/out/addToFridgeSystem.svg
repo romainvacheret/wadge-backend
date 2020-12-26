@@ -1,41 +1,123 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="597px" preserveAspectRatio="none" style="width:591px;height:597px;" version="1.1" viewBox="0 0 591 597" width="591px" zoomAndPan="magnify"><defs><filter height="300%" id="fl29quo2384yf" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="87.3984" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="119.4297"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="235.9609"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="294.2266"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="142.5313" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="352.4922"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="457" y="148.5625"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="106.3984" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="457" y="352.4922"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="24" x2="24" y1="88.2969" y2="513.0234"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="271.5" x2="271.5" y1="88.2969" y2="513.0234"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="461.5" x2="461.5" y1="88.2969" y2="513.0234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="5" y="84.9951">User</text><ellipse cx="24" cy="15" fill="#FEFECE" filter="url(#fl29quo2384yf)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M24,23 L24,50 M11,31 L37,31 M24,50 L11,65 M24,50 L37,65 " fill="none" filter="url(#fl29quo2384yf)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="5" y="525.0186">User</text><ellipse cx="24" cy="538.3203" fill="#FEFECE" filter="url(#fl29quo2384yf)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M24,546.3203 L24,573.3203 M11,554.3203 L37,554.3203 M24,573.3203 L11,588.3203 M24,573.3203 L37,588.3203 " fill="none" filter="url(#fl29quo2384yf)" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#fl29quo2384yf)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="240.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="247.5" y="72.9951">: Front</text><rect fill="#FEFECE" filter="url(#fl29quo2384yf)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="240.5" y="512.0234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="247.5" y="532.0186">: Front</text><rect fill="#FEFECE" filter="url(#fl29quo2384yf)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="431.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="438.5" y="72.9951">: Back</text><rect fill="#FEFECE" filter="url(#fl29quo2384yf)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="431.5" y="512.0234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="438.5" y="532.0186">: Back</text><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="87.3984" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="119.4297"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="235.9609"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="294.2266"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="142.5313" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="267" y="352.4922"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="457" y="148.5625"/><rect fill="#FFFFFF" filter="url(#fl29quo2384yf)" height="106.3984" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="457" y="352.4922"/><polygon fill="#A80036" points="255,115.4297,265,119.4297,255,123.4297,259,119.4297" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="24" x2="261" y1="119.4297" y2="119.4297"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="114.3638">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="168" x="44" y="114.3638">cliquer sur "Ajout au Frigo"</text><polygon fill="#A80036" points="445,144.5625,455,148.5625,445,152.5625,449,148.5625" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="277" x2="451" y1="148.5625" y2="148.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="284" y="143.4966">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="68" x="297" y="143.4966">GET /foods</text><polygon fill="#A80036" points="288,173.6953,278,177.6953,288,181.6953,284,177.6953" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="282" x2="461" y1="177.6953" y2="177.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="294" y="172.6294">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="307" y="172.6294">liste des légumes</text><polygon fill="#A80036" points="35,202.8281,25,206.8281,35,210.8281,31,206.8281" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="29" x2="271" y1="206.8281" y2="206.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="201.7622">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="163" x="54" y="201.7622">afficher liste des légumes</text><polygon fill="#A80036" points="255,231.9609,265,235.9609,255,239.9609,259,235.9609" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="24" x2="261" y1="235.9609" y2="235.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="230.895">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="135" x="44" y="230.895">chercher le légume X</text><polygon fill="#A80036" points="35,261.0938,25,265.0938,35,269.0938,31,265.0938" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="29" x2="271" y1="265.0938" y2="265.0938"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="260.0278">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="111" x="54" y="260.0278">afficher légume X</text><polygon fill="#A80036" points="255,290.2266,265,294.2266,255,298.2266,259,294.2266" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="24" x2="261" y1="294.2266" y2="294.2266"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="289.1606">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="154" x="44" y="289.1606">appuyer sur le "+" 2 fois</text><polygon fill="#A80036" points="35,319.3594,25,323.3594,35,327.3594,31,323.3594" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="29" x2="271" y1="323.3594" y2="323.3594"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="318.2935">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="206" x="54" y="318.2935">afficher 2 quantités du légume x</text><polygon fill="#A80036" points="255,348.4922,265,352.4922,255,356.4922,259,352.4922" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="24" x2="261" y1="352.4922" y2="352.4922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="347.4263">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="44" y="347.4263">cliquer sur "Enregistrer"</text><polygon fill="#A80036" points="445,377.625,455,381.625,445,385.625,449,381.625" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="277" x2="451" y1="381.625" y2="381.625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="284" y="376.5591">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="133" x="306" y="376.5591">POST /fridge/addition</text><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="467" x2="509" y1="410.7578" y2="410.7578"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="509" x2="509" y1="410.7578" y2="423.7578"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="468" x2="509" y1="423.7578" y2="423.7578"/><polygon fill="#A80036" points="478,419.7578,468,423.7578,478,427.7578,474,423.7578" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="474" y="405.6919">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="88" x="496" y="405.6919">addToFridge()</text><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="277" x2="319" y1="457.8906" y2="457.8906"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="319" x2="319" y1="457.8906" y2="470.8906"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="272" x2="319" y1="470.8906" y2="470.8906"/><polygon fill="#A80036" points="282,466.8906,272,470.8906,282,474.8906,278,470.8906" style="stroke: #A80036; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="284" y="452.8247">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="144" x="306" y="452.8247">rediriger vers le "Frigo"</text><polygon fill="#A80036" points="35,491.0234,25,495.0234,35,499.0234,31,495.0234" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="29" x2="271" y1="495.0234" y2="495.0234"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="41" y="489.9575">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="94" x="63" y="489.9575">afficher le frigo</text><!--MD5=[8b155ed90e13e25fa4939974caf44acb]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="516px" preserveAspectRatio="none" style="width:641px;height:516px;" version="1.1" viewBox="0 0 641 516" width="641px" zoomAndPan="magnify"><defs/><g><rect fill="#F8F8FF" height="375.5938" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="267" y="115.4297"/><rect fill="#F8F8FF" height="310.3281" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="457" y="144.5625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="24" x2="24" y1="84.2969" y2="509.0234"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="271.5" x2="271.5" y1="84.2969" y2="509.0234"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="461.5" x2="461.5" y1="84.2969" y2="509.0234"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="5" y="80.9951">User</text><ellipse cx="24" cy="15" fill="#F8F8FF" rx="8" ry="8" style="stroke:#6495ED;stroke-width:2.0;"/><path d="M24,23 L24,50 M11,31 L37,31 M24,50 L11,65 M24,50 L37,65 " fill="none" style="stroke:#6495ED;stroke-width:2.0;"/><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="59" x="242.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="249.5" y="72.9951">: Front</text><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="57" x="433.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="440.5" y="72.9951">: Back</text><rect fill="#F8F8FF" height="375.5938" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="267" y="115.4297"/><rect fill="#F8F8FF" height="310.3281" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="457" y="144.5625"/><polygon fill="#808080" points="255,111.4297,265,115.4297,255,119.4297,259,115.4297" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="24" x2="261" y1="115.4297" y2="115.4297"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="110.3638">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="168" x="44" y="110.3638">cliquer sur "Ajout au Frigo"</text><polygon fill="#808080" points="445,140.5625,455,144.5625,445,148.5625,449,144.5625" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="277" x2="451" y1="144.5625" y2="144.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="284" y="139.4966">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="68" x="297" y="139.4966">GET /foods</text><polygon fill="#808080" points="288,169.6953,278,173.6953,288,177.6953,284,173.6953" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="282" x2="456" y1="173.6953" y2="173.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="294" y="168.6294">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="112" x="307" y="168.6294">liste des légumes</text><polygon fill="#808080" points="35,198.8281,25,202.8281,35,206.8281,31,202.8281" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="29" x2="266" y1="202.8281" y2="202.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="197.7622">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="163" x="54" y="197.7622">afficher liste des légumes</text><polygon fill="#808080" points="255,227.9609,265,231.9609,255,235.9609,259,231.9609" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="24" x2="261" y1="231.9609" y2="231.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="226.895">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="135" x="44" y="226.895">chercher le légume X</text><polygon fill="#808080" points="35,257.0938,25,261.0938,35,265.0938,31,261.0938" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="29" x2="266" y1="261.0938" y2="261.0938"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="256.0278">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="111" x="54" y="256.0278">afficher légume X</text><polygon fill="#808080" points="255,286.2266,265,290.2266,255,294.2266,259,290.2266" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="24" x2="261" y1="290.2266" y2="290.2266"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="285.1606">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="154" x="44" y="285.1606">appuyer sur le "+" 2 fois</text><polygon fill="#808080" points="35,315.3594,25,319.3594,35,323.3594,31,319.3594" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="29" x2="266" y1="319.3594" y2="319.3594"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="314.2935">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="206" x="54" y="314.2935">afficher 2 quantités du légume x</text><polygon fill="#808080" points="255,344.4922,265,348.4922,255,352.4922,259,348.4922" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="24" x2="261" y1="348.4922" y2="348.4922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="343.4263">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="150" x="44" y="343.4263">cliquer sur "Enregistrer"</text><polygon fill="#808080" points="445,373.625,455,377.625,445,381.625,449,377.625" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="277" x2="451" y1="377.625" y2="377.625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="284" y="372.5591">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="133" x="306" y="372.5591">POST /fridge/addition</text><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="467" x2="509" y1="406.7578" y2="406.7578"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="509" x2="509" y1="406.7578" y2="419.7578"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="468" x2="509" y1="419.7578" y2="419.7578"/><polygon fill="#808080" points="478,415.7578,468,419.7578,478,423.7578,474,419.7578" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="474" y="401.6919">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="138" x="496" y="401.6919">addToFridge(foodList)</text><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="277" x2="319" y1="453.8906" y2="453.8906"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="319" x2="319" y1="453.8906" y2="466.8906"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="272" x2="319" y1="466.8906" y2="466.8906"/><polygon fill="#808080" points="282,462.8906,272,466.8906,282,470.8906,278,466.8906" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="284" y="448.8247">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="144" x="306" y="448.8247">rediriger vers le "Frigo"</text><polygon fill="#808080" points="35,487.0234,25,491.0234,35,495.0234,31,491.0234" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="29" x2="271" y1="491.0234" y2="491.0234"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="18" x="41" y="485.9575">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="94" x="63" y="485.9575">afficher le frigo</text><!--MD5=[b7eda9498c4658fd8f5297b2dd7caaa4]
 @startuml addToFridgeSystem
-actor User
-autonumber
+    !include ../style/commons.style
 
-participant ": Front" as frontend
-participant ": Back" as backend
+    actor User
+    autonumber
 
-User -> frontend: cliquer sur "Ajout au Frigo"
-activate frontend
-frontend -> backend: GET /foods
-activate backend
-backend - -> frontend: liste des légumes
-deactivate backend
-User <- - frontend: afficher liste des légumes
-deactivate frontend
+    participant ": Front" as frontend
+    participant ": Back" as backend
 
-User -> frontend: chercher le légume X
-activate frontend
-User <- - frontend: afficher légume X
-deactivate frontend
-User -> frontend: appuyer sur le "+" 2 fois
-activate frontend
-User <- - frontend: afficher 2 quantités du légume x
-deactivate frontend
-
-User -> frontend: cliquer sur "Enregistrer"
-activate frontend
-activate backend
-frontend -> backend: POST /fridge/addition
-backend - -> backend: addToFridge()
-frontend - -> frontend: rediriger vers le "Frigo"
-deactivate backend
-User <- - frontend: afficher le frigo
-deactivate frontend
+    User -> frontend: cliquer sur "Ajout au Frigo"
+    activate frontend
+    frontend -> backend: GET /foods
+    activate backend
+    backend - -> frontend: liste des légumes
+    User <- - frontend: afficher liste des légumes
+    User -> frontend: chercher le légume X
+    User <- - frontend: afficher légume X
+    User -> frontend: appuyer sur le "+" 2 fois
+    User <- - frontend: afficher 2 quantités du légume x
+    User -> frontend: cliquer sur "Enregistrer"
+    frontend -> backend: POST /fridge/addition
+    backend - -> backend: addToFridge(foodList)
+    frontend - -> frontend: rediriger vers le "Frigo"
+    deactivate backend
+    User <- - frontend: afficher le frigo
+    deactivate frontend
+    
 @enduml
 
-PlantUML version 1.2020.18(Wed Sep 30 21:40:44 CEST 2020)
+@startuml addToFridgeSystem
+
+skinparam nodesep 75
+skinparam ranksep 75
+hide empty members
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+skinparam monochrome  false
+skinparam shadowing   false
+skinparam roundcorner 10
+skinparam linetype polyline
+
+skinparam class {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam state {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam object {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+}
+
+skinparam package<<Layout>> {
+  borderColor         Transparent
+  backgroundColor     Transparent
+  fontColor           Transparent
+  stereotypeFontColor Transparent
+}
+
+skinparam sequence {
+	ArrowColor                  Gray
+  LifeLineBorderColor         CornFlowerBlue
+  LifeLineBackgroundColor     GhostWhite
+	ParticipantBorderColor      CornFlowerBlue
+	ParticipantBackgroundColor  GhostWhite
+  ActorBorderColor            CornFlowerBlue
+	ActorBackgroundColor        GhostWhite
+  BoxBorderColor         CornFlowerBlue
+  BoxBackgroundColor         GhostWhite
+}
+
+skinparam stereotypeCBackgroundColor CornflowerBlue
+
+hide footbox
+hide empty members
+
+skinparam note {
+ BackgroundColor GhostWhite
+ BorderColor         CornFlowerBlue
+}
+
+    actor User
+    autonumber
+
+    participant ": Front" as frontend
+    participant ": Back" as backend
+
+    User -> frontend: cliquer sur "Ajout au Frigo"
+    activate frontend
+    frontend -> backend: GET /foods
+    activate backend
+    backend - -> frontend: liste des légumes
+    User <- - frontend: afficher liste des légumes
+    User -> frontend: chercher le légume X
+    User <- - frontend: afficher légume X
+    User -> frontend: appuyer sur le "+" 2 fois
+    User <- - frontend: afficher 2 quantités du légume x
+    User -> frontend: cliquer sur "Enregistrer"
+    frontend -> backend: POST /fridge/addition
+    backend - -> backend: addToFridge(foodList)
+    frontend - -> frontend: rediriger vers le "Frigo"
+    deactivate backend
+    User <- - frontend: afficher le frigo
+    deactivate frontend
+    
+@enduml
+
+PlantUML version 1.2020.22(Sun Dec 06 10:36:27 CET 2020)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM

@@ -1,0 +1,113 @@
+@startuml fridge
+    !include ../style/commons.style
+
+    package com.fastxml.jackson.databind {
+        class JsonNode {}
+        class ObjectMapper {}
+    }
+
+    package wadge.fridge{
+
+        package api{
+            interface IFridge {
+                writeFridge(fileName: string): void
+                readFridge(fileName: string): void
+                addToFridge(newFoods: List<FridgeFood>): void
+                }
+
+            interface IDataManager {
+                readFile(fileName: string): List<FridgeFood>
+                readJson(node: JsonNode): List<FridgeFood>
+                writeFile(data: List<FridgeFood>, fileName: string): void
+            }
+        }
+
+        package impl{
+
+            class ExpirationRecall {
+                - getExpirationDateFromPredicate(predicate: Predicate<FoodElement>, fileName: string): List<FridgeFood> <<static>>
+                - getExpirationList(type: RecallType, fileName: string): List<FridgeFood> <<static>>
+            }
+            
+            enum RecallType {
+                TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER
+            }
+
+            class DataManager implements IDataManager{
+                - mapper: ObjectMapper <<final>>
+                - instance: IDataManager <<static>>
+                - this(): DataManager
+                + getInstance(): IDataManager
+                + readFile(fileName: string): List<FridgeFood>
+                + readJson(node: JsonNode): List<FridgeFood>
+                + writeFile(data: List<FridgeFood>, fileName: string): void
+            }
+
+            class FoodElement {
+                - insertionDate: string
+                - peremptionDate: string
+                - quantity: int
+                + this(): FoodElement
+                + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
+                + getInsertionDate(): string
+                + getPeremptionDate(): string
+                + getQuantity(): int
+                + toString(): string
+                + hashCode(): int
+                + equals(obj: Object): boolean
+            }
+
+            class FoodElementPredicatesFactory {
+                - dateFormater: SimpleDateFormat
+                - currentDate: Date
+                - instance: FoodElementPredicatesFactory
+                - this(): FoodElementPredicatesFactory
+                - dateDifference(d1: Date, d2: Date): long <<static>>
+                + getInstance(): FoodElementPredicatesFactory <<static>>
+                + dateProcessing(date: string): long
+                - getPredicate(type: RecallType): Predicate<FoodElement>
+            }
+
+            class Fridge implements IFridge{
+                - foods: List<FridgeFood>
+                - manager: IDataManager <<final>>
+                - instance: FridgeFridge <<static>>
+                - this(): Fridge
+                + getInstance(): Fridge <<static>>
+                + readFridge(fileName: string): void
+                + writeFridge(fileName: string): void
+                + addToFridge(newFoods: List<FridgeFood>): void
+                + getFood(): List<FridgeFood>
+            }
+
+            class FridgeFood{
+                - name: string
+                - products: List<FoodElement>
+                - this(): FridgeFood
+                - this(name: string, products: List<FoodElement>): FridgeFood
+                + getName(): string
+                + getProducts(): List<FoodELement>
+                + toString(): string
+                + hashCode(): int
+                + equals(obj: Object): boolean
+            }
+        }
+    }
+
+    ExpirationRecall *..> RecallType
+    ExpirationRecall *..> FoodElement
+    ExpirationRecall *..> FridgeFood
+    ExpirationRecall o..> FoodElementPredicatesFactory
+
+    DataManager o--> ObjectMapper
+    DataManager o..> JsonNode
+    DataManager *..> FridgeFood
+
+    FoodElementPredicatesFactory *..> FoodElement
+
+    Fridge o--> IDataManager
+    Fridge *--> FridgeFood
+
+    FridgeFood *..> FoodElement
+
+@enduml

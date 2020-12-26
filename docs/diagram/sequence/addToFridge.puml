@@ -1,25 +1,22 @@
 @startuml addToFridge
+    !include ../style/commons.style
 
-participant ": Front" as ft
-participant ": Back" as bk
-participant ": FridgeController" as fc
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": FridgeController" as fc
 
-activate ft
-ft -> bk: POST /fridge/addition
-activate bk
-bk -> fc: addToFridge(foodList)
-activate fc
-create "FridgeController.fridge: Fridge" as f
-fc -> f: getInstance()
-activate f
-f --> f: readFridge(fileName)
-fc --> f: addToFridge(newFoods)
-f --> f: writeFridge()
-deactivate f
-' fc --> bk
-' bk --> ft
-deactivate bk
-' ft <-- ft: Traiter les données reçues
-
+    activate ft
+    ft -> bk: POST /fridge/addition
+    activate bk
+    bk -> fc: addToFridge(foodList)
+    activate fc
+    create "FridgeController.fridge: Fridge" as f
+    fc -> f: getInstance()
+    activate f
+    f --> f: readFridge(fileName)
+    fc --> f: addToFridge(newFoods)
+    f --> f: writeFridge()
+    deactivate f
+    deactivate bk
 
 @enduml
