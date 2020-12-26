@@ -1,4 +1,4 @@
-@startuml Food
+@startuml food
 
 package wadge.food {
 

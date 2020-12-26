@@ -1,4 +1,4 @@
-@startuml Google
+@startuml google
     package google{
 
          class Search {

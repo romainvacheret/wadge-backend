@@ -1,4 +1,4 @@
-@startuml Fridge
+@startuml fridge
 
     package com.fastxml.jackson.databind {
         class JsonNode {}

@@ -1,4 +1,4 @@
-@startuml BackEnd
+@startuml backEnd
 
     package wadge.google {
         class Search {}
