@@ -1,26 +1,109 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="309px" preserveAspectRatio="none" style="width:438px;height:309px;" version="1.1" viewBox="0 0 438 309" width="438px" zoomAndPan="magnify"><defs><filter height="300%" id="f10hmalvoljnaq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f10hmalvoljnaq)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="237" y="119.4297"/><rect fill="#FFFFFF" filter="url(#f10hmalvoljnaq)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="237" y="177.6953"/><rect fill="#FFFFFF" filter="url(#f10hmalvoljnaq)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="393" y="148.5625"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="24" x2="24" y1="88.2969" y2="224.8281"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="241.5" x2="241.5" y1="88.2969" y2="224.8281"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 5.0,5.0;" x1="397.5" x2="397.5" y1="88.2969" y2="224.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="5" y="84.9951">User</text><ellipse cx="24" cy="15" fill="#FEFECE" filter="url(#f10hmalvoljnaq)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M24,23 L24,50 M11,31 L37,31 M24,50 L11,65 M24,50 L37,65 " fill="none" filter="url(#f10hmalvoljnaq)" style="stroke: #A80036; stroke-width: 2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="5" y="236.8232">User</text><ellipse cx="24" cy="250.125" fill="#FEFECE" filter="url(#f10hmalvoljnaq)" rx="8" ry="8" style="stroke: #A80036; stroke-width: 2.0;"/><path d="M24,258.125 L24,285.125 M11,266.125 L37,266.125 M24,285.125 L11,300.125 M24,285.125 L37,300.125 " fill="none" filter="url(#f10hmalvoljnaq)" style="stroke: #A80036; stroke-width: 2.0;"/><rect fill="#FEFECE" filter="url(#f10hmalvoljnaq)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="210.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="217.5" y="72.9951">: Front</text><rect fill="#FEFECE" filter="url(#f10hmalvoljnaq)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="59" x="210.5" y="223.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="217.5" y="243.8232">: Front</text><rect fill="#FEFECE" filter="url(#f10hmalvoljnaq)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="367.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="374.5" y="72.9951">: Back</text><rect fill="#FEFECE" filter="url(#f10hmalvoljnaq)" height="30.2969" style="stroke: #A80036; stroke-width: 1.5;" width="57" x="367.5" y="223.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="374.5" y="243.8232">: Back</text><rect fill="#FFFFFF" filter="url(#f10hmalvoljnaq)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="237" y="119.4297"/><rect fill="#FFFFFF" filter="url(#f10hmalvoljnaq)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="237" y="177.6953"/><rect fill="#FFFFFF" filter="url(#f10hmalvoljnaq)" height="29.1328" style="stroke: #A80036; stroke-width: 1.0;" width="10" x="393" y="148.5625"/><polygon fill="#A80036" points="225,115.4297,235,119.4297,225,123.4297,229,119.4297" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="24" x2="231" y1="119.4297" y2="119.4297"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="114.3638">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="136" x="44" y="114.3638">cliquer sur "Recettes"</text><polygon fill="#A80036" points="381,144.5625,391,148.5625,381,152.5625,385,148.5625" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0;" x1="242" x2="387" y1="148.5625" y2="148.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="249" y="143.4966">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="262" y="143.4966">GET /recipes</text><polygon fill="#A80036" points="258,173.6953,248,177.6953,258,181.6953,254,177.6953" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="252" x2="397" y1="177.6953" y2="177.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="264" y="172.6294">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="114" x="277" y="172.6294">liste  des recettes</text><polygon fill="#A80036" points="35,202.8281,25,206.8281,35,210.8281,31,206.8281" style="stroke: #A80036; stroke-width: 1.0;"/><line style="stroke: #A80036; stroke-width: 1.0; stroke-dasharray: 2.0,2.0;" x1="29" x2="241" y1="206.8281" y2="206.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="201.7622">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="176" x="54" y="201.7622">afficher la liste des recettes</text><!--MD5=[9eeb13cd1ff4f560e9ea8de31d53be26]
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="227px" preserveAspectRatio="none" style="width:432px;height:227px;" version="1.1" viewBox="0 0 432 227" width="432px" zoomAndPan="magnify"><defs/><g><rect fill="#F8F8FF" height="29.1328" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="237" y="115.4297"/><rect fill="#F8F8FF" height="29.1328" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="237" y="173.6953"/><rect fill="#F8F8FF" height="29.1328" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="393" y="144.5625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="24" x2="24" y1="84.2969" y2="220.8281"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="241.5" x2="241.5" y1="84.2969" y2="220.8281"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="397.5" x2="397.5" y1="84.2969" y2="220.8281"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="32" x="5" y="80.9951">User</text><ellipse cx="24" cy="15" fill="#F8F8FF" rx="8" ry="8" style="stroke:#6495ED;stroke-width:2.0;"/><path d="M24,23 L24,50 M11,31 L37,31 M24,50 L11,65 M24,50 L37,65 " fill="none" style="stroke:#6495ED;stroke-width:2.0;"/><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="59" x="212.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="45" x="219.5" y="72.9951">: Front</text><rect fill="#F8F8FF" height="30.2969" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="57" x="369.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="43" x="376.5" y="72.9951">: Back</text><rect fill="#F8F8FF" height="29.1328" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="237" y="115.4297"/><rect fill="#F8F8FF" height="29.1328" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="237" y="173.6953"/><rect fill="#F8F8FF" height="29.1328" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="393" y="144.5625"/><polygon fill="#808080" points="225,111.4297,235,115.4297,225,119.4297,229,115.4297" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="24" x2="231" y1="115.4297" y2="115.4297"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="31" y="110.3638">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="136" x="44" y="110.3638">cliquer sur "Recettes"</text><polygon fill="#808080" points="381,140.5625,391,144.5625,381,148.5625,385,144.5625" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="242" x2="387" y1="144.5625" y2="144.5625"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="249" y="139.4966">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="79" x="262" y="139.4966">GET /recipes</text><polygon fill="#808080" points="258,169.6953,248,173.6953,258,177.6953,254,173.6953" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="252" x2="397" y1="173.6953" y2="173.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="264" y="168.6294">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="114" x="277" y="168.6294">liste  des recettes</text><polygon fill="#808080" points="35,198.8281,25,202.8281,35,206.8281,31,202.8281" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="29" x2="241" y1="202.8281" y2="202.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="9" x="41" y="197.7622">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="176" x="54" y="197.7622">afficher la liste des recettes</text><!--MD5=[a125bfe05fee8b163862307f5ee4c28d]
 @startuml recipesSystem
-autonumber
-actor User
-participant ": Front" as frontend
-participant ": Back" as backend
+    !include ../style/commons.style
 
-User -> frontend: cliquer sur "Recettes"
-activate frontend
-frontend -> backend: GET /recipes
-deactivate frontend
-activate backend
-backend - -> frontend: liste  des recettes
-deactivate backend
-activate frontend
-frontend - -> User: afficher la liste des recettes
+    autonumber
+    actor User
+    participant ": Front" as frontend
+    participant ": Back" as backend
 
-deactivate frontend
- 
+    User -> frontend: cliquer sur "Recettes"
+    activate frontend
+    frontend -> backend: GET /recipes
+    deactivate frontend
+    activate backend
+    backend - -> frontend: liste  des recettes
+    deactivate backend
+    activate frontend
+    frontend - -> User: afficher la liste des recettes
+
+    deactivate frontend
  
 @endum
 
-PlantUML version 1.2020.18(Wed Sep 30 21:40:44 CEST 2020)
+@startuml recipesSystem
+
+skinparam nodesep 75
+skinparam ranksep 75
+hide empty members
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+skinparam monochrome  false
+skinparam shadowing   false
+skinparam roundcorner 10
+skinparam linetype polyline
+
+skinparam class {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam state {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam object {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+}
+
+skinparam package<<Layout>> {
+  borderColor         Transparent
+  backgroundColor     Transparent
+  fontColor           Transparent
+  stereotypeFontColor Transparent
+}
+
+skinparam sequence {
+	ArrowColor                  Gray
+  LifeLineBorderColor         CornFlowerBlue
+  LifeLineBackgroundColor     GhostWhite
+	ParticipantBorderColor      CornFlowerBlue
+	ParticipantBackgroundColor  GhostWhite
+  ActorBorderColor            CornFlowerBlue
+	ActorBackgroundColor        GhostWhite
+  BoxBorderColor         CornFlowerBlue
+  BoxBackgroundColor         GhostWhite
+}
+
+skinparam stereotypeCBackgroundColor CornflowerBlue
+
+hide footbox
+hide empty members
+
+skinparam note {
+ BackgroundColor GhostWhite
+ BorderColor         CornFlowerBlue
+}
+
+    autonumber
+    actor User
+    participant ": Front" as frontend
+    participant ": Back" as backend
+
+    User -> frontend: cliquer sur "Recettes"
+    activate frontend
+    frontend -> backend: GET /recipes
+    deactivate frontend
+    activate backend
+    backend - -> frontend: liste  des recettes
+    deactivate backend
+    activate frontend
+    frontend - -> User: afficher la liste des recettes
+
+    deactivate frontend
+ 
+@endum
+
+PlantUML version 1.2020.22(Sun Dec 06 10:36:27 CET 2020)
 (GPL source distribution)
 Java Runtime: OpenJDK Runtime Environment
 JVM: OpenJDK 64-Bit Server VM

@@ -1,0 +1,28 @@
+@startuml recipe
+    !include ../style/commons.style
+
+    package wadge.recipe {
+
+        class Recipe {
+            - name: string <<final>>
+            - steps: List<string> <<final>>
+            - quantity: Object <<final>>
+            - ingredient: List<Map<string, Object>>
+            + this(name: string, steps: List<string>, quantity: Object, ingredients: List<Map<string, Object>>): Recipe
+            + readRecipes(): List<Map<string, Object>> <<static>>
+        }
+
+        class RecipeBuilder {
+            - name: string <<final>>
+            - steps: List<string> <<final>>
+            - quantity: Object <<final>>
+            - ingredient: List<Map<string, Object>>
+            + this(name: string): RecipeBuilder
+            + readRecipes(): List<Map<string, Object>>
+            + generate(); Recipe
+        }
+    }
+
+    RecipeBuilder *..> Recipe
+
+@enduml
