@@ -98,6 +98,7 @@ jacocoTestReport {
     reports {
         html.enabled = true
         xml.enabled = true
+        html.destination = file("${buildDir}/jacocoHtml")
     }
 }
 
