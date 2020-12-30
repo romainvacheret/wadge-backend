@@ -27,7 +27,7 @@ plugins {
 apply plugin: VersionPlugin
 
 
-version '1.0.0-beta.1'
+version '1.0.0-beta.2'
 
 class VersionPlugin implements Plugin<Project> {
     public void apply(Project project) {
