@@ -1,7 +1,6 @@
 package wadge.recipe.impl;
 
 import java.util.List;
-import java.util.Map;
 
 public class Recipe {
     private String name;

@@ -17,7 +17,13 @@
     }
 
     package wadge.recipe {
-        class Recipe {}
+        package api {
+            interface IDataManager {}
+        }
+
+        package impl {
+            class Recipe {} 
+        }
     }
 
     package wadge.backend {
@@ -27,31 +33,41 @@
 
         class HelloController {
             + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
-            + getRecipes(): ResponseEntity<List<Map<string, Object>>>
         }
 
-        class FoodController{
+        class FoodController {
             - FOOD_LIST: string <<static final>>
             - foodList: FoodList <<static final>>
             + getFoodList(): List<Food>
             + getFoodFromMonth(month: string): List<Food>
         }
 
-        class FridgeController{
+        class FridgeController {
             - FRIDGE_FILE: string <<static final>>
             - fridge: Fridge <<static final>>
             + getFridge(): List<FridgeFood>
             + addToFridge(foodList: string): List<FridgeFood>
             + getExpirationAlerts(): Map<string, List<FridgeFood>>
         }
+
+        class RecipeController {
+            - RECIPES: string <<static final>>
+            - recipeList: List<Recipe> <<static final>>
+            - manager: IDataManager <<static final>>
+            + getRecipes(): List<Recipe>
+        }
     }
 
     HelloController o..> Search
-    HelloController *..> Recipe
+
     FoodController *--> FoodList
+
     FridgeController *--> Fridge
     FridgeController *..> RecallType
     FridgeController *..> ExpirationRecall
     FridgeController o..> DataManager
+
+    RecipeController *..> Recipe
+    RecipeController o..> IDataManager
 
 @enduml

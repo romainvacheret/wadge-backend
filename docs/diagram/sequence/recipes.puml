@@ -3,20 +3,21 @@
 
     participant ": Front" as ft
     participant ": Back" as bk
-    participant ": HelloController" as hc
+    participant ": RecipeController" as rc
 
     activate ft
     ft -> bk : GET /recipes
     activate bk
-    bk -> hc : getRecipes()
-    activate hc
-    create "HelloController.r: Recipes" as r
-    hc -> r : readRecipes()
-    activate r
-    r --> hc
-    deactivate r
-    hc --> bk
-    deactivate hc
+    bk -> rc : getRecipes()
+    activate rc
+    create "RecipeController.mapper: Recipes" as m
+    rc -> m : getInstance()
+    activate m
+    rc -> m : readFile(fileName)
+    m --> rc
+    deactivate m
+    rc --> bk
+    deactivate rc
     bk --> ft
     deactivate bk
     ft <-- ft: Traiter les données reçues
