@@ -5,15 +5,19 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import wadge.fridge.api.IDataManager;
+import wadge.logger.WadgeLogger;
 
 public class DataManager implements IDataManager {
     private final ObjectMapper mapper;
     private static IDataManager instance;
+    private static Logger logger = WadgeLogger.getLogger();
 
     private DataManager() {
         this.mapper = new ObjectMapper();
@@ -32,7 +36,7 @@ public class DataManager implements IDataManager {
         try {
             list.addAll(Arrays.asList(mapper.readValue(Paths.get(fileName).toFile(), FridgeFood[].class)));
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage());
         }
         return list;
     }
