@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import wadge.food.api.IFoodList;
 import wadge.food.api.Month;
+import wadge.food.exceptions.ReadFileFirstException;
 import wadge.logger.WadgeLogger;
 
 public class FoodList implements IFoodList {
@@ -36,7 +37,7 @@ public class FoodList implements IFoodList {
     @Override
     public List<Food> getFoodFromGivenMonth(Month month) throws Exception {
         if(this.foods == null) {
-            throw new Exception("Call FoodList::readFile first.");
+            throw new ReadFileFirstException("Call FoodList::readFile first.");
         }
         return this.foods.stream().filter(food -> 
             food.getAvailability().contains(month.valueOf())).collect(Collectors.toList());
