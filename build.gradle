@@ -42,6 +42,7 @@ class VersionPlugin implements Plugin<Project> {
 sonarqube {
   properties {
     property 'sonar.projectKey', 'RomainVacheret_Wadge-BackEnd'
+    property "sonar.jacoco.reportPaths", "${buildDir}/jacoco/test.exec"
   }
 }
 
