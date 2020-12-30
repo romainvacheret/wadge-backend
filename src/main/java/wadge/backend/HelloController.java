@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import wadge.google.Search;
-import wadge.recipe.Recipe;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
@@ -27,12 +26,4 @@ public class HelloController {
         tmp.put("candidates", s.parseJSON((JSONArray) json.get("candidates")));
         return new ResponseEntity<>(tmp, HttpStatus.OK);
     }
-
-    
-    @RequestMapping(path="/recipes", method= RequestMethod.GET)
-    public ResponseEntity<List<Map<String, Object>>> getRecipes() {
-        List<Map<String, Object>> result = Recipe.readRecipes();
-        return new ResponseEntity<>(result, HttpStatus.OK);
-    }
-
 }
