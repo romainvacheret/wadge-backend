@@ -67,8 +67,8 @@ dependencies {
     asciidoctorGems 'rubygems:rouge:3.15.0'
 
 
-    // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:7.2.0'
+    // Use JUnit test framework
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
 
 
     //Open Api 3
@@ -86,8 +86,7 @@ application {
 }
 
 test {
-    // Use TestNG for unit tests
-    useTestNG()
+    useJUnitPlatform()
 }
 
 jacoco {
