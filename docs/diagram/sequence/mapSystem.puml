@@ -15,7 +15,7 @@
     deactivate google
     frontend --> User: afficher la carte
 
-    frontend -> backend: GET /map/{lat}/{lng}
+    frontend -> backend: GET /map
     backend -> google: demande des magasins proches
     activate backend
     google --> backend: informations sur les magasins proches

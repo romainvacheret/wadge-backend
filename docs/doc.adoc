@@ -30,7 +30,7 @@ image::./diagram/out/google.png[]
 Le package `google` utilise API Google pour informé l'utilisateur des magasins à sa disposition dans ses environs.
 
 image::./diagram/out/recipe.png[]
-Enfin, le package "recipe" est une première approche de la gestion de recettes proposées à l'utilisateur.
+Enfin, le package "recipe" est une première approche de la gestion de recettes proposée à l'utilisateur.
 
 == Différents diagrammes de séquences (système)
 === Carte

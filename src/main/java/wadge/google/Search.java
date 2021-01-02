@@ -32,8 +32,8 @@ public class Search {
 
     }
 
-    public JSONObject request(double lat, double lng) {
-        String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000@" + String.format("%f,%f", lat, lng) + "&key=" + Search.KEY);
+    public JSONObject request() {
+        String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000&key=" + Search.KEY);
         
         try {
             URL url = new URL(requestUrl);
@@ -70,15 +70,5 @@ public class Search {
             array.add(tmp);
         });
         return array;
-    }
-
-    public static void main(String[] args) throws IOException, ParseException {
-        Search obj = new Search();
-
-        JSONObject json = obj.request(0, 0);
-        JSONObject tmp = new JSONObject();
-        tmp.put("candidates", obj.parseJSON((JSONArray) json.get("candidates")));
-        obj.jsonToFile("test4.json", tmp);
-
     }
 }
