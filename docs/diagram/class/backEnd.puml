@@ -31,7 +31,7 @@
             + main(args: []string): void <<static>>
         }
 
-        class HelloController {
+        class GoogleController {
             + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
         }
 
@@ -58,7 +58,7 @@
         }
     }
 
-    HelloController o..> Search
+    GoogleController o..> Search
 
     FoodController *--> FoodList
 
