@@ -1,6 +1,7 @@
 package wadge.fridge.impl;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -34,5 +35,14 @@ public class FridgeFoodTest {
         System.out.println(food.toString());
         String result = "FoodFridge [name=Food, products=[FoodElement [insertionDate=date 1, peremptionDate=date 2, quantity=42]]]";
         assertEquals(result, food.toString());
+    }
+
+    @Test
+    public void equalsTest() {
+        FridgeFood f1 = new FridgeFood("Food", List.of(new FoodElement("date 1", "date 2", 42)));
+        FridgeFood f2 = new FridgeFood("Name", List.of(new FoodElement("d1", "d2", 42)));
+        assertEquals(f1, food);
+        assertNotEquals(null, food);
+        assertNotEquals(f2, food);
     }
 }

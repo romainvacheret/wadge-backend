@@ -2,6 +2,7 @@ package wadge.fridge.impl;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,5 +38,12 @@ public class FoodElementTest {
         System.out.println(element.toString());
         String result = "FoodElement [insertionDate=date 1, peremptionDate=date 2, quantity=42]";
         assertEquals(result, element.toString());
+    }
+
+    @Test
+    public void equalsTest() {
+        FoodElement e1 = new FoodElement("date 1", "date 2", 42);
+        assertEquals(e1, element);
+        assertNotEquals(null, element);
     }
 }
