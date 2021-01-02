@@ -69,7 +69,7 @@ dependencies {
 
 
     // Use JUnit test framework
-    testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+    testImplementation 'junit:junit:4.13'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
