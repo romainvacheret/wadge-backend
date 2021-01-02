@@ -25,6 +25,7 @@ plugins {
 }
 
 apply plugin: VersionPlugin
+apply plugin: 'application'
 
 
 version '1.0.0-beta.2'
@@ -69,6 +70,8 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'org.junit.jupiter:junit-jupiter:5.5.2'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 
     //Open Api 3
