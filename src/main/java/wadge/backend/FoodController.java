@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import wadge.food.api.Month;
+import wadge.food.exceptions.ReadFileFirstException;
 import wadge.food.impl.Food;
 import wadge.food.impl.FoodList;
 
@@ -29,7 +30,7 @@ public class FoodController {
     }
 
     @RequestMapping(path = "/foods/{month}", method= RequestMethod.GET)
-    public List<Food> getFoodFromMonth(@PathVariable("month") String month) throws Exception {
+    public List<Food> getFoodFromMonth(@PathVariable("month") String month) throws ReadFileFirstException {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }

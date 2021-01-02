@@ -25,6 +25,7 @@ plugins {
 }
 
 apply plugin: VersionPlugin
+apply plugin: 'application'
 
 
 version '1.0.0-beta.2'
@@ -42,6 +43,7 @@ class VersionPlugin implements Plugin<Project> {
 sonarqube {
   properties {
     property 'sonar.projectKey', 'RomainVacheret_Wadge-BackEnd'
+    property "sonar.jacoco.reportPaths", "${buildDir}/jacoco/test.exec"
   }
 }
 
@@ -66,8 +68,10 @@ dependencies {
     asciidoctorGems 'rubygems:rouge:3.15.0'
 
 
-    // Use TestNG framework, also requires calling test.useTestNG() below
-    testImplementation 'org.testng:testng:7.2.0'
+    // Use JUnit test framework
+    testImplementation 'junit:junit:4.13'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 
     //Open Api 3
@@ -85,8 +89,7 @@ application {
 }
 
 test {
-    // Use TestNG for unit tests
-    useTestNG()
+    useJUnitPlatform()
 }
 
 jacoco {
@@ -98,6 +101,7 @@ jacocoTestReport {
     reports {
         html.enabled = true
         xml.enabled = true
+        html.destination = file("${buildDir}/jacocoHtml")
     }
 }
 

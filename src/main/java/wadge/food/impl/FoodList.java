@@ -35,7 +35,7 @@ public class FoodList implements IFoodList {
     }
 
     @Override
-    public List<Food> getFoodFromGivenMonth(Month month) throws Exception {
+    public List<Food> getFoodFromGivenMonth(Month month) throws ReadFileFirstException {
         if(this.foods == null) {
             throw new ReadFileFirstException("Call FoodList::readFile first.");
         }
