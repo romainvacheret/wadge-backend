@@ -6,15 +6,19 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang3.time.DateUtils;
 
 import wadge.fridge.impl.ExpirationRecall.RecallType;
+import wadge.logger.WadgeLogger;
 
 public class FoodElementPredicatesFactory {
     private SimpleDateFormat dateFormater;
     private Date currentDate;
     private static FoodElementPredicatesFactory instance;
+    private static Logger logger = WadgeLogger.getLogger();
 
 
     private FoodElementPredicatesFactory() {
@@ -41,8 +45,7 @@ public class FoodElementPredicatesFactory {
         try {
             difference =  dateDifference(dateFormater.parse(date), this.currentDate);
         } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage(), e);
         }
         return difference;
     }

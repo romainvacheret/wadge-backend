@@ -4,17 +4,22 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import wadge.food.api.IFoodList;
 import wadge.food.api.Month;
+import wadge.food.exceptions.ReadFileFirstException;
+import wadge.logger.WadgeLogger;
 
 public class FoodList implements IFoodList {
     private List<Food> foods;
     private final ObjectMapper mapper;
     private static FoodList instance;
+    private static Logger logger = WadgeLogger.getLogger();
 
 
     private FoodList() {
@@ -30,9 +35,9 @@ public class FoodList implements IFoodList {
     }
 
     @Override
-    public List<Food> getFoodFromGivenMonth(Month month) throws Exception {
+    public List<Food> getFoodFromGivenMonth(Month month) throws ReadFileFirstException {
         if(this.foods == null) {
-            throw new Exception("Call FoodList::readFile first.");
+            throw new ReadFileFirstException("Call FoodList::readFile first.");
         }
         return this.foods.stream().filter(food -> 
             food.getAvailability().contains(month.valueOf())).collect(Collectors.toList());
@@ -43,7 +48,7 @@ public class FoodList implements IFoodList {
         try {
             foods = Arrays.asList(mapper.readValue(Paths.get(fileName).toFile(), Food[].class));
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage(), e);
         }
 	}
 

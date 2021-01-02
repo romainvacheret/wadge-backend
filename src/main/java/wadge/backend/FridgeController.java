@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.JsonNode;
 
@@ -20,12 +22,14 @@ import wadge.fridge.impl.ExpirationRecall;
 import wadge.fridge.impl.ExpirationRecall.RecallType;
 import wadge.fridge.impl.Fridge;
 import wadge.fridge.impl.FridgeFood;
+import wadge.logger.WadgeLogger;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class FridgeController {
     private static final String FRIDGE_FILE = "fridge.json";
     private static final Fridge fridge;
+    private static Logger logger = WadgeLogger.getLogger();
 
     static {
         fridge = Fridge.getInstance();
@@ -46,8 +50,7 @@ public class FridgeController {
             fridge.writeFridge(FRIDGE_FILE);
             
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage(), e);
         }
         
         // TODO Add return value

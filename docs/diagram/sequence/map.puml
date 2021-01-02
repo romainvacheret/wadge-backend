@@ -3,14 +3,14 @@
 
     participant ": Front" as ft
     participant ": Back" as bk
-    participant ": HelloController" as c
+    participant ": GoogleController" as c
 
     activate ft
-    ft -> bk: GET /map/{lat}/{lng}
+    ft -> bk: GET /map
     activate bk
     bk -> c: getCloseShops()
     activate c
-    create "FridgeController.s: Seach" as s
+    create "GoogleController.s: Seach" as s
     c -> s: new()
     activate s
     s --> c: request()
