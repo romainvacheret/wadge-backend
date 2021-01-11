@@ -1,40 +1,42 @@
-package wadge.backend;
+package wadge.api;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import wadge.food.api.Month;
-import wadge.food.exceptions.ReadFileFirstException;
-import wadge.food.impl.Food;
-import wadge.food.impl.FoodList;
+import wadge.model.food.Month;
+import wadge.model.food.Food;
+import wadge.service.FoodService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class FoodController {
-    private static final String FOOD_LIST = "food_list.json";
-    private static final FoodList foodList;
+    private final FoodService foodService;
 
-    static {
-        foodList = FoodList.getInstance();
-        foodList.readFile(FOOD_LIST);
+    @Autowired
+    public FoodController(FoodService foodService) {
+        this.foodService = foodService;
     }
 
+    // @GetMapping
     @RequestMapping(path="/foods", method=RequestMethod.GET)
-    public List<Food> getFridgeList() {
-        return foodList.getFoods();
+    public List<Food> getAllFood() {
+        return foodService.getAllFood();
     }
 
     @RequestMapping(path = "/foods/{month}", method= RequestMethod.GET)
-    public List<Food> getFoodFromMonth(@PathVariable("month") String month) throws ReadFileFirstException {
+    public List<Food> getFoodFromMonth(@PathVariable("month") String month) {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
 
-        return foodList.getFoodFromGivenMonth(Month.valueOf(month));
+        return foodService.getFoodFromGivenMonth(Month.valueOf(month));
     }
+
+    
 }

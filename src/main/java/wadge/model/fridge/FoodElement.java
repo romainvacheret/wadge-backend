@@ -1,4 +1,4 @@
-package wadge.fridge.impl;
+package wadge.model.fridge;
 
 public class FoodElement {
         private String insertionDate;

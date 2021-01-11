@@ -1,4 +1,4 @@
-package wadge.food.impl;
+package wadge.model.food;
 
 import java.util.Arrays;
 import java.util.List;
@@ -71,4 +71,5 @@ public class Food {
     public String toString() {
         return "Food [availability=" + availability + ", days=" + days + ", name=" + name + ", type=" + type + "]";
     }
+
 }

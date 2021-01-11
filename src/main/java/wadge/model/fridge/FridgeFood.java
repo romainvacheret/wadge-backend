@@ -1,4 +1,4 @@
-package wadge.fridge.impl;
+package wadge.model.fridge;
 
 import java.util.Arrays;
 import java.util.List;

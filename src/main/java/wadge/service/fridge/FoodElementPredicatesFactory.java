@@ -1,4 +1,4 @@
-package wadge.fridge.impl;
+package wadge.service.fridge;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,8 +11,9 @@ import java.util.logging.Logger;
 
 import org.apache.commons.lang3.time.DateUtils;
 
-import wadge.fridge.impl.ExpirationRecall.RecallType;
+import wadge.service.fridge.FridgeService.RecallType;
 import wadge.logger.WadgeLogger;
+import wadge.model.fridge.FoodElement;
 
 public class FoodElementPredicatesFactory {
     private SimpleDateFormat dateFormater;

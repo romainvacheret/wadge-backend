@@ -1,4 +1,4 @@
-package wadge.recipe.impl;
+package wadge.model.recipe;
 
 public class Ingredient {
     private String name;
