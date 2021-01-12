@@ -1,4 +1,4 @@
-package wadge.fridge.impl;
+package wadge.service.fridge;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -11,7 +11,8 @@ import java.util.function.Predicate;
 import org.junit.Before;
 import org.junit.Test;
 
-import wadge.fridge.impl.ExpirationRecall.RecallType;
+import wadge.service.fridge.FridgeService.RecallType;
+
 
 public class FoodElementPredicatesFactoryTest {
     private FoodElementPredicatesFactory predicatesFactory;

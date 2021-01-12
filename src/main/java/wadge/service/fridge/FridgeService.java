@@ -35,7 +35,6 @@ public class FridgeService {
     }
 
     private List<FridgeFood> getExpirationDateFromPredicate(Predicate<FoodElement> predicate) {
-        // IDataManager manager = DataManager.getInstance();
         List<FridgeFood> fridgeList = fridgeDao.getAllFridge();
         List<FridgeFood> result = new ArrayList<>();
         fridgeList.forEach(food -> {

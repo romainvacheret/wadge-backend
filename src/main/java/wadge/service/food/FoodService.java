@@ -1,4 +1,4 @@
-package wadge.service;
+package wadge.service.food;
 
 import java.util.List;
 import java.util.stream.Collectors;
