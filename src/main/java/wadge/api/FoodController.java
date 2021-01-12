@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import wadge.model.food.Month;
 import wadge.model.food.Food;
-import wadge.service.FoodService;
+import wadge.service.food.FoodService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController

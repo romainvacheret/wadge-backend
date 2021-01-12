@@ -1,0 +1,81 @@
+@startuml service
+
+package dao.api {
+    interface IFoodDao {}
+    interface IFridgeDao {}
+    interface IRecipeDao {}
+}
+
+package model.food {
+    class Food {}
+    enum Month {}
+}
+
+package model.fridge {
+    class FridgeFood {}
+    class FoodElement {}
+}
+
+package model.recipe {
+    class Recipe {}
+}
+
+package service {
+    package food {
+        class FoodService {
+            - foodDao: IFoodDao <<static>>
+            + this(dao: FoodDao): FoodService
+            + getAllFood(): List<Food>
+            + getFoodFromGivenMonth(month: Month): List<Food>
+        }
+    }
+
+    package fridge {
+        class FridgeService {
+            - fridgeDao: IFridgeDao <<static>>
+            + this(dao: FridgeDao): FridgeService
+            + getAllFridge(): List<FridgeFood>
+            + getExpirationList(): List<FridgeFood>
+            + addAllToFridge(food: List<FridgeFood>): boolean
+            - getExpirationDateFromPredicate(): List<FridgeFood>
+        }
+
+        class FoodElementPredicatesFactory {
+            - dateFormater: SimpleDateFormat
+            - currentDate: Date
+            - instance: FoodElementPredicatesFactory
+            - this(): FoodElementPredicatesFactory
+            - dateDifference(d1: Date, d2: Date): long <<static>>
+            + getInstance(): FoodElementPredicatesFactory <<static>>
+            + dateProcessing(date: string): long
+            - getPredicate(type: RecallType): Predicate<FoodElement>
+        }
+        
+        enum RecallType {
+            TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER;
+        }
+    }
+
+    package recipe {
+        class RecipeService {
+            - recipeDao: IRecipeDao <<static>>
+            + this(dao: IRecipeDao): RecipeService
+            + getAllRecipes(): List<Recipe>
+        }
+    }
+}
+
+FoodService o--> IFoodDao
+FoodService *..> Food
+
+FridgeService o--> IFridgeDao
+FridgeService o..> FoodElementPredicatesFactory
+FridgeService *--> FridgeFood
+
+FoodElementPredicatesFactory *..> FoodElement
+FoodElementPredicatesFactory o..> RecallType
+
+RecipeService o--> IRecipeDao
+RecipeService *..> Recipe
+
+@enduml
