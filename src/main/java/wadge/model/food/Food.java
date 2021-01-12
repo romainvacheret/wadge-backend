@@ -6,13 +6,13 @@ import java.util.List;
 public class Food {
     private String name;
     private String type;
-    private List<String> availability;
+    private List<Month> availability;
     private int days;
 
     // Needed by com.fastxml.jackson
     public Food() {}
 
-    public Food(String name, String type, String[] availability, int days) {
+    public Food(String name, String type, Month[] availability, int days) {
         this.name = name;
         this.type = type;
         this.availability = Arrays.asList(availability);
@@ -23,7 +23,7 @@ public class Food {
 
     public String getType() { return type; }
 
-    public List<String> getAvailability() { return availability; }
+    public List<Month> getAvailability() { return availability; }
 
     public int getDays() { return days; }
 

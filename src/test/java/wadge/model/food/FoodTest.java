@@ -13,7 +13,7 @@ public class FoodTest {
 
     @Before
     public void setUp() {
-        food = new Food("Name", "Type", new String[] {"a", "b"}, 42);
+        food = new Food("Name", "Type", new Month[] {Month.JANUARY, Month.FEBRUARY}, 42);
     }
 
     @Test
@@ -31,8 +31,8 @@ public class FoodTest {
     @Test
     public void getAvailabilityTest() {
         assertTrue(food.getAvailability() instanceof List<?>);
-        assertTrue(food.getAvailability().get(0) instanceof String);
-        assertEquals(List.of("a", "b"), food.getAvailability());
+        assertTrue(food.getAvailability().get(0) instanceof Month);
+        assertEquals(List.of(Month.JANUARY, Month.FEBRUARY), food.getAvailability());
     }
 
     @Test
@@ -42,8 +42,8 @@ public class FoodTest {
     }
 
     @Test
-    public void toSringTest() {
-        String result = "Food [availability=[a, b], days=42, name=Name, type=Type]";
+    public void toStringTest() {
+        String result = "Food [availability=[JANUARY, FEBRUARY], days=42, name=Name, type=Type]";
         assertEquals(result, food.toString());
     }
 }

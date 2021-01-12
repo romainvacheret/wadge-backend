@@ -26,8 +26,8 @@ public class FoodService {
 
     public List<Food> getFoodFromGivenMonth(Month month) {
         List<Food> foods = foodDao.getAllFoods();
-
+        
         return foods.stream().filter(food -> 
-            food.getAvailability().contains(month.valueOf())).collect(Collectors.toList());
+            food.getAvailability().contains(month)).collect(Collectors.toList());
     }
 }

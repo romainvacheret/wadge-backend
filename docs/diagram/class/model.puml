@@ -14,18 +14,24 @@ package model {
             OCTOBER,
             NOVEMBER,
             DECEMBER;
+
+            - value: string <<final>>
+            ~ BY_VALUE: Map<string, Month> <<static final>>
+            + this(value: string): Month
+            + getValue(): string
+            + of(value: string): Month
         }
     
         class Food {
             - name: string
             - type: string
-            - availability: List<string>
+            - availability: List<Month>
             - days: int
             + this(): Food
-            + this(name: string, type: string, availability: string[], days: int): Food
+            + this(name: string, type: string, availability: Month[], days: int): Food
             + getName(): string
             + getType(): string
-            + getAvailability(): List<string>
+            + getAvailability(): List<Month>
             + getDays(): int
             + hashCode(): int
             + equals(obj: Object): boolean
@@ -81,6 +87,8 @@ package model {
             + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
         }
     }
+
+    Food *--> Month
 
     FridgeFood *..> FoodElement
 

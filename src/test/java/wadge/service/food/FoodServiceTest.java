@@ -40,7 +40,7 @@ public class FoodServiceTest {
 
         results.forEach((key, value) -> {
             assertTrue(value.stream().allMatch(food -> 
-                food.getAvailability().contains(key.valueOf())));
+                food.getAvailability().contains(key)));
         });
 
     }

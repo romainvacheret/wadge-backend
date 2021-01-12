@@ -67,6 +67,7 @@ package service {
 
 FoodService o--> IFoodDao
 FoodService *..> Food
+FoodService *..> Month
 
 FridgeService o--> IFridgeDao
 FridgeService o..> FoodElementPredicatesFactory
