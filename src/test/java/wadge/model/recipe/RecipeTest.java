@@ -1,4 +1,4 @@
-package wadge.recipe.impl;
+package wadge.model.recipe;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -22,7 +22,6 @@ public class RecipeTest {
             "myLink.com", 
             List.of(new Ingredient("Ingredient", "12"))
         );
-        System.out.println(recipe);
     }
 
     @Test

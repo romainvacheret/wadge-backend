@@ -1,4 +1,4 @@
-package wadge.fridge.impl;
+package wadge.model.fridge;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
