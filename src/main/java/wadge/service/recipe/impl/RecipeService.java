@@ -1,4 +1,4 @@
-package wadge.service.recipe;
+package wadge.service.recipe.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +24,7 @@ public class RecipeService {
         return recipeDao.getAllRecipes();
     }
 
-    public List<Recipe> getAllRecipesUsingFridge(Map<RecallType, List<String>> products) {
+    public List<Recipe> getRecipesUsingFridge(Map<RecallType, List<String>> products) {
         FridgeSelection select = new FridgeSelection(getAllRecipes(), products);
         
         return select.select().sort();

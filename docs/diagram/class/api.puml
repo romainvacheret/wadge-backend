@@ -50,8 +50,9 @@ package api {
 
     class RecipeController {
         - recipeService: RecipeService <<final>>
-        + this(recipeService: RecipeService): RecipeController
+        + this(recipeService: RecipeService, fridgeService: FridgeService): RecipeController
         + getAllRecipes(): List<Recipe>
+        + getRecipesUsingFridge(): List<Recipe>
     }
 }
 
@@ -59,8 +60,11 @@ FoodController *--> Food
 FoodController o..> FoodService
 
 FridgeController *--> FridgeFood
+FridgeController o--> ObjectMapper
 FridgeController o..> FridgeService
+FridgeController o..> JsonNode
 
 RecipeController *--> Recipe
 RecipeController o..> RecipeService
+RecipeController o..> FridgeService
 @enduml
