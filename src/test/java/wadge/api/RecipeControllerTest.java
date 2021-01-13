@@ -19,7 +19,7 @@ public class RecipeControllerTest {
     public void setUp() {
         IRecipeDao dao = new JsonRecipeDao();
         RecipeService service = new RecipeService(dao);
-        controller = new RecipeController(service);
+        controller = new RecipeController(service, null);
     }
 
     @Test
