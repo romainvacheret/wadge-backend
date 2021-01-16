@@ -74,13 +74,13 @@ package service {
             class FridgeSelection implements RecipeSelection {
                 - recipes: List<Recipe>
                 - scores: List<Map.Entry<Integer, Recipe>>
-                - scoringMap: Map<string, Integer>
-                - ingredientScoring: Function<Ingredient, Optional<Integer>>
-                - recipeScoring: Function<List<Ingredient>, Integer>
-                - recipeToEntry: Function<Recipe, Map.Entry<Integer, Recipe>>
+                ~ scoringMap: Map<string, Integer>
+                ~ ingredientScoring: Function<Ingredient, Optional<Integer>>
+                ~ recipeScoring: Function<List<Ingredient>, Integer>
+                ~ recipeToEntry: Function<Recipe, Map.Entry<Integer, Recipe>>
                 + this(recipes: List<Recipe>, products: Map<RecallType, List<string>>): FridgeSelection
-                - addToSet(mySet: Set<string>, key: string, value: integer): void
-                - defineScoringMap(products: Map<RecallType, List<string>>): void
+                ~ addToSet(mySet: Set<string>, key: string, value: integer): void
+                ~ defineScoringMap(products: Map<RecallType, List<string>>): void
             }
         }
     }

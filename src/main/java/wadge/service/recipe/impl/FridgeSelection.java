@@ -18,36 +18,40 @@ import wadge.service.recipe.api.RecipeSelection;
 public class FridgeSelection implements RecipeSelection {
     private List<Recipe> recipes;
     private List<Map.Entry<Integer, Recipe>> scores;
-    private Map<String, Integer> scoringMap = new HashMap<>();
+    Map<String, Integer> scoringMap = new HashMap<>();
 
     public FridgeSelection(List<Recipe> recipes, Map<RecallType, List<String>> products) {
         this.recipes = recipes;
         defineScoringMap(products);
     }
 
-    private void addToSet(Set<String> mySet, String key, Integer value) {
+    void addToSet(Set<String> mySet, String key, Integer value) {
         if(!mySet.contains(key)) {
             mySet.add(key);
             scoringMap.put(key, value);
         }
     }
 
-    private void defineScoringMap(Map<RecallType, List<String>> products) {
+    void defineScoringMap(Map<RecallType, List<String>> products) {
         Set<String> nameSet = new HashSet<>();
-        products.get(RecallType.TWO_DAYS).stream().forEach(product -> addToSet(nameSet, product, 4));
-        products.get(RecallType.FIVE_DAYS).stream().forEach(product -> addToSet(nameSet, product, 3));
-        products.get(RecallType.SEVEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 2));
-        products.get(RecallType.FORTEEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 1));
-        products.get(RecallType.OTHER).stream().forEach(product -> addToSet(nameSet, product, 1));
+        try {
+            products.get(RecallType.TWO_DAYS).stream().forEach(product -> addToSet(nameSet, product, 4));
+            products.get(RecallType.FIVE_DAYS).stream().forEach(product -> addToSet(nameSet, product, 3));
+            products.get(RecallType.SEVEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 2));
+            products.get(RecallType.FORTEEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 1));
+            products.get(RecallType.OTHER).stream().forEach(product -> addToSet(nameSet, product, 1));
+        } catch(NullPointerException e) {
+            // No food for the given RecallType 
+        }
     }
 
-    private Function<Ingredient, Optional<Integer>> ingredientScoring = ingredient -> Optional
+    Function<Ingredient, Optional<Integer>> ingredientScoring = ingredient -> Optional
             .ofNullable(scoringMap.get(ingredient.getName()));
 
-    private Function<List<Ingredient>, Integer> recipeScoring = ingredients -> ingredients.stream()
+    Function<List<Ingredient>, Integer> recipeScoring = ingredients -> ingredients.stream()
             .map(ingredientScoring).filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
 
-    private Function<Recipe, Map.Entry<Integer, Recipe>> recipeToEntry = recipe -> Map
+    Function<Recipe, Map.Entry<Integer, Recipe>> recipeToEntry = recipe -> Map
             .entry(recipeScoring.apply(recipe.getIngredients()), recipe);
 
     @Override
