@@ -58,7 +58,6 @@ public class FridgeSelection implements RecipeSelection {
     public RecipeSelection select() {
         scores = recipes.stream().map(recipeToEntry)
                 .collect(Collectors.toList());
-                System.out.println(scores);
         return this;
     }
 

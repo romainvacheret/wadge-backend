@@ -25,22 +25,19 @@ public class FoodController {
         return foodService.getAllFood();
     }
 
-    @GetMapping("/foods/{month}/{choice}")
-    public List<Food> getFoodFromMonth(@PathVariable String month,@PathVariable int choice) {
+    @RequestMapping(path="/foods/{month}", method=RequestMethod.GET)
+    public List<Food> getFoodFromMonth(@PathVariable String month) {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
-        if(choice==0)
-               return foodService.sortedByName(Month.valueOf(month));
-       return  foodService.sortedByPeremption(Month.valueOf(month));
-    }
-    @GetMapping("/Allfoods/{peremptionMonth}")
-    public List<Food> getFoodsSortByName(@PathVariable String month ){
-        if (month.length() != 0) {
-            month = month.toUpperCase();
-        }
-        return  foodService.sortedByName(Month.valueOf(month));
+       return foodService.getFoodFromGivenMonth(Month.valueOf(month));
     }
 
-    
+    @RequestMapping(path="/foods/{month}/days", method=RequestMethod.GET)
+    public List<Food> getFoodFromMonthByDays(@PathVariable String month) {
+        if (month.length() != 0) {
+            month = month.toUpperCase();
+        }
+       return foodService.sortByDays(foodService.getFoodFromGivenMonth(Month.valueOf(month)));
+    }    
 }

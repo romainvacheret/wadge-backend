@@ -1,5 +1,6 @@
 package wadge.service.food;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,9 +11,6 @@ import org.springframework.stereotype.Service;
 import wadge.dao.api.IFoodDao;
 import wadge.model.food.Food;
 import wadge.model.food.Month;
-import wadge.service.food.api.IsortFood;
-import wadge.service.food.imp.SortFoodByDays;
-import wadge.service.food.imp.SortFoodByName;
 
 @Service
 public class FoodService {
@@ -33,17 +31,9 @@ public class FoodService {
         return foods.stream().filter(food ->
                 food.getAvailability().contains(month)).collect(Collectors.toList());
     }
-    public List<Food> sortedByName(Month month){
-        List<Food> foods = foodDao.getAllFoods();
-        IsortFood sort= SortFoodByName.getInstance();
-        return sort.sort(foods,month);
-    }
-    public List<Food> sortedByPeremption(Month month){
-        List<Food> foods = foodDao.getAllFoods();
-        IsortFood sort= SortFoodByDays.getInstance();
-        return sort.sort(foods,month);
-        
-    }
-    
+
+    public List<Food> sortByDays(List<Food> food) {
+        return food.stream().sorted(Comparator.comparing(Food::getDays)).collect(Collectors.toList());
+    }  
    
 }
