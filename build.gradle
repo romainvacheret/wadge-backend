@@ -28,7 +28,7 @@ apply plugin: VersionPlugin
 apply plugin: 'application'
 
 
-version '1.0.0'
+version '1.1.0'
 
 class VersionPlugin implements Plugin<Project> {
     public void apply(Project project) {
@@ -85,7 +85,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClassName = 'wadge.backend.Application'
+    mainClassName = 'wadge.Application'
 }
 
 test {

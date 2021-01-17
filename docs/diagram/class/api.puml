@@ -1,0 +1,70 @@
+@startuml api
+
+package model {
+    package food {
+        class Food {}
+    }
+
+    package fridge {
+        class FridgeFood {}
+    }
+
+    package recipe {
+        class Recipe {}
+    }
+}
+
+package com.fasterxml.jackson.databind {
+    class ObjectMapper {}
+    class JsonNode {}
+}
+
+package service.food {
+    class FoodService {}
+}
+
+package service.fridge {
+    class FridgeService {}
+}
+
+package service.recipe {
+    class RecipeService {}
+}
+
+package api {
+    class FoodController {
+        - foodService: FoodService <<final>>
+        + this(foodService: FoodService): FoodController
+        + getAllFood(): List<Food>
+        + getFoodFromMonth(month: string): List<Food>
+    }
+
+    class FridgeController {
+        - fridgeService: FridgeService <<final>>
+        - mapper: ObjectMapper <<final>>
+        + this(fridgeService: FridgeService): FridgeController
+        + getAllFridge(): List<FridgeFood>
+        + addAllToFridge(food: JsonNode): boolean
+        + getExpirationAlerts(): map<String, List<FridgeFood>>
+    }
+
+    class RecipeController {
+        - recipeService: RecipeService <<final>>
+        + this(recipeService: RecipeService, fridgeService: FridgeService): RecipeController
+        + getAllRecipes(): List<Recipe>
+        + getRecipesUsingFridge(): List<Recipe>
+    }
+}
+
+FoodController *--> Food
+FoodController o..> FoodService
+
+FridgeController *--> FridgeFood
+FridgeController o--> ObjectMapper
+FridgeController o..> FridgeService
+FridgeController o..> JsonNode
+
+RecipeController *--> Recipe
+RecipeController o..> RecipeService
+RecipeController o..> FridgeService
+@enduml
