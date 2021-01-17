@@ -1,0 +1,98 @@
+@startuml model
+package model {
+    package food {
+        enum Month {
+            JANUARY,
+            FEBRUARY,
+            MARCH,
+            APRIL,
+            MAY,
+            JUN,
+            JULY,
+            AUGUST,
+            SEPTEMBER,
+            OCTOBER,
+            NOVEMBER,
+            DECEMBER;
+
+            - value: string <<final>>
+            ~ BY_VALUE: Map<string, Month> <<static final>>
+            + this(value: string): Month
+            + getValue(): string
+            + of(value: string): Month
+        }
+    
+        class Food {
+            - name: string
+            - type: string
+            - availability: List<Month>
+            - days: int
+            + this(): Food
+            + this(name: string, type: string, availability: Month[], days: int): Food
+            + getName(): string
+            + getType(): string
+            + getAvailability(): List<Month>
+            + getDays(): int
+            + hashCode(): int
+            + equals(obj: Object): boolean
+            + toString(): string
+        }
+    }
+
+    package fridge {
+        class FoodElement {
+            - insertionDate: string
+            - peremptionDate: string
+            - quantity: int
+            + this(): FoodElement
+            + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
+            + getInsertionDate(): string
+            + getPeremptionDate(): string
+            + getQuantity(): int
+            + toString(): string
+            + hashCode(): int
+            + equals(obj: Object): boolean
+        }
+
+        class FridgeFood {
+            - name: string
+            - products: List<FoodElement>
+            - this(): FridgeFood
+            - this(name: string, products: List<FoodElement>): FridgeFood
+            + getName(): string
+            + getProducts(): List<FoodELement>
+            + toString(): string
+            + hashCode(): int
+            + equals(obj: Object): boolean
+        }
+    }
+
+    package recipe {
+        class Ingredient {
+            - name: string
+            - quantity: string
+            - this(): Ingredient
+            + this(name: string, quantity: string): Ingredient
+        }
+
+        class Recipe {
+            - name: string 
+            - steps: List<string> 
+            - servings: int 
+            - preparation: int 
+            - difficulty: int 
+            - link: string
+            - ingredient: List<Ingredient>
+            - this(): Recipe
+            + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
+        }
+    }
+
+    Food *--> Month
+
+    FridgeFood *..> FoodElement
+
+    Recipe *..> Ingredient
+}
+    
+@enduml

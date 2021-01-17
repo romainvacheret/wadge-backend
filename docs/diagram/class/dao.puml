@@ -1,0 +1,70 @@
+@startuml dao
+
+package com.fasterxml.jackson.databind {
+    class ObjectMapper {}
+}
+
+package model {
+    package food {
+        class Food {}
+    }
+
+    package fridge {
+        class FridgeFood {}
+    }
+
+    package recipe {
+        class Recipe {}
+    }
+}
+
+package dao {
+    package api {
+        interface IFoodDao {
+            getAllFoods(): List<Food>
+        }
+
+        interface IFridgeDao {
+            getAllFridge(): List<FridgeFood>
+            addAllToFridge(food: List<FridgeFood>)
+        }
+
+        interface IRecipeDao {
+            getAllRecipes(): List<Recipe>
+        }
+    }
+
+    package impl {
+        class JsonFoodDao implements IFoodDao {
+            - food: List<Food>: <<final>>
+            - mapper: ObjectMapper: <<final>>
+            ~ FILE_NAME: List<Food>: <<static final>>
+            + this(): JsonFoodDao
+        }
+
+        class JsonFridgeDao implements IFridgeDao {
+            - fridge: List<FridgeFood>: <<final>>
+            - mapper: ObjectMapper: <<final>>
+            ~ FILE_NAME: List<Food>: <<static final>>
+            + this(): JsonFridgeDao
+        }
+
+        class JsonRecipeDao implements IRecipeDao {
+            - recipes: List<Recipe>: <<final>>
+            - mapper: ObjectMapper: <<final>>
+            ~ FILE_NAME: List<Food>: <<static final>>
+            + this(): JsonFridgeDao
+        }
+    }
+}
+
+JsonFoodDao *..> Food
+JsonFoodDao o..> ObjectMapper
+
+JsonFridgeDao *..> FridgeFood
+JsonFridgeDao o..> ObjectMapper
+
+JsonRecipeDao *..> Recipe
+JsonRecipeDao o..> ObjectMapper
+
+@enduml
