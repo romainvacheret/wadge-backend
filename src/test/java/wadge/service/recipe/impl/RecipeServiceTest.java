@@ -1,4 +1,4 @@
-package wadge.service.recipe;
+package wadge.service.recipe.impl;
 
 import static org.junit.Assert.assertTrue;
 

@@ -10,7 +10,7 @@ import org.junit.Test;
 import wadge.dao.api.IRecipeDao;
 import wadge.dao.impl.JsonRecipeDao;
 import wadge.model.recipe.Recipe;
-import wadge.service.recipe.RecipeService;
+import wadge.service.recipe.impl.RecipeService;
 
 public class RecipeControllerTest {
     private RecipeController controller;
@@ -19,7 +19,7 @@ public class RecipeControllerTest {
     public void setUp() {
         IRecipeDao dao = new JsonRecipeDao();
         RecipeService service = new RecipeService(dao);
-        controller = new RecipeController(service);
+        controller = new RecipeController(service, null);
     }
 
     @Test
