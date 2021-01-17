@@ -1,6 +1,11 @@
 package wadge.service.food;
 
-import java.util.List;
+import java.lang.reflect.Array;
+import java.text.DateFormatSymbols;
+import java.util.*;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +15,9 @@ import org.springframework.stereotype.Service;
 import wadge.dao.api.IFoodDao;
 import wadge.model.food.Month;
 import wadge.model.food.Food;
+import wadge.service.food.api.IsortFood;
+import wadge.service.food.imp.SortFoodByDays;
+import wadge.service.food.imp.SortFoodByName;
 
 @Service
 public class FoodService {
@@ -27,7 +35,20 @@ public class FoodService {
     public List<Food> getFoodFromGivenMonth(Month month) {
         List<Food> foods = foodDao.getAllFoods();
         
-        return foods.stream().filter(food -> 
-            food.getAvailability().contains(month)).collect(Collectors.toList());
+        return foods.stream().filter(food ->
+                food.getAvailability().contains(month)).collect(Collectors.toList());
     }
+    public List<Food> sortedByName(Month month){
+        List<Food> foods = foodDao.getAllFoods();
+        IsortFood sort= SortFoodByName.getInstance();
+        return sort.sort(foods,month);
+    }
+    public List<Food> sortedByPeremption(Month month){
+        List<Food> foods = foodDao.getAllFoods();
+        IsortFood sort= SortFoodByDays.getInstance();
+        return sort.sort(foods,month);
+        
+    }
+    
+   
 }

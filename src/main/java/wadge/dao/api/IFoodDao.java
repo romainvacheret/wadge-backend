@@ -6,4 +6,5 @@ import wadge.model.food.Food;
 
 public interface IFoodDao {
     List<Food> getAllFoods();
+    
 }
