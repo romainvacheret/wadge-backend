@@ -27,15 +27,15 @@ public class FridgeServiceTest {
         assertTrue(service.getAllFridge().get(0) instanceof FridgeFood);
     }
 
-    @Test
-    public void addAllToFridge() {
-        fail("TODO");
-        //TODO
-    }
+    // @Test
+    // public void addAllToFridge() {
+    //     fail("TODO");
+    //     //TODO
+    // }
 
-    @Test
-    public void getExpirationList() {
-        fail("TODO");
-        //TODO
-    }
+    // @Test
+    // public void getExpirationList() {
+    //     fail("TODO");
+    //     //TODO
+    // }
 }
