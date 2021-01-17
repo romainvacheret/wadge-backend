@@ -1,11 +1,6 @@
 package wadge.service.food;
 
-import java.lang.reflect.Array;
-import java.text.DateFormatSymbols;
-import java.util.*;
-import java.util.function.BiFunction;
-import java.util.function.Function;
-import java.util.function.Predicate;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +8,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import wadge.dao.api.IFoodDao;
-import wadge.model.food.Month;
 import wadge.model.food.Food;
+import wadge.model.food.Month;
 import wadge.service.food.api.IsortFood;
 import wadge.service.food.imp.SortFoodByDays;
 import wadge.service.food.imp.SortFoodByName;
