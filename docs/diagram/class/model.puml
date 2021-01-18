@@ -9,7 +9,7 @@ package model {
             MARCH,
             APRIL,
             MAY,
-            JUN,
+            JUNE,
             JULY,
             AUGUST,
             SEPTEMBER,
