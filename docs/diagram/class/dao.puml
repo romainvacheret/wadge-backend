@@ -1,4 +1,5 @@
 @startuml dao
+!include ../style/commons.style
 
 package com.fasterxml.jackson.databind {
     class ObjectMapper {}

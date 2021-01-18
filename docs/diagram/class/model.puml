@@ -1,4 +1,6 @@
 @startuml model
+!include ../style/commons.style
+
 package model {
     package food {
         enum Month {
