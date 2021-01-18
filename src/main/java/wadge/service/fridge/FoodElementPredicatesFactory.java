@@ -11,20 +11,20 @@ import java.util.logging.Logger;
 
 import org.apache.commons.lang3.time.DateUtils;
 
-import wadge.service.fridge.FridgeService.RecallType;
-import wadge.logger.WadgeLogger;
 import wadge.model.fridge.FoodElement;
+import wadge.service.fridge.FridgeService.RecallType;
 
 public class FoodElementPredicatesFactory {
     private SimpleDateFormat dateFormater;
     private Date currentDate;
     private static FoodElementPredicatesFactory instance;
-    private static Logger logger = WadgeLogger.getLogger();
+    private static Logger logger = Logger.getLogger(FoodElementPredicatesFactory.class.getName());
 
 
     private FoodElementPredicatesFactory() {
         this.dateFormater = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
         this.currentDate = new Date();
+        logger.log(Level.INFO, "test");
     }
 
     protected static long dateDifference(Date d1, Date d2) {
@@ -85,5 +85,9 @@ public class FoodElementPredicatesFactory {
                     rtr = x -> this.dateProcessing(x.getPeremptionDate()) > 14;
             }
         return rtr;
+    }
+
+    public static void main(String[] args) {
+        new FoodElementPredicatesFactory().getPredicate(RecallType.EXPIRED);
     }
 }

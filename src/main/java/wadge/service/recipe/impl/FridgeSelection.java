@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
 import wadge.model.recipe.Ingredient;
@@ -48,11 +49,11 @@ public class FridgeSelection implements RecipeSelection {
     Function<Ingredient, Optional<Integer>> ingredientScoring = ingredient -> Optional
             .ofNullable(scoringMap.get(ingredient.getName()));
 
-    Function<List<Ingredient>, Integer> recipeScoring = ingredients -> ingredients.stream()
+    ToIntFunction<List<Ingredient>> recipeScoring = ingredients -> ingredients.stream()
             .map(ingredientScoring).filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
 
     Function<Recipe, Map.Entry<Integer, Recipe>> recipeToEntry = recipe -> Map
-            .entry(recipeScoring.apply(recipe.getIngredients()), recipe);
+            .entry(recipeScoring.applyAsInt(recipe.getIngredients()), recipe);
 
     @Override
     public RecipeSelection select() {

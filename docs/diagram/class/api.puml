@@ -1,4 +1,5 @@
 @startuml api
+!include ../style/commons.style
 
 package model {
     package food {
@@ -37,6 +38,7 @@ package api {
         + this(foodService: FoodService): FoodController
         + getAllFood(): List<Food>
         + getFoodFromMonth(month: string): List<Food>
+        + getFoodFromMonthByDays(month: string): List<Food>
     }
 
     class FridgeController {

@@ -5,6 +5,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,7 +19,8 @@ import wadge.model.fridge.FridgeFood;
 public class JsonFridgeDao implements IFridgeDao {
     private final List<FridgeFood> fridge;
     private final ObjectMapper mapper;
-    private static final String FILE_NAME = "fridge.json";
+    static final String FILE_NAME = "fridge.json";
+    private static Logger logger = Logger.getLogger(JsonFridgeDao.class.getName());
 
 
     public JsonFridgeDao() {
@@ -27,7 +30,7 @@ public class JsonFridgeDao implements IFridgeDao {
         try {
             fridge.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), FridgeFood[].class)));
         } catch (IOException e) {
-            // logger.log(Level.FINE, e.getMessage());
+            logger.log(Level.FINE, e.getMessage());
         }
     }
 
@@ -38,8 +41,7 @@ public class JsonFridgeDao implements IFridgeDao {
             try {
             mapper.writeValue(Paths.get(FILE_NAME).toFile(), fridge);
             } catch (IOException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
+                logger.log(Level.FINE, e.getMessage());
                 rtr = false;
             }
         }
