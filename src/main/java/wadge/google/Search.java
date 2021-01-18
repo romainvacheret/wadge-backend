@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -16,10 +18,11 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 public class Search {
     private static final String KEY;
+    private static Logger logger = Logger.getLogger(Search.class.getName());
+    
     static {
         Dotenv dotenv = Dotenv.load();
         KEY = dotenv.get("GOOGLE_API");
-        System.out.println(KEY);
     }
 
 
@@ -27,13 +30,12 @@ public class Search {
         try(FileWriter file = new FileWriter(fileName)) {
             file.write(json.toJSONString());
         } catch(IOException e) {
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage(), e);
         } 
-
     }
 
     public JSONObject request() {
-        String requestUrl = new String("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000&key=" + Search.KEY);
+        String requestUrl = String.format("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000&key=%s", Search.KEY);
         
         try {
             URL url = new URL(requestUrl);
@@ -47,11 +49,10 @@ public class Search {
             }
 
             JSONParser parser = new JSONParser();
-            JSONObject json = (JSONObject) parser.parse(sb.toString());
-            return json;
+            return (JSONObject) parser.parse(sb.toString());
             
         } catch (IOException | ParseException e) {
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage(), e);
         }
         
         return null;

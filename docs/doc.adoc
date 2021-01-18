@@ -15,22 +15,30 @@ image::./img/personas/persona-couple.png[]
 image::./img/personas/persona-student.png[]
 image::./img/personas/persona-worker.png[]
 == Diagrammes de classe
-Notre code est ordonné autour de cinq packages : `backend`, `food`, `fridge`, `google`, `recipe`. Ils s'occupent respectivement des controlleurs de l'API, des aliments, du frigo, de l'utilisation de l'API Google et des recettes.
+
+Notre code est ordonné autour de 4 packages principaux : `api`, `dao`, `model` et `service`. 
+Dans chacun des ces packages, nous retrouvons les catégoires `food`, `recipe`, `fridge` qui représentent respectivement les aliments de saison, des recettes, et un frigo.
+
+image::./diagram/out/model.png[]
+Le package `model` gère la structure des éléments d'un point de vu métier.
+
+image::./diagram/out/dao.png[]
+Le package `dao` se concentre sur l'accès des données.
+
+image::./diagram/out/service.png[]
+Le package `service` s'occupe de la manipulation des données récupérées depuis les DAO.
+
+image::./diagram/out/api.png[]
+Enfin, le package `api` est l'intermédiaire entre le code métier et l'utilisateur.
+
+Nous avons également deux autres packages qui seront pas la suite réorganisés, `backend` et `google` qui gèrent l'api google.
 
 image::./diagram/out/backEnd.png[]
 Le package `backEnd` contient l'ensemble des controlleurs. Ils sont l'intermédiaire entre le code métier et l'API.
 
-image::./diagram/out/food.png[]
-Le package `food` gère les aliments pris en compte par notre produit.
-
-image::./diagram/out/fridge.png[]
-Le package `fridge` se concentre sur les requêtes autour du frigo. Par exemple l'affichage ou le remplissage de celui-ci.
-
 image::./diagram/out/google.png[]
 Le package `google` utilise API Google pour informé l'utilisateur des magasins à sa disposition dans ses environs.
 
-image::./diagram/out/recipe.png[]
-Enfin, le package "recipe" est une première approche de la gestion de recettes proposée à l'utilisateur.
 
 == Différents diagrammes de séquences (système)
 === Carte
