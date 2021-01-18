@@ -17,7 +17,7 @@ import wadge.model.recipe.Recipe;
 public class JsonRecipeDao implements IRecipeDao {
         private final List<Recipe> recipes;
         private final ObjectMapper mapper;
-        private static final String FILE_NAME = "recipe_list.json";
+        static final String FILE_NAME = "recipe_list.json";
 
     public JsonRecipeDao() {
         mapper = new ObjectMapper();

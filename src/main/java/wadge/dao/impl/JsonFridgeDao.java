@@ -17,7 +17,7 @@ import wadge.model.fridge.FridgeFood;
 public class JsonFridgeDao implements IFridgeDao {
     private final List<FridgeFood> fridge;
     private final ObjectMapper mapper;
-    private static final String FILE_NAME = "fridge.json";
+    static final String FILE_NAME = "fridge.json";
 
 
     public JsonFridgeDao() {

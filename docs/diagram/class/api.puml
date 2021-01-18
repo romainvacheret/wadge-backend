@@ -37,6 +37,7 @@ package api {
         + this(foodService: FoodService): FoodController
         + getAllFood(): List<Food>
         + getFoodFromMonth(month: string): List<Food>
+        + getFoodFromMonthByDays(month: string): List<Food>
     }
 
     class FridgeController {

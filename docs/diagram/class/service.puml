@@ -27,6 +27,7 @@ package service {
             + this(dao: FoodDao): FoodService
             + getAllFood(): List<Food>
             + getFoodFromGivenMonth(month: Month): List<Food>
+            + sortByDays(food: List<Food>): List<Food>
         }
     }
 

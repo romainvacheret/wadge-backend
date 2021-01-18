@@ -17,7 +17,7 @@ import wadge.model.food.Food;
 public class JsonFoodDao implements IFoodDao {
     private final List<Food> food;
     private final ObjectMapper mapper;
-    private static final String FILE_NAME = "food_list.json";
+    static final String FILE_NAME = "food_list.json";
 
     public JsonFoodDao() {
         food = new ArrayList<>();
