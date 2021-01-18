@@ -72,7 +72,7 @@ public class FoodElementPredicatesFactory {
                         return result < 8 && result > 5;
                     } ;
                     break;
-                case FORTEEN_DAYS:
+                case FOURTEEN_DAYS:
                     rtr = x -> {
                         long result = this.dateProcessing(x.getPeremptionDate());
                         return result < 15 && result > 7;
