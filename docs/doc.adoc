@@ -63,6 +63,38 @@ image::./diagram/out/addToFridge.svg[]
 
 == Annexes
 
+=== Prévisions release 1.2.0
+
+==== 1) Suppression des aliments dans le frigo
+Supprime la quantité d'un ou plusiurs aliments présents dans le frigo de l'utilisateur. 
+Si la quantité mise à jour devient nulle, l'aliment disparait.
+
+Scénario:
+A partir de la page "Frigo"
+Quand l'utilisateur utilise une quantité d'un ou plusieurs aliments et qu'il clique sur le bouton "Utiliser"
+Alors le contenu du frigo se met à jour.
+
+==== 2) Tri des recettes en fonction de mots clefs
+Permet à l'utilisateur de donner une liste d'aliments et de recevoir en retour la liste des recettes les utilisant. Le calcul de priorité est pondéré en fonction du nombre de résultats communs.
+L'utilisateur peut choisir entre les différents filtres qu'il applique aux recettes.
+
+Scénario : 
+A partir de la page des recettes et d'une liste d'aliments rentrés par l'utilisateur.
+Quand l'utilisateur change la liste déroulantes sur "Tri par mots clés".
+Alors les recettes sont triées en fonction du nombre d'aliments présents dans sa recherche.
+
+==== 3) Récupération de recettes à partir d'une source externe
+Récupération de recettes à partir d'une source externe. D'autres seront ajoutées par la suite.
+Les recettes seront recherchées à partir d'une liste d'aliments donnés par l'utilisateur.
+Formalisation de ces recettes pour respecter le format du code métier.
+
+Scénario : 
+A partir de la page des recettes et d'une liste d'aliments rentrés par l'utilisateur.
+Quand celui-ci clique sur le bouton "Rechercher".
+Alors il reçoit une liste de recettes correspondants aux aliments demandés.
+
+    
+
 === Routes
 [cols="h,5a"]
 |===
