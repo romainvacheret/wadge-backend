@@ -1,4 +1,4 @@
-package wadge.backend;
+package wadge.api;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;

@@ -31,10 +31,7 @@ Le package `service` s'occupe de la manipulation des données récupérées depu
 image::./diagram/out/api.png[]
 Enfin, le package `api` est l'intermédiaire entre le code métier et l'utilisateur.
 
-Nous avons également deux autres packages qui seront pas la suite réorganisés, `backend` et `google` qui gèrent l'api google.
-
-image::./diagram/out/backEnd.png[]
-Le package `backEnd` contient l'ensemble des controlleurs. Ils sont l'intermédiaire entre le code métier et l'API.
+Nous avons également un autre packages `google` qui gère l'api google.
 
 image::./diagram/out/google.png[]
 Le package `google` utilise API Google pour informé l'utilisateur des magasins à sa disposition dans ses environs.
