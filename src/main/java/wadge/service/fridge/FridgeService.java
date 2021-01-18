@@ -18,7 +18,7 @@ public class FridgeService {
     private final IFridgeDao fridgeDao;
 
     public enum RecallType {
-        TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FORTEEN_DAYS, EXPIRED, OTHER;
+        TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FOURTEEN_DAYS, EXPIRED, OTHER;
     }
 
     @Autowired

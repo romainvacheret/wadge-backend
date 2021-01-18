@@ -39,7 +39,7 @@ public class FridgeSelection implements RecipeSelection {
             products.get(RecallType.TWO_DAYS).stream().forEach(product -> addToSet(nameSet, product, 4));
             products.get(RecallType.FIVE_DAYS).stream().forEach(product -> addToSet(nameSet, product, 3));
             products.get(RecallType.SEVEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 2));
-            products.get(RecallType.FORTEEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 1));
+            products.get(RecallType.FOURTEEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 1));
             products.get(RecallType.OTHER).stream().forEach(product -> addToSet(nameSet, product, 1));
         } catch(NullPointerException e) {
             // No food for the given RecallType 
