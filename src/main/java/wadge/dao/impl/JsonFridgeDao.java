@@ -15,7 +15,7 @@ import wadge.model.fridge.FridgeFood;
 
 @Repository("jsonFridgeDao")
 public class JsonFridgeDao implements IFridgeDao {
-    private final List<FridgeFood> fridge;
+    private List<FridgeFood> fridge;
     private final ObjectMapper mapper;
     private static final String FILE_NAME = "fridge.json";
 
@@ -47,8 +47,13 @@ public class JsonFridgeDao implements IFridgeDao {
     }
 
     @Override
+    public void setFridge(List<FridgeFood> fridge) {
+        this.fridge = fridge;
+    }
+
+    @Override
     public List<FridgeFood> getAllFridge() {
         return fridge;
     }
-    
+
 }
