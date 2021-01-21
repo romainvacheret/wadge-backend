@@ -1,29 +1,40 @@
 package wadge.model.fridge;
 
+import java.util.Optional;
+import java.util.UUID;
+
+
 public class FoodElement {
+        private UUID id = UUID.randomUUID();
         private String insertionDate;
         private String peremptionDate;
         private int quantity;
 
         public FoodElement() {}
-        
+
         public FoodElement(String insertionDate, String peremptionDate, int quantity) {
+            System.out.println("here");
+            this.id = UUID.randomUUID();
+            this.insertionDate = insertionDate;
+            this.peremptionDate = peremptionDate;
+            this.quantity = quantity;
+        }
+        
+        public FoodElement(UUID id, String insertionDate, String peremptionDate, int quantity) {
+            this.id = id;
             this.insertionDate = insertionDate;
             this.peremptionDate = peremptionDate;
             this.quantity = quantity;
         }
 
+        public UUID getId() { return id; }
         public String getInsertionDate() { return this.insertionDate; }
         public String getPeremptionDate() { return this.peremptionDate; }
         public int getQuantity() { return quantity; }
 
         public void setQuantity(int quantity) { this.quantity = quantity; }
 
-        @Override
-        public String toString() {
-            return "FoodElement [insertionDate=" + insertionDate + ", peremptionDate=" + peremptionDate + ", quantity="
-                    + quantity + "]";
-        }
+        
 
         @Override
         public int hashCode() {
@@ -58,4 +69,10 @@ public class FoodElement {
                 return false;
             return true;
         }
+
+		@Override
+		public String toString() {
+			return "FoodElement [id=" + id + ", insertionDate=" + insertionDate + ", peremptionDate=" + peremptionDate
+					+ ", quantity=" + quantity + "]";
+		}
 }

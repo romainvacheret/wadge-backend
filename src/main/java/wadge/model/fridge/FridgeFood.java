@@ -2,33 +2,65 @@ package wadge.model.fridge;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+
+@JsonDeserialize(builder=FridgeFoodBuilder.class)
 public class FridgeFood {
-    private UUID id;
+    private UUID id = UUID.randomUUID();
     private String name;
-    private List<FoodElement> products;
+    private Map<UUID, FoodElement> products;
+    // private List<FoodElement> products;
 
     public FridgeFood() {}
 
-    public FridgeFood(UUID id, String name, FoodElement[] products) {
-        this.id = id;
-        this.name = name;
-        this.products = Arrays.asList(products);
-    }
+    // public FridgeFood(String name, List<FoodElement> products) {
+    //     System.out.println("ICI");
+    //     this.name = name;
+    //     this.products = products.stream().map(product -> Map.entry(product.getId(), product))
+    //         .filter(e -> e.getKey().isPresent()).map(e -> Map.entry(e.getKey().get(), e.getValue()))
+    //         .collect(Collectors.toMap(Map.Entry<UUID, FoodElement>::getKey, Map.Entry<UUID, FoodElement>::getValue));
+    // }
 
-    public FridgeFood(String name, List<FoodElement> products) {
+    // public FridgeFood(UUID id, String name, List<FoodElement> products) {
+    //     this(name, products);
+    //     System.out.println("LA");
+    //     this.id = id;
+    // }
+
+    public FridgeFood(String name, Map<UUID, FoodElement> products) {
         this.name = name;
         this.products = products;
     }
 
-    public Optional<UUID> getId() { return Optional.ofNullable(id); }
+    public FridgeFood(UUID id, String name, Map<UUID, FoodElement> products) {
+        this(name, products);
+        if(id != null) {
+            this.id = id;
+        }
+    }
+
+    public UUID getId() { return id; }
     public String getName() { return this.name; }
-    public List<FoodElement> getProducts() { return this.products; }
+    // @JsonDeserialize
+    // public List<FoodElement> getProducts() { return products; }
+    public List<FoodElement> getProducts() { System.out.println("1111111111"); return this.products.values().stream().collect(Collectors.toList()); }
+    // public Map<UUID, FoodElement> getProducts2() { System.out.println("22222222"); return this.products; }
 
-    public void setFood(UUID id) { this.id = id; }
+    public void setId(UUID id) { this.id = id; }
 
+    public void addProduct(FoodElement element) {
+        products.put(element.getId(), element);
+    }
+
+    public void addAllProcucts(List<FoodElement> elements) {
+        elements.stream().forEach(food -> addProduct(food));
+    }
     
     @Override
     public int hashCode() {
