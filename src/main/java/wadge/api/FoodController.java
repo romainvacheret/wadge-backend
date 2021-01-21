@@ -3,11 +3,7 @@ package wadge.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import wadge.model.food.Month;
 import wadge.model.food.Food;
@@ -29,14 +25,19 @@ public class FoodController {
         return foodService.getAllFood();
     }
 
-    @RequestMapping(path = "/foods/{month}", method= RequestMethod.GET)
-    public List<Food> getFoodFromMonth(@PathVariable("month") String month) {
+    @RequestMapping(path="/foods/{month}", method=RequestMethod.GET)
+    public List<Food> getFoodFromMonth(@PathVariable String month) {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
-
-        return foodService.getFoodFromGivenMonth(Month.valueOf(month));
+       return foodService.getFoodFromGivenMonth(Month.valueOf(month));
     }
 
-    
+    @RequestMapping(path="/foods/{month}/days", method=RequestMethod.GET)
+    public List<Food> getFoodFromMonthByDays(@PathVariable String month) {
+        if (month.length() != 0) {
+            month = month.toUpperCase();
+        }
+       return foodService.sortByDays(foodService.getFoodFromGivenMonth(Month.valueOf(month)));
+    }    
 }

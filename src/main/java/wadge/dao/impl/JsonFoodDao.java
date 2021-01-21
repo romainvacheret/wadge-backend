@@ -5,6 +5,8 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -17,7 +19,8 @@ import wadge.model.food.Food;
 public class JsonFoodDao implements IFoodDao {
     private final List<Food> food;
     private final ObjectMapper mapper;
-    private static final String FILE_NAME = "food_list.json";
+    static final String FILE_NAME = "food_list.json";
+    private static Logger logger = Logger.getLogger(JsonFoodDao.class.getName());
 
     public JsonFoodDao() {
         food = new ArrayList<>();
@@ -25,8 +28,7 @@ public class JsonFoodDao implements IFoodDao {
         try {
             food.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), Food[].class)));
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+            logger.log(Level.FINE, e.getMessage(), e);
         }
     }
 

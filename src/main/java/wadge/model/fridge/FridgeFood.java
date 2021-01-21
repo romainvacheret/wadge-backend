@@ -2,14 +2,18 @@ package wadge.model.fridge;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 
 public class FridgeFood {
+    private UUID id;
     private String name;
     private List<FoodElement> products;
 
     public FridgeFood() {}
 
-    public FridgeFood(String name, FoodElement[] products) {
+    public FridgeFood(UUID id, String name, FoodElement[] products) {
+        this.id = id;
         this.name = name;
         this.products = Arrays.asList(products);
     }
@@ -19,14 +23,13 @@ public class FridgeFood {
         this.products = products;
     }
 
+    public Optional<UUID> getId() { return Optional.ofNullable(id); }
     public String getName() { return this.name; }
     public List<FoodElement> getProducts() { return this.products; }
 
-    @Override
-    public String toString() {
-        return "FoodFridge [name=" + name + ", products=" + products + "]";
-    }
+    public void setFood(UUID id) { this.id = id; }
 
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -56,6 +59,11 @@ public class FridgeFood {
         } else if (!products.equals(other.products))
             return false;
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "FridgeFood [id=" + id + ", name=" + name + ", products=" + products + "]";
     }
     
 }

@@ -15,22 +15,27 @@ image::./img/personas/persona-couple.png[]
 image::./img/personas/persona-student.png[]
 image::./img/personas/persona-worker.png[]
 == Diagrammes de classe
-Notre code est ordonné autour de cinq packages : `backend`, `food`, `fridge`, `google`, `recipe`. Ils s'occupent respectivement des controlleurs de l'API, des aliments, du frigo, de l'utilisation de l'API Google et des recettes.
 
-image::./diagram/out/backEnd.png[]
-Le package `backEnd` contient l'ensemble des controlleurs. Ils sont l'intermédiaire entre le code métier et l'API.
+Notre code est ordonné autour de 4 packages principaux : `api`, `dao`, `model` et `service`. 
+Dans chacun des ces packages, nous retrouvons les catégoires `food`, `recipe`, `fridge` qui représentent respectivement les aliments de saison, des recettes, et un frigo.
 
-image::./diagram/out/food.png[]
-Le package `food` gère les aliments pris en compte par notre produit.
+image::./diagram/out/model.png[]
+Le package `model` gère la structure des éléments d'un point de vu métier.
 
-image::./diagram/out/fridge.png[]
-Le package `fridge` se concentre sur les requêtes autour du frigo. Par exemple l'affichage ou le remplissage de celui-ci.
+image::./diagram/out/dao.png[]
+Le package `dao` se concentre sur l'accès des données.
+
+image::./diagram/out/service.png[]
+Le package `service` s'occupe de la manipulation des données récupérées depuis les DAO.
+
+image::./diagram/out/api.png[]
+Enfin, le package `api` est l'intermédiaire entre le code métier et l'utilisateur.
+
+Nous avons également un autre packages `google` qui gère l'api google.
 
 image::./diagram/out/google.png[]
 Le package `google` utilise API Google pour informé l'utilisateur des magasins à sa disposition dans ses environs.
 
-image::./diagram/out/recipe.png[]
-Enfin, le package "recipe" est une première approche de la gestion de recettes proposée à l'utilisateur.
 
 == Différents diagrammes de séquences (système)
 === Carte
@@ -57,6 +62,38 @@ image::./diagram/out/recipes.svg[]
 image::./diagram/out/addToFridge.svg[]
 
 == Annexes
+
+=== Prévisions release 1.2.0
+
+==== 1) Suppression des aliments dans le frigo
+Supprime la quantité d'un ou plusiurs aliments présents dans le frigo de l'utilisateur. 
+Si la quantité mise à jour devient nulle, l'aliment disparait.
+
+Scénario:
+A partir de la page "Frigo"
+Quand l'utilisateur utilise une quantité d'un ou plusieurs aliments et qu'il clique sur le bouton "Utiliser"
+Alors le contenu du frigo se met à jour.
+
+==== 2) Tri des recettes en fonction de mots clefs
+Permet à l'utilisateur de donner une liste d'aliments et de recevoir en retour la liste des recettes les utilisant. Le calcul de priorité est pondéré en fonction du nombre de résultats communs.
+L'utilisateur peut choisir entre les différents filtres qu'il applique aux recettes.
+
+Scénario : 
+A partir de la page des recettes et d'une liste d'aliments rentrés par l'utilisateur.
+Quand l'utilisateur change la liste déroulantes sur "Tri par mots clés".
+Alors les recettes sont triées en fonction du nombre d'aliments présents dans sa recherche.
+
+==== 3) Récupération de recettes à partir d'une source externe
+Récupération de recettes à partir d'une source externe. D'autres seront ajoutées par la suite.
+Les recettes seront recherchées à partir d'une liste d'aliments donnés par l'utilisateur.
+Formalisation de ces recettes pour respecter le format du code métier.
+
+Scénario : 
+A partir de la page des recettes et d'une liste d'aliments rentrés par l'utilisateur.
+Quand celui-ci clique sur le bouton "Rechercher".
+Alors il reçoit une liste de recettes correspondants aux aliments demandés.
+
+    
 
 === Routes
 [cols="h,5a"]

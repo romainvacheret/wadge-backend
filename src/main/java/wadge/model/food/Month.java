@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public enum Month {
-    JANUARY("janvier"), FEBRUARY("fevrier"), MARCH("mars"), APRIL("avril"), MAY("mai"), JUN("juin"), JULY("juillet"), 
+    JANUARY("janvier"), FEBRUARY("fevrier"), MARCH("mars"), APRIL("avril"), MAY("mai"), JUNE("juin"), JULY("juillet"), 
     AUGUST("aout"), SEPTEMBER("septembre"), OCTOBER("octobre"), NOVEMBER("novembre"), DECEMBER("decembre");
     
     private final String value;

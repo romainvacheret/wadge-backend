@@ -5,16 +5,19 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.junit.Before;
 import org.junit.Test;
 
 public class FridgeFoodTest {
     private FridgeFood food;
+    private UUID id;
 
     @Before
     public void setUp() {
-        food = new FridgeFood("Food", new FoodElement[] {new FoodElement("date 1", "date 2", 42)});
+        id = UUID.randomUUID();
+        food = new FridgeFood(id, "Food", new FoodElement[] {new FoodElement("date 1", "date 2", 42)});
     }
 
     @Test
@@ -33,7 +36,9 @@ public class FridgeFoodTest {
     @Test
     public void toStringTest() {
         System.out.println(food.toString());
-        String result = "FoodFridge [name=Food, products=[FoodElement [insertionDate=date 1, peremptionDate=date 2, quantity=42]]]";
+        String result = String.format("FridgeFood [id=%s, name=Food, products=[FoodElement [insertionDate=date 1, peremptionDate=date 2, quantity=42]]]", id);
+        System.out.println(result);
+        System.out.println(food.toString());
         assertEquals(result, food.toString());
     }
 
