@@ -17,6 +17,8 @@ public class FoodElement {
         public String getPeremptionDate() { return this.peremptionDate; }
         public int getQuantity() { return quantity; }
 
+        public void setQuantity(int quantity) { this.quantity = quantity; }
+
         @Override
         public String toString() {
             return "FoodElement [insertionDate=" + insertionDate + ", peremptionDate=" + peremptionDate + ", quantity="
