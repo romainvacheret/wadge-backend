@@ -78,5 +78,5 @@ public class JsonFridgeDao implements IFridgeDao {
 
         return rtr;
     }
-    
+
 }
