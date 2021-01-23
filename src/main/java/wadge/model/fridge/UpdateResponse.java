@@ -7,6 +7,7 @@ public class UpdateResponse {
     private String fridgeFood;
     private int quantity;
     
+    public UpdateResponse() {}
 
     public UpdateResponse(UUID id, String fridgeFood, int quantity) {
         this.id = id;

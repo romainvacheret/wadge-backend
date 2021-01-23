@@ -56,10 +56,9 @@ public class FridgeController {
         return result;
     }
 
-    @RequestMapping(path = "fridge/update", method= RequestMethod.POST)
+    @RequestMapping(path = "/fridge/update", method= RequestMethod.POST)
     public List<FridgeFood> deleteFromFridge(@RequestBody JsonNode food) {
         List<UpdateResponse> updateList = Arrays.asList(this.mapper.convertValue(food, UpdateResponse[].class));
-        // return fridgeService.deleteFromFridge(list);
-        return null;
+        return fridgeService.updateFridge(updateList);
     }
 }

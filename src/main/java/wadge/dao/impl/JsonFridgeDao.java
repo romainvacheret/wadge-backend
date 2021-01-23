@@ -37,6 +37,7 @@ public class JsonFridgeDao implements IFridgeDao {
             List<FridgeFood> list = Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), FridgeFood[].class));
             addAllToFridge(list);
         } catch (IOException e) {
+            e.printStackTrace();
             logger.log(Level.FINE, e.getMessage());
         }
     }
@@ -52,6 +53,7 @@ public class JsonFridgeDao implements IFridgeDao {
             try {
                 mapper.writeValue(Paths.get(FILE_NAME).toFile(), fridge.values());
             } catch (IOException e) {
+                
                 logger.log(Level.FINE, e.getMessage());
                 rtr = false;
             }
@@ -137,6 +139,11 @@ public class JsonFridgeDao implements IFridgeDao {
         }
     }
 
-    
+    @Override
+    public void deleteFromFridge(String food, UUID id) {
+        System.out.println(food);
+        System.out.println(fridge.keySet());
+        this.fridge.get(food).getProducts2().remove(id);
+    }
 
 }

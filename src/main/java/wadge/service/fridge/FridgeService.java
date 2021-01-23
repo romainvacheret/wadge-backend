@@ -2,7 +2,7 @@ package wadge.service.fridge;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -14,6 +14,7 @@ import wadge.dao.api.IFridgeDao;
 import wadge.model.fridge.FoodElement;
 import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.FridgeFoodBuilder;
+import wadge.model.fridge.UpdateResponse;
 
 @Service
 public class FridgeService {
@@ -67,6 +68,29 @@ public class FridgeService {
     public List<FridgeFood> getExpirationList(RecallType type) {
         FoodElementPredicatesFactory factory = FoodElementPredicatesFactory.getInstance();
         return getExpirationDateFromPredicate(factory.getPredicate(type));
+    }
+
+    public List<FridgeFood> updateFridge(List<UpdateResponse> updateList) {
+        updateList.stream().forEach(update -> {
+            int quantity = update.getQuantity();
+            String fridgeFood = update.getFridgeFood();
+            UUID id = update.getId();
+
+            if(quantity <= 0) {
+                fridgeDao.deleteFromFridge(fridgeFood, id); // TODO -> delete FridgeFood if empty
+            } else {
+                fridgeDao.getFridgeFoodFromName(fridgeFood).ifPresent(
+                    food -> {
+                        FoodElement tmp = food.getProducts2().get(id);
+                        if(quantity < tmp.getQuantity()) {
+                            tmp.setQuantity(quantity); // TODO -> use a fridgeDao method 
+                        }
+                    }
+                );
+            }
+        });
+        fridgeDao.saveData(); 
+        return fridgeDao.getAllFridge();
     }
 
     // public List<FridgeFood> deleteFromFridge(List<UpdateResponse> deleteList) {

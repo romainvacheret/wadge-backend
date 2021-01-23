@@ -23,6 +23,7 @@ public interface IFridgeDao {
     boolean insertFridgeFood(FridgeFood food);
     Optional <FridgeFood> getFridgeFoodFromName(String name);
     boolean addFoodElementToFridgeFood(String fridgeFood, FoodElement element);
+    void deleteFromFridge(String food, UUID id);
     void saveData();
     // boolean update
 }

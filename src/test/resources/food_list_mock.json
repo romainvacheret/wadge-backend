@@ -1,0 +1,20 @@
+[
+		{
+			"name" : "abricot",
+			"type" : "fruit",
+			"availability" : ["juin", "juillet", "aout"],
+			"days" : 7
+		},
+		{
+			"name" : "ail",
+			"type" : "legume",
+			"availability" : ["aout", "septembre", "octobre", "novembre", "decembre"],
+			"days" : 182
+		},
+		{
+			"name" : "amande",
+			"type" : "fruit",
+			"availability" : ["septembre", "octobre"],
+			"days" : 150
+		}
+]

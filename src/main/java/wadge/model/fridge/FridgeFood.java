@@ -1,15 +1,14 @@
 package wadge.model.fridge;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.annotation.JsonValue;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
+@JsonIgnoreProperties(value={ "getProducts2" })
 @JsonDeserialize(builder=FridgeFoodBuilder.class)
 public class FridgeFood {
     private UUID id = UUID.randomUUID();
@@ -47,10 +46,11 @@ public class FridgeFood {
 
     public UUID getId() { return id; }
     public String getName() { return this.name; }
-    // @JsonDeserialize
     // public List<FoodElement> getProducts() { return products; }
+    @JsonDeserialize
     public List<FoodElement> getProducts() { System.out.println("1111111111"); return this.products.values().stream().collect(Collectors.toList()); }
-    // public Map<UUID, FoodElement> getProducts2() { System.out.println("22222222"); return this.products; }
+    @JsonIgnore
+    public Map<UUID, FoodElement> getProducts2() { System.out.println("22222222"); return this.products; }
 
     public void setId(UUID id) { this.id = id; }
 

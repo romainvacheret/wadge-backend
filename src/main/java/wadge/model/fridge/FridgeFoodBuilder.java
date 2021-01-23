@@ -5,8 +5,10 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-
+// @JsonIgnoreProperties(value={ "getProducts2" })
+@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName="createFridgeFood", withPrefix="with")
 public class FridgeFoodBuilder {
     private UUID id;
