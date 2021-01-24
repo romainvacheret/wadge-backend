@@ -31,12 +31,6 @@ Le package `service` s'occupe de la manipulation des données récupérées depu
 image::./diagram/out/api.png[]
 Enfin, le package `api` est l'intermédiaire entre le code métier et l'utilisateur.
 
-Nous avons également un autre packages `google` qui gère l'api google.
-
-image::./diagram/out/google.png[]
-Le package `google` utilise API Google pour informé l'utilisateur des magasins à sa disposition dans ses environs.
-
-
 == Différents diagrammes de séquences (système)
 === Carte
 image::./diagram/out/mapSystem.svg[]
@@ -48,190 +42,23 @@ image::./diagram/out/getFridgeSystem.svg[]
 image::./diagram/out/recipesSystem.svg[]
 === Ajout d'aliments au frigo
 image::./diagram/out/addToFridgeSystem.svg[]
+=== Suppression d'aliemnt du frigo
+image::./diagram/out/updateFridgeSystem.svg[]
 
 == Différents diagrammes de séquences (internes)
 === Carte
 image::./diagram/out/map.svg[]
 === Liste des aliments en fonction d'un mois donné
 image::./diagram/out/monthFilter.svg[]
+=== Liste des aliments en fonction d'un mois donné trié en fonction des péremptions
+image::./diagram/out/monthFilterDays.svg[]
 === Liste des aliments à manger aux différents dates
 image::./diagram/out/getFridge.svg[]
 === Liste des recettes
 image::./diagram/out/recipes.svg[] 
+=== Liste des recettes trié en fonction du contenu du frigo
+image::./diagram/out/recipesFridge.svg[] 
 === Ajout d'aliments au frigo
 image::./diagram/out/addToFridge.svg[]
-
-== Annexes
-
-=== Prévisions release 1.2.0
-
-==== 1) Suppression des aliments dans le frigo
-Supprime la quantité d'un ou plusiurs aliments présents dans le frigo de l'utilisateur. 
-Si la quantité mise à jour devient nulle, l'aliment disparait.
-
-Scénario:
-A partir de la page "Frigo"
-Quand l'utilisateur utilise une quantité d'un ou plusieurs aliments et qu'il clique sur le bouton "Utiliser"
-Alors le contenu du frigo se met à jour.
-
-==== 2) Tri des recettes en fonction de mots clefs
-Permet à l'utilisateur de donner une liste d'aliments et de recevoir en retour la liste des recettes les utilisant. Le calcul de priorité est pondéré en fonction du nombre de résultats communs.
-L'utilisateur peut choisir entre les différents filtres qu'il applique aux recettes.
-
-Scénario : 
-A partir de la page des recettes et d'une liste d'aliments rentrés par l'utilisateur.
-Quand l'utilisateur change la liste déroulantes sur "Tri par mots clés".
-Alors les recettes sont triées en fonction du nombre d'aliments présents dans sa recherche.
-
-==== 3) Récupération de recettes à partir d'une source externe
-Récupération de recettes à partir d'une source externe. D'autres seront ajoutées par la suite.
-Les recettes seront recherchées à partir d'une liste d'aliments donnés par l'utilisateur.
-Formalisation de ces recettes pour respecter le format du code métier.
-
-Scénario : 
-A partir de la page des recettes et d'une liste d'aliments rentrés par l'utilisateur.
-Quand celui-ci clique sur le bouton "Rechercher".
-Alors il reçoit une liste de recettes correspondants aux aliments demandés.
-
-    
-
-=== Routes
-[cols="h,5a"]
-|===
-| URL
-| /foods
-| Method
-| GET
-| Response Body
-| [...
-    {
-        "nom": "mandarine",
-        "type": "fruit",
-        "consommation": ["janvier", "fevrier", "octobre", "novembre", "decembre"]
-    }...
-]
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /map/{lat}/{lng}
-| Method
-| GET
-| Response Body
-|{"candidates":[{"formatted_address":"58 Rue du Général de Gaulle, 95880 Enghien-les-Bains, France","opening_hours":{"open_now":true},"location":{"lng":2.3052543,"lat":48.9695271}}]}
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /foods/{month}
-| Method
-| GET
-| Response Body
-| [
-    {
-        "name":"ananas",
-        "type":"fruit",
-        "availability":
-        [
-            "janvier",
-            "fevrier",
-            "mars",
-            "avril",
-            "octobre",
-            "novembre",
-            "decembre"
-        ],
-        "days":5
-    },
-    {
-        "name":"avocat",
-        "type":"fruit",
-        "availability":
-        [
-            "janvier",
-            "fevrier",
-            "mars",
-            "avril",
-            "octobre",
-            "novembre",
-            "decembre"
-        ],
-        "days":3
-    }...
-]
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /alerts
-| Method
-| GET
-| Response Body
-| 
-    {
-        "TWO_DAYS":[
-            {"dateAjout":"01/11/2020","quantite":"24","nom":"poire"},{"dateAjout":"10/10/2020","quantite":"2","nom":"poireau"}
-        ], 
-        "FIVE_DAYS":[], 
-        "EXPIRED":[
-            {"dateAjout":"10/10/2020","quatite":"2","nom":"poire"},{"dateAjout":"01/11/2020","quantite":"12","nom":"poireau"}
-        ], ...
-    }
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /alert/{type}
-| Method
-| GET
-| Response Body
-| 
-    [
-        {"dateAjout":"01/11/2020","quantite":"24","nom":"poire"},{"dateAjout":"10/10/2020","quantite":"2","nom":"poireau"},
-        ...
-    ]
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /fridge
-| Method
-| GET
-| Response Body
-| 
-    [
-        {"name":"banane","products":[{"insertionDate":"17/11/2020","peremptionDate":"01/12/2020","quantity":2}
-        ...
-    ]
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /fridge/addition
-| Method
-| POST
-| Response Body
-| 
-    []
-|===
-
-[cols="h,5a"]
-|===
-| URL
-| /recipes
-| Method
-| GET
-| Response Body
-| 
-    [
-        {"personnes":3,"ingredients":[{"nom":"carotte","quantite":2},{"nom":"butternut","quantite":0.5},{"nom":"pomme de terre","quantite":1},{"nom":"oignon","quantite":1},{"nom":"celeri","quantite":0.75},{"nom":"navet","quantite":1},{"nom":"persil","quantite":-1},{"nom":"bouillon cube","quantite":-1},{"nom":"cumin","quantite":-1}],"difficulte":1,"nom":"Soupe d'automne à la courge de butternut","etapes":["Faire revenir ensemble dans une cocotte, avec une cuillère d'huile d'olive, l'oignon, le céleri et le navet émincés.","Faire revenir ensemble dans une poèle haute, carottes, courge et pomme de terre, épluchées et coupées en petites cubes. Dès que c'est grillé, verser ces légumes dans la cocotte.","Verser 1.25 litre d'eau froide.","Ajouter le bouillon cube et une petite cuillerée de cumin.","Dès le bouillonnement de l'eau, baisser le feu et laisser cuire 20, 25 min.","En cours de cuisson, ajouter une poignée de persil frisé émincé.","En fin de cuisson, mixer le tout et vérifier l'assaisonnement."
-        }...
-    ]
-        
-|===
+=== Suppression d'aliemnt du frigo
+image::./diagram/out/updateFridge.svg[]
