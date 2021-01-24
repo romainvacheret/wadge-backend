@@ -28,7 +28,7 @@ apply plugin: VersionPlugin
 apply plugin: 'application'
 
 
-version '1.1.1'
+version '1.2.0'
 
 class VersionPlugin implements Plugin<Project> {
     public void apply(Project project) {

@@ -15,8 +15,8 @@ package model {
     }
 }
 
-package wadge.google {
-    class Search {}
+package service.map {
+    class MapService {}
 }
 
 package com.fasterxml.jackson.databind {
@@ -69,7 +69,7 @@ package api {
     
 }
 
-GoogleController o..> Search
+GoogleController o..> MapService
 
 FoodController *--> Food
 FoodController o..> FoodService
