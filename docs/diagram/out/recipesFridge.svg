@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="283px" preserveAspectRatio="none" style="width:827px;height:283px;" version="1.1" viewBox="0 0 827 283" width="827px" zoomAndPan="magnify"><defs/><g><rect fill="#F8F8FF" height="220.0156" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="28" y="47.6094"/><rect fill="#F8F8FF" height="145.3125" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="205" y="69.9609"/><rect fill="#F8F8FF" height="100.9609" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="322" y="100.3125"/><rect fill="#F8F8FF" height="46.6094" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="657.5" y="140.6641"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="37.6094" y2="276.625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="209.5" x2="209.5" y1="37.6094" y2="276.625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="327" x2="327" y1="37.6094" y2="276.625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="662" x2="662" y1="139.6172" y2="276.625"/><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="56" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="42" x="12" y="26.5332">: Front</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="53" x="183.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="39" x="190.5" y="26.5332">: Back</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="128" x="263" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="114" x="270" y="26.5332">: RecipeController</text><rect fill="#F8F8FF" height="220.0156" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="28" y="47.6094"/><rect fill="#F8F8FF" height="145.3125" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="205" y="69.9609"/><rect fill="#F8F8FF" height="100.9609" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="322" y="100.3125"/><rect fill="#F8F8FF" height="46.6094" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="657.5" y="140.6641"/><polygon fill="#808080" points="193,65.9609,203,69.9609,193,73.9609,197,69.9609" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="38" x2="199" y1="69.9609" y2="69.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="76" x="45" y="65.1045">GET /recipes</text><polygon fill="#808080" points="310,96.3125,320,100.3125,310,104.3125,314,100.3125" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="215" x2="316" y1="100.3125" y2="100.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="88" x="222" y="95.4561">getAllRecipes()</text><polygon fill="#808080" points="492,126.6641,502,130.6641,492,134.6641,496,130.6641" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="332" x2="498" y1="130.6641" y2="130.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="148" x="339" y="125.8076">RecipeService(recipeDao)</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="317" x="504" y="108.3125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacingAndGlyphs" textLength="303" x="511" y="129.8457">RecipeController.reciepeService: RecipeService</text><polygon fill="#808080" points="645.5,169.2734,655.5,173.2734,645.5,177.2734,649.5,173.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="332" x2="651.5" y1="173.2734" y2="173.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="157" x="339" y="168.417">getAllRecipesUsingFridge()</text><polygon fill="#808080" points="343,183.2734,333,187.2734,343,191.2734,339,187.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="337" x2="661.5" y1="187.2734" y2="187.2734"/><polygon fill="#808080" points="226,197.2734,216,201.2734,226,205.2734,222,201.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="220" x2="326" y1="201.2734" y2="201.2734"/><polygon fill="#808080" points="49,211.2734,39,215.2734,49,219.2734,45,215.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="43" x2="209" y1="215.2734" y2="215.2734"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38" x2="80" y1="245.625" y2="245.625"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="80" x2="80" y1="245.625" y2="258.625"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="39" x2="80" y1="258.625" y2="258.625"/><polygon fill="#808080" points="49,254.625,39,258.625,49,262.625,45,258.625" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacingAndGlyphs" textLength="153" x="45" y="240.7686">Traiter les données reçues</text><!--MD5=[bbdb0f1e07015ccd23f951c24bf067c6]
+@startuml recipesFridge
+    !include ../style/commons.style
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": RecipeController" as rc
+
+    activate ft
+    ft -> bk : GET /recipes
+    activate bk
+    bk -> rc : getAllRecipes()
+    activate rc
+    create "RecipeController.reciepeService: RecipeService" as rs
+    rc -> rs : RecipeService(recipeDao)
+    activate rs
+    rc -> rs : getAllRecipesUsingFridge()
+    rs - -> rc
+    deactivate rs
+    rc - -> bk
+    deactivate rc
+    bk - -> ft
+    deactivate bk
+    ft <- - ft: Traiter les données reçues
+
+@enduml
+
+@startuml recipesFridge
+
+skinparam nodesep 75
+skinparam ranksep 75
+hide empty members
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+skinparam monochrome  false
+skinparam shadowing   false
+skinparam roundcorner 10
+skinparam linetype polyline
+
+skinparam class {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam state {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam object {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+}
+
+skinparam package<<Layout>> {
+  borderColor         Transparent
+  backgroundColor     Transparent
+  fontColor           Transparent
+  stereotypeFontColor Transparent
+}
+
+skinparam sequence {
+	ArrowColor                  Gray
+  LifeLineBorderColor         CornFlowerBlue
+  LifeLineBackgroundColor     GhostWhite
+	ParticipantBorderColor      CornFlowerBlue
+	ParticipantBackgroundColor  GhostWhite
+  ActorBorderColor            CornFlowerBlue
+	ActorBackgroundColor        GhostWhite
+  BoxBorderColor         CornFlowerBlue
+  BoxBackgroundColor         GhostWhite
+}
+
+skinparam stereotypeCBackgroundColor CornflowerBlue
+
+hide footbox
+hide empty members
+
+skinparam note {
+ BackgroundColor GhostWhite
+ BorderColor         CornFlowerBlue
+}
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": RecipeController" as rc
+
+    activate ft
+    ft -> bk : GET /recipes
+    activate bk
+    bk -> rc : getAllRecipes()
+    activate rc
+    create "RecipeController.reciepeService: RecipeService" as rs
+    rc -> rs : RecipeService(recipeDao)
+    activate rs
+    rc -> rs : getAllRecipesUsingFridge()
+    rs - -> rc
+    deactivate rs
+    rc - -> bk
+    deactivate rc
+    bk - -> ft
+    deactivate bk
+    ft <- - ft: Traiter les données reçues
+
+@enduml
+
+PlantUML version 1.2020.22(Sun Dec 06 10:36:27 CET 2020)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

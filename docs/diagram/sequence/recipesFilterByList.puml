@@ -1,4 +1,4 @@
-@startuml recipes
+@startuml recipesFilterByList
     !include ../style/commons.style
 
     participant ": Front" as ft
@@ -6,14 +6,14 @@
     participant ": RecipeController" as rc
 
     activate ft
-    ft -> bk : GET /recipes
+    ft -> bk : POST /recipes
     activate bk
     bk -> rc : getAllRecipes()
     activate rc
     create "RecipeController.reciepeService: RecipeService" as rs
     rc -> rs : RecipeService(recipeDao)
     activate rs
-    rc -> rs : getAllRecipes()
+    rc -> rs : getAllRecipesUsingUserList()
     rs --> rc
     deactivate rs
     rc --> bk

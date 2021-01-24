@@ -10,7 +10,7 @@
     activate bk
     bk -> c: getCloseShops()
     activate c
-    create "GoogleController.s: Seach" as s
+    create "GoogleController.s: MapService" as s
     c -> s: new()
     activate s
     s --> c: request()

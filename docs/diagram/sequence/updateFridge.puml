@@ -1,4 +1,4 @@
-@startuml getFridge
+@startuml updateFridge
     !include ../style/commons.style
 
     participant ": Front" as ft
@@ -6,19 +6,18 @@
     participant ": FridgeController" as fc
 
     activate ft
-    ft -> bk: GET /fridge
+    ft -> bk: POST /fridge/update
     activate bk
-    bk -> fc: getFridge()
+    bk -> fc: addToFridge(foodList)
     activate fc
     create "FridgeController.fridgeService: FridgeService" as f
-    fc -> f: FridgeService(fridgeDao)
+    fc -> f: FridgeService(FridgeDao)
     activate f
-    fc -> f: getAllFood()
+    fc -> f: updateFridge(updateList)
     f --> fc
-    deactivate f
     fc --> bk
     bk --> ft
+    deactivate f
     deactivate bk
-    ft <-- ft: Traiter les données reçues
 
 @enduml

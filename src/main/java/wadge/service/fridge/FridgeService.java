@@ -2,6 +2,7 @@ package wadge.service.fridge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 import wadge.dao.api.IFridgeDao;
 import wadge.model.fridge.FoodElement;
 import wadge.model.fridge.FridgeFood;
+import wadge.model.fridge.FridgeFoodBuilder;
+import wadge.model.fridge.UpdateResponse;
 
 @Service
 public class FridgeService {
@@ -27,7 +30,12 @@ public class FridgeService {
     }
 
     public boolean addAllToFridge(List<FridgeFood> food) {
-        return fridgeDao.addAllToFridge(food);
+        // TODO -> dirty code (FridgeFood::addAllProdcuts + fridgeDao::saveDate) -> use two fridgeDao methods ?  
+        food.stream().forEach(f -> 
+            fridgeDao.getFridgeFoodFromName(f.getName()).ifPresentOrElse(ff -> 
+            {ff.addAllProducts(f.getProducts()); fridgeDao.saveData();}, () -> fridgeDao.addAllToFridge(List.of(f)))
+        );
+        return true;
     }
 
     public List<FridgeFood> getAllFridge() {
@@ -40,7 +48,7 @@ public class FridgeService {
         fridgeList.forEach(food -> {
             List<FoodElement> elements = food.getProducts().stream().filter(predicate).collect(Collectors.toList());
             if(!elements.isEmpty()) {
-                result.add(new FridgeFood(food.getName(), elements));
+                result.add(new FridgeFoodBuilder().withName(food.getName()).withProducts(elements).createFridgeFood());
             }
         });
         return result;
@@ -49,5 +57,28 @@ public class FridgeService {
     public List<FridgeFood> getExpirationList(RecallType type) {
         FoodElementPredicatesFactory factory = FoodElementPredicatesFactory.getInstance();
         return getExpirationDateFromPredicate(factory.getPredicate(type));
+    }
+
+    public List<FridgeFood> updateFridge(List<UpdateResponse> updateList) {
+        updateList.stream().forEach(update -> {
+            int quantity = update.getQuantity();
+            String fridgeFood = update.getFridgeFood();
+            UUID id = update.getId();
+
+            if(quantity <= 0) {
+                fridgeDao.deleteFromFridge(fridgeFood, id); // TODO -> delete FridgeFood if empty
+            } else {
+                fridgeDao.getFridgeFoodFromName(fridgeFood).ifPresent(
+                    food -> {
+                        FoodElement tmp = food.getProducts2().get(id);
+                        if(quantity < tmp.getQuantity()) {
+                            tmp.setQuantity(quantity); // TODO -> use a fridgeDao method 
+                        }
+                    }
+                );
+            }
+        });
+        fridgeDao.saveData(); 
+        return fridgeDao.getAllFridge();
     }
 }

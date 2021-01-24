@@ -1,4 +1,4 @@
-@startuml monthFilter
+@startuml monthFilterDays
     !include ../style/commons.style
 
     participant ": Front" as ft
@@ -6,7 +6,7 @@
     participant ": FoodController" as fc
 
     activate ft
-    ft -> bk: GET /foods/{month}
+    ft -> bk: GET /foods/{month}/days
     activate bk
     bk -> fc: getFoodFromMonth(month)
     activate fc
@@ -14,6 +14,8 @@
     fc -> fs: FoodService(foodDao)
     activate fs
     fc --> fs: getFoodFromGivenMonth(month)
+    fs --> fc
+    fc --> fs: sortByDays(food)
     fs --> fc
     deactivate fs
     fc --> bk

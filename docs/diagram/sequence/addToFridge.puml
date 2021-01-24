@@ -10,12 +10,13 @@
     activate bk
     bk -> fc: addToFridge(foodList)
     activate fc
-    create "FridgeController.fridge: Fridge" as f
-    fc -> f: getInstance()
+    create "FridgeController.fridgeService: FridgeService" as f
+    fc -> f: FridgeService(FridgeDao)
     activate f
-    f --> f: readFridge(fileName)
-    fc --> f: addToFridge(newFoods)
-    f --> f: writeFridge()
+    fc -> f: addToFridge(food)
+    f --> fc
+    fc --> bk
+    bk --> ft
     deactivate f
     deactivate bk
 
