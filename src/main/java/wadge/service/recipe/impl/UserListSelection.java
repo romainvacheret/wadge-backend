@@ -1,5 +1,6 @@
 package wadge.service.recipe.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -16,6 +17,7 @@ public class UserListSelection implements RecipeSelection {
     public UserListSelection(List<Recipe> recipes, List<String> userFoodList) {
         this.recipes = recipes;
         this.userFoodList = userFoodList;
+        this.userRecipe = new ArrayList<>();
     }
     
     public Predicate<Ingredient> isInList = i -> userFoodList.contains(i.getName());
@@ -25,7 +27,11 @@ public class UserListSelection implements RecipeSelection {
         recipes.forEach(recipe -> {
             List<Ingredient> listRecipe = recipe.getIngredients();
             List<Ingredient> listI = listRecipe.stream().filter(isInList).collect(Collectors.toList());
-            if(listI.equals(userFoodList)){
+            List<String> list2 = new ArrayList<>();
+            for (Ingredient ingredient : listI) {
+                list2.add(ingredient.getName());
+            }
+            if(list2.equals(userFoodList)){
                 userRecipe.add(recipe);
             }
         });
