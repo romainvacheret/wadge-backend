@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import wadge.service.recipe.impl.RecipeService;
 public class RecipeController {   
     private final RecipeService recipeService;
     private final FridgeService fridgeService;
+    
 
     @Autowired
     public RecipeController(RecipeService recipeService, FridgeService fridgeService) {
@@ -47,9 +49,14 @@ public class RecipeController {
     }
 
     @RequestMapping(path="/recipes/listfood", method=RequestMethod.POST)
-    public List<Recipe> getRecipesUsingListFood( @RequestBody String listFood){
-        List<String> listUserFood = Arrays.asList(listFood.split(","));
-        return recipeService.getRecipesUsingUserList(listUserFood);
+    public List<Recipe> getRecipesUsingListFood( @RequestBody JsonNode listFood){
+        ObjectMapper mapper = new ObjectMapper();
+        List <String> list = Arrays.asList(mapper.convertValue(listFood, String[].class));
+        System.out.println(list);
+        
+        List<Recipe> tmp = recipeService.getRecipesUsingUserList(list);
+        System.out.println(tmp);
+        return tmp;
     }
 
 }
