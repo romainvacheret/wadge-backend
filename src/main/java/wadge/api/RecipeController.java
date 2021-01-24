@@ -5,8 +5,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -41,6 +44,12 @@ public class RecipeController {
             .collect(Collectors.toList()))).collect(Collectors.
             toMap(Map.Entry<RecallType, List<String>>::getKey, Map.Entry<RecallType, List<String>>::getValue));
         return recipeService.getRecipesUsingFridge(products);
+    }
+
+    @RequestMapping(path="/recipes/listfood", method=RequestMethod.POST)
+    public List<Recipe> getRecipesUsingListFood( @RequestBody String listFood){
+        List<String> listUserFood = Arrays.asList(listFood.split(","));
+        return recipeService.getRecipesUsingUserList(listUserFood);
     }
 
 }
