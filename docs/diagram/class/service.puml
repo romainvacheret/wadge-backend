@@ -15,6 +15,7 @@ package model.food {
 package model.fridge {
     class FridgeFood {}
     class FoodElement {}
+    class UpdateResponse {}
 }
 
 package model.recipe {
@@ -39,6 +40,7 @@ package service {
             + getAllFridge(): List<FridgeFood>
             + getExpirationList(): List<FridgeFood>
             + addAllToFridge(food: List<FridgeFood>): boolean
+            + updateFridge(updateList: List<UpdateResponse>)            
             - getExpirationDateFromPredicate(): List<FridgeFood>
         }
 
@@ -86,6 +88,15 @@ package service {
             }
         }
     }
+
+    package map {
+        class MapService {
+            - KEY: string <<static final>>
+            + jsonToFile(fileName: string, json: JSONObject): void
+            + request(lat: double, lng: double): JSONObject
+            + parseJSON(json: JSONArray): JSONArray
+        }
+    }
 }
 
 FoodService o--> IFoodDao
@@ -95,6 +106,9 @@ FoodService *..> Month
 FridgeService o--> IFridgeDao
 FridgeService o..> FoodElementPredicatesFactory
 FridgeService *--> FridgeFood
+FridgeService *--> FoodElement
+FridgeService *..> FoodElement
+FridgeService o..> UpdateResponse
 
 FoodElementPredicatesFactory *..> FoodElement
 FoodElementPredicatesFactory o..> RecallType

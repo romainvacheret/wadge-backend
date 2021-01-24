@@ -1,4 +1,4 @@
-package wadge.google;
+package wadge.service.map;
 
 import java.io.BufferedReader;
 import java.io.FileWriter;
@@ -16,9 +16,9 @@ import org.json.simple.parser.ParseException;
 
 import io.github.cdimascio.dotenv.Dotenv;
 
-public class Search {
+public class MapService {
     private static final String KEY;
-    private static Logger logger = Logger.getLogger(Search.class.getName());
+    private static Logger logger = Logger.getLogger(MapService.class.getName());
     
     static {
         Dotenv dotenv = Dotenv.load();
@@ -35,7 +35,7 @@ public class Search {
     }
 
     public JSONObject request() {
-        String requestUrl = String.format("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000&key=%s", Search.KEY);
+        String requestUrl = String.format("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=naturalia&inputtype=textquery&fields=opening_hours,formatted_address,geometry&locationbias=circle:2000&key=%s", MapService.KEY);
         
         try {
             URL url = new URL(requestUrl);

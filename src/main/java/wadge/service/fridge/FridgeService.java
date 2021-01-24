@@ -30,21 +30,10 @@ public class FridgeService {
     }
 
     public boolean addAllToFridge(List<FridgeFood> food) {
-        // Map<String, FridgeFood> fridge = fridgeDao.getFridge();
-        // return food.stream().map(f -> {
-        //     boolean rtr = true;
-        //     String name = f.getName();
-        //     if(fridge.containsKey(name)) {
-        //         rtr = fridge.get(name).getProducts().addAll(f.getProducts());
-        //     } else {
-        //         rtr = fridgeDao.addAllToFridge(List.of(f));
-        //     }
-        //     return rtr;
-        // }).allMatch(a -> a);
         // TODO -> dirty code (FridgeFood::addAllProdcuts + fridgeDao::saveDate) -> use two fridgeDao methods ?  
         food.stream().forEach(f -> 
             fridgeDao.getFridgeFoodFromName(f.getName()).ifPresentOrElse(ff -> 
-            {ff.addAllProcucts(f.getProducts()); fridgeDao.saveData();}, () -> fridgeDao.addAllToFridge(List.of(f)))
+            {ff.addAllProducts(f.getProducts()); fridgeDao.saveData();}, () -> fridgeDao.addAllToFridge(List.of(f)))
         );
         return true;
     }
@@ -92,17 +81,4 @@ public class FridgeService {
         fridgeDao.saveData(); 
         return fridgeDao.getAllFridge();
     }
-
-    // public List<FridgeFood> deleteFromFridge(List<UpdateResponse> deleteList) {
-    //     deleteList.stream().forEach(update -> 
-    //         // FridgeFood food = fridgeDao.getAllFridge().stream().filter(f -> 
-    //         // f.getName().equals(update.getFridgeFood())).collect(Collectors.toList()).get(0);
-    //         // food.getProducts()
-    //         // fridgeDao.updateFridgeFood(update.getFridgeFood(), )
-    //         fridgeDao.getFridgeFood(update.getFridgeFood()).getProducts2().get(update.getId()).setQuantity(update.getQuantity())
-    //     );
-    //     return fridgeDao.getAllFridge();
-    //     // deleteList.stream().forEach(entry -> fridgeDao.updateFridgeFood(entry.getKey(), entry.getValue()));
-    //     // return fridgeDao.getAllFridge().stream().collect(Collectors.toList());
-    // }
 }

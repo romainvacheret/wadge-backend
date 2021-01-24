@@ -42,7 +42,7 @@ public class FridgeFood {
         products.put(element.getId(), element);
     }
 
-    public void addAllProcucts(List<FoodElement> elements) {
+    public void addAllProducts(List<FoodElement> elements) {
         elements.stream().forEach(food -> addProduct(food));
     }
     

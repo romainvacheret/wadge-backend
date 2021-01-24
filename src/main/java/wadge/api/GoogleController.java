@@ -9,14 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import wadge.google.Search;
+import wadge.service.map.MapService;
+
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 public class GoogleController {  
     @RequestMapping(path = "/map", method= RequestMethod.GET)
     public ResponseEntity<JSONObject> getCloseShops() {
-        Search s = new Search();
+        MapService s = new MapService();
         JSONObject json = s.request();
         JSONObject tmp = new JSONObject();
         tmp.put("candidates", s.parseJSON((JSONArray) json.get("candidates")));
