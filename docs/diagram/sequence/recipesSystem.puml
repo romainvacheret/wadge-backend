@@ -7,14 +7,24 @@
     participant ": Back" as backend
 
     User -> frontend: cliquer sur "Recettes"
+    User -> frontend: selectionner filtrage "Toutes les recettes"
     activate frontend
     frontend -> backend: GET /recipes
-    deactivate frontend
     activate backend
     backend --> frontend: liste  des recettes
-    deactivate backend
-    activate frontend
     frontend --> User: afficher la liste des recettes
+
+    User -> frontend: sélectionner filtrage "Tri avec mon frigo"
+    frontend -> backend: GET /recipes/fridge
+    backend --> frontend: liste  des recettes triées
+    frontend --> User: afficher la liste des recettes triées
+
+    User -> frontend: entrer une liste d'ingrédients
+    User -> frontend: appuyer sur le bouton "Enregistrer"
+    frontend -> backend: POST /recipes/listfood
+    backend --> frontend: liste des recettes filtrées
+    frontend --> User: afficher la liste des recettes filtrées
+    deactivate backend
 
     deactivate frontend
  

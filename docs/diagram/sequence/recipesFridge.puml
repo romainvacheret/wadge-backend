@@ -1,4 +1,4 @@
-@startuml recipes
+@startuml recipesFridge
     !include ../style/commons.style
 
     participant ": Front" as ft
@@ -13,7 +13,7 @@
     create "RecipeController.reciepeService: RecipeService" as rs
     rc -> rs : RecipeService(recipeDao)
     activate rs
-    rc -> rs : getAllRecipes()
+    rc -> rs : getAllRecipesUsingFridge()
     rs --> rc
     deactivate rs
     rc --> bk

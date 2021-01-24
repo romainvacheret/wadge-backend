@@ -52,11 +52,32 @@ package model {
 
         class FridgeFood {
             - name: string
-            - products: List<FoodElement>
+            - products: Map<UUID, FoodElement>
             - this(): FridgeFood
             + this(name: string, products: List<FoodElement>): FridgeFood
             + getName(): string
             + getProducts(): List<FoodELement>
+            + getProducts2(): Map<UUID, FoodElement>
+            + addProduct(element: FoodElement): void
+            + addAllProducts(elements: List<FoodElement>): void
+        }
+
+        class FridgeFoodBuilder {
+            - id: UUID
+            - name: string
+            - products: Map<UUID, FoodElement>
+            + withId(id: UUID): FridgeFoodBuilder
+            + withName(name: string): FridgeFoodBuilder
+            + withProducts(food: List<FoodElement>): FridgeFoodBuilder
+            + createFridgeFood(): FridgeFood
+        }
+
+        class UpdateResponse {
+            - id: UUID
+            - fridgeFood: string
+            - quantity: int
+            + this(): UpdateResponse
+            + this(id: UUID, fridgeFood: string, quantity: int)
         }
     }
 
@@ -93,6 +114,7 @@ package model {
     Food *--> Month
 
     FridgeFood *..> FoodElement
+    FridgeFoodBuilder *..> FridgeFood
 
     Recipe *..> Ingredient
 }

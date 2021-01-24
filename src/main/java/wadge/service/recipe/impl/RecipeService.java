@@ -3,6 +3,8 @@ package wadge.service.recipe.impl;
 import java.util.List;
 import java.util.Map;
 
+import javax.print.DocFlavor.STRING;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -28,5 +30,10 @@ public class RecipeService {
         FridgeSelection select = new FridgeSelection(getAllRecipes(), products);
         
         return select.select().sort();
+    }
+
+    public List<Recipe> getRecipesUsingUserList(List<String> userSelection){
+        UserListSelection userSelect = new UserListSelection(getAllRecipes(), userSelection);
+        return userSelect.select().sort();
     }
 }

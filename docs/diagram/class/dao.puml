@@ -27,7 +27,15 @@ package dao {
 
         interface IFridgeDao {
             getAllFridge(): List<FridgeFood>
-            addAllToFridge(food: List<FridgeFood>)
+            addAllToFridge(food: List<FridgeFood>): boolean
+            insertFridgeFood(id UUID, food: FridgeFood): boolean
+            insertFridgeFood(food: FridgeFood): boolean
+            getFridgeFood(name: string): FridgeFood
+            getFridge(): Map<string, FridgeFood>
+            getFridgeFoodFromName(name: string): Optional<FridgeFood>
+            addFoodElementToFridgeFood(fridgeFood: name, element:FoodElement): boolean
+            deleteFromFridge(food: string, id: UUID): void
+            saveData(): void
         }
 
         interface IRecipeDao {

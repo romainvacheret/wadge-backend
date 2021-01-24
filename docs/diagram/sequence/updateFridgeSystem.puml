@@ -1,4 +1,4 @@
-@startuml getFridgeSystem
+@startuml updateFridgeSystem
     !include ../style/commons.style
 
     actor User
@@ -13,8 +13,11 @@
     activate backend
     backend --> frontend: liste des légumes du frigo
     User <-- frontend: afficher liste des légumes du frigo
-    User -> frontend: cliquer sur un légume X
-    User <-- frontend: afficher informations du légume X
+    User -> frontend: cliquer sur le bouton "+"" d'un aliment
+    User -> frontend: appuyer sur le bouton "Prendre les aliments"
+    front -> backend: POST /fridge/update
+    backend --> frontend
+    frontend --> User: mettre à jour le frigo
     deactivate frontend
 
 @enduml
