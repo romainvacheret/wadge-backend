@@ -12,12 +12,13 @@
     frontend -> backend: GET /foods/{X}
     activate backend
     backend --> frontend: liste des légumes du mois X
-    deactivate backend
     User <-- frontend: afficher liste des légumes du mois X
-    deactivate frontend
     User -> frontend: cliquer sur un légume Y
-    activate frontend
     User <-- frontend: afficher informations du légume Y
+    User -> frontend: cliquer sur le switch "Trier par jours"
+    frontend -> backend: GET /foods/{X}/days
+    backend --> frontend: liste des légumes du mois X
+    User <-- frontend: afficher liste triée des légumes du mois X 
     deactivate frontend
     
 @enduml
