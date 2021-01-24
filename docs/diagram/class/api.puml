@@ -59,6 +59,7 @@ package api {
         + this(recipeService: RecipeService, fridgeService: FridgeService): RecipeController
         + getAllRecipes(): List<Recipe>
         + getRecipesUsingFridge(): List<Recipe>
+        + getRecipesUsingListFood(listFood : JsonNode): List<Recipe>
     }
   
     class GoogleController {

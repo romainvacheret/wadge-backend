@@ -1,0 +1,25 @@
+@startuml recipesFilterByList
+    !include ../style/commons.style
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": RecipeController" as rc
+
+    activate ft
+    ft -> bk : POST /recipes
+    activate bk
+    bk -> rc : getAllRecipes()
+    activate rc
+    create "RecipeController.reciepeService: RecipeService" as rs
+    rc -> rs : RecipeService(recipeDao)
+    activate rs
+    rc -> rs : getAllRecipesUsingUserList()
+    rs --> rc
+    deactivate rs
+    rc --> bk
+    deactivate rc
+    bk --> ft
+    deactivate bk
+    ft <-- ft: Traiter les données reçues
+
+@enduml

@@ -73,6 +73,7 @@ package service {
                 + this(dao: IRecipeDao): RecipeService
                 + getAllRecipes(): List<Recipe>
                 + getRecipesUsingFridge(products: Map<RecallType, List<string>>): List<Recipe>
+                + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
             }
 
             class FridgeSelection implements RecipeSelection {
@@ -85,6 +86,14 @@ package service {
                 + this(recipes: List<Recipe>, products: Map<RecallType, List<string>>): FridgeSelection
                 ~ addToSet(mySet: Set<string>, key: string, value: integer): void
                 ~ defineScoringMap(products: Map<RecallType, List<string>>): void
+            }
+
+            class UserListSelection implements RecipeSelection {
+                - recipes : List<Recipe>
+                - userFoodList : List<String>
+                - userRecipe : List<Recipe>
+                + this(recipes : List<Recipe>, userFoodList : List<String>): UserListSelection
+                ~ isInList(): Predicate<Ingredient>
             }
         }
     }
@@ -119,5 +128,7 @@ RecipeService o..> RecallType
 
 FridgeSelection *--> Recipe
 FridgeSelection o..> RecallType
+
+UserListSelection *--> Recipe
 
 @enduml
