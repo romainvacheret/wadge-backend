@@ -39,10 +39,8 @@ public class FridgeController {
 
     @RequestMapping(path = "/fridge/addition", method= RequestMethod.POST)
     public boolean addAllToFridge(@RequestBody JsonNode food) {
-        System.out.println(food);
         List<FridgeFood> list = Arrays.asList(this.mapper.convertValue(food, FridgeFood[].class));
         fridgeService.addAllToFridge(list);
-        System.out.println(fridgeService.getAllFridge());
         return true;
     }
 
@@ -52,7 +50,6 @@ public class FridgeController {
         Arrays.asList(RecallType.values()).forEach(type -> 
             result.put(type.toString(), fridgeService.getExpirationList(type))
         );
-        System.out.println(result);
         return result;
     }
 

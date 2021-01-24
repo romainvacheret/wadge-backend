@@ -40,7 +40,6 @@ public class FoodElementTest {
 
     @Test
     public void toStringTest() {
-        System.out.println(element.toString());
         String result = String.format("FoodElement [id=%s, insertionDate=date 1, peremptionDate=date 2, quantity=42]", id);
         assertEquals(result, element.toString());
     }

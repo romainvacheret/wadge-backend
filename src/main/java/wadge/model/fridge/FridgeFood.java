@@ -14,23 +14,8 @@ public class FridgeFood {
     private UUID id = UUID.randomUUID();
     private String name;
     private Map<UUID, FoodElement> products;
-    // private List<FoodElement> products;
 
     public FridgeFood() {}
-
-    // public FridgeFood(String name, List<FoodElement> products) {
-    //     System.out.println("ICI");
-    //     this.name = name;
-    //     this.products = products.stream().map(product -> Map.entry(product.getId(), product))
-    //         .filter(e -> e.getKey().isPresent()).map(e -> Map.entry(e.getKey().get(), e.getValue()))
-    //         .collect(Collectors.toMap(Map.Entry<UUID, FoodElement>::getKey, Map.Entry<UUID, FoodElement>::getValue));
-    // }
-
-    // public FridgeFood(UUID id, String name, List<FoodElement> products) {
-    //     this(name, products);
-    //     System.out.println("LA");
-    //     this.id = id;
-    // }
 
     public FridgeFood(String name, Map<UUID, FoodElement> products) {
         this.name = name;
@@ -46,11 +31,10 @@ public class FridgeFood {
 
     public UUID getId() { return id; }
     public String getName() { return this.name; }
-    // public List<FoodElement> getProducts() { return products; }
     @JsonDeserialize
-    public List<FoodElement> getProducts() { System.out.println("1111111111"); return this.products.values().stream().collect(Collectors.toList()); }
+    public List<FoodElement> getProducts() { return this.products.values().stream().collect(Collectors.toList()); }
     @JsonIgnore
-    public Map<UUID, FoodElement> getProducts2() { System.out.println("22222222"); return this.products; }
+    public Map<UUID, FoodElement> getProducts2() { return this.products; }
 
     public void setId(UUID id) { this.id = id; }
 

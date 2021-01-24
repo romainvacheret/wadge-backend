@@ -1,6 +1,5 @@
 package wadge.model.fridge;
 
-import java.util.Optional;
 import java.util.UUID;
 
 
@@ -13,7 +12,6 @@ public class FoodElement {
         public FoodElement() {}
 
         public FoodElement(String insertionDate, String peremptionDate, int quantity) {
-            System.out.println("here");
             this.id = UUID.randomUUID();
             this.insertionDate = insertionDate;
             this.peremptionDate = peremptionDate;

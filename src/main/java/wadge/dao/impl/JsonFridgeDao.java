@@ -37,7 +37,6 @@ public class JsonFridgeDao implements IFridgeDao {
             List<FridgeFood> list = Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), FridgeFood[].class));
             addAllToFridge(list);
         } catch (IOException e) {
-            e.printStackTrace();
             logger.log(Level.FINE, e.getMessage());
         }
     }
@@ -46,14 +45,10 @@ public class JsonFridgeDao implements IFridgeDao {
     public boolean addAllToFridge(List<FridgeFood> food) {
         boolean rtr = food.stream().map(food_ -> insertFridgeFood(food_)).allMatch(a -> a);
 
-        System.out.println(rtr);
-        System.out.println("addAll" + fridge);
-
         if (rtr) {
             try {
                 mapper.writeValue(Paths.get(FILE_NAME).toFile(), fridge.values());
             } catch (IOException e) {
-                
                 logger.log(Level.FINE, e.getMessage());
                 rtr = false;
             }
@@ -75,35 +70,12 @@ public class JsonFridgeDao implements IFridgeDao {
         return fridge.get(name);
     }
 
-    // public boolean insertFridgeFood(FridgeFood food) {
-    // fridge.put(food.getName(), food);
-    // return true;
-    // }
-
     @Override
     public boolean insertFridgeFood(UUID id, FridgeFood food) {
         food.setId(id);
-        // String name = food.getName();
-        // fridge.containsKey(name) {
-        // fridge.get(name).getProducts().add()
-        // }
         fridge.put(food.getName(), food);
         return true;
     }
-
-    @Override
-    public boolean updateFridgeFood(String food, FoodElement element) {
-        // FridgeFood aFood = fridge.replace(id, food);
-        // // if(aFood.get)
-        // return false;
-        // return fridge.replace(food.getName(), element) != null;
-
-        return false;
-        // return fridge.get(food).getProducts2().replace(element.getId().get(),
-        // element) != null;
-    }
-
-    // --------------------------------------------------
 
     @Override
     public boolean insertFridgeFood(FridgeFood food) {
@@ -134,15 +106,12 @@ public class JsonFridgeDao implements IFridgeDao {
         try {
             mapper.writeValue(Paths.get(FILE_NAME).toFile(), fridge.values());
         } catch (IOException e) {
-            e.printStackTrace();
             logger.log(Level.FINE, e.getMessage());
         }
     }
 
     @Override
     public void deleteFromFridge(String food, UUID id) {
-        System.out.println(food);
-        System.out.println(fridge.keySet());
         this.fridge.get(food).getProducts2().remove(id);
     }
 

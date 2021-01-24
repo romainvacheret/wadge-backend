@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
-// @JsonIgnoreProperties(value={ "getProducts2" })
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName="createFridgeFood", withPrefix="with")
 public class FridgeFoodBuilder {
@@ -27,7 +26,6 @@ public class FridgeFoodBuilder {
 
     public FridgeFoodBuilder withProducts(List<FoodElement> food) {
         this.products = food.stream().map(product -> Map.entry(product.getId(), product))
-            // .filter(e -> e.getKey().isPresent()).map(e -> Map.entry(e.getKey().get(), e.getValue()))
             .collect(Collectors.toMap(Map.Entry<UUID, FoodElement>::getKey, Map.Entry<UUID, FoodElement>::getValue));
         
         return this;
