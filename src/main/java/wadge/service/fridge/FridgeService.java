@@ -16,6 +16,7 @@ import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.FridgeFoodBuilder;
 import wadge.model.fridge.UpdateResponse;
 
+
 @Service
 public class FridgeService {
     private final IFridgeDao fridgeDao;

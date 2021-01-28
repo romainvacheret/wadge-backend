@@ -21,6 +21,9 @@ plugins {
 
     id 'org.asciidoctor.jvm.pdf' version '3.2.0'
     id 'org.asciidoctor.jvm.gems' version '3.2.0'
+
+    //lombok for generate getter ,setters ,equals and hash code automaticaly
+
     
 }
 
@@ -61,7 +64,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     implementation 'org.springdoc:springdoc-openapi-maven-plugin:1.1'
-
+    implementation 'net.sourceforge.htmlunit:htmlunit:2.36.0'
     compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     compile 'io.github.cdimascio:dotenv-java:2.2.0'
 
