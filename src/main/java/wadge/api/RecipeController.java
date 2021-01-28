@@ -41,8 +41,7 @@ public class RecipeController {
 
     @RequestMapping(path="/recipes/fridge", method=RequestMethod.GET)
     public List<Recipe> getRecipesUsingFridge() {
-        Map<RecallType, List<String>> products = Arrays.asList(RecallType.values()).stream().map(type -> 
-            Map.entry(type, fridgeService.getExpirationList(type).stream().map(FridgeFood::getName)
+        Map<RecallType, List<String>> products = Arrays.asList(RecallType.values()).stream().map(type -> Map.entry(type, fridgeService.getExpirationList(type).stream().map(FridgeFood::getName)
             .collect(Collectors.toList()))).collect(Collectors.
             toMap(Map.Entry<RecallType, List<String>>::getKey, Map.Entry<RecallType, List<String>>::getValue));
         return recipeService.getRecipesUsingFridge(products);

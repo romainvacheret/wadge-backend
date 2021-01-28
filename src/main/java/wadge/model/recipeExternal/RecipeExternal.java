@@ -1,5 +1,7 @@
 package wadge.model.recipeExternal;
 
+import java.util.Objects;
+
 public class RecipeExternal {
 	String link ; //recipe-card-link link of recipe
 	String titre ;//class :recipe-card__title |namerecipe <span class="recipe-card__add-to-notebook connectedUsersOnly
@@ -72,5 +74,35 @@ public class RecipeExternal {
 		this.duration = duration;
 	}
 	
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof RecipeExternal)) return false;
+		RecipeExternal that = (RecipeExternal) o;
+		return Objects.equals(getLink(), that.getLink()) &&
+				Objects.equals(getTitre(), that.getTitre()) &&
+				Objects.equals(getRating(), that.getRating()) &&
+				Objects.equals(getRatingFract(), that.getRatingFract()) &&
+				Objects.equals(getDiscret(), that.getDiscret()) &&
+				Objects.equals(getDescription(), that.getDescription()) &&
+				Objects.equals(getDuration(), that.getDuration());
+	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(getLink(), getTitre(), getRating(), getRatingFract(), getDiscret(), getDescription(), getDuration());
+	}
+	
+	@Override
+	public String toString() {
+		return "RecipeExternal{" +
+				"link='" + link + '\'' +
+				", titre='" + titre + '\'' +
+				", rating='" + rating + '\'' +
+				", ratingFract='" + ratingFract + '\'' +
+				", discret='" + discret + '\'' +
+				", description='" + description + '\'' +
+				", duration='" + duration + '\'' +
+				'}';
+	}
 }
