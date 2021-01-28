@@ -6,8 +6,8 @@ import wadge.model.recipeExternal.RecipeExternal;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.List;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
@@ -17,29 +17,19 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class JsonRecipeExtDao implements IRecipeExternalDao {
 	ObjectMapper mapper;
 	static final String  FILE_NAME="recipeExternal.json";
-	static final String baseUrl="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
+	static final String BASE_URL="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
+	private static Logger logger = Logger.getLogger(JsonRecipeExtDao.class.getName());
 	@Override
 	public void writeRecipeExternal(String jsonString) {
 		try {
 			mapper.writeValue(Paths.get(FILE_NAME).toFile(), jsonString);
 		} catch (IOException e) {
-		
+			logger.log(Level.FINE, e.getMessage(), e);
 		}
 	}
 	
 	public JsonRecipeExtDao(){
 		mapper=new ObjectMapper();
-	}
-	@Override
-	public List<RecipeExternal> readExternalRecipe(){
-		List<RecipeExternal> 	recipeExternals=new ArrayList<>();
-		try {
-			recipeExternals.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), RecipeExternal.class)));
-		
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		return recipeExternals;
 	}
 
 	@Override
@@ -48,10 +38,10 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 			WebClient client = new WebClient();
 			client.getOptions().setCssEnabled(false);
 			client.getOptions().setJavaScriptEnabled(false);
-			HtmlPage page=client.getPage(baseUrl+ URLEncoder.encode(search, "UTF-8"));
+			HtmlPage page=client.getPage(BASE_URL+ URLEncoder.encode(search, "UTF-8"));
 			List<HtmlElement> recipes=page.getByXPath("//div[@class='recipe-card']");
 			if (recipes.isEmpty()) {
-			
+			System.out.println("recipe not found");
 			} else {
 				for (HtmlElement htmlItem : recipes) {
 					HtmlAnchor link= ((HtmlAnchor )htmlItem.getFirstByXPath("./a[@class='recipe-card-link']"));
@@ -71,11 +61,10 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 					recipe.setDiscret(spandiscret.asText());
 					String jsonString = mapper.writeValueAsString(recipe);
 					writeRecipeExternal(jsonString);
-					System.out.println(jsonString);
 				}
 			}
 		}catch(Exception e){
-		
+			logger.log(Level.FINE, e.getMessage(), e);
 		}
 	}
 	
