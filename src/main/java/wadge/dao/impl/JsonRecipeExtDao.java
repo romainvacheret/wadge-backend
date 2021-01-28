@@ -43,7 +43,7 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 	}
 
 	@Override
-	public void RecipeExternalsFromUrl(String search){
+	public void recipeExternalsFromUrl(String search){
 		try {
 			WebClient client = new WebClient();
 			client.getOptions().setCssEnabled(false);

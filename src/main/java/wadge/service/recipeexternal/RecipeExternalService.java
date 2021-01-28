@@ -1,15 +1,12 @@
-package wadge.service.recipeExternal;
+package wadge.service.recipeexternal;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-
-
 import wadge.dao.api.IRecipeExternalDao;
-import wadge.model.food.Food;
-import wadge.model.recipeExternal.RecipeExternal;
 
-import java.util.List;
+/*import wadge.model.recipeExternal.RecipeExternal;
+import java.util.List;*/
 
 @Service
 public class RecipeExternalService {
@@ -24,7 +21,7 @@ public class RecipeExternalService {
 	}*/
 	
 	public void writeRecipe(String searchquery){
-		this.recipeExternalDao.RecipeExternalsFromUrl(searchquery);
+		this.recipeExternalDao.recipeExternalsFromUrl(searchquery);
 		
 	}
 }

@@ -1,9 +1,8 @@
 package wadge.api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import wadge.model.recipeExternal.RecipeExternal;
-import wadge.service.recipeExternal.RecipeExternalService;
-import java.util.List;
+import wadge.service.recipeexternal.RecipeExternalService;
+
 
 
 @CrossOrigin(origins ="https://localhost:3000")

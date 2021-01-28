@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IRecipeExternalDao {
 	void writeRecipeExternal(String search);
-	void RecipeExternalsFromUrl(String search);
+	void recipeExternalsFromUrl(String search);
 	List<RecipeExternal> readExternalRecipe();
 	
 }
