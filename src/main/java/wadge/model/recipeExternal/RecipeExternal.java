@@ -10,7 +10,7 @@ public class RecipeExternal {
 	String discret; //class="mrtn-font-discret">
 	String description; //recipe-card__description">
 	String duration; //class="recipe-card__duration"
-	public static  RecipeExternal instance;
+	protected static  RecipeExternal instance;
 	private RecipeExternal(){}
 	public static RecipeExternal getInstance(){
 		if(instance==null)

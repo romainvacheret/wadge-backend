@@ -16,14 +16,14 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 @Repository("jsonRecipeExtDao")
 public class JsonRecipeExtDao implements IRecipeExternalDao {
 	ObjectMapper mapper;
-	final String  FILE_NAME="recipeExternal.json";
-	final String baseUrl="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
+	static final String  FILE_NAME="recipeExternal.json";
+	static final String baseUrl="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
 	@Override
 	public void writeRecipeExternal(String jsonString) {
 		try {
 			mapper.writeValue(Paths.get(FILE_NAME).toFile(), jsonString);
 		} catch (IOException e) {
-			e.printStackTrace();
+		
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 			HtmlPage page=client.getPage(baseUrl+ URLEncoder.encode(search, "UTF-8"));
 			List<HtmlElement> recipes=page.getByXPath("//div[@class='recipe-card']");
 			if (recipes.isEmpty()) {
-				System.out.println("No items found !");
+			
 			} else {
 				for (HtmlElement htmlItem : recipes) {
 					HtmlAnchor link= ((HtmlAnchor )htmlItem.getFirstByXPath("./a[@class='recipe-card-link']"));
@@ -75,7 +75,7 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 				}
 			}
 		}catch(Exception e){
-			e.printStackTrace();
+		
 		}
 	}
 	
