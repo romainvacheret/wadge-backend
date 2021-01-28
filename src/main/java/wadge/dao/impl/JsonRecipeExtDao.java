@@ -6,6 +6,9 @@ import wadge.model.recipeExternal.RecipeExternal;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.List;
@@ -16,20 +19,24 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 @Repository("jsonRecipeExtDao")
 public class JsonRecipeExtDao implements IRecipeExternalDao {
 	ObjectMapper mapper;
+	Map<String,RecipeExternal> recipeExternals;
+	List<RecipeExternal> recipes;
 	static final String  FILE_NAME="recipeExternal.json";
 	static final String BASE_URL="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
 	private static Logger logger = Logger.getLogger(JsonRecipeExtDao.class.getName());
 	@Override
-	public void writeRecipeExternal(String jsonString) {
+	public void writeRecipeExternal() {
 		try {
-			mapper.writeValue(Paths.get(FILE_NAME).toFile(), jsonString);
+			mapper.writeValue(Paths.get(FILE_NAME).toFile(), recipeExternals.values());
 		} catch (IOException e) {
-			logger.log(Level.FINE, e.getMessage(), e);
+			logger.log(Level.FINE, e.getMessage());
 		}
 	}
 	
 	public JsonRecipeExtDao(){
 		mapper=new ObjectMapper();
+		recipeExternals=new HashMap<>();
+		recipes=new ArrayList<>();
 	}
 
 	@Override
@@ -60,8 +67,11 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 					recipe.setTitre(itemAnchor.asText());
 					recipe.setDiscret(spandiscret.asText());
 					String jsonString = mapper.writeValueAsString(recipe);
-					writeRecipeExternal(jsonString);
+					System.out.println(jsonString);
+					recipeExternals.put(recipe.getLink(),recipe);
+					//
 				}
+				writeRecipeExternal();
 			}
 		}catch(Exception e){
 			logger.log(Level.FINE, e.getMessage(), e);

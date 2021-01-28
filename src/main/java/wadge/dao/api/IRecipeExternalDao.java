@@ -1,7 +1,7 @@
 package wadge.dao.api;
 
 public interface IRecipeExternalDao {
-	void writeRecipeExternal(String search);
+	void writeRecipeExternal();
 	void recipeExternalsFromUrl(String search);
 	
 	
