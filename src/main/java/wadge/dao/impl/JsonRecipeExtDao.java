@@ -20,7 +20,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 public class JsonRecipeExtDao implements IRecipeExternalDao {
 	ObjectMapper mapper;
 	Map<String,RecipeExternal> recipeExternals;
-	List<RecipeExternal> recipes;
 	static final String  FILE_NAME="recipeExternal.json";
 	static final String BASE_URL="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
 	private static Logger logger = Logger.getLogger(JsonRecipeExtDao.class.getName());
@@ -36,7 +35,6 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 	public JsonRecipeExtDao(){
 		mapper=new ObjectMapper();
 		recipeExternals=new HashMap<>();
-		recipes=new ArrayList<>();
 	}
 
 	@Override
@@ -55,21 +53,18 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 					HtmlElement itemAnchor = ((HtmlElement) htmlItem.getFirstByXPath(".//h4[@class='recipe-card__title']"));
 					HtmlElement ratingValue = ((HtmlElement) htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating__score']/span[@class='recipe-card__rating__value']"));
 					HtmlElement spandiscret = ((HtmlElement) htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating']/span[@class='mrtn-font-discret']"));
-					HtmlElement description = ((HtmlElement) htmlItem.getFirstByXPath(".//div[@class='recipe-card__description']"));
+					HtmlElement ingredients = ((HtmlElement) htmlItem.getFirstByXPath(".//div[@class='recipe-card__description']"));
 					HtmlElement duration = ((HtmlElement) htmlItem.getFirstByXPath(".//div[@class='recipe-card__duration']/span[@class='recipe-card__duration__value']"));
 					HtmlElement ratingFract=((HtmlElement) htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating__score']/span[@class='recipe-card__rating__value__fract']"));
 					RecipeExternal recipe= RecipeExternal.getInstance();
 					recipe.setLink(link.getHrefAttribute());
 					recipe.setRatingFract(ratingFract.asText());
 					recipe.setRating(ratingValue.asText());
-					recipe.setDescription(description.asText());
+					recipe.setIngredients(ingredients.asText());
 					recipe.setDuration(duration.asText());
 					recipe.setTitre(itemAnchor.asText());
 					recipe.setDiscret(spandiscret.asText());
-					String jsonString = mapper.writeValueAsString(recipe);
-					System.out.println(jsonString);
 					recipeExternals.put(recipe.getLink(),recipe);
-					//
 				}
 				writeRecipeExternal();
 			}

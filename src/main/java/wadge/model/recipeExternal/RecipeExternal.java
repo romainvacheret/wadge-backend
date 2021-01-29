@@ -8,7 +8,7 @@ public class RecipeExternal {
 	String rating; //class="recipe-card__rating__value"
 	String ratingFract; //  class="recipe-card__rating__value__fract"
 	String discret; //class="mrtn-font-discret">
-	String description; //recipe-card__description">
+	String ingredients; //recipe-card__description">
 	String duration; //class="recipe-card__duration"
 	protected static  RecipeExternal instance;
 	private RecipeExternal(){}
@@ -59,12 +59,12 @@ public class RecipeExternal {
 	}
 	
 	
-	public String getDescription() {
-		return description;
+	public String getIngredients() {
+		return ingredients;
 	}
 	
-	public void setDescription(String description) {
-		this.description = description;
+	public void setIngredients (String ingredients) {
+		this.ingredients = ingredients;
 	}
 	
 	public String getDuration() {
@@ -84,13 +84,13 @@ public class RecipeExternal {
 				Objects.equals(getRating(), that.getRating()) &&
 				Objects.equals(getRatingFract(), that.getRatingFract()) &&
 				Objects.equals(getDiscret(), that.getDiscret()) &&
-				Objects.equals(getDescription(), that.getDescription()) &&
+				Objects.equals(getIngredients(), that.getIngredients()) &&
 				Objects.equals(getDuration(), that.getDuration());
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(getLink(), getTitre(), getRating(), getRatingFract(), getDiscret(), getDescription(), getDuration());
+		return Objects.hash(getLink(), getTitre(), getRating(), getRatingFract(), getDiscret(), getIngredients(), getDuration());
 	}
 	
 	@Override
@@ -101,7 +101,7 @@ public class RecipeExternal {
 				", rating='" + rating + '\'' +
 				", ratingFract='" + ratingFract + '\'' +
 				", discret='" + discret + '\'' +
-				", description='" + description + '\'' +
+				", ingredients='" + ingredients + '\'' +
 				", duration='" + duration + '\'' +
 				'}';
 	}
