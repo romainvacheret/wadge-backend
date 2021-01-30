@@ -15,11 +15,6 @@ import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
-import javax.inject.Inject;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import wadge.model.fridge.FridgeFood;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
@@ -40,6 +35,7 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
         //     // result.put(type.toString(), fridgeService.getExpirationList(type))
         //     Map.entry(type, fridgeService.getExpirationList(type))
         // ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry));
+        scoringMap.clear();
         defineScoringMap(Arrays.asList(RecallType.values()).stream().map((RecallType type) -> 
             Map.entry(type, fridgeService.getExpirationList(type))
             ).map(entry -> Map.entry(entry.getKey(), entry.getValue().stream().map(FridgeFood::getName).collect(Collectors.toList())))
@@ -81,6 +77,7 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
 
     @Override   
     public AbstractRecipeSelection compute(ToIntFunction<Recipe> func) {
+        
         scores = recipes.stream().map(recipe -> recipeToEntry.apply(recipe, func)).collect(Collectors.toList());
         return this;
     }
