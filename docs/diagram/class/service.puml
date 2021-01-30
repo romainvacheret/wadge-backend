@@ -66,6 +66,14 @@ package service {
                 select(): RecipeSelection
                 sort(): List<Recipe>
             }
+
+            abstract class AbstractRecipeSelection {
+                # recipes: Set<Recipe>
+                # scores: List<Map.Entry<Integer, Recipe>>
+                + compute(func: ToIntFunction<Recipe>): AbstractRecipeSelection <<abstract>>
+                + filter(predicate: IntPredicate): AbstractRecipeSelection <<abstract>>
+                + sort(comparator: Comparator<Map.Entry<Integer, Recipe>>): List<Recipe> <<abstract>>
+            }
         }
         package impl {
             class RecipeService {
@@ -76,16 +84,12 @@ package service {
                 + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
             }
 
-            class FridgeSelection implements RecipeSelection {
-                - recipes: List<Recipe>
-                - scores: List<Map.Entry<Integer, Recipe>>
-                ~ scoringMap: Map<string, Integer>
+            class SelectionWithFridge extends AbstractRecipeSelection {
+                ~ scoringMap: Map<string, Integer> <<static>>
                 ~ ingredientScoring: Function<Ingredient, Optional<Integer>>
                 ~ recipeScoring: Function<List<Ingredient>, Integer>
-                ~ recipeToEntry: Function<Recipe, Map.Entry<Integer, Recipe>>
-                + this(recipes: List<Recipe>, products: Map<RecallType, List<string>>): FridgeSelection
-                ~ addToSet(mySet: Set<string>, key: string, value: integer): void
-                ~ defineScoringMap(products: Map<RecallType, List<string>>): void
+                ~ recipeToEntry: BiFunction<Recipe, ToIntFunction<Recipe>>
+                + this(recipes: Set<Recipe>, fridgeService: FridgeService): SelectionWithFridge
             }
 
             class UserListSelection implements RecipeSelection {
@@ -125,9 +129,10 @@ FoodElementPredicatesFactory o..> RecallType
 RecipeService o--> IRecipeDao
 RecipeService *..> Recipe
 RecipeService o..> RecallType
+RecipeService o.> SelectionWithFridge
 
-FridgeSelection *--> Recipe
-FridgeSelection o..> RecallType
+SelectionWithFridge *--> Recipe
+SelectionWithFridge o..> FridgeService
 
 UserListSelection *--> Recipe
 
