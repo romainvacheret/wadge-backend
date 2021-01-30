@@ -24,17 +24,10 @@ import wadge.service.recipe.api.AbstractRecipeSelection;
 
 public class SelectionWithFridge extends AbstractRecipeSelection {
     static Map<String, Integer> scoringMap = new HashMap<>();
-    private FridgeService fridgeService;
 
     public SelectionWithFridge(Set<Recipe> recipes, FridgeService fridgeService) {
         this.recipes = recipes;
-        this.fridgeService = fridgeService;
-        System.out.println(fridgeService.getAllFridge());
-        // Map<String, List<FridgeFood>> result = new HashMap<>();
-        // Arrays.asList(RecallType.values()).map(type -> 
-        //     // result.put(type.toString(), fridgeService.getExpirationList(type))
-        //     Map.entry(type, fridgeService.getExpirationList(type))
-        // ).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry));
+        
         scoringMap.clear();
         defineScoringMap(Arrays.asList(RecallType.values()).stream().map((RecallType type) -> 
             Map.entry(type, fridgeService.getExpirationList(type))
@@ -69,9 +62,6 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
     ToIntFunction<List<Ingredient>> recipeScoring = ingredients -> ingredients.stream().map(ingredientScoring)
             .filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
 
-    // Function<Recipe, Map.Entry<Integer, Recipe>> recipeToEntry = recipe -> Map
-    //         .entry(recipeScoring.applyAsInt(recipe.getIngredients()), recipe);
-
     BiFunction<Recipe, ToIntFunction<Recipe>, Map.Entry<Integer, Recipe>> recipeToEntry = (recipe, func) -> 
         Map.entry(func.applyAsInt(recipe), recipe);
 
@@ -83,33 +73,13 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
     }
 
     @Override
-    public AbstractRecipeSelection select(Predicate<Recipe> predicate) {
-        recipes = recipes.stream().filter(predicate).collect(Collectors.toSet());
-        return this;
-    }
-
-    @Override
     public AbstractRecipeSelection filter(IntPredicate predicate) {
         scores = scores.stream().filter(score -> predicate.test(score.getKey())).collect(Collectors.toList());
         return this;
     }
 
-    // @Override
-    // public RecipeSelection select() {
-    //     scores = recipes.stream().map(recipeToEntry).collect(Collectors.toList());
-    //     return this;
-    // }
-
-    // @Override
-    // public List<Recipe> sort() {
-    //     return scores.stream().filter(score -> score.getKey() != 0)
-    //             .sorted(Collections.reverseOrder(Map.Entry.comparingByKey())).map(Map.Entry<Integer, Recipe>::getValue)
-    //             .collect(Collectors.toList());
-    // }
-
     @Override
     public List<Recipe> sort(Comparator<Map.Entry<Integer, Recipe>> comparator) {
         return scores.stream().sorted(comparator).map(Map.Entry::getValue).collect(Collectors.toList());
     }
-
 }

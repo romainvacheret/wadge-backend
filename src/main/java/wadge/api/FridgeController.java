@@ -51,7 +51,6 @@ public class FridgeController {
         Arrays.asList(RecallType.values()).forEach(type -> 
             result.put(type.toString(), fridgeService.getExpirationList(type))
         );
-        System.out.println(fridgeService.getAllFridge());
         return result;
     }
 
