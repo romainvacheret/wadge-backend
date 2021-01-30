@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
 import wadge.service.fridge.FridgeService.RecallType;
+import wadge.service.recipe.api.IFridgeValueCalculation;
 import wadge.service.recipe.api.RecipeSelection;
 
 public class FridgeSelection implements RecipeSelection {
@@ -25,6 +26,10 @@ public class FridgeSelection implements RecipeSelection {
         this.recipes = recipes;
         defineScoringMap(products);
     }
+
+    // public FridgeSelection(Set<Recipe> recipes, IFridgeValueCalculation func, Map<RecallType, List<String>> fridge) {
+
+    // }
 
     void addToSet(Set<String> mySet, String key, Integer value) {
         if(!mySet.contains(key)) {

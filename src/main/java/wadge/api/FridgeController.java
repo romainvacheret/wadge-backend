@@ -34,6 +34,7 @@ public class FridgeController {
 
     @RequestMapping(path="/fridge", method=RequestMethod.GET)
     public List<FridgeFood> getAllFridge() {
+        
         return fridgeService.getAllFridge();
     }
 
@@ -50,6 +51,7 @@ public class FridgeController {
         Arrays.asList(RecallType.values()).forEach(type -> 
             result.put(type.toString(), fridgeService.getExpirationList(type))
         );
+        System.out.println(fridgeService.getAllFridge());
         return result;
     }
 

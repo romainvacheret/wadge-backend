@@ -113,6 +113,7 @@ public class JsonFridgeDao implements IFridgeDao {
     @Override
     public void deleteFromFridge(String food, UUID id) {
         this.fridge.get(food).getProducts2().remove(id);
+        saveData();
     }
 
 }
