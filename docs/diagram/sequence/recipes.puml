@@ -10,7 +10,7 @@
     activate bk
     bk -> rc : getAllRecipes()
     activate rc
-    create "RecipeController.reciepeService: RecipeService" as rs
+    create "RecipeController.recipeService: RecipeService" as rs
     rc -> rs : RecipeService(recipeDao)
     activate rs
     rc -> rs : getAllRecipes()

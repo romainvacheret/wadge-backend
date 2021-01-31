@@ -19,7 +19,6 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    // @GetMapping
     @RequestMapping(path="/foods", method=RequestMethod.GET)
     public List<Food> getAllFood() {
         return foodService.getAllFood();

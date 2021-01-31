@@ -21,9 +21,9 @@
 
     User -> frontend: entrer une liste d'ingrédients
     User -> frontend: appuyer sur le bouton "Enregistrer"
-    frontend -> backend: POST /recipes/listfood
-    backend --> frontend: liste des recettes filtrées
-    frontend --> User: afficher la liste des recettes filtrées
+    frontend -> backend: POST /recipes/search
+    backend --> frontend: liste des recettes matchant la demande
+    frontend --> User: afficher la liste des recettes récupérées
     deactivate backend
 
     deactivate frontend

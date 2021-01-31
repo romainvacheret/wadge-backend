@@ -7,13 +7,13 @@ public class Recipe {
     private List<String> steps;
     private int servings;
     private int preparation;
-    private int difficulty;
+    private double difficulty;
     private String link;
     private List<Ingredient> ingredients;
 
     public Recipe() {}
 
-    public Recipe(String name, List<String> steps, int servings, int preparation, int difficulty, String link, List<Ingredient> ingredients) {
+    public Recipe(String name, List<String> steps, int servings, int preparation, double difficulty, String link, List<Ingredient> ingredients) {
         this.name = name;
         this.steps = steps;
         this.servings = servings;
@@ -27,7 +27,7 @@ public class Recipe {
     public List<String> getSteps() { return steps; }
     public int getServings() { return servings; }
     public int getPreparation() { return preparation; }
-    public int getDifficulty() { return difficulty; }
+    public double getDifficulty() { return difficulty; }
     public String getLink() { return link; }
     public List<Ingredient> getIngredients() { return ingredients; }
 

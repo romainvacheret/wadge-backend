@@ -41,28 +41,44 @@ package dao {
         interface IRecipeDao {
             getAllRecipes(): List<Recipe>
         }
+
+        interface IExternalRecipeDao {
+            writeRecipeExternal(): void
+            recipeExternalFromUrl(search: string): List<MarmitonRecipe>
+            toRecipe(recipes: List<MarmitonRecipe>): List<Recipe>
+        }
     }
 
     package impl {
         class JsonFoodDao implements IFoodDao {
-            - food: List<Food>: <<final>>
-            - mapper: ObjectMapper: <<final>>
-            ~ FILE_NAME: List<Food>: <<static final>>
+            - food: List<Food> <<final>>
+            - mapper: ObjectMapper <<final>>
+            ~ FILE_NAME: List<Food> <<static final>>
             + this(): JsonFoodDao
         }
 
         class JsonFridgeDao implements IFridgeDao {
-            - fridge: List<FridgeFood>: <<final>>
-            - mapper: ObjectMapper: <<final>>
-            ~ FILE_NAME: List<Food>: <<static final>>
+            - fridge: List<FridgeFood> <<final>>
+            - mapper: ObjectMapper <<final>>
+            ~ FILE_NAME: List<Food> <<static final>>
             + this(): JsonFridgeDao
         }
 
         class JsonRecipeDao implements IRecipeDao {
-            - recipes: List<Recipe>: <<final>>
-            - mapper: ObjectMapper: <<final>>
-            ~ FILE_NAME: List<Food>: <<static final>>
+            - recipes: List<Recipe> <<final>>
+            - mapper: ObjectMapper <<final>>
+            ~ FILE_NAME: List<Food> <<static final>>
             + this(): JsonFridgeDao
+        }
+
+        class MarmitonRecipeDao implements IExternalRecipeDao {
+            ~ mapper: ObjectMapper
+            ~ recipeExternals: Map<string, MarmitonRecipe>
+            ~ FILE_NAME: List<Food> <<static final>>
+            ~ BASE_URL: string <<static final>>
+            ~ URL: string <<static final>>
+            + this(): MarmitonRecipeDao
+            - timeToMinute(time: string): int
         }
     }
 }
@@ -75,5 +91,8 @@ JsonFridgeDao o..> ObjectMapper
 
 JsonRecipeDao *..> Recipe
 JsonRecipeDao o..> ObjectMapper
+
+IExternalRecipeDao *..> Recipe
+IExternalRecipeDao *..> MarmitonRecipe
 
 @enduml
