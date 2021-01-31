@@ -50,7 +50,6 @@ public class RecipeService {
 
     public List<Recipe> getRecipesFromMarmiton(String query){
 		List<MarmitonRecipe> x = marmitonDao.recipeExternalsFromUrl(query);
-		System.out.println(marmitonDao.toRecipe(x));
         recipeDao.addAllRecipes(marmitonDao.toRecipe(x));
 		return recipeDao.getAllRecipes();
 		

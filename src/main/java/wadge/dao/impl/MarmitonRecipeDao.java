@@ -55,7 +55,6 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			HtmlPage page=client.getPage(BASE_URL+ URLEncoder.encode(search, "UTF-8"));
 			List<HtmlElement> recipes=page.getByXPath("//div[@class='recipe-card']");
 			if (recipes.isEmpty()) {
-			System.out.println("recipe not found");
 			} else {
 				for (HtmlElement htmlItem : recipes) {
 					HtmlAnchor link = htmlItem.getFirstByXPath("./a[@class='recipe-card-link']");
@@ -77,17 +76,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					HtmlElement serving = pagerecipe.getFirstByXPath("//div[@class='recipe-infos']//div[@class='recipe-infos__quantity']/span[@class='title-2 recipe-infos__quantity__value']");
 					recipe.setServings(serving.asText());
 					List<DomText> x = pagerecipe.getByXPath("//ol[@class='recipe-preparation__list']//li[@class='recipe-preparation__list__item']/text()");
-					System.out.println(x);
-					System.out.println("----");
-					System.out.println(x.get(0).getClass());
-					System.out.println("----");
 					List<String> xx = x.stream().map(DomText::asText).collect(Collectors.toList());
-					System.out.println("-------xx------------");
-					System.out.println(xx);
-					System.out.println(xx.get(0).getClass());
-					System.out.println("---------------------");
-					// String steps =  pagerecipe.getByXPath("//ol[@class='recipe-preparation__list']//li[@class='recipe-preparation__list__item']/text()").toString();
-					String steps = x.toString();
 					recipe.setServings(serving.asText());
 					recipe.setSteps(xx);
 					List<String> qt=new ArrayList<>();
@@ -103,15 +92,14 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 				writeRecipeExternal();
 			}
 		}catch(Exception e){
-			System.out.println(e);
 			logger.log(Level.FINE, e.getMessage(), e);
 		}
 		return recipeExternals.values().stream().collect(Collectors.toList());
 	}
 
 	private int timeToMinutes(String time) {
-		String arr[] = time.split(" ");
-		String arr2[] = arr[0].split("h");
+		String[] arr = time.split(" ");
+		String[] arr2 = arr[0].split("h");
 		if(arr2.length == 2) {
 			return Integer.valueOf(arr2[0]) * 60 + Integer.valueOf(arr2[1]);
 		} else {
