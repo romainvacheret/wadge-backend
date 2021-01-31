@@ -1,4 +1,4 @@
-@startuml recipesFilterByList
+@startuml recipesSearch
     !include ../style/commons.style
 
     participant ": Front" as ft
@@ -6,14 +6,14 @@
     participant ": RecipeController" as rc
 
     activate ft
-    ft -> bk : POST /recipes/listfood
+    ft -> bk : POST /recipes/search
     activate bk
-    bk -> rc : getAllRecipes()
+    bk -> rc : getRecipesFromMarmiton()
     activate rc
     create "RecipeController.recipeService: RecipeService" as rs
-    rc -> rs : RecipeService(recipeDao)
+    rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao)
     activate rs
-    rc -> rs : getAllRecipesUsingUserList()
+    rc -> rs : getRecipesFromMarmiton(query)
     rs --> rc
     deactivate rs
     rc --> bk

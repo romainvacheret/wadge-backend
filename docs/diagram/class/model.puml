@@ -100,14 +100,48 @@ package model {
             - link: string
             - ingredient: List<Ingredient>
             - this(): Recipe
-            + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
-            + getName(): string
-            + getSteps(): List<string>
-            + getServings(): int
-            + getPreparation(): int
-            + getDifficulty(): int
-            + getLink(): string
+            + this(name: string, steps: List<string>, servings: string, duration: string, difficulty: string, link: string, avis: string, ratingfract: string, ingredients: List<Ingredient>): MarmitonRecipe
+            + getServings(): string
+            + setServings(servings: string): void
+            + getDifficulty(): string
+            + setDifficulty(difficulty: string): void
             + getIngredients(): List<Ingredient>
+            + setIngredients(ingredients: List<Ingredient>): void
+            + getLink(): string
+            + setLink(link: string): void
+            + getName(): string
+            + setName(name: string): void
+            + getRatingfract(): string
+            + setRatingfract(ratingfract: string): string
+            + getAvis(): string
+            + setAvis(avis: string): void
+            + getSteps(): List<string>
+            + setSteps(steps: List<string>): List<string>
+            + getPreparation(): int
+            + setPreparation(duration: string): void
+        }
+
+        package external {
+            class MarmitonRecipe {
+                ~ link: string
+                ~ name: string 
+                ~ ratingfract: string
+                ~ avis: string
+                ~ steps: List<string> 
+                ~ preparation: string
+                - servings: string
+                - difficulty: string
+                - ingredient: List<Ingredient>
+                - this(): MamitonRecipe
+                + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
+                + getName(): string
+                + getSteps(): List<string>
+                + getServings(): int
+                + getPreparation(): int
+                + getDifficulty(): int
+                + getLink(): string
+                + getIngredients(): List<Ingredient>
+            }
         }
     }
 
@@ -117,6 +151,7 @@ package model {
     FridgeFoodBuilder *..> FridgeFood
 
     Recipe *..> Ingredient
+    MarmitonRecipe *..> Ingredient
 }
     
 @enduml

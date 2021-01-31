@@ -36,4 +36,10 @@ public class JsonRecipeDao implements IRecipeDao {
     public List<Recipe> getAllRecipes() {
         return recipes;
     }
+
+    public List<Recipe> addAllRecipes(List<Recipe> recipes) {
+        this.recipes.addAll(recipes);
+        return this.recipes;
+    }
+
 }

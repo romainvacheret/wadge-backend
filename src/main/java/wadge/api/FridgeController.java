@@ -34,6 +34,7 @@ public class FridgeController {
 
     @RequestMapping(path="/fridge", method=RequestMethod.GET)
     public List<FridgeFood> getAllFridge() {
+        
         return fridgeService.getAllFridge();
     }
 

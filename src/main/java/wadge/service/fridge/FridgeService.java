@@ -16,6 +16,7 @@ import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.FridgeFoodBuilder;
 import wadge.model.fridge.UpdateResponse;
 
+
 @Service
 public class FridgeService {
     private final IFridgeDao fridgeDao;
@@ -31,9 +32,8 @@ public class FridgeService {
 
     public boolean addAllToFridge(List<FridgeFood> food) {
         // TODO -> dirty code (FridgeFood::addAllProdcuts + fridgeDao::saveDate) -> use two fridgeDao methods ?  
-        food.stream().forEach(f -> 
-            fridgeDao.getFridgeFoodFromName(f.getName()).ifPresentOrElse(ff -> 
-            {ff.addAllProducts(f.getProducts()); fridgeDao.saveData();}, () -> fridgeDao.addAllToFridge(List.of(f)))
+        food.stream().forEach(f ->
+            fridgeDao.getFridgeFoodFromName(f.getName()).ifPresentOrElse(ff -> {ff.addAllProducts(f.getProducts()); fridgeDao.saveData();}, () -> fridgeDao.addAllToFridge(List.of(f)))
         );
         return true;
     }
