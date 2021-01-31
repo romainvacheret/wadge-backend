@@ -82,6 +82,7 @@ package service {
                 + getAllRecipes(): List<Recipe>
                 + getRecipesUsingFridge(products: Map<RecallType, List<string>>): List<Recipe>
                 + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
+                + writeRecipe(query: string): List<Recipe>
             }
 
             class SelectionWithFridge extends AbstractRecipeSelection {

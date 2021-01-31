@@ -28,9 +28,9 @@ import wadge.model.recipe.external.MarmitonRecipe;
 public class MarmitonRecipeDao implements IExternalRecipeDao {
 	ObjectMapper mapper;
 	Map<String,MarmitonRecipe> recipeExternals;
-	static final String  FILE_NAME="recipeExternal.json";
-	static final String BASE_URL="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
-	static final String URL="https://www.marmiton.org";
+	static final String FILE_NAME = "recipeExternal.json";
+	static final String BASE_URL = "https://www.marmiton.org/recettes/recherche.aspx?aqt=";
+	static final String URL = "https://www.marmiton.org";
 	private static Logger logger = Logger.getLogger(MarmitonRecipeDao.class.getName());
 	@Override
 	public void writeRecipeExternal() {

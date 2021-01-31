@@ -46,9 +46,9 @@ public class RecipeController {
     }
 
     @PostMapping(path = "/recipes/search")
-	public List<Recipe> getRecipeExternal(@RequestBody JsonNode queryingredients) {
+	public List<Recipe> getRecipesFromMarmiton(@RequestBody JsonNode ingredients) {
 		ObjectMapper mapper = new ObjectMapper();
-		List<String> list = Arrays.asList(mapper.convertValue(queryingredients, String[].class));
+		List<String> list = Arrays.asList(mapper.convertValue(ingredients, String[].class));
 		String query = list.stream().
 				reduce((s1, s2) -> new StringBuffer(s1).append("-").append(s2).toString()).get();
 		return this.recipeService.writeRecipe(query);
