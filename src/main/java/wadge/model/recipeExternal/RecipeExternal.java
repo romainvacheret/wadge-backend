@@ -1,22 +1,56 @@
 package wadge.model.recipeExternal;
 
+import wadge.model.recipe.Ingredient;
+
+import java.util.List;
 import java.util.Objects;
 
 public class RecipeExternal {
-	String link ; //recipe-card-link link of recipe
-	String titre ;//class :recipe-card__title |namerecipe <span class="recipe-card__add-to-notebook connectedUsersOnly
-	String rating; //class="recipe-card__rating__value"
-	String ratingFract; //  class="recipe-card__rating__value__fract"
-	String discret; //class="mrtn-font-discret">
-	String ingredients; //recipe-card__description">
-	String duration; //class="recipe-card__duration"
-	protected static  RecipeExternal instance;
-	private RecipeExternal(){}
-	public static RecipeExternal getInstance(){
-		if(instance==null)
-			instance=new RecipeExternal();
-		return instance;
+	String link ;
+	String name ;
+	String ratingfract;
+	String avis;
+	String steps;
+	String preparation;
+	private String servings;
+	private String difficulty;
+	private List<Ingredient> ingredients;
+	public RecipeExternal(){}
+	public  RecipeExternal(String name, String steps, String servings, String duration, String difficulty, String link,String avis, String ratingfract, List<Ingredient> ingredients) {
+		this.name = name;
+		this.steps = steps;
+		this.servings = servings;
+		this.preparation = duration;
+		this.difficulty = difficulty;
+		this.link = link;
+		this.ingredients = ingredients;
+		this.avis=avis;
+		this.ratingfract=ratingfract;
 	}
+	public String getServings() {
+		return servings;
+	}
+	
+	public void setServings(String servings) {
+		this.servings = servings;
+	}
+	
+	public String getDifficulty() {
+		return difficulty;
+	}
+	
+	public void setDifficulty(String difficulty) {
+		this.difficulty = difficulty;
+	}
+	
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+	
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+	
 	
 	public String getLink() {
 		return link;
@@ -26,52 +60,47 @@ public class RecipeExternal {
 		this.link = link;
 	}
 	
-	public String getTitre() {
-		return titre;
+	public String getName() {
+		return name;
 	}
 	
-	public void setTitre(String titre) {
-		this.titre = titre;
-	}
-	
-	public String getRating() {
-		return rating;
-	}
-	
-	public void setRating(String rating) {
-		this.rating = rating;
-	}
-	
-	public String  getRatingFract() {
-		return ratingFract;
-	}
-	
-	public void setRatingFract(String  ratingFract) {
-		this.ratingFract = ratingFract;
-	}
-	
-	public String getDiscret() {
-		return discret;
-	}
-	
-	public void setDiscret(String discret) {
-		this.discret = discret;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	
-	public String getIngredients() {
-		return ingredients;
+	public String  getRatingfract() {
+		return ratingfract;
 	}
 	
-	public void setIngredients (String ingredients) {
-		this.ingredients = ingredients;
+	public void setRatingfract(String  ratingfract) {
+		this.ratingfract = ratingfract;
 	}
 	
-	public String getDuration() {
-		return duration;
+	public String getAvis() {
+		return avis;
 	}
-	public void setDuration(String duration) {
-		this.duration = duration;
+
+	
+	
+	public void setAvis(String avis) {
+		this.avis = avis;
+	}
+	
+	
+	public String getSteps() {
+		return steps;
+	}
+	
+	public void setSteps (String steps) {
+		this.steps = steps;
+	}
+	
+	public String getPreparation() {
+		return preparation;
+	}
+	public void setPreparation(String duration) {
+		this.preparation = duration;
 	}
 	
 	@Override
@@ -80,29 +109,33 @@ public class RecipeExternal {
 		if (!(o instanceof RecipeExternal)) return false;
 		RecipeExternal that = (RecipeExternal) o;
 		return Objects.equals(getLink(), that.getLink()) &&
-				Objects.equals(getTitre(), that.getTitre()) &&
-				Objects.equals(getRating(), that.getRating()) &&
-				Objects.equals(getRatingFract(), that.getRatingFract()) &&
-				Objects.equals(getDiscret(), that.getDiscret()) &&
-				Objects.equals(getIngredients(), that.getIngredients()) &&
-				Objects.equals(getDuration(), that.getDuration());
+				Objects.equals(getName(), that.getName()) &&
+				Objects.equals(getRatingfract(), that.getRatingfract()) &&
+				Objects.equals(getAvis(), that.getAvis()) &&
+				Objects.equals(getSteps(), that.getSteps()) &&
+				Objects.equals(getPreparation(), that.getPreparation()) &&
+				Objects.equals(getServings(), that.getServings()) &&
+				Objects.equals(getDifficulty(), that.getDifficulty()) &&
+				Objects.equals(getIngredients(), that.getIngredients());
 	}
 	
 	@Override
 	public int hashCode() {
-		return Objects.hash(getLink(), getTitre(), getRating(), getRatingFract(), getDiscret(), getIngredients(), getDuration());
+		return Objects.hash(getLink(), getName(), getRatingfract(), getAvis(), getSteps(), getPreparation(), getServings(), getDifficulty(), getIngredients());
 	}
 	
 	@Override
 	public String toString() {
 		return "RecipeExternal{" +
 				"link='" + link + '\'' +
-				", titre='" + titre + '\'' +
-				", rating='" + rating + '\'' +
-				", ratingFract='" + ratingFract + '\'' +
-				", discret='" + discret + '\'' +
-				", ingredients='" + ingredients + '\'' +
-				", duration='" + duration + '\'' +
+				", name='" + name + '\'' +
+				", ratingfract='" + ratingfract + '\'' +
+				", avis='" + avis + '\'' +
+				", steps='" + steps + '\'' +
+				", preparation='" + preparation + '\'' +
+				", servings='" + servings + '\'' +
+				", difficulty='" + difficulty + '\'' +
+				", ingredients=" + ingredients +
 				'}';
 	}
 }
