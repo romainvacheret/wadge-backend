@@ -51,7 +51,7 @@ public class RecipeController {
 		List<String> list = Arrays.asList(mapper.convertValue(ingredients, String[].class));
 		String query = list.stream().
 				reduce((s1, s2) -> new StringBuffer(s1).append("-").append(s2).toString()).get();
-		return this.recipeService.writeRecipe(query);
+		return this.recipeService.getRecipesFromMarmiton(query);
 	}
 
 }
