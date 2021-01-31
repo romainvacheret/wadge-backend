@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -43,5 +44,14 @@ public class RecipeController {
         List <String> list = Arrays.asList(mapper.convertValue(listFood, String[].class));
         return recipeService.getRecipesUsingUserList(list);
     }
+
+    @PostMapping(path = "/recipes/search")
+	public List<Recipe> getRecipeExternal(@RequestBody JsonNode queryingredients) {
+		ObjectMapper mapper = new ObjectMapper();
+		List<String> list = Arrays.asList(mapper.convertValue(queryingredients, String[].class));
+		String query = list.stream().
+				reduce((s1, s2) -> new StringBuffer(s1).append("-").append(s2).toString()).get();
+		return this.recipeService.writeRecipe(query);
+	}
 
 }

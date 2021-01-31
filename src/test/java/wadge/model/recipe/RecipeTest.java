@@ -52,8 +52,8 @@ public class RecipeTest {
 
     @Test
     public void getDifficultyTest() {
-        assertTrue(Integer.valueOf(recipe.getDifficulty()) instanceof Integer);
-        assertEquals(2, recipe.getDifficulty());
+        assertTrue(Double.valueOf(recipe.getDifficulty()) instanceof Double);
+        assertEquals(2.0, recipe.getDifficulty());
     }
 
     @Test

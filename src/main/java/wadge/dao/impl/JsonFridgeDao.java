@@ -27,12 +27,12 @@ public class JsonFridgeDao implements IFridgeDao {
     private final ObjectMapper mapper;
     static final String FILE_NAME = "fridge.json";
     private static Logger logger = Logger.getLogger(JsonFridgeDao.class.getName());
-
+    
     public JsonFridgeDao() {
         mapper = new ObjectMapper();
         mapper.registerModule(new Jdk8Module());
         fridge = new HashMap<>();
-
+        
         try {
             List<FridgeFood> list = Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), FridgeFood[].class));
             addAllToFridge(list);
@@ -40,11 +40,11 @@ public class JsonFridgeDao implements IFridgeDao {
             logger.log(Level.FINE, e.getMessage());
         }
     }
-
+    
     @Override
     public boolean addAllToFridge(List<FridgeFood> food) {
         boolean rtr = food.stream().map(food_ -> insertFridgeFood(food_)).allMatch(a -> a);
-
+        
         if (rtr) {
             try {
                 mapper.writeValue(Paths.get(FILE_NAME).toFile(), fridge.values());
@@ -53,36 +53,36 @@ public class JsonFridgeDao implements IFridgeDao {
                 rtr = false;
             }
         }
-
+        
         return rtr;
     }
-
+    
     @Override
     public List<FridgeFood> getAllFridge() {
         return fridge.values().stream().collect(Collectors.toList());
     }
-
+    
     public Map<String, FridgeFood> getFridge() {
         return fridge;
     }
-
+    
     public FridgeFood getFridgeFood(String name) {
         return fridge.get(name);
     }
-
+    
     @Override
     public boolean insertFridgeFood(UUID id, FridgeFood food) {
         food.setId(id);
         fridge.put(food.getName(), food);
         return true;
     }
-
+    
     @Override
     public boolean insertFridgeFood(FridgeFood food) {
         fridge.put(food.getName(), food);
         return true;
     }
-
+    
     @Override
     public boolean addFoodElementToFridgeFood(String fridgeFood, FoodElement element) {
         getFridgeFoodFromName(fridgeFood).ifPresent(ff -> {
@@ -95,12 +95,12 @@ public class JsonFridgeDao implements IFridgeDao {
         });
         return true;
     }
-
+    
     @Override
     public Optional<FridgeFood> getFridgeFoodFromName(String name) {
         return Optional.ofNullable(fridge.get(name));
     }
-
+    
     @Override
     public void saveData() {
         try {
@@ -109,11 +109,10 @@ public class JsonFridgeDao implements IFridgeDao {
             logger.log(Level.FINE, e.getMessage());
         }
     }
-
+    
     @Override
     public void deleteFromFridge(String food, UUID id) {
         this.fridge.get(food).getProducts2().remove(id);
         saveData();
     }
-
 }
