@@ -42,7 +42,8 @@ public class RecipeService {
     public List<Recipe> writeRecipe(String searchquery){
 		List<MarmitonRecipe> x = marmitonDao.recipeExternalsFromUrl(searchquery);
 		System.out.println(marmitonDao.toRecipe(x));
-		return marmitonDao.toRecipe(x);
+        recipeDao.addAllRecipes(marmitonDao.toRecipe(x));
+		return recipeDao.getAllRecipes();
 		
 	}
 }
