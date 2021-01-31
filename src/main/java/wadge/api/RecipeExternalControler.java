@@ -1,12 +1,19 @@
 package wadge.api;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import wadge.service.recipeexternal.RecipeExternalService;
 
 import java.util.Arrays;
 import java.util.List;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import wadge.model.recipe.Recipe;
+import wadge.service.recipeexternal.RecipeExternalService;
 
 
 @CrossOrigin(origins ="https://localhost:3000")
@@ -16,12 +23,12 @@ public class RecipeExternalControler {
 	@Autowired
 	RecipeExternalControler(RecipeExternalService recipeExternalService){this.recipeExternalService=recipeExternalService;}
 	
-	@PostMapping(path = "/searchRecipe/{queryingredient}")
-	public void getRecipeExternal(@RequestBody JsonNode queryingredients) {
+	@PostMapping(path = "/recipes/search")
+	public List<Recipe> getRecipeExternal(@RequestBody JsonNode queryingredients) {
 		ObjectMapper mapper = new ObjectMapper();
 		List<String> list = Arrays.asList(mapper.convertValue(queryingredients, String[].class));
 		String query = list.stream().
 				reduce((s1, s2) -> new StringBuffer(s1).append("-").append(s2).toString()).get();
-		this.recipeExternalService.writeRecipe(query);
+		return this.recipeExternalService.writeRecipe(query);
 	}
 }

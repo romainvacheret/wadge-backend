@@ -10,13 +10,13 @@ public class RecipeExternal {
 	String name ;
 	String ratingfract;
 	String avis;
-	String steps;
+	List<String> steps;
 	String preparation;
 	private String servings;
 	private String difficulty;
 	private List<Ingredient> ingredients;
 	public RecipeExternal(){}
-	public  RecipeExternal(String name, String steps, String servings, String duration, String difficulty, String link,String avis, String ratingfract, List<Ingredient> ingredients) {
+	public  RecipeExternal(String name, List<String> steps, String servings, String duration, String difficulty, String link,String avis, String ratingfract, List<Ingredient> ingredients) {
 		this.name = name;
 		this.steps = steps;
 		this.servings = servings;
@@ -88,11 +88,11 @@ public class RecipeExternal {
 	}
 	
 	
-	public String getSteps() {
+	public List<String> getSteps() {
 		return steps;
 	}
 	
-	public void setSteps (String steps) {
+	public void setSteps (List<String> steps) {
 		this.steps = steps;
 	}
 	

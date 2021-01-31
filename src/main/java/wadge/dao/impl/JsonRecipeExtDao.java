@@ -1,22 +1,29 @@
 package wadge.dao.impl;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.stereotype.Repository;
-import wadge.dao.api.IRecipeExternalDao;
-import wadge.model.recipe.Ingredient;
-import wadge.model.recipeExternal.RecipeExternal;
+
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.List;
+import java.util.stream.Collectors;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.DomText;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
+
+import org.springframework.stereotype.Repository;
+
+import wadge.dao.api.IRecipeExternalDao;
+import wadge.model.recipe.Ingredient;
+import wadge.model.recipe.Recipe;
+import wadge.model.recipeExternal.RecipeExternal;
 @Repository("jsonRecipeExtDao")
 public class JsonRecipeExtDao implements IRecipeExternalDao {
 	ObjectMapper mapper;
@@ -40,7 +47,7 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 	}
 
 	@Override
-	public void recipeExternalsFromUrl(String search){
+	public List<RecipeExternal> recipeExternalsFromUrl(String search){
 		try {
 			WebClient client = new WebClient();
 			client.getOptions().setCssEnabled(false);
@@ -69,9 +76,20 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 					HtmlPage pagerecipe = client.getPage(URL + link.getHrefAttribute());
 					HtmlElement serving = pagerecipe.getFirstByXPath("//div[@class='recipe-infos']//div[@class='recipe-infos__quantity']/span[@class='title-2 recipe-infos__quantity__value']");
 					recipe.setServings(serving.asText());
-					String steps =  pagerecipe.getByXPath("//ol[@class='recipe-preparation__list']//li[@class='recipe-preparation__list__item']/text()").toString();
+					List<DomText> x = pagerecipe.getByXPath("//ol[@class='recipe-preparation__list']//li[@class='recipe-preparation__list__item']/text()");
+					System.out.println(x);
+					System.out.println("----");
+					System.out.println(x.get(0).getClass());
+					System.out.println("----");
+					List<String> xx = x.stream().map(DomText::asText).collect(Collectors.toList());
+					System.out.println("-------xx------------");
+					System.out.println(xx);
+					System.out.println(xx.get(0).getClass());
+					System.out.println("---------------------");
+					// String steps =  pagerecipe.getByXPath("//ol[@class='recipe-preparation__list']//li[@class='recipe-preparation__list__item']/text()").toString();
+					String steps = x.toString();
 					recipe.setServings(serving.asText());
-					recipe.setSteps(steps);
+					recipe.setSteps(xx);
 					List<String> qt=new ArrayList<>();
 					List<String> names=new ArrayList<>();
 					List<HtmlElement> listrecipeInfo = pagerecipe.getByXPath("//ul[@class='recipe-ingredients__list']//li[@class='recipe-ingredients__list__item']//span[@class='recipe-ingredient-qt']");
@@ -85,8 +103,32 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 				writeRecipeExternal();
 			}
 		}catch(Exception e){
+			System.out.println(e);
 			logger.log(Level.FINE, e.getMessage(), e);
 		}
+		return recipeExternals.values().stream().collect(Collectors.toList());
+	}
+
+	private int timeToMinutes(String time) {
+		String arr[] = time.split(" ");
+		String arr2[] = arr[0].split("h");
+		if(arr2.length == 2) {
+			return Integer.valueOf(arr2[0]) * 60 + Integer.valueOf(arr2[1]);
+		} else {
+			return Integer.valueOf(arr2[0]);
+		}
+	}
+
+	public List<Recipe> toRecipe(List<RecipeExternal> recipes) {
+		return recipes.stream().map(recipe -> new Recipe(
+			recipe.getName(),
+			recipe.getSteps(),
+			Integer.valueOf(recipe.getServings()),
+			timeToMinutes(recipe.getPreparation()),
+			Double.valueOf(recipe.getDifficulty()),
+			recipe.getLink(),
+			recipe.getIngredients()
+		)).collect(Collectors.toList());
 	}
 	
 	
