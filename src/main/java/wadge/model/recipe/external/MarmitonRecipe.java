@@ -1,11 +1,11 @@
-package wadge.model.recipeExternal;
+package wadge.model.recipe.external;
 
 import wadge.model.recipe.Ingredient;
 
 import java.util.List;
 import java.util.Objects;
 
-public class RecipeExternal {
+public class MarmitonRecipe {
 	String link ;
 	String name ;
 	String ratingfract;
@@ -15,8 +15,8 @@ public class RecipeExternal {
 	private String servings;
 	private String difficulty;
 	private List<Ingredient> ingredients;
-	public RecipeExternal(){}
-	public  RecipeExternal(String name, List<String> steps, String servings, String duration, String difficulty, String link,String avis, String ratingfract, List<Ingredient> ingredients) {
+	public MarmitonRecipe(){}
+	public  MarmitonRecipe(String name, List<String> steps, String servings, String duration, String difficulty, String link,String avis, String ratingfract, List<Ingredient> ingredients) {
 		this.name = name;
 		this.steps = steps;
 		this.servings = servings;
@@ -106,8 +106,8 @@ public class RecipeExternal {
 	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
-		if (!(o instanceof RecipeExternal)) return false;
-		RecipeExternal that = (RecipeExternal) o;
+		if (!(o instanceof MarmitonRecipe)) return false;
+		MarmitonRecipe that = (MarmitonRecipe) o;
 		return Objects.equals(getLink(), that.getLink()) &&
 				Objects.equals(getName(), that.getName()) &&
 				Objects.equals(getRatingfract(), that.getRatingfract()) &&

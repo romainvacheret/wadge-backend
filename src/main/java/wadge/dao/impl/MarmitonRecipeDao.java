@@ -20,18 +20,18 @@ import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import org.springframework.stereotype.Repository;
 
-import wadge.dao.api.IRecipeExternalDao;
+import wadge.dao.api.IExternalRecipeDao;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
-import wadge.model.recipeExternal.RecipeExternal;
+import wadge.model.recipe.external.MarmitonRecipe;
 @Repository("jsonRecipeExtDao")
-public class JsonRecipeExtDao implements IRecipeExternalDao {
+public class MarmitonRecipeDao implements IExternalRecipeDao {
 	ObjectMapper mapper;
-	Map<String,RecipeExternal> recipeExternals;
+	Map<String,MarmitonRecipe> recipeExternals;
 	static final String  FILE_NAME="recipeExternal.json";
 	static final String BASE_URL="https://www.marmiton.org/recettes/recherche.aspx?aqt=";
 	static final String URL="https://www.marmiton.org";
-	private static Logger logger = Logger.getLogger(JsonRecipeExtDao.class.getName());
+	private static Logger logger = Logger.getLogger(MarmitonRecipeDao.class.getName());
 	@Override
 	public void writeRecipeExternal() {
 		try {
@@ -41,13 +41,13 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 		}
 	}
 	
-	public JsonRecipeExtDao(){
+	public MarmitonRecipeDao(){
 		mapper=new ObjectMapper();
 		recipeExternals=new HashMap<>();
 	}
 
 	@Override
-	public List<RecipeExternal> recipeExternalsFromUrl(String search){
+	public List<MarmitonRecipe> recipeExternalsFromUrl(String search){
 		try {
 			WebClient client = new WebClient();
 			client.getOptions().setCssEnabled(false);
@@ -64,7 +64,7 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 					HtmlElement avis = htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating']/span[@class='mrtn-font-discret']");
 					HtmlElement duration = htmlItem.getFirstByXPath(".//div[@class='recipe-card__duration']/span[@class='recipe-card__duration__value']");
 					HtmlElement ratingfract =  htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating__score']/span[@class='recipe-card__rating__value__fract']");
-					RecipeExternal recipe = new RecipeExternal();
+					MarmitonRecipe recipe = new MarmitonRecipe();
 					List<Ingredient> ingredientList=new ArrayList<>();
 					recipe.setLink(link.getHrefAttribute());
 					recipe.setPreparation(duration.asText());
@@ -119,7 +119,7 @@ public class JsonRecipeExtDao implements IRecipeExternalDao {
 		}
 	}
 
-	public List<Recipe> toRecipe(List<RecipeExternal> recipes) {
+	public List<Recipe> toRecipe(List<MarmitonRecipe> recipes) {
 		return recipes.stream().map(recipe -> new Recipe(
 			recipe.getName(),
 			recipe.getSteps(),
