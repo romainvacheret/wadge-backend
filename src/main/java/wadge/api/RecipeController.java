@@ -2,6 +2,7 @@ package wadge.api;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,8 +50,7 @@ public class RecipeController {
 	public List<Recipe> getRecipesFromMarmiton(@RequestBody JsonNode ingredients) {
 		ObjectMapper mapper = new ObjectMapper();
 		List<String> list = Arrays.asList(mapper.convertValue(ingredients, String[].class));
-		String query = list.stream().
-				reduce((s1, s2) -> new StringBuffer(s1).append("-").append(s2).toString()).get();
+		String query = list.stream().collect(Collectors.joining("-"));
 		return this.recipeService.getRecipesFromMarmiton(query);
 	}
 
