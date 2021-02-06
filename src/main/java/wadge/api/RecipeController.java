@@ -2,6 +2,7 @@ package wadge.api;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import wadge.model.recipe.Recipe;
 import wadge.service.fridge.FridgeService;
+import wadge.service.recipe.impl.RecipeSelection.Parameter;
 import wadge.service.recipe.impl.RecipeService;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -39,12 +41,12 @@ public class RecipeController {
         return recipeService.getRecipesUsingFridge();
     }
 
-    @RequestMapping(path="/recipes/listfood", method=RequestMethod.POST)
-    public List<Recipe> getRecipesUsingListFood( @RequestBody JsonNode listFood){
-        ObjectMapper mapper = new ObjectMapper();
-        List <String> list = Arrays.asList(mapper.convertValue(listFood, String[].class));
-        return recipeService.getRecipesUsingUserList(list);
-    }
+    // @RequestMapping(path="/recipes/listfood", method=RequestMethod.POST)
+    // public List<Recipe> getRecipesUsingListFood( @RequestBody JsonNode listFood){
+    //     ObjectMapper mapper = new ObjectMapper();
+    //     List <String> list = Arrays.asList(mapper.convertValue(listFood, String[].class));
+    //     return recipeService.getRecipesUsingUserList(list);
+    // }
 
     @PostMapping(path = "/recipes/search")
 	public List<Recipe> getRecipesFromMarmiton(@RequestBody JsonNode ingredients) {
@@ -54,4 +56,8 @@ public class RecipeController {
 		return this.recipeService.getRecipesFromMarmiton(query);
 	}
 
-}
+    @PostMapping(path="/recipes/select")
+    public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
+        return recipeService.selectRecipes(node.get("selection")); 
+    }
+} 

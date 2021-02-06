@@ -100,29 +100,17 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 		return recipeExternals.values().stream().collect(Collectors.toList());
 	}
 	
-	private int timeToMinutes(String time) {
-		String[] arr = time.split(" ");
-		String[] arr2 = arr[0].split("h");
-		if(arr2.length == 2) {
-			return Integer.valueOf(arr2[0]) * 60 + Integer.valueOf(arr2[1]);
-		} else {
-			return Integer.valueOf(arr2[0]);
-		}
-	}
-
 	public List<Recipe> toRecipe(List<MarmitonRecipe> recipes) {
-		return recipes.stream().filter(recipe->!recipe.getPreparation().equals("") &&
-				!recipe.getServings().equals(""))
+		return recipes.stream().filter(recipe-> !recipe.getPreparation().equals(""))
 				.map(recipe -> new Recipe(
 			recipe.getName(),
 			recipe.getSteps(),
 			Integer.valueOf(recipe.getServings()),
-			timeToMinutes(recipe.getPreparation()),
-			0, //ToDO
+			MarmitonRecipeHelper.timeToMinutes(recipe.getPreparation()),
+			MarmitonRecipeHelper.convertDifficulty(recipe.getDifficulty()),
+			Double.valueOf(recipe.getRating()),
 			recipe.getLink(),
 			recipe.getIngredients()
 		)).collect(Collectors.toList());
 	}
-	
-	
 }

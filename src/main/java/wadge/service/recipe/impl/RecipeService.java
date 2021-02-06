@@ -1,9 +1,12 @@
 package wadge.service.recipe.impl;
 
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
@@ -11,12 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import wadge.dao.api.IRecipeDao;
 import wadge.dao.api.IExternalRecipeDao;
+import wadge.dao.api.IRecipeDao;
 import wadge.model.recipe.Recipe;
 import wadge.model.recipe.external.MarmitonRecipe;
 import wadge.service.fridge.FridgeService;
 import wadge.service.recipe.api.AbstractRecipeSelection;
+import wadge.service.recipe.api.IRecipeSelection;
+import wadge.service.recipe.impl.RecipeSelection.Parameter;
 
 @Service
 public class RecipeService {
@@ -43,15 +48,30 @@ public class RecipeService {
         return sel.compute(recipeScoring).filter(x -> x > 0).sort(Collections.reverseOrder(Map.Entry.comparingByKey()));
     }
 
-    public List<Recipe> getRecipesUsingUserList(List<String> userSelection){
-        UserListSelection userSelect = new UserListSelection(getAllRecipes(), userSelection);
-        return userSelect.select().sort();
-    }
+    // public List<Recipe> getRecipesUsingUserList(List<String> userSelection){
+    //     UserListSelection userSelect = new UserListSelection(getAllRecipes(), userSelection);
+    //     return userSelect.select().sort();
+    // }
 
     public List<Recipe> getRecipesFromMarmiton(String query){
 		List<MarmitonRecipe> x = marmitonDao.recipeExternalsFromUrl(query);
         recipeDao.addAllRecipes(marmitonDao.toRecipe(x));
+        System.out.println(x.stream().map(MarmitonRecipe::getDifficulty).collect(Collectors.toList()));
 		return recipeDao.getAllRecipes();
 		
 	}
+
+    public List<Recipe> selectRecipes(Parameter param) {
+        if(param.equals(Parameter.USING_FRIDGE)) {
+            return getRecipesUsingFridge(); 
+        }
+
+        Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 
+        Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
+
+        Set<Recipe> recipes = recipeDao.getAllRecipes().stream().collect(Collectors.toSet());
+        IRecipeSelection selection = new RecipeSelection(recipes);
+
+        return selection.select(predicate).sort(comparator);
+    }
 }
