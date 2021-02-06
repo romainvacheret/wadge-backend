@@ -48,11 +48,6 @@ public class RecipeService {
         return sel.compute(recipeScoring).filter(x -> x > 0).sort(Collections.reverseOrder(Map.Entry.comparingByKey()));
     }
 
-    // public List<Recipe> getRecipesUsingUserList(List<String> userSelection){
-    //     UserListSelection userSelect = new UserListSelection(getAllRecipes(), userSelection);
-    //     return userSelect.select().sort();
-    // }
-
     public List<Recipe> getRecipesFromMarmiton(String query){
 		List<MarmitonRecipe> x = marmitonDao.recipeExternalsFromUrl(query);
         recipeDao.addAllRecipes(marmitonDao.toRecipe(x));
@@ -64,6 +59,8 @@ public class RecipeService {
     public List<Recipe> selectRecipes(Parameter param) {
         if(param.equals(Parameter.USING_FRIDGE)) {
             return getRecipesUsingFridge(); 
+        } else if(param.equals(Parameter.EVERYTHING)) {
+            return getAllRecipes();
         }
 
         Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 

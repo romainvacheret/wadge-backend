@@ -12,8 +12,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import wadge.model.recipe.Recipe;
@@ -31,23 +29,6 @@ public class RecipeController {
         this.recipeService = recipeService;
     }
 
-    @RequestMapping(path="/recipes", method=RequestMethod.GET)
-    public List<Recipe> getAllRecipes() {
-        return recipeService.getAllRecipes();
-    }
-
-    @RequestMapping(path="/recipes/fridge", method=RequestMethod.GET)
-    public List<Recipe> getRecipesUsingFridge() {
-        return recipeService.getRecipesUsingFridge();
-    }
-
-    // @RequestMapping(path="/recipes/listfood", method=RequestMethod.POST)
-    // public List<Recipe> getRecipesUsingListFood( @RequestBody JsonNode listFood){
-    //     ObjectMapper mapper = new ObjectMapper();
-    //     List <String> list = Arrays.asList(mapper.convertValue(listFood, String[].class));
-    //     return recipeService.getRecipesUsingUserList(list);
-    // }
-
     @PostMapping(path = "/recipes/search")
 	public List<Recipe> getRecipesFromMarmiton(@RequestBody JsonNode ingredients) {
 		ObjectMapper mapper = new ObjectMapper();
@@ -56,7 +37,7 @@ public class RecipeController {
 		return this.recipeService.getRecipesFromMarmiton(query);
 	}
 
-    @PostMapping(path="/recipes/select")
+    @PostMapping(path="/recipes")
     public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 
     }
