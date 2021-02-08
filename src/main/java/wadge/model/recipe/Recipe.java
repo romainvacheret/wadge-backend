@@ -37,8 +37,11 @@ public class Recipe {
     @Override
     public String toString() {
         return "Recipe [difficulty=" + difficulty + ", ingredients=" + ingredients + ", link=" + link + ", name=" + name
-                + ", preparation=" + preparation + ", servings=" + servings + ", steps=" + steps + "]";
+                + ", preparation=" + preparation + ", rating=" + rating + ", servings=" + servings + ", steps=" + steps
+                + "]";
     }
+
+    
 
     
 }

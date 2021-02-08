@@ -26,7 +26,6 @@ public class UpdateResponseTest {
         assertEquals(id, updateResponse.getId());
         assertEquals("tomate", updateResponse.getFridgeFood());
         assertEquals(3, updateResponse.getQuantity());
-        assertEquals(u2, updateResponse);
         assertNotEquals(u1, updateResponse);
         assertNotEquals(u3, updateResponse);
     }
