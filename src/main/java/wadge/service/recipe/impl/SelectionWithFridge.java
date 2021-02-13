@@ -55,8 +55,16 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
         }
     }
 
-    public static final Function<Ingredient, Optional<Integer>> ingredientScoring = ingredient -> Optional
-            .ofNullable(scoringMap.get(ingredient.getName()));
+    public static final Function<Ingredient, Optional<Integer>> ingredientScoring = ingredient -> {
+        Integer result = null;
+        for(Map.Entry<String, Integer> entry: scoringMap.entrySet()) {
+            if(ingredient.getName().contains(entry.getKey())){
+                result = entry.getValue();
+                break;
+            }
+        }
+        return Optional.ofNullable(result);
+    };
 
     ToIntFunction<List<Ingredient>> recipeScoring = ingredients -> ingredients.stream().map(ingredientScoring)
             .filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
