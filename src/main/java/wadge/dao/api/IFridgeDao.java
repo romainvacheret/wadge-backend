@@ -3,6 +3,7 @@ package wadge.dao.api;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 import wadge.model.fridge.FoodElement;
@@ -18,5 +19,6 @@ public interface IFridgeDao {
     Optional <FridgeFood> getFridgeFoodFromName(String name);
     boolean addFoodElementToFridgeFood(String fridgeFood, FoodElement element);
     void deleteFromFridge(String food, UUID id);
+    void deleteUsingId(Set<Map.Entry<UUID, String>> ids);
     void saveData();
 }

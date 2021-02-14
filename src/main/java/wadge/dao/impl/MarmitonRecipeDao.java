@@ -48,8 +48,9 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 
 	@Override
 	public List<MarmitonRecipe> recipeExternalsFromUrl(String search){
+		WebClient client = null;
 		try {
-			WebClient client = new WebClient();
+			client = new WebClient();
 			client.getOptions().setCssEnabled(false);
 			client.getOptions().setJavaScriptEnabled(false);
 			HtmlPage page=client.getPage(BASE_URL+ URLEncoder.encode(search, "UTF-8"));
@@ -60,19 +61,22 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					HtmlAnchor link = htmlItem.getFirstByXPath("./a[@class='recipe-card-link']");
 					HtmlElement name =htmlItem.getFirstByXPath(".//h4[@class='recipe-card__title']");
 					HtmlElement ratingValue = htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating__score']/span[@class='recipe-card__rating__value']");
-					HtmlElement avis = htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating']/span[@class='mrtn-font-discret']");
+					HtmlElement opinion = htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating']/span[@class='mrtn-font-discret']");
 					HtmlElement duration = htmlItem.getFirstByXPath(".//div[@class='recipe-card__duration']/span[@class='recipe-card__duration__value']");
-					HtmlElement ratingfract =  htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating__score']/span[@class='recipe-card__rating__value__fract']");
+					HtmlElement ratingFract =  htmlItem.getFirstByXPath(".//div[@class='recipe-card__rating__score']/span[@class='recipe-card__rating__value__fract']");
 					MarmitonRecipe recipe = new MarmitonRecipe();
 					List<Ingredient> ingredientList=new ArrayList<>();
 					recipe.setLink(link.getHrefAttribute());
 					recipe.setPreparation(duration.asText());
-					recipe.setRatingfract(ratingfract.asText());
-					recipe.setDifficulty(ratingValue.asText());
+					recipe.setRatingfract(ratingFract.asText());
+					recipe.setRating(ratingValue.asText());
 					recipe.setLink(link.getHrefAttribute());
 					recipe.setName(name.asText());
-					recipe.setAvis(avis.asText());
+					recipe.setOpinion(opinion.asText());
 					HtmlPage pagerecipe = client.getPage(URL + link.getHrefAttribute());
+					HtmlElement difficulty=pagerecipe.getFirstByXPath("//div[@class='recipe-infos']//div[@class='recipe-infos__level']/span[@class='recipe-infos__item-title']");
+					
+					recipe.setDifficulty(difficulty.asText());
 					HtmlElement serving = pagerecipe.getFirstByXPath("//div[@class='recipe-infos']//div[@class='recipe-infos__quantity']/span[@class='title-2 recipe-infos__quantity__value']");
 					recipe.setServings(serving.asText());
 					List<DomText> x = pagerecipe.getByXPath("//ol[@class='recipe-preparation__list']//li[@class='recipe-preparation__list__item']/text()");
@@ -93,31 +97,23 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			}
 		}catch(Exception e){
 			logger.log(Level.FINE, e.getMessage(), e);
+		} finally {
+			client.close();
 		}
 		return recipeExternals.values().stream().collect(Collectors.toList());
 	}
-
-	private int timeToMinutes(String time) {
-		String[] arr = time.split(" ");
-		String[] arr2 = arr[0].split("h");
-		if(arr2.length == 2) {
-			return Integer.valueOf(arr2[0]) * 60 + Integer.valueOf(arr2[1]);
-		} else {
-			return Integer.valueOf(arr2[0]);
-		}
-	}
-
+	
 	public List<Recipe> toRecipe(List<MarmitonRecipe> recipes) {
-		return recipes.stream().map(recipe -> new Recipe(
+		return recipes.stream().filter(recipe -> !recipe.getPreparation().equals(""))
+          .map(recipe -> new Recipe(
 			recipe.getName(),
 			recipe.getSteps(),
 			Integer.valueOf(recipe.getServings()),
-			timeToMinutes(recipe.getPreparation()),
-			Double.valueOf(recipe.getDifficulty()),
+			MarmitonRecipeHelper.timeToMinutes(recipe.getPreparation()),
+			MarmitonRecipeHelper.convertDifficulty(recipe.getDifficulty()),
+			Double.valueOf(recipe.getRating()),
 			recipe.getLink(),
 			recipe.getIngredients()
 		)).collect(Collectors.toList());
 	}
-	
-	
 }

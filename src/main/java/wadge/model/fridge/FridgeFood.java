@@ -24,7 +24,7 @@ public class FridgeFood {
 
     public FridgeFood(UUID id, String name, Map<UUID, FoodElement> products) {
         this(name, products);
-        if(id != null) {
+        if(this.id != null) {
             this.id = id;
         }
     }

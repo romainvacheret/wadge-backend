@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -114,5 +115,13 @@ public class JsonFridgeDao implements IFridgeDao {
     public void deleteFromFridge(String food, UUID id) {
         this.fridge.get(food).getProducts2().remove(id);
         saveData();
+    }
+
+    @Override
+    public void deleteUsingId(Set<Map.Entry<UUID, String>> ids) {
+        // fridge.values().stream().filter(ff -> ids.contains(ff.getId())).forEach(fridge);
+        ids.stream().forEach(entry ->
+            fridge.get(entry.getValue()).getProducts2().remove(entry.getKey())
+        );
     }
 }
