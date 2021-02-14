@@ -48,8 +48,9 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 
 	@Override
 	public List<MarmitonRecipe> recipeExternalsFromUrl(String search){
+		WebClient client = null;
 		try {
-			WebClient client = new WebClient();
+			client = new WebClient();
 			client.getOptions().setCssEnabled(false);
 			client.getOptions().setJavaScriptEnabled(false);
 			HtmlPage page=client.getPage(BASE_URL+ URLEncoder.encode(search, "UTF-8"));
@@ -96,6 +97,8 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			}
 		}catch(Exception e){
 			logger.log(Level.FINE, e.getMessage(), e);
+		} finally {
+			client.close();
 		}
 		return recipeExternals.values().stream().collect(Collectors.toList());
 	}
