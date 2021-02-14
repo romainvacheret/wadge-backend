@@ -86,11 +86,9 @@ public class FridgeService {
     }
 
     public String isInFridge(Ingredient ingredient) {
-        List<FridgeFood> fridgeList = fridgeDao.getAllFridge();
-        for(FridgeFood food : fridgeList) {
-            if(ingredient.getName().contains(food.getName())) return "present";
-        }
-        return "absent";
+        return fridgeDao.getAllFridge().stream().anyMatch(food -> 
+            ingredient.getName().contains(food.getName()) && !food.getProducts().isEmpty()) 
+            ? "present" : "absent";
     }
 
     public List<FridgeFood> deleteUsingId(Set<Map.Entry<UUID, String>> ids) {

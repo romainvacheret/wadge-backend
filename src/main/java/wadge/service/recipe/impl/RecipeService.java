@@ -61,9 +61,9 @@ public class RecipeService {
     public Map<String, String> getRecipeIngredient(Recipe recipe) {
         List<Ingredient> list = recipe.getIngredients();
         Map<String, String> isPresentList = new HashMap<>();
-        list.forEach(food -> {
-            isPresentList.put(food.getName(),fridgeService.isInFridge(food));
-        });
+        list.forEach(food -> 
+            isPresentList.put(food.getName(),fridgeService.isInFridge(food))
+        );
         return isPresentList;
     }
 
