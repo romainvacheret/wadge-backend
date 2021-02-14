@@ -2,6 +2,8 @@ package wadge.service.fridge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -79,6 +81,11 @@ public class FridgeService {
             }
         });
         fridgeDao.saveData(); 
+        return fridgeDao.getAllFridge();
+    }
+
+    public List<FridgeFood> deleteUsingId(Set<Map.Entry<UUID, String>> ids) {
+        fridgeDao.deleteUsingId(ids);
         return fridgeDao.getAllFridge();
     }
 }
