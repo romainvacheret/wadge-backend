@@ -110,7 +110,7 @@ jacocoTestReport {
 
 coveralls {
     saveAsFile = true
-    sendToCoveralls = false
+    sendToCoveralls = true
 }
 
 asciidoctorPdf {
