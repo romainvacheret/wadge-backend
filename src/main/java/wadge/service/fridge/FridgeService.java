@@ -15,6 +15,7 @@ import wadge.model.fridge.FoodElement;
 import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.FridgeFoodBuilder;
 import wadge.model.fridge.UpdateResponse;
+import wadge.model.recipe.Ingredient;
 
 
 @Service
@@ -80,5 +81,13 @@ public class FridgeService {
         });
         fridgeDao.saveData(); 
         return fridgeDao.getAllFridge();
+    }
+
+    public String isInFridge(Ingredient ingredient) {
+        List<FridgeFood> fridgeList = fridgeDao.getAllFridge();
+        for(FridgeFood food : fridgeList) {
+            if(ingredient.getName().equals(food.getName())) return "present";
+        }
+        return "absent";
     }
 }

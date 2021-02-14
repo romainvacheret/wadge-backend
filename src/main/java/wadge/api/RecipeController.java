@@ -2,6 +2,7 @@ package wadge.api;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -54,4 +55,8 @@ public class RecipeController {
 		return this.recipeService.getRecipesFromMarmiton(query);
 	}
 
+    @PostMapping(path = "/recipes/ingredient")
+    public Map<String, String> getRecipesIngredient(@RequestBody Recipe recipes) {
+        return recipeService.getRecipeIngredient(recipes);
+    }
 }
