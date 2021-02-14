@@ -41,3 +41,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      - name: Send report to Coveralls
+        run: curl -F 'json_file=@build/coveralls/report.json' 'https://coveralls.io/api/v1/jobs'
