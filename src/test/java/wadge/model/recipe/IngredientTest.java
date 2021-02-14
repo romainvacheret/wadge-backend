@@ -1,7 +1,6 @@
 package wadge.model.recipe;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -15,19 +14,10 @@ public class IngredientTest {
     }
 
     @Test
-    public void getNameTest() {
-        assertTrue(ingredient.getName() instanceof String);
-        assertEquals("Ingredient", ingredient.getName());
-    }
-
-    @Test
-    public void getQuantityTest() {
-        assertTrue(Integer.valueOf(ingredient.getQuantity()) instanceof Integer);
-        assertEquals("42", ingredient.getQuantity());
-    }
-
-    public void toStringTest() {
+    public void getterSetterTest() {
         String result = "Ingredient [name=Ingredient, quantity=42]";
+        assertEquals("Ingredient", ingredient.getName());
+        assertEquals("42", ingredient.getQuantity());
         assertEquals(result, ingredient.toString());
     }
 }

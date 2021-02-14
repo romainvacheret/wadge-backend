@@ -13,6 +13,7 @@
         "servings": 3,
         "preparation": 45,
         "difficulty": 1,
+        "rating": 4.8,
         "link": "https://www.marmiton.org/recettes/recette_soupe-d-automne-courge-butternut_84058.aspx",
         "ingredients": [
             {
@@ -69,8 +70,9 @@
             "Salez et poivrez si besoin."
         ],
         "servings": 4,
-        "preparation": 140,
+        "preparation": 80,
         "difficulty": 2,
+        "rating": 4.8,
         "link": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
         "ingredients": [
             {
