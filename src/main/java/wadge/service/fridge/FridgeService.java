@@ -86,7 +86,7 @@ public class FridgeService {
     public String isInFridge(Ingredient ingredient) {
         List<FridgeFood> fridgeList = fridgeDao.getAllFridge();
         for(FridgeFood food : fridgeList) {
-            if(ingredient.getName().equals(food.getName())) return "present";
+            if(ingredient.getName().contains(food.getName())) return "present";
         }
         return "absent";
     }
