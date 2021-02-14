@@ -1,0 +1,23 @@
+@startuml emptyFridgeSystem
+    !include ../style/commons.style
+
+    actor User
+    autonumber
+
+    participant ": Front" as frontend
+    participant ": Back" as backend
+
+    User -> frontend: cliquer sur "Jeter les produits périmés"
+    activate frontend
+    frontend -> backend: POST /fridge/delete
+    activate backend
+    backend --> frontend: liste des aliments restant
+    User <-- frontend: afficher liste des aliments
+    User -> frontend: cliquer sur "Tout prendre"
+    frontend -> backend: POST /fridge/delete
+    backend --> frontend: liste des aliments vide
+    User <-- frontend: afficher aucun aliment
+    deactivate backend
+    deactivate frontend
+    
+@enduml

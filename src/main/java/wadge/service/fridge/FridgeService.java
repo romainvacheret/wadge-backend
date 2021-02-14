@@ -2,6 +2,8 @@ package wadge.service.fridge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
@@ -15,6 +17,7 @@ import wadge.model.fridge.FoodElement;
 import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.FridgeFoodBuilder;
 import wadge.model.fridge.UpdateResponse;
+import wadge.model.recipe.Ingredient;
 
 
 @Service
@@ -79,6 +82,17 @@ public class FridgeService {
             }
         });
         fridgeDao.saveData(); 
+        return fridgeDao.getAllFridge();
+    }
+
+    public String isInFridge(Ingredient ingredient) {
+        return fridgeDao.getAllFridge().stream().anyMatch(food -> 
+            ingredient.getName().contains(food.getName()) && !food.getProducts().isEmpty()) 
+            ? "present" : "absent";
+    }
+
+    public List<FridgeFood> deleteUsingId(Set<Map.Entry<UUID, String>> ids) {
+        fridgeDao.deleteUsingId(ids);
         return fridgeDao.getAllFridge();
     }
 }

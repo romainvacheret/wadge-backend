@@ -42,8 +42,10 @@ image::./diagram/out/getFridgeSystem.svg[]
 image::./diagram/out/recipesSystem.svg[]
 === Ajout d'aliments au frigo
 image::./diagram/out/addToFridgeSystem.svg[]
-=== Suppression d'aliemnt du frigo
+=== Suppression d'aliments du frigo
 image::./diagram/out/updateFridgeSystem.svg[]
+=== Suppression des aliments périmés ou de l'intégralité du frigo
+image::./diagram/out/emptyFridgeSystem.svg[]
 
 == Différents diagrammes de séquences (internes)
 === Carte
