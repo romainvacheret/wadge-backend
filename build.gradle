@@ -95,23 +95,23 @@ test {
     useJUnitPlatform()
 }
 
-jacoco {
-    toolVersion = '0.8.6'
-    reportsDir = file("${buildDir}/reports/jacoco") 
-}
+// jacoco {
+//     toolVersion = '0.8.6'
+//     reportsDir = file("${buildDir}/reports/jacoco") 
+// }
 
 jacocoTestReport {
     reports {
         html.enabled = true
         xml.enabled = true
-        html.destination = file("${buildDir}/jacocoHtml")
+        // html.destination = file("${buildDir}/jacocoHtml")
     }
 }
 
-coveralls {
-    saveAsFile = true
-    sendToCoveralls = true
-}
+// coveralls {
+//     saveAsFile = true
+//     sendToCoveralls = true
+// }
 
 asciidoctorPdf {
 //   dependsOn asciidoctorGemsPrepare
