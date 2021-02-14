@@ -40,7 +40,8 @@ package service {
             + getAllFridge(): List<FridgeFood>
             + getExpirationList(): List<FridgeFood>
             + addAllToFridge(food: List<FridgeFood>): boolean
-            + updateFridge(updateList: List<UpdateResponse>)            
+            + updateFridge(updateList: List<UpdateResponse>)        
+            + deleteUsingId(ids: Set<Map.Entry<UUID, string>>): List<FridgeFood>
             - getExpirationDateFromPredicate(): List<FridgeFood>
             - isInFridge(ingredient : Ingredient): String
         }

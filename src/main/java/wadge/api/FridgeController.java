@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import wadge.model.fridge.DeleteResponse;
 import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.UpdateResponse;
 import wadge.service.fridge.FridgeService;
@@ -58,5 +60,13 @@ public class FridgeController {
     public List<FridgeFood> deleteFromFridge(@RequestBody JsonNode food) {
         List<UpdateResponse> updateList = Arrays.asList(this.mapper.convertValue(food, UpdateResponse[].class));
         return fridgeService.updateFridge(updateList);
+    }
+
+    @RequestMapping(path = "/fridge/delete", method= RequestMethod.POST)
+    public List<FridgeFood> deleteUsingId(@RequestBody JsonNode ids) {
+        List<DeleteResponse> deleteList = Arrays.asList(this.mapper.convertValue(ids, DeleteResponse[].class));
+        
+        return fridgeService.deleteUsingId(deleteList.stream().map(x -> 
+        Map.entry(x.getId(), x.getFridgeFood())).collect(Collectors.toSet()));
     }
 }

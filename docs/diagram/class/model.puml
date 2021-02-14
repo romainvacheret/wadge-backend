@@ -77,7 +77,14 @@ package model {
             - fridgeFood: string
             - quantity: int
             + this(): UpdateResponse
-            + this(id: UUID, fridgeFood: string, quantity: int)
+            + this(id: UUID, fridgeFood: string, quantity: int): UpdateResponse
+        }
+
+        class DeleteResponse {
+            - id: UUID
+            - fridgeFood: string
+            + this(): DeleteResponse
+            + this(id: UUID, fridgeFood: string): DeleteResponse
         }
     }
 
