@@ -62,6 +62,7 @@ package api {
         + getRecipesUsingFridge(): List<Recipe>
         + getRecipesUsingListFood(listFood : JsonNode): List<Recipe>
         + getRecipesFromMarmiton(ingredients: JsonNode): List<Recipe>
+        + getRecipesIngredients(recipes : Recipe): Map<String, String>
     }
   
     class GoogleController {

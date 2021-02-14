@@ -43,6 +43,7 @@ package service {
             + updateFridge(updateList: List<UpdateResponse>)        
             + deleteUsingId(ids: Set<Map.Entry<UUID, string>>): List<FridgeFood>
             - getExpirationDateFromPredicate(): List<FridgeFood>
+            - isInFridge(ingredient : Ingredient): String
         }
 
         class FoodElementPredicatesFactory {
@@ -84,6 +85,7 @@ package service {
                 + getRecipesUsingFridge(products: Map<RecallType, List<string>>): List<Recipe>
                 + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
                 + getRecipesFromMarmiton(query: string): List<Recipe>
+                + getRecipeIngredient(recipe: Recipe): Map<String, String>
             }
 
             class SelectionWithFridge extends AbstractRecipeSelection {

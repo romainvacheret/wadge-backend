@@ -37,6 +37,11 @@ public class RecipeController {
 		return this.recipeService.getRecipesFromMarmiton(query);
 	}
 
+    @PostMapping(path = "/recipes/ingredient")
+    public Map<String, String> getRecipesIngredient(@RequestBody Recipe recipes) {
+        return recipeService.getRecipeIngredient(recipes);
+    }
+
     @PostMapping(path="/recipes")
     public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 

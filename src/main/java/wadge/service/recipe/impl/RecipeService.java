@@ -2,6 +2,7 @@ package wadge.service.recipe.impl;
 
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -16,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import wadge.dao.api.IExternalRecipeDao;
 import wadge.dao.api.IRecipeDao;
+import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
 import wadge.model.recipe.external.MarmitonRecipe;
 import wadge.service.fridge.FridgeService;
@@ -55,6 +57,15 @@ public class RecipeService {
 		return recipeDao.getAllRecipes();
 		
 	}
+
+    public Map<String, String> getRecipeIngredient(Recipe recipe) {
+        List<Ingredient> list = recipe.getIngredients();
+        Map<String, String> isPresentList = new HashMap<>();
+        list.forEach(food -> 
+            isPresentList.put(food.getName(),fridgeService.isInFridge(food))
+        );
+        return isPresentList;
+    }
 
     public List<Recipe> selectRecipes(Parameter param) {
         if(param.equals(Parameter.USING_FRIDGE)) {
