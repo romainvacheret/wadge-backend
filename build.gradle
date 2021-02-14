@@ -108,10 +108,10 @@ jacocoTestReport {
     }
 }
 
-// coveralls {
-//     saveAsFile = true
-//     sendToCoveralls = true
-// }
+coveralls {
+    saveAsFile = true
+    sendToCoveralls = true
+}
 
 asciidoctorPdf {
 //   dependsOn asciidoctorGemsPrepare
