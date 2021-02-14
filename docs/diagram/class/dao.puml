@@ -35,6 +35,7 @@ package dao {
             getFridgeFoodFromName(name: string): Optional<FridgeFood>
             addFoodElementToFridgeFood(fridgeFood: name, element:FoodElement): boolean
             deleteFromFridge(food: string, id: UUID): void
+            deleteUsingId(ids: Set<Map.Entry<UUID, string>>): void
             saveData(): void
         }
 

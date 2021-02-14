@@ -52,6 +52,7 @@ package api {
         + getAllFridge(): List<FridgeFood>
         + addAllToFridge(food: JsonNode): boolean
         + getExpirationAlerts(): map<String, List<FridgeFood>>
+        + deleteUsingId(ids: JsonNode): List<FridgeFood>
     }
 
     class RecipeController {
