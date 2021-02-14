@@ -43,5 +43,9 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Jacoco report generation
         run: ./gradlew jacocoTestReport coveralls
-      - name: Send report to Coveralls
-        run: curl -F 'json_file=@build/coveralls/report.json' 'https://coveralls.io/api/v1/jobs'
+      - name: Publish to coveralls.io
+        uses: coverallsapp/github-action@v1.1.2
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Send report to Coveralls
+      #   run: curl -F 'json_file=@build/coveralls/report.json' 'https://coveralls.io/api/v1/jobs'
