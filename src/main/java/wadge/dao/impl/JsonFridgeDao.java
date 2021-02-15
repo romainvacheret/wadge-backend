@@ -44,7 +44,7 @@ public class JsonFridgeDao implements IFridgeDao {
     
     @Override
     public boolean addAllToFridge(List<FridgeFood> food) {
-        boolean rtr = food.stream().map(food_ -> insertFridgeFood(food_)).allMatch(a -> a);
+        boolean rtr = food.stream().map(aFood -> insertFridgeFood(aFood)).allMatch(a -> a);
         
         if (rtr) {
             try {
@@ -119,7 +119,6 @@ public class JsonFridgeDao implements IFridgeDao {
 
     @Override
     public void deleteUsingId(Set<Map.Entry<UUID, String>> ids) {
-        // fridge.values().stream().filter(ff -> ids.contains(ff.getId())).forEach(fridge);
         ids.stream().forEach(entry ->
             fridge.get(entry.getValue()).getProducts2().remove(entry.getKey())
         );

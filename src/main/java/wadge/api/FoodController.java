@@ -3,7 +3,10 @@ package wadge.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 
 import wadge.model.food.Month;
 import wadge.model.food.Food;
@@ -19,12 +22,12 @@ public class FoodController {
         this.foodService = foodService;
     }
 
-    @RequestMapping(path="/foods", method=RequestMethod.GET)
+    @GetMapping(path="/foods")
     public List<Food> getAllFood() {
         return foodService.getAllFood();
     }
 
-    @RequestMapping(path="/foods/{month}", method=RequestMethod.GET)
+    @GetMapping(path="/foods/{month}")
     public List<Food> getFoodFromMonth(@PathVariable String month) {
         if (month.length() != 0) {
             month = month.toUpperCase();
@@ -32,7 +35,7 @@ public class FoodController {
        return foodService.getFoodFromGivenMonth(Month.valueOf(month));
     }
 
-    @RequestMapping(path="/foods/{month}/days", method=RequestMethod.GET)
+    @GetMapping(path="/foods/{month}/days")
     public List<Food> getFoodFromMonthByDays(@PathVariable String month) {
         if (month.length() != 0) {
             month = month.toUpperCase();

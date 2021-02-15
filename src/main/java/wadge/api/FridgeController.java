@@ -12,8 +12,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import wadge.model.fridge.DeleteResponse;
@@ -34,20 +34,20 @@ public class FridgeController {
         this.fridgeService = fridgeService;
     }
 
-    @RequestMapping(path="/fridge", method=RequestMethod.GET)
+    @GetMapping(path="/fridge")
     public List<FridgeFood> getAllFridge() {
         
         return fridgeService.getAllFridge();
     }
 
-    @RequestMapping(path = "/fridge/addition", method= RequestMethod.POST)
+    @PostMapping(path = "/fridge/addition")
     public boolean addAllToFridge(@RequestBody JsonNode food) {
         List<FridgeFood> list = Arrays.asList(this.mapper.convertValue(food, FridgeFood[].class));
         fridgeService.addAllToFridge(list);
         return true;
     }
 
-    @RequestMapping(path = "/alerts", method= RequestMethod.GET)
+    @GetMapping(path = "/alerts")
     public  Map<String, List<FridgeFood>> getExpirationAlerts() {
         Map<String, List<FridgeFood>> result = new HashMap<>();
         Arrays.asList(RecallType.values()).forEach(type -> 
@@ -56,13 +56,13 @@ public class FridgeController {
         return result;
     }
 
-    @RequestMapping(path = "/fridge/update", method= RequestMethod.POST)
+    @PostMapping(path = "/fridge/update")
     public List<FridgeFood> deleteFromFridge(@RequestBody JsonNode food) {
         List<UpdateResponse> updateList = Arrays.asList(this.mapper.convertValue(food, UpdateResponse[].class));
         return fridgeService.updateFridge(updateList);
     }
 
-    @RequestMapping(path = "/fridge/delete", method= RequestMethod.POST)
+    @PostMapping(path = "/fridge/delete")
     public List<FridgeFood> deleteUsingId(@RequestBody JsonNode ids) {
         List<DeleteResponse> deleteList = Arrays.asList(this.mapper.convertValue(ids, DeleteResponse[].class));
         
