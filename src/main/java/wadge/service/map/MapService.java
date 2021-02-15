@@ -66,7 +66,7 @@ public class MapService {
             tmp.put("formatted_address", ((JSONObject) place).get("formatted_address"));
             tmp.put("opening_hours", ((JSONObject) place).get("opening_hours"));
             JSONObject viewport = (JSONObject) ((JSONObject) place).get("geometry");
-            tmp.put("location", ((JSONObject) viewport).get("location"));
+            tmp.put("location", (viewport).get("location"));
 
             array.add(tmp);
         });

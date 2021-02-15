@@ -15,7 +15,6 @@ public class MarmitonRecipeHelper {
 
 	public static int convertDifficulty(String difficulty) {
 		int rtr = 0;
-        // Add other difficulties
 		switch(difficulty) {
 			case "très facile":
 				rtr = 1;
@@ -23,8 +22,14 @@ public class MarmitonRecipeHelper {
 			case "facile":
 				rtr = 2;
 				break;
+			case "Niveau moyen":
+				rtr = 3;
+				break;
+			case "difficile":
+				rtr = 4;
+				break;
 			default:
-				System.out.println(difficulty);
+				rtr = 0;
 		}
 		return rtr;
 	}
