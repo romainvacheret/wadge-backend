@@ -63,7 +63,7 @@ public class FoodElement {
                     return false;
             } else if (!peremptionDate.equals(other.peremptionDate))
                 return false;
-            return quantity != other.quantity;
+            return quantity == other.quantity;
         }
 
 		@Override
