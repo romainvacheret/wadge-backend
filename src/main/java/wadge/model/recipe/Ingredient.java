@@ -13,9 +13,22 @@ public class Ingredient {
     public String getName() { return name; }
     public String getQuantity() { return quantity; }
 
+    public enum Unit { KG, G, NONE }
+
     @Override
     public String toString() {
         return "Ingredient [name=" + name + ", quantity=" + quantity + "]";
+    }
+
+    public static Unit getUnit(String name) {
+        Unit rtr = Unit.NONE;
+        if(name.startsWith("kg de")) {
+            rtr = Unit.KG;
+        } else if(name.startsWith("g de")) {
+            rtr = Unit.G;
+        }
+
+        return rtr;
     }
 
     @Override
