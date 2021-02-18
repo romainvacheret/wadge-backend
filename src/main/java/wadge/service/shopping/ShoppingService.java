@@ -38,7 +38,6 @@ public class ShoppingService {
             if(food.isPresent()) {
                 element.setName(food.get().getName());
             }
-            System.out.println("Name " + element.getName() + " " + previousName);
 
             // The name has been changed if is in food_list
             Unit unit = Ingredient.getUnit(previousName);
@@ -52,14 +51,9 @@ public class ShoppingService {
 
             // Adds to the previous value if existed
             Ingredient previousValue = shoppingList.get(element.getName());
-            System.out.println("Value" + previousValue);
             if(previousValue != null) {
-                System.out.println("Previous " + Double.parseDouble(previousValue.getQuantity()));
-                System.out.println("Sum " + Double.parseDouble(previousValue.getQuantity()) + quantity);
                 element.setQuantity(String.format("%.1f", Double.parseDouble(previousValue.getQuantity()) + quantity));
             }
-
-            System.out.println("Element" + element);
 
             shoppingList.put(element.getName(), element);
         });
