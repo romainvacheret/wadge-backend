@@ -9,11 +9,11 @@ public class FoodHelper {
         UNIT_TO_G, G_TO_UNIT
     }
 
-    private static double fromUnitToG(Food food, double quantity) {
+    static double fromUnitToG(Food food, double quantity) {
         return quantity * food.getWeight();
     }
 
-    private static double fromGToUnit(Food food, double quantity) {
+    static double fromGToUnit(Food food, double quantity) {
         return Math.ceil(quantity / food.getWeight());
     }
 

@@ -14,7 +14,7 @@ import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Ingredient.Unit;
 import wadge.service.food.FoodService;
 import wadge.service.food.FoodHelper;
-import wadge.service.food.FoodHelper.Conversion;;
+import wadge.service.food.FoodHelper.Conversion;
 
 @Service
 public class ShoppingService {
