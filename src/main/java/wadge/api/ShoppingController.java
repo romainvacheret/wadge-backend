@@ -1,6 +1,5 @@
 package wadge.api;
 
-import java.util.Map;
 import java.util.Set;
 
 import com.fasterxml.jackson.databind.JsonNode;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import wadge.model.shopping.ShoppingElement;
+import wadge.model.recipe.Ingredient;
 import wadge.service.shopping.ShoppingService;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -30,13 +29,13 @@ public class ShoppingController {
     }
 
     @GetMapping(path="/shopping_list")
-    public Map<String, Double> getShoppingList(){
+    public Set<Ingredient> getShoppingList(){
         return shoppingService.getShoppingList();
     }
 
     @PostMapping(path="/shopping_list")
-    public Map<String, Double> addToShoppingList(@RequestBody JsonNode node) {
-        Set<ShoppingElement> elements = Set.of(mapper.convertValue(node, ShoppingElement[].class));
+    public Set<Ingredient> addToShoppingList(@RequestBody JsonNode node) {
+        Set<Ingredient> elements = Set.of(mapper.convertValue(node, Ingredient[].class));
         return shoppingService.addToShoppingList(elements);
     }
 } 

@@ -5,6 +5,7 @@ public class Ingredient {
     private String quantity;
 
     public Ingredient() {}
+
     public Ingredient(String name, String quantity) {
         this.name = name;
         this.quantity = quantity;
@@ -12,6 +13,9 @@ public class Ingredient {
 
     public String getName() { return name; }
     public String getQuantity() { return quantity; }
+    public void setName(String name) { this.name = name; }
+    public void setQuantity(String quantity) { this.quantity = quantity; }
+
 
     public enum Unit { KG, G, NONE }
 
@@ -31,12 +35,16 @@ public class Ingredient {
         return rtr;
     }
 
+    public static String extractName(Ingredient ingredient) {
+        String[] arr = ingredient.getName().split(" de ");
+        return arr[arr.length - 1];
+    }
+
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
         return result;
     }
 
@@ -54,12 +62,16 @@ public class Ingredient {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (quantity == null) {
-            if (other.quantity != null)
-                return false;
-        } else if (!quantity.equals(other.quantity))
-            return false;
         return true;
     }
-    
+
+    public static void main(String[] args) {
+        Ingredient i1 = new Ingredient("tomate", "12");
+        Ingredient i2 = new Ingredient("kg de tomate", "1");
+        Ingredient i3 = new Ingredient("g de tomate", "1000");
+
+        System.out.println(Ingredient.extractName(i1));
+        System.out.println(Ingredient.extractName(i2));
+        System.out.println(Ingredient.extractName(i3));
+    }
 }
