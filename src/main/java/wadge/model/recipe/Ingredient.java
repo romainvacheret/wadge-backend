@@ -64,14 +64,4 @@ public class Ingredient {
             return false;
         return true;
     }
-
-    public static void main(String[] args) {
-        Ingredient i1 = new Ingredient("tomate", "12");
-        Ingredient i2 = new Ingredient("kg de tomate", "1");
-        Ingredient i3 = new Ingredient("g de tomate", "1000");
-
-        System.out.println(Ingredient.extractName(i1));
-        System.out.println(Ingredient.extractName(i2));
-        System.out.println(Ingredient.extractName(i3));
-    }
 }
