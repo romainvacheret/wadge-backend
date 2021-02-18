@@ -2,6 +2,7 @@ package wadge.service.food;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import wadge.dao.api.IFoodDao;
+import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
 import wadge.model.food.Month;
 
@@ -35,5 +37,16 @@ public class FoodService {
     public List<Food> sortByDays(List<Food> food) {
         return food.stream().sorted(Comparator.comparing(Food::getDays)).collect(Collectors.toList());
     }  
+
+    public Optional<Food> getFoodFromString(String string) {
+        return getAllFood().stream().filter(food -> string.contains(food.getName())).findFirst();
+    }
+
+    public Optional<Double> convert(ConversionRequest request) {
+        Optional<Food> f = getFoodFromString(request.getFood());
+         return  f.isPresent() ?
+            Optional.of(FoodHelper.convert(request.getType(), f.get(), request.getQuantity())) :
+            Optional.empty();
+    }
    
 }
