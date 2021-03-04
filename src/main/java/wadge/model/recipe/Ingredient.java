@@ -5,6 +5,7 @@ public class Ingredient {
     private String quantity;
 
     public Ingredient() {}
+
     public Ingredient(String name, String quantity) {
         this.name = name;
         this.quantity = quantity;
@@ -12,10 +13,31 @@ public class Ingredient {
 
     public String getName() { return name; }
     public String getQuantity() { return quantity; }
+    public void setName(String name) { this.name = name; }
+    public void setQuantity(String quantity) { this.quantity = quantity; }
+
+
+    public enum Unit { KG, G, NONE }
 
     @Override
     public String toString() {
         return "Ingredient [name=" + name + ", quantity=" + quantity + "]";
+    }
+
+    public static Unit getUnit(String name) {
+        Unit rtr = Unit.NONE;
+        if(name.startsWith("kg de")) {
+            rtr = Unit.KG;
+        } else if(name.startsWith("g de")) {
+            rtr = Unit.G;
+        }
+
+        return rtr;
+    }
+
+    public static String extractName(Ingredient ingredient) {
+        String[] arr = ingredient.getName().split(" de ");
+        return arr[arr.length - 1];
     }
 
     @Override
@@ -23,7 +45,6 @@ public class Ingredient {
         final int prime = 31;
         int result = 1;
         result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((quantity == null) ? 0 : quantity.hashCode());
         return result;
     }
 
@@ -41,12 +62,6 @@ public class Ingredient {
                 return false;
         } else if (!name.equals(other.name))
             return false;
-        if (quantity == null) {
-            if (other.quantity != null)
-                return false;
-        } else if (!quantity.equals(other.quantity))
-            return false;
         return true;
     }
-    
 }
