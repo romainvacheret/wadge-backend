@@ -7,30 +7,38 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import wadge.dao.api.IFridgeDao;
+import wadge.model.food.Food;
 import wadge.model.fridge.FoodElement;
 import wadge.model.fridge.FridgeFood;
 import wadge.model.fridge.FridgeFoodBuilder;
 import wadge.model.fridge.UpdateResponse;
 import wadge.model.recipe.Ingredient;
+import wadge.model.recipe.Ingredient.Unit;
+import wadge.service.food.FoodHelper;
+import wadge.service.food.FoodService;
+import wadge.service.food.FoodHelper.Conversion;
 
 
 @Service
 public class FridgeService {
     private final IFridgeDao fridgeDao;
+    private FoodService foodService;
 
     public enum RecallType {
         TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FOURTEEN_DAYS, EXPIRED, OTHER;
     }
 
     @Autowired
-    public FridgeService(@Qualifier("jsonFridgeDao") IFridgeDao fridgeDao) {
+    public FridgeService(@Qualifier("jsonFridgeDao") IFridgeDao fridgeDao,FoodService foodService) {
         this.fridgeDao = fridgeDao;
+        this.foodService = foodService;
     }
 
     public boolean addAllToFridge(List<FridgeFood> food) {
@@ -85,14 +93,42 @@ public class FridgeService {
         return fridgeDao.getAllFridge();
     }
 
-    public String isInFridge(Ingredient ingredient) {
-        return fridgeDao.getAllFridge().stream().anyMatch(food -> 
-            ingredient.getName().contains(food.getName()) && !food.getProducts().isEmpty()) 
-            ? "present" : "absent";
-    }
-
     public List<FridgeFood> deleteUsingId(Set<Map.Entry<UUID, String>> ids) {
         fridgeDao.deleteUsingId(ids);
         return fridgeDao.getAllFridge();
     }
+
+    public String isInFridge(Ingredient ingredient) {
+        Unit unit = Ingredient.getUnit(ingredient.getName());
+        double quantity = 0;
+        List<FridgeFood> fridge = fridgeDao.getAllFridge();
+        Optional<Food> option = foodService.getFoodFromString(Ingredient.extractName(ingredient));
+
+
+        if( option.isPresent() ){
+            Optional<FridgeFood> fridgeList = fridge.stream().filter(f -> f.getName().equals(option.get().getName())).findFirst();
+            if(fridgeList.isPresent()){
+                Ingredient i = new Ingredient(option.get().getName(), ingredient.getQuantity());
+                System.out.println(ingredient);
+                if(!unit.equals(Unit.NONE)) {
+                    System.out.println("bebe unit : " + unit);
+                    quantity = Double.parseDouble(i.getQuantity());
+                    quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
+                    quantity = FoodHelper.convert(Conversion.G_TO_UNIT, option.get(), quantity);
+                }else{
+                    quantity = Double.parseDouble(ingredient.getQuantity());
+                }
+                int aonsenfou = fridgeList.get().getProducts().stream().map(FoodElement::getQuantity).reduce(0,Integer::sum);
+                System.out.println("quantité de l'ingrédient : " + aonsenfou + " quantity : "+ quantity );
+                return aonsenfou >= quantity ? "present" : "partiellement";
+            }
+            else{
+                return "absent";
+            }
+        }
+        else{
+            return "default";
+        }
+    }
+    
 }
