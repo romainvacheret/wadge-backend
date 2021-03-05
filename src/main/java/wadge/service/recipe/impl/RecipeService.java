@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import wadge.dao.api.IExternalRecipeDao;
+import wadge.dao.api.IFavoriteDao;
 import wadge.dao.api.IRecipeDao;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
@@ -30,12 +31,15 @@ public class RecipeService {
     private final IRecipeDao recipeDao;
     private final FridgeService fridgeService;
     private final IExternalRecipeDao marmitonDao;
+    private final IFavoriteDao favoriteDao;
 
     @Autowired
-    public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao) {
+    public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao,
+                         @Qualifier("jsonFavoriteDao") IFavoriteDao favoriteDao) {
         this.recipeDao = recipeDao;
         this.fridgeService = fridgeService;
         this.marmitonDao = recipeExternalDao;
+        this.favoriteDao=favoriteDao;
     }
 
     public List<Recipe> getAllRecipes() {
@@ -85,10 +89,14 @@ public class RecipeService {
         return selection.select(predicate).sort(comparator);
     }
     public List<Recipe> getFavoriesRecipes(){
-        return recipeDao.getFavorites();
+        return favoriteDao.getFavorites();
     }
     public void addFavoriteRecipe(Recipe recipe){
-        recipeDao.writeFavorieRecipe(recipe);
+        favoriteDao.writeFavorieRecipe(recipe);
+    }
+    public List<Recipe> deleteFavoriteRecipe(String link ){
+       favoriteDao.deleteFavorite(link);
+       return favoriteDao.getFavorites();
     }
     
 }

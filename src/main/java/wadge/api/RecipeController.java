@@ -47,9 +47,15 @@ public class RecipeController {
 	public List<Recipe> getFavorieList(){
     	return recipeService.getFavoriesRecipes();
     }
+   
     @PostMapping(path="/recipes/addFavorite")
 	public void addFavorie(@RequestBody Recipe recipe){
     	   recipeService.addFavoriteRecipe(recipe);
     
+    }
+    @PostMapping(path = "/recipes/removeFavorite")
+	public List<Recipe> removeFavorite(@RequestBody Recipe recipe){
+    	return recipeService.deleteFavoriteRecipe(recipe.getLink());
+    	
     }
 } 
