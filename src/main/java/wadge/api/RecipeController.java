@@ -9,10 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import wadge.model.recipe.Recipe;
 import wadge.service.fridge.FridgeService;
@@ -45,5 +42,14 @@ public class RecipeController {
     @PostMapping(path="/recipes")
     public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 
+    }
+    @GetMapping(path="/recipes/favorites")
+	public List<Recipe> getFavorieList(){
+    	return recipeService.getFavoriesRecipes();
+    }
+    @PostMapping(path="/recipes/addFavorite")
+	public void addFavorie(@RequestBody Recipe recipe){
+    	   recipeService.addFavoriteRecipe(recipe);
+    
     }
 } 
