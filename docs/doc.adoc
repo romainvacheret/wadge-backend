@@ -68,3 +68,13 @@ image::./diagram/out/recipesSearch.svg[]
 image::./diagram/out/addToFridge.svg[]
 === Suppression d'aliemnt du frigo
 image::./diagram/out/updateFridge.svg[]
+=== Ajout d'une recette au favories
+image::./diagram/out/addFavoriteRecipe.svg[]
+=== liste des recettes favorites
+image::./diagram/out/recipeFavorites.svg[]
+=== Suppression d'une recette favorite
+image::./diagram/out/removeFavoriteRecipe.svg[]
+=== Ajout d'une recette realisee
+image::./diagram/out/addDoneRecipe.svg[]
+=== liste des recettes frealisees
+image::./diagram/out/recipeDone.svg[]

@@ -1,0 +1,25 @@
+@startuml recipesSearch
+    !include ../style/commons.style
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": RecipeController" as rc
+
+    activate ft
+    ft -> bk : POST /recipes/addFavorite
+    activate bk
+    bk -> rc : addFavorite(recipe)
+    activate rc
+    create "RecipeController.recipeService: RecipeService" as rs
+    rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)
+    activate rs
+    rc -> rs : addFavoriteRecipe(recipe)
+    rs --> rc
+    deactivate rs
+    rc --> bk
+    deactivate rc
+    bk --> ft
+    deactivate bk
+    ft <-- ft: Traiter les données reçues
+
+@enduml

@@ -44,12 +44,12 @@ public class RecipeController {
         return recipeService.selectRecipes(node.get("selection")); 
     }
     @GetMapping(path="/recipes/favorites")
-	public List<Recipe> getFavorieList(){
+	public List<Recipe> getFavoriteList(){
     	return recipeService.getFavoriesRecipes();
     }
    
     @PostMapping(path="/recipes/addFavorite")
-	public void addFavorie(@RequestBody Recipe recipe){
+	public void addFavorite(@RequestBody Recipe recipe){
     	   recipeService.addFavoriteRecipe(recipe);
     
     }
@@ -62,6 +62,7 @@ public class RecipeController {
 	public List<Recipe> getDoneList(){
 		return recipeService.getDoneRecipes();
 	}
+	
 	@PostMapping(path="/recipes/addtoDoneRecipe")
 	public void addToDone(@RequestBody Recipe recipe){
 		recipeService.addDoneRecipe(recipe);
