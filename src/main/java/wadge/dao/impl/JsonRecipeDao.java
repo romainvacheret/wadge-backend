@@ -5,8 +5,6 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.stereotype.Repository;
@@ -17,7 +15,6 @@ import wadge.model.recipe.Recipe;
 @Repository("jsonRecipeDao")
 public class JsonRecipeDao implements IRecipeDao {
         private final List<Recipe> recipes;
-        private final  Map<String,Recipe> favorites;
         private final ObjectMapper mapper;
         static final String FILE_NAME = "recipe_list.json";
         private static Logger logger = Logger.getLogger(JsonRecipeDao.class.getName());
@@ -25,7 +22,6 @@ public class JsonRecipeDao implements IRecipeDao {
     public JsonRecipeDao() {
         mapper = new ObjectMapper();
         recipes = new ArrayList<>();
-        favorites=new HashMap<>();
 
         try {
               recipes.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), Recipe[].class)));
