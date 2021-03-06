@@ -48,6 +48,12 @@ package dao {
             recipeExternalFromUrl(search: string): List<MarmitonRecipe>
             toRecipe(recipes: List<MarmitonRecipe>): List<Recipe>
         }
+        interface ISpecificRecipeDao{
+           getRecipes(): List<Recipe>
+	       writeRecipe( recipe:Recipe) :void
+	       addRecipe(recipes:List<Recipe> ):void
+	       deletefromRecipe( link:String ):void
+        }
     }
 
     package impl {
@@ -73,14 +79,26 @@ package dao {
         }
 
         class MarmitonRecipeDao implements IExternalRecipeDao {
-            ~ mapper: ObjectMapper
+            - mapper: ObjectMapper <final>
             ~ recipeExternals: Map<string, MarmitonRecipe>
-            ~ FILE_NAME: List<Food> <<static final>>
+            ~ FILE_NAME: String <<static final>>
             ~ BASE_URL: string <<static final>>
             ~ URL: string <<static final>>
             + this(): MarmitonRecipeDao
             - timeToMinute(time: string): int
         }
+        class JsonFavoriteRecipeDao implements ISpecificRecipeDao {
+            - ObjectMapper mapper << final >>
+        	- favorites :Map<String,Recipe> <<static final>>
+        	~ FILE_FAVORITE :String <<static final >>
+        	+ this()
+        }
+        class JsonDoneRecipeDao implements ISpecificRecipeDao {
+            -  ObjectMapper mapper <<final>>
+            - doneRecipes :Map<String,Recipe> <<static final>>
+            ~ FILE_DONE_RECIPE :String <<static final >>
+            + this()
+         }
     }
 }
 
@@ -96,4 +114,10 @@ JsonRecipeDao o..> ObjectMapper
 IExternalRecipeDao *..> Recipe
 IExternalRecipeDao *..> MarmitonRecipe
 
+ISpecificRecipeDao *..>Recipe
+JsonFavoriteRecipeDao *..>Recipe
+JsonFavoriteRecipeDao o..> ObjectMapper
+
+JsonDoneRecipeDao *..>Recipe
+JsonDoneRecipeDao o..> ObjectMapper
 @enduml

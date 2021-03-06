@@ -2,7 +2,7 @@ package wadge.dao.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.stereotype.Repository;
-import wadge.dao.api.IFavoriteDao;
+import wadge.dao.api.ISpecificRecipeDao;
 import wadge.model.recipe.Recipe;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -16,33 +16,33 @@ import java.util.stream.Collectors;
 
 @Repository("jsonFavoriteDao")
 
-public class JsonFavoriteDao implements IFavoriteDao {
+public class JsonFavoriteRecipeDao implements ISpecificRecipeDao {
 	private final ObjectMapper mapper;
 	private final Map<String,Recipe> favorites;
 	static final String FILE_FAVORITE="favorites.json";
 	private static Logger logger = Logger.getLogger(JsonRecipeDao.class.getName());
 	
-	public JsonFavoriteDao(){
+	public JsonFavoriteRecipeDao(){
 		mapper=new ObjectMapper();
 		favorites=new HashMap<>();
 		try {
 			List<Recipe> listf= Arrays.asList(mapper.readValue(Paths.get(FILE_FAVORITE).toFile(),Recipe.class));
-			addFavories(listf);
+			addRecipe(listf);
 		} catch (IOException e) {
 			logger.log(Level.FINE, e.getMessage(), e);
 		}
 	}
 	@Override
-	public void addFavories(List<Recipe> recipes){
+	public void addRecipe(List<Recipe> recipes){
 		recipes.stream().forEach(recipe -> favorites.put(recipe.getLink(),recipe));
 	}
 	@Override
-	public List<Recipe> getFavorites() {
+	public List<Recipe> getRecipes() {
 		return favorites.values().stream().collect(Collectors.toList());
 	}
 	
 	@Override
-	public void writeFavorieRecipe(Recipe recipe) {
+	public void writeRecipe(Recipe recipe) {
 		favorites.put(recipe.getLink(),recipe);
 		try {
 			mapper.writeValue(Paths.get(FILE_FAVORITE).toFile(),favorites.values());
@@ -51,7 +51,7 @@ public class JsonFavoriteDao implements IFavoriteDao {
 	}
 	
 	@Override
-	public void deleteFavorite(String link) {
+	public void deletefromRecipe(String link) {
 		favorites.remove(link);
 		try {
 			mapper.writeValue(Paths.get(FILE_FAVORITE).toFile(),favorites.values());

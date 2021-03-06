@@ -58,4 +58,13 @@ public class RecipeController {
     	return recipeService.deleteFavoriteRecipe(recipe.getLink());
     	
     }
+	@GetMapping(path="/recipes/doneRecipes")
+	public List<Recipe> getDoneList(){
+		return recipeService.getDoneRecipes();
+	}
+	@PostMapping(path="/recipes/addtoDoneRecipe")
+	public void addToDone(@RequestBody Recipe recipe){
+		recipeService.addDoneRecipe(recipe);
+		
+	}
 } 

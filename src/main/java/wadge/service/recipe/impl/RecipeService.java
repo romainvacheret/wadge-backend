@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import wadge.dao.api.IExternalRecipeDao;
-import wadge.dao.api.IFavoriteDao;
+import wadge.dao.api.ISpecificRecipeDao;
 import wadge.dao.api.IRecipeDao;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
@@ -31,15 +31,16 @@ public class RecipeService {
     private final IRecipeDao recipeDao;
     private final FridgeService fridgeService;
     private final IExternalRecipeDao marmitonDao;
-    private final IFavoriteDao favoriteDao;
-
+    private final ISpecificRecipeDao favoriteDao,doneRecipeDao;
+  
     @Autowired
     public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao,
-                         @Qualifier("jsonFavoriteDao") IFavoriteDao favoriteDao) {
+                         @Qualifier("jsonFavoriteDao") ISpecificRecipeDao favoriteDao, @Qualifier("jsonDoneRecipeDao") ISpecificRecipeDao doneRecipeDao) {
         this.recipeDao = recipeDao;
         this.fridgeService = fridgeService;
         this.marmitonDao = recipeExternalDao;
         this.favoriteDao=favoriteDao;
+        this.doneRecipeDao=doneRecipeDao;
     }
 
     public List<Recipe> getAllRecipes() {
@@ -79,6 +80,9 @@ public class RecipeService {
         else if(param.equals(Parameter.FAVORITE)){
             return getFavoriesRecipes();
         }
+        else if(param.equals(Parameter.REALISE)){
+            return getDoneRecipes();
+        }
 
         Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 
         Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
@@ -89,14 +93,20 @@ public class RecipeService {
         return selection.select(predicate).sort(comparator);
     }
     public List<Recipe> getFavoriesRecipes(){
-        return favoriteDao.getFavorites();
+        return favoriteDao.getRecipes();
     }
     public void addFavoriteRecipe(Recipe recipe){
-        favoriteDao.writeFavorieRecipe(recipe);
+        favoriteDao.writeRecipe(recipe);
     }
     public List<Recipe> deleteFavoriteRecipe(String link ){
-       favoriteDao.deleteFavorite(link);
-       return favoriteDao.getFavorites();
+       favoriteDao.deletefromRecipe(link);
+       return favoriteDao.getRecipes();
+    }
+    public List<Recipe> getDoneRecipes(){
+        return doneRecipeDao.getRecipes();
+    }
+    public void addDoneRecipe(Recipe recipe){
+        doneRecipeDao.writeRecipe(recipe);
     }
     
 }

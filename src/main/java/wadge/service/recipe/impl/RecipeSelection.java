@@ -13,7 +13,7 @@ public class RecipeSelection implements IRecipeSelection {
     private List<Recipe> recipes;
 
     public enum Parameter {
-        BY_DIFFICULTY, BY_RATING, USING_FRIDGE, EVERYTHING,FAVORITE
+        BY_DIFFICULTY, BY_RATING, USING_FRIDGE, EVERYTHING,FAVORITE,REALISE
     }
 
     public RecipeSelection(Set<Recipe> recipes) {
