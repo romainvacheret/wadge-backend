@@ -22,3 +22,7 @@ bin
 
 # Logging
 *.log
+
+#json file
+favorites.json
+fridge.json
