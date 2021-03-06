@@ -29,6 +29,11 @@ public class ShoppingService {
     public Set<Ingredient> getShoppingList() {
         return shoppingList.values().stream().collect(Collectors.toSet());
     }
+
+    public Set<Ingredient> deleteFromShoppingList(Set<String> elements) {
+        elements.stream().forEach(name -> shoppingList.remove(name));
+        return getShoppingList();
+    }
     
     public Set<Ingredient> addToShoppingList(Set<Ingredient> elements) {
         elements.stream().forEach(element -> {
