@@ -100,7 +100,8 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					HtmlElement opinion = htmlItem.getFirstByXPath("//div[@class='RecipeCardResultstyle__RatingNumber-sc-30rwkm-3 jtNPhW']");
 					MarmitonRecipe recipe = new MarmitonRecipe();
 					recipe.setLink(linkList.get(i));
-					recipe.setName(nmes.get(i).replace("photo",""));
+					recipe.setName(nmes.get(i).replace("une photo",""));
+
 					recipe.setOpinion(opinion.asText());
 					String[] r = ratingValue.asText().split("/");
 					recipe.setRating(r[0]);
