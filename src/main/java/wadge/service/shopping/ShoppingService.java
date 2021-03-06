@@ -29,6 +29,11 @@ public class ShoppingService {
     public Set<Ingredient> getShoppingList() {
         return shoppingList.values().stream().collect(Collectors.toSet());
     }
+
+    public Set<Ingredient> deleteFromShoppingList(Set<String> elements) {
+        elements.stream().forEach(name -> shoppingList.remove(name));
+        return getShoppingList();
+    }
     
     public Set<Ingredient> addToShoppingList(Set<Ingredient> elements) {
         elements.stream().forEach(element -> {
@@ -43,16 +48,36 @@ public class ShoppingService {
             Unit unit = Ingredient.getUnit(previousName);
             double quantity = 0;
             // The element's unit is Kg, g or neither one
-            if(!unit.equals(Unit.NONE)) {
+            System.out.println("Unit" + unit);
+            try {
+                if(!unit.equals(Unit.NONE)) {
                     quantity = Double.parseDouble(element.getQuantity());
                     quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
                     quantity = FoodHelper.convert(Conversion.G_TO_UNIT, food.get(), quantity);
-            } 
+                    System.out.println("IQ"+ quantity);
+                } else {
+                    quantity = Double.parseDouble(element.getQuantity());
+                }
+            } catch(NumberFormatException e) {
+                // Unparsable strings ex: "un brin", "une feuille"...
+            }
+            
+            // uncountable elements ex: salt, pepper...
+            if(quantity == -1) {
+                quantity = 0;
+            }
 
             // Adds to the previous value if existed
             Ingredient previousValue = shoppingList.get(element.getName());
             if(previousValue != null) {
-                element.setQuantity(String.format("%.1f", Double.parseDouble(previousValue.getQuantity()) + quantity));
+                System.out.println("prev" + previousValue.getQuantity());
+                System.out.println("quant" + quantity);
+                String x = String.format("%.1f", Double.parseDouble(previousValue.getQuantity()) + quantity).replace(",", ".");
+                System.out.println("X" + x);
+                element.setQuantity(x);
+            } else {
+                String x = String.format("%.1f", quantity).replace(",", ".");
+                element.setQuantity(x);
             }
 
             shoppingList.put(element.getName(), element);
