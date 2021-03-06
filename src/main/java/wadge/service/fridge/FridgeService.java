@@ -104,31 +104,24 @@ public class FridgeService {
         List<FridgeFood> fridge = fridgeDao.getAllFridge();
         Optional<Food> option = foodService.getFoodFromString(Ingredient.extractName(ingredient));
 
-
         if( option.isPresent() ){
-            Optional<FridgeFood> fridgeList = fridge.stream().filter(f -> f.getName().equals(option.get().getName())).findFirst();
-            if(fridgeList.isPresent()){
+            Optional<FridgeFood> fridgeFood = fridge.stream().filter(f -> f.getName().equals(option.get().getName())).findFirst();
+            if(fridgeFood.isPresent() && !fridgeFood.get().getProducts().isEmpty()){
                 Ingredient i = new Ingredient(option.get().getName(), ingredient.getQuantity());
-                System.out.println(ingredient);
                 if(!unit.equals(Unit.NONE)) {
-                    System.out.println("bebe unit : " + unit);
                     quantity = Double.parseDouble(i.getQuantity());
                     quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
                     quantity = FoodHelper.convert(Conversion.G_TO_UNIT, option.get(), quantity);
                 }else{
                     quantity = Double.parseDouble(ingredient.getQuantity());
                 }
-                int aonsenfou = fridgeList.get().getProducts().stream().map(FoodElement::getQuantity).reduce(0,Integer::sum);
-                System.out.println("quantité de l'ingrédient : " + aonsenfou + " quantity : "+ quantity );
-                return aonsenfou >= quantity ? "present" : "partiellement";
+                int fridgeSum = fridgeFood.get().getProducts().stream().map(FoodElement::getQuantity).reduce(0,Integer::sum);
+                return fridgeSum >= quantity ? "present" : "partiellement";
             }
-            else{
-                return "absent";
-            }
+            return "absent";
         }
         else{
             return "default";
         }
     }
-    
 }
