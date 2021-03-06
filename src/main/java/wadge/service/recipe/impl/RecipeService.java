@@ -72,9 +72,6 @@ public class RecipeService {
         } else if(param.equals(Parameter.EVERYTHING)) {
             return getAllRecipes();
         }
-        else if(param.equals(Parameter.FAVORITE)){
-            return getFavoriesRecipes();
-        }
 
         Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 
         Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
@@ -84,11 +81,6 @@ public class RecipeService {
 
         return selection.select(predicate).sort(comparator);
     }
-    public List<Recipe> getFavoriesRecipes(){
-        return recipeDao.getFavorites();
-    }
-    public void addFavoriteRecipe(Recipe recipe){
-        recipeDao.writeFavorieRecipe(recipe);
-    }
+  
     
 }

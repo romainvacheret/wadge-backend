@@ -43,13 +43,4 @@ public class RecipeController {
     public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 
     }
-    @GetMapping(path="/recipes/favorites")
-	public List<Recipe> getFavorieList(){
-    	return recipeService.getFavoriesRecipes();
-    }
-    @PostMapping(path="/recipes/addFavorite")
-	public void addFavorie(@RequestBody Recipe recipe){
-    	   recipeService.addFavoriteRecipe(recipe);
-    
-    }
 } 
