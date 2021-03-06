@@ -56,13 +56,16 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			List<String> serving = new ArrayList<>();
 			List<String> difficluty = new ArrayList<>();
 			Map<Integer, List<Ingredient>> ingredients = new HashMap<>();
-			
+			List<String> nmes=new ArrayList<>();
 			if (!recipesLink.isEmpty()) {
+				
 				int i = 0;
 				for (HtmlAnchor htmlItem : recipesLink) {
 					
 					linkList.add(htmlItem.getHrefAttribute());
 					HtmlPage pageLink = client.getPage(URL + htmlItem.getHrefAttribute());
+					List<HtmlElement> name=pageLink.getByXPath("//p[@class='mrtn-modal-sub-title__container']//span['mrtn-modal-sub-title']");
+					nmes.add(name.stream().map(HtmlElement::asText).collect(Collectors.joining()));
 					List<HtmlElement> stp = pageLink.getByXPath("//ol[@class='recipe-preparation__list']");
 					String stps = stp.stream().map(HtmlElement::asText).collect(Collectors.joining());
 					steps.add(stps);
@@ -89,18 +92,16 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			int i = 0;
 			if (!recipes.isEmpty()) {
 				for (HtmlElement htmlItem : recipes) {
-					HtmlElement name = htmlItem.getFirstByXPath("//h4[@class='RecipeCardResultstyle__Title-sc-30rwkm-0 eWjdzf']");
 					HtmlElement ratingValue = htmlItem.getFirstByXPath("//span[@class='MuiTypography-root MuiTypography-caption']");
 					HtmlElement opinion = htmlItem.getFirstByXPath("//div[@class='RecipeCardResultstyle__RatingNumber-sc-30rwkm-3 jtNPhW']");
 					MarmitonRecipe recipe = new MarmitonRecipe();
 					recipe.setLink(linkList.get(i));
-					recipe.setName(name.asText());
+					recipe.setName(nmes.get(i).replace("photo",""));
 					recipe.setOpinion(opinion.asText());
 					String[] r = ratingValue.asText().split("/");
 					recipe.setRating(r[0]);
 					recipe.setRatingfract("/5");
-					List<String> st=Arrays.asList(steps.get(i).split("\\."));
-					recipe.setSteps(st);
+					recipe.setSteps(Arrays.asList(steps.get(i).split("\\.")));
 					recipe.setIngredients(ingredients.get(i));
 					String prepa=preparation.get(i).replace("Temps Total : ","");
 					recipe.setPreparation(prepa);
@@ -108,6 +109,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					recipe.setServings(serving.get(i));
 					recipeExternals.put(recipe.getLink(), recipe);
 					i++;
+					
 				}
 				writeRecipeExternal();
 			}
