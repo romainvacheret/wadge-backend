@@ -96,12 +96,12 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					recipe.setLink(linkList.get(i));
 					recipe.setName(name.asText());
 					recipe.setOpinion(opinion.asText());
-					String[] r = ratingValue.asText().toString().split("/");
+					String[] r = ratingValue.asText().split("/");
 					recipe.setRating(r[0]);
 					recipe.setRatingfract("/5");
 					recipe.setSteps(Arrays.asList(steps.get(i).split("\\.")));
 					recipe.setIngredients(ingredients.get(i));
-					String prepa=preparation.get(i).replaceAll("Temps Total : ","");
+					String prepa=preparation.get(i).replace("Temps Total : ","");
 					recipe.setPreparation(prepa);
 					recipe.setDifficulty(difficluty.get(i));
 					recipe.setServings(serving.get(i));
