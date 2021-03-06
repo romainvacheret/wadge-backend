@@ -10,12 +10,14 @@ import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.DomText;
 import com.gargoylesoftware.htmlunit.html.HtmlAnchor;
 import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 import org.springframework.stereotype.Repository;
 
+import org.w3c.dom.Text;
 import wadge.dao.api.IExternalRecipeDao;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
@@ -45,6 +47,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	@Override
 	public List<MarmitonRecipe> recipeExternalsFromUrl(String search) {
 		try (WebClient client = new WebClient()) {
+			System.out.println("back interro");
 			client.getOptions().setCssEnabled(false);
 			client.getOptions().setJavaScriptEnabled(false);
 			HtmlPage page = client.getPage(BASE_URL + URLEncoder.encode(search, "UTF-8"));
@@ -56,13 +59,19 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			List<String> serving = new ArrayList<>();
 			List<String> difficluty = new ArrayList<>();
 			Map<Integer, List<Ingredient>> ingredients = new HashMap<>();
-			
+			List<String> nmes=new ArrayList<>();
 			if (!recipesLink.isEmpty()) {
+				
 				int i = 0;
 				for (HtmlAnchor htmlItem : recipesLink) {
 					
 					linkList.add(htmlItem.getHrefAttribute());
 					HtmlPage pageLink = client.getPage(URL + htmlItem.getHrefAttribute());
+					List<HtmlElement> name=pageLink.getByXPath("//p[@class='mrtn-modal-sub-title__container']//span['mrtn-modal-sub-title']");
+					
+					nmes.add(name.stream().map(HtmlElement::asText).collect(Collectors.joining()));
+					
+					System.out.println("le nom est "+nmes.get(i));
 					List<HtmlElement> stp = pageLink.getByXPath("//ol[@class='recipe-preparation__list']");
 					String stps = stp.stream().map(HtmlElement::asText).collect(Collectors.joining());
 					steps.add(stps);
@@ -89,12 +98,11 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			int i = 0;
 			if (!recipes.isEmpty()) {
 				for (HtmlElement htmlItem : recipes) {
-					HtmlElement name = htmlItem.getFirstByXPath("//h4[@class='RecipeCardResultstyle__Title-sc-30rwkm-0 eWjdzf']");
 					HtmlElement ratingValue = htmlItem.getFirstByXPath("//span[@class='MuiTypography-root MuiTypography-caption']");
 					HtmlElement opinion = htmlItem.getFirstByXPath("//div[@class='RecipeCardResultstyle__RatingNumber-sc-30rwkm-3 jtNPhW']");
 					MarmitonRecipe recipe = new MarmitonRecipe();
 					recipe.setLink(linkList.get(i));
-					recipe.setName(name.asText());
+					recipe.setName(nmes.get(i).replace("photo",""));
 					recipe.setOpinion(opinion.asText());
 					String[] r = ratingValue.asText().split("/");
 					recipe.setRating(r[0]);
@@ -107,6 +115,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					recipe.setServings(serving.get(i));
 					recipeExternals.put(recipe.getLink(), recipe);
 					i++;
+				
 				}
 				writeRecipeExternal();
 			}
