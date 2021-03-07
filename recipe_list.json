@@ -76,24 +76,24 @@
         "link": "https://www.marmiton.org/recettes/recette_ratatouille_23223.aspx",
         "ingredients": [
             {
-                "name": "aubergine",
-                "quantity": "350g"
+                "name": "g de aubergine",
+                "quantity": "350"
             },
             {
-                "name": "courgette",
-                "quantity": "350g"
+                "name": "g de courgette",
+                "quantity": "350"
             },
             {
-                "name": "poivron",
-                "quantity": "350g"
+                "name": "g de poivron",
+                "quantity": "350"
             },
             {
-                "name": "oignon",
-                "quantity": "350g"
+                "name": "g de oignon",
+                "quantity": "350"
             },
             {
-                "name": "tomate",
-                "quantity": "500g"
+                "name": "g de tomate",
+                "quantity": "500"
             },
             {
                 "name": "ail",

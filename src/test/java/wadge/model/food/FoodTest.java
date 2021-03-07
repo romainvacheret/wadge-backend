@@ -13,7 +13,7 @@ public class FoodTest {
 
     @Before
     public void setUp() {
-        food = new Food("Name", "Type", new Month[] {Month.JANUARY, Month.FEBRUARY}, 42);
+        food = new Food("Name", "Type", new Month[] {Month.JANUARY, Month.FEBRUARY}, 42, 100, true);
     }
 
     @Test

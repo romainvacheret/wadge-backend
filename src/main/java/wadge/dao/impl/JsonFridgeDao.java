@@ -122,5 +122,6 @@ public class JsonFridgeDao implements IFridgeDao {
         ids.stream().forEach(entry ->
             fridge.get(entry.getValue()).getProducts2().remove(entry.getKey())
         );
+        saveData();
     }
 }
