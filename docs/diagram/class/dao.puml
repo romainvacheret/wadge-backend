@@ -16,6 +16,9 @@ package model {
 
     package recipe {
         class Recipe {}
+        package external{
+            class MarmitonRecipe{}
+        }
     }
 }
 
@@ -80,6 +83,11 @@ package dao {
             ~ URL: string <<static final>>
             + this(): MarmitonRecipeDao
             - timeToMinute(time: string): int
+        }
+        class MarmitonRecipeHelper{
+            - MarmitonRecipeHelper()
+            + timeToMinutes(time: String): int <<Static>>
+            + convertDifficulty(difficulty: String): int <<Static>>
         }
     }
 }

@@ -1,0 +1,20 @@
+@startuml scaleToWeightSystem
+    !include ../style/commons.style
+
+    actor User
+    autonumber
+
+    participant ": Front" as frontend
+    participant ": Back" as backend
+
+    User -> frontend: cliquer sur l'icône "balance"
+    User -> frontend: choisir un aliment A
+    User -> frontend: choisir une quantité Q
+    activate frontend
+    frontend -> backend: Post /foods/scale
+    activate backend
+    backend --> frontend: poids = Q quantité de l'aliment A
+    User <-- frontend: afficher le poids correspondant à la requête
+    deactivate frontend
+
+@enduml

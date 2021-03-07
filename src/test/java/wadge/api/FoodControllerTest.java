@@ -4,23 +4,19 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import wadge.dao.api.IFoodDao;
-import wadge.dao.impl.JsonFoodDao;
 import wadge.model.food.Food;
-import wadge.service.food.FoodService;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class FoodControllerTest {
+    @Autowired
     private FoodController controller;
-
-    @Before
-    public void setUp() {
-        IFoodDao dao = new JsonFoodDao();
-        FoodService service = new FoodService(dao);
-        controller = new FoodController(service);
-    }
 
     @Test
     public void getFridgeListTest() {

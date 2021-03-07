@@ -1,6 +1,9 @@
 @startuml model
 !include ../style/commons.style
 
+package service.food{
+    enum Conversion{}
+}
 package model {
     package food {
         enum Month {
@@ -35,6 +38,18 @@ package model {
             + getType(): string
             + getAvailability(): List<Month>
             + getDays(): int
+        }
+        class ConversionRequest{
+            - type: Conversion
+            - quantity: double
+            - food: string
+            + ConversionRequest()
+            + getType(): Conversion
+            + setType(type: Conversion)
+            + getQuantity(): double
+            + setQuantity(quantity: double)
+            + getFood(): string
+            + setFood(food: String)
         }
     }
 
@@ -151,6 +166,17 @@ package model {
             }
         }
     }
+    package shopping{
+        class ShoppingElement{
+            - name: String
+            - quantity: double
+            + ShoppingElement()
+            + getName(): String
+            + setName(name: String)
+            + getQuantity(): quantity
+            + setQuantity(quantity: double)
+        }
+    }
 
     Food *--> Month
 
@@ -159,6 +185,8 @@ package model {
 
     Recipe *..> Ingredient
     MarmitonRecipe *..> Ingredient
+
+    ConversionRequest o..> Conversion
 }
     
 @enduml

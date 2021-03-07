@@ -12,6 +12,7 @@ package model {
 
     package recipe {
         class Recipe {}
+        class Ingredient{}
     }
 }
 
@@ -35,6 +36,9 @@ package service.fridge {
 package service.recipe {
     class RecipeService {}
 }
+package service.shopping{
+    class ShoppingService{}
+}
 
 package api {
     class FoodController {
@@ -43,6 +47,7 @@ package api {
         + getAllFood(): List<Food>
         + getFoodFromMonth(month: string): List<Food>
         + getFoodFromMonthByDays(month: string): List<Food>
+        + convert(node: JsonNode): Optional<Double>
     }
 
     class FridgeController {
@@ -53,6 +58,7 @@ package api {
         + addAllToFridge(food: JsonNode): boolean
         + getExpirationAlerts(): map<String, List<FridgeFood>>
         + deleteUsingId(ids: JsonNode): List<FridgeFood>
+        + deleteFromFridge(food: JsonNode): List<FridgeFood>
     }
 
     class RecipeController {
@@ -63,11 +69,20 @@ package api {
         + getRecipesUsingListFood(listFood : JsonNode): List<Recipe>
         + getRecipesFromMarmiton(ingredients: JsonNode): List<Recipe>
         + getRecipesIngredients(recipes : Recipe): Map<String, String>
+        + getSelectedRecipes(node: Map<String,Parameter>): List<Recipe>
     }
   
     class GoogleController {
         + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
     }    
+    class ShoppingController{
+        - shoppingService: ShoppingService <<Final>>
+        + this(shoppingService: ShoppingService): ShoppingController
+        + getShoppingList(): Set<Ingredient>
+        + addToShoppingList(node: JsonNode): Set<Ingredient>
+        + deleteFromShoppingList(node: JsonNode): Set<Ingredient>
+
+    }
 }
 
 GoogleController o..> MapService
@@ -83,5 +98,8 @@ FridgeController o..> JsonNode
 RecipeController *--> Recipe
 RecipeController o..> RecipeService
 RecipeController o..> FridgeService
+
+ShoppingController o..> ShoppingService
+ShoppingController *..> Ingredient
 
 @enduml
