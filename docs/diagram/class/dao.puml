@@ -91,11 +91,13 @@ package dao {
             - ObjectMapper mapper << final >>
         	- favorites :Map<String,Recipe> <<static final>>
         	~ FILE_FAVORITE :String <<static final >>
+        	- recipes :List<Recipe>
         	+ this()
         }
         class JsonDoneRecipeDao implements ISpecificRecipeDao {
             -  ObjectMapper mapper <<final>>
             - doneRecipes :Map<String,Recipe> <<static final>>
+            - recipes :List<Recipe>
             ~ FILE_DONE_RECIPE :String <<static final >>
             + this()
          }

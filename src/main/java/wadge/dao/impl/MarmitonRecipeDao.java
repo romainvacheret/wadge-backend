@@ -47,7 +47,6 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	@Override
 	public List<MarmitonRecipe> recipeExternalsFromUrl(String search) {
 		try (WebClient client = new WebClient()) {
-			System.out.println("back interro");
 			client.getOptions().setCssEnabled(false);
 			client.getOptions().setJavaScriptEnabled(false);
 			HtmlPage page = client.getPage(BASE_URL + URLEncoder.encode(search, "UTF-8"));
@@ -68,10 +67,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					linkList.add(htmlItem.getHrefAttribute());
 					HtmlPage pageLink = client.getPage(URL + htmlItem.getHrefAttribute());
 					List<HtmlElement> name=pageLink.getByXPath("//p[@class='mrtn-modal-sub-title__container']//span['mrtn-modal-sub-title']");
-					
 					nmes.add(name.stream().map(HtmlElement::asText).collect(Collectors.joining()));
-					
-					System.out.println("le nom est "+nmes.get(i));
 					List<HtmlElement> stp = pageLink.getByXPath("//ol[@class='recipe-preparation__list']");
 					String stps = stp.stream().map(HtmlElement::asText).collect(Collectors.joining());
 					steps.add(stps);
@@ -102,7 +98,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					HtmlElement opinion = htmlItem.getFirstByXPath("//div[@class='RecipeCardResultstyle__RatingNumber-sc-30rwkm-3 jtNPhW']");
 					MarmitonRecipe recipe = new MarmitonRecipe();
 					recipe.setLink(linkList.get(i));
-					recipe.setName(nmes.get(i).replace("photo",""));
+					recipe.setName(nmes.get(i).replace("une photo",""));
 					recipe.setOpinion(opinion.asText());
 					String[] r = ratingValue.asText().split("/");
 					recipe.setRating(r[0]);

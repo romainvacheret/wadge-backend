@@ -35,7 +35,7 @@ public class RecipeService {
   
     @Autowired
     public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao,
-                         @Qualifier("jsonFavoriteDao") ISpecificRecipeDao favoriteDao, @Qualifier("jsonDoneRecipeDao") ISpecificRecipeDao doneRecipeDao) {
+                         @Qualifier("jsonFavoriteRecipeDao") ISpecificRecipeDao favoriteDao, @Qualifier("jsonDoneRecipeDao") ISpecificRecipeDao doneRecipeDao) {
         this.recipeDao = recipeDao;
         this.fridgeService = fridgeService;
         this.marmitonDao = recipeExternalDao;
