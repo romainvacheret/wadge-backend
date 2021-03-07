@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.stereotype.Repository;
@@ -27,7 +26,8 @@ public class JsonRecipeDao implements IRecipeDao {
         recipes = new ArrayList<>();
 
         try {
-            recipes.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), Recipe[].class)));
+              recipes.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_NAME).toFile(), Recipe[].class)));
+          
         } catch (IOException e) {
             logger.log(Level.FINE, e.getMessage(), e);
         }
@@ -41,5 +41,6 @@ public class JsonRecipeDao implements IRecipeDao {
         this.recipes.addAll(recipes);
         return this.recipes;
     }
+    
 
 }
