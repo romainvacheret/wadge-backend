@@ -17,7 +17,7 @@ public class JsonFavoriteRecipeDao implements ISpecificRecipeDao {
 	private final ObjectMapper mapper;
 	private final Map<String,Recipe> favorites;
 	static final String FILE_FAVORITE="favorites.json";
-	private static Logger logger = Logger.getLogger(JsonRecipeDao.class.getName());
+	private static Logger logger = Logger.getLogger(JsonFavoriteRecipeDao.class.getName());
 	private final List<Recipe> recipes;
 	public JsonFavoriteRecipeDao(){
 		mapper=new ObjectMapper();

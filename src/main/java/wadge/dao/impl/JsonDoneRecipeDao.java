@@ -16,7 +16,7 @@ public class JsonDoneRecipeDao implements ISpecificRecipeDao {
 	private final Map<String, Recipe> donerecipes;
 	static final String FILE_DONE_RECIPE="done_recipe.json";
 	private final List<Recipe> recipes;
-	private static Logger logger = Logger.getLogger(JsonRecipeDao.class.getName());
+	private static Logger logger = Logger.getLogger(JsonDoneRecipeDao.class.getName());
 	
 	public JsonDoneRecipeDao(){
 		mapper=new ObjectMapper();
