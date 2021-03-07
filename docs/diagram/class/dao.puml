@@ -16,6 +16,9 @@ package model {
 
     package recipe {
         class Recipe {}
+        package external{
+            class MarmitonRecipe{}
+        }
     }
 }
 
@@ -87,6 +90,7 @@ package dao {
             + this(): MarmitonRecipeDao
             - timeToMinute(time: string): int
         }
+<<<<<<< HEAD
         class JsonFavoriteRecipeDao implements ISpecificRecipeDao {
             - ObjectMapper mapper << final >>
         	- favorites :Map<String,Recipe> <<static final>>
@@ -101,6 +105,13 @@ package dao {
             ~ FILE_DONE_RECIPE :String <<static final >>
             + this()
          }
+=======
+        class MarmitonRecipeHelper{
+            - MarmitonRecipeHelper()
+            + timeToMinutes(time: String): int <<Static>>
+            + convertDifficulty(difficulty: String): int <<Static>>
+        }
+>>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
     }
 }
 

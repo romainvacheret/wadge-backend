@@ -12,6 +12,7 @@ package model {
 
     package recipe {
         class Recipe {}
+        class Ingredient{}
     }
 }
 
@@ -35,6 +36,9 @@ package service.fridge {
 package service.recipe {
     class RecipeService {}
 }
+package service.shopping{
+    class ShoppingService{}
+}
 
 package api {
     class FoodController {
@@ -43,6 +47,7 @@ package api {
         + getAllFood(): List<Food>
         + getFoodFromMonth(month: string): List<Food>
         + getFoodFromMonthByDays(month: string): List<Food>
+        + convert(node: JsonNode): Optional<Double>
     }
 
     class FridgeController {
@@ -53,6 +58,7 @@ package api {
         + addAllToFridge(food: JsonNode): boolean
         + getExpirationAlerts(): map<String, List<FridgeFood>>
         + deleteUsingId(ids: JsonNode): List<FridgeFood>
+        + deleteFromFridge(food: JsonNode): List<FridgeFood>
     }
 
     class RecipeController {
@@ -63,17 +69,29 @@ package api {
         + getRecipesUsingListFood(listFood : JsonNode): List<Recipe>
         + getRecipesFromMarmiton(ingredients: JsonNode): List<Recipe>
         + getRecipesIngredients(recipes : Recipe): Map<String, String>
+<<<<<<< HEAD
         + addFavorie( recipe:Recipe):void
         + removeFavorite(recipe:Recipe ):List<Recipe>
         + getDoneList():List<Recipe>
         + getFavorieList():List<Recipe>
         + addToDone( recipe:Recipe):void
 
+=======
+        + getSelectedRecipes(node: Map<String,Parameter>): List<Recipe>
+>>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
     }
   
     class GoogleController {
         + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
     }    
+    class ShoppingController{
+        - shoppingService: ShoppingService <<Final>>
+        + this(shoppingService: ShoppingService): ShoppingController
+        + getShoppingList(): Set<Ingredient>
+        + addToShoppingList(node: JsonNode): Set<Ingredient>
+        + deleteFromShoppingList(node: JsonNode): Set<Ingredient>
+
+    }
 }
 
 GoogleController o..> MapService
@@ -90,4 +108,11 @@ RecipeController *--> Recipe
 RecipeController o..> RecipeService
 RecipeController o..> FridgeService
 
+<<<<<<< HEAD
 @enduml
+=======
+ShoppingController o..> ShoppingService
+ShoppingController *..> Ingredient
+
+@enduml
+>>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602

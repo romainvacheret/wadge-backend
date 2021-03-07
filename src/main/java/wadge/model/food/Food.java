@@ -2,21 +2,26 @@ package wadge.model.food;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 public class Food {
     private String name;
     private String type;
     private List<Month> availability;
     private int days;
+    private int weight;
+    private boolean bulk;
 
     // Needed by com.fastxml.jackson
     public Food() {}
 
-    public Food(String name, String type, Month[] availability, int days) {
+    public Food(String name, String type, Month[] availability, int days, int weight, boolean bulk) {
         this.name = name;
         this.type = type;
         this.availability = Arrays.asList(availability);
         this.days = days;
+        this.weight = weight;
+        this.bulk = bulk;
     }
 
     public String getName() { return name; }
@@ -26,6 +31,10 @@ public class Food {
     public List<Month> getAvailability() { return availability; }
 
     public int getDays() { return days; }
+
+    public int getWeight() { return weight; }
+
+    public boolean getBulk() { return bulk; }
 
     @Override
     public int hashCode() {
@@ -39,32 +48,11 @@ public class Food {
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Food other = (Food) obj;
-        if (availability == null) {
-            if (other.availability != null)
-                return false;
-        } else if (!availability.equals(other.availability))
-            return false;
-        if (days != other.days)
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (type == null) {
-            if (other.type != null)
-                return false;
-        } else if (!type.equals(other.type))
-            return false;
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Food food = (Food) o;
+        return days == food.days && weight == food.weight && bulk == food.bulk && Objects.equals(name, food.name) && Objects.equals(type, food.type) && Objects.equals(availability, food.availability);
     }
 
     @Override

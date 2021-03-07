@@ -6,22 +6,20 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
-import wadge.dao.api.IFoodDao;
-import wadge.dao.impl.JsonFoodDao;
 import wadge.model.food.Food;
 import wadge.model.food.Month;
 
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class FoodServiceTest {
+    @Autowired
     private FoodService service;
-
-    @Before
-    public void setUp() {
-        IFoodDao dao = new JsonFoodDao();
-        service = new FoodService(dao);
-    }
 
     @Test
     public void getAllFoodTest() {

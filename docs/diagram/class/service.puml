@@ -10,6 +10,7 @@ package dao.api {
 package model.food {
     class Food {}
     enum Month {}
+    class ConversionRequest{}
 }
 
 package model.fridge {
@@ -24,12 +25,23 @@ package model.recipe {
 
 package service {
     package food {
+        class FoodHelper{
+            - FoodHelper()
+            fromUnitToG(food: Food, quantity: double): double
+            fromGtoUnit(food: Food, quantity: double): double
+            + convert(type: Conversion, food: Food, quantity: double): double
+        }
+        enum Conversion {
+                UNIT_TO_G, G_TO_UNIT
+        }
         class FoodService {
             - foodDao: IFoodDao <<static>>
             + this(dao: FoodDao): FoodService
             + getAllFood(): List<Food>
             + getFoodFromGivenMonth(month: Month): List<Food>
             + sortByDays(food: List<Food>): List<Food>
+            + getFoodFromString(string: String): Optional<Food>
+            + convert(request: ConversionRequest): Optional<Double>
         }
     }
 
@@ -64,8 +76,8 @@ package service {
 
     package recipe {
         package api {
-            interface RecipeSelection {
-                select(): RecipeSelection
+            interface IRecipeSelection {
+                select(): IRecipeSelection
                 sort(): List<Recipe>
             }
 
@@ -76,6 +88,7 @@ package service {
                 + filter(predicate: IntPredicate): AbstractRecipeSelection <<abstract>>
                 + sort(comparator: Comparator<Map.Entry<Integer, Recipe>>): List<Recipe> <<abstract>>
             }
+            
         }
         package impl {
             class RecipeService {
@@ -86,11 +99,15 @@ package service {
                 + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
                 + getRecipesFromMarmiton(query: string): List<Recipe>
                 + getRecipeIngredient(recipe: Recipe): Map<String, String>
+<<<<<<< HEAD
                 + getFavoriesRecipes():List<Recipe>
                 + addFavoriteRecipe(Recipe recipe):void
                 + deleteFavoriteRecipe(String link ):List<Recipe>
                 + getDoneRecipes():List<Recipe>
                 + addDoneRecipe(Recipe recipe):void
+=======
+                + selectRecipes(param: Parameter): List<Recipe>
+>>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
             }
 
             class SelectionWithFridge extends AbstractRecipeSelection {
@@ -99,14 +116,6 @@ package service {
                 ~ recipeScoring: Function<List<Ingredient>, Integer>
                 ~ recipeToEntry: BiFunction<Recipe, ToIntFunction<Recipe>>
                 + this(recipes: Set<Recipe>, fridgeService: FridgeService): SelectionWithFridge
-            }
-
-            class UserListSelection implements RecipeSelection {
-                - recipes : List<Recipe>
-                - userFoodList : List<String>
-                - userRecipe : List<Recipe>
-                + this(recipes : List<Recipe>, userFoodList : List<String>): UserListSelection
-                ~ isInList(): Predicate<Ingredient>
             }
         }
     }
@@ -119,11 +128,25 @@ package service {
             + parseJSON(json: JSONArray): JSONArray
         }
     }
+    package shopping{
+
+        class ShoppingService{
+            - foodService : FoodService
+            - shoppingList: Map<String, Ingredient>
+            + this(foodService : FoodService)
+            + getSgoppingList(): Set<Ingredient>
+            + deleteFromShoppingList(elements: Set<String>): Set<Ingredient>
+            + addToShoppingList(elements: Set<Ingredient>): Set<Ingredient>
+        }
+    }
 }
 
 FoodService o--> IFoodDao
 FoodService *..> Food
 FoodService *..> Month
+FoodService o--> ConversionRequest
+
+FoodHelper o..> Conversion
 
 FridgeService o--> IFridgeDao
 FridgeService o..> FoodElementPredicatesFactory
@@ -145,4 +168,11 @@ SelectionWithFridge o..> FridgeService
 
 UserListSelection *--> Recipe
 
+<<<<<<< HEAD
 @enduml
+=======
+ShoppingService o..> FoodService
+ShoppingService *..> Ingredient
+
+@enduml
+>>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602

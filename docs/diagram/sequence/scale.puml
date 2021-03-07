@@ -1,0 +1,22 @@
+@startuml scale
+    !include ../style/commons.style
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": FoodController" as fc
+
+    activate ft
+    ft -> bk: POST /foods/scale
+    activate bk
+    bk -> fc: convert(request)
+    activate fc
+    create "FoodController.foodService: FoodService" as fs
+        fc -> fs: FoodService(foodDao)
+        activate fs
+        fc --> fs: convert(request)
+        fs --> fc
+        deactivate fs
+        fc --> bk
+        bk --> ft
+        deactivate bk
+        ft <-- ft: Traiter les données reçues
+@enduml
