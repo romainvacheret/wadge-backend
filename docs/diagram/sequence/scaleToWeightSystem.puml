@@ -1,4 +1,4 @@
-@startuml scaleQuantitySystem
+@startuml scaleToWeightSystem
     !include ../style/commons.style
 
     actor User

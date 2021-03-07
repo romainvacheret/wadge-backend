@@ -46,6 +46,10 @@ image::./diagram/out/addToFridgeSystem.svg[]
 image::./diagram/out/updateFridgeSystem.svg[]
 === Suppression des aliments périmés ou de l'intégralité du frigo
 image::./diagram/out/emptyFridgeSystem.svg[]
+=== Conversion d'un poids en unité
+image::./diagram/out/scaleToUnitSystem.svg[]
+=== Conversion d'une unité en poids
+image::./diagram/out/scaleToWeightSystem.svg[]
 
 == Différents diagrammes de séquences (internes)
 === Carte
@@ -66,5 +70,7 @@ image::./diagram/out/recipesFilterByList.svg[]
 image::./diagram/out/recipesSearch.svg[]
 === Ajout d'aliments au frigo
 image::./diagram/out/addToFridge.svg[]
-=== Suppression d'aliemnt du frigo
+=== Suppression d'aliment du frigo
 image::./diagram/out/updateFridge.svg[]
+=== Ajout d'une balance de conversion
+image::./diagram/out/scale.svg[]
