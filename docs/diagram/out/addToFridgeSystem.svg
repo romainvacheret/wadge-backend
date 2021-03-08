@@ -1,224 +1,34 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="1161px" preserveAspectRatio="none" style="width:3887px;height:1161px;" version="1.1" viewBox="0 0 3887 1161" width="3887px" zoomAndPan="magnify"><defs/><g><!--MD5=[82d800763689cc645c78c02be8621f59]
-cluster service.food--><polygon fill="#FFFFFF" points="3742,679.5,3837,679.5,3844,703.1094,3870,703.1094,3870,763.5,3742,763.5,3742,679.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3742" x2="3844" y1="703.1094" y2="703.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="89" x="3746" y="696.0332">service.food</text><!--MD5=[5d4cd377749310b66bf14896f5cd8d9b]
-cluster model--><polygon fill="#FFFFFF" points="16,6,65,6,72,29.6094,3718,29.6094,3718,1154,16,1154,16,6" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="16" x2="72" y1="29.6094" y2="29.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="43" x="20" y="22.5332">model</text><!--MD5=[da9b2cc8cf5da5d6e5943990141bda92]
-cluster food--><polygon fill="#FFFFFF" points="3078,168,3116,168,3123,191.6094,3694,191.6094,3694,896,3078,896,3078,168" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="3078" x2="3123" y1="191.6094" y2="191.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="32" x="3082" y="184.5332">food</text><!--MD5=[1e7a8120a2bf51cfaec4a25405c6a6b0]
-cluster fridge--><polygon fill="#FFFFFF" points="1951,188.5,1999,188.5,2006,212.1094,3036,212.1094,3036,1130,1951,1130,1951,188.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1951" x2="2006" y1="212.1094" y2="212.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="42" x="1955" y="205.0332">fridge</text><!--MD5=[dc96b4f243af77830faaa10a462a89e2]
-cluster recipe--><polygon fill="#FFFFFF" points="280,50,331,50,338,73.6094,1927,73.6094,1927,813,280,813,280,50" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="280" x2="338" y1="73.6094" y2="73.6094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="45" x="284" y="66.5332">recipe</text><!--MD5=[2bc534311b38a7f7508092f91511a69f]
-cluster external--><polygon fill="#FFFFFF" points="1225,112.5,1289,112.5,1296,136.1094,1903,136.1094,1903,461.5,1225,461.5,1225,112.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="1225" x2="1296" y1="136.1094" y2="136.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="58" x="1229" y="129.0332">external</text><!--MD5=[6611947f43423d921fd9e0708bbb2c6f]
-cluster shopping--><polygon fill="#FFFFFF" points="40,188.5,112,188.5,119,212.1094,238,212.1094,238,385.5,40,385.5,40,188.5" style="stroke:#000000;stroke-width:1.5;"/><line style="stroke:#000000;stroke-width:1.5;" x1="40" x2="119" y1="212.1094" y2="212.1094"/><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="66" x="44" y="205.0332">shopping</text><!--MD5=[e9ad88b19601dba32dc00d874c66b01d]
-class Conversion--><rect codeLine="4" fill="#F8F8FF" height="32" id="Conversion" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="95" x="3758.5" y="715.5"/><ellipse cx="3773.5" cy="731.5" fill="#EB937F" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M3772,732.5 L3772,734.5 L3776,734.5 L3776,733.5 L3776,733.0156 L3776.625,732.5 L3777,732.5 L3777.375,732.5 L3778,733.0156 L3778,733.5 L3778,736.5 L3770,736.5 L3769.5156,736.5 L3769,735.875 L3769,735.5 L3769,735.125 L3769.5156,734.5 L3770,734.5 L3770,734.5 L3770,728.5 L3770,728.5 L3769.5156,728.5 L3769,727.875 L3769,727.5 L3769,727.125 L3769.5156,726.5 L3770,726.5 L3778,726.5 L3778,729.5 L3778,729.9844 L3777.375,730.5 L3777,730.5 L3776.625,730.5 L3776,729.9844 L3776,729.5 L3776,728.5 L3772,728.5 L3772,730.5 L3773,730.5 L3773,730.0156 L3773,730.0156 L3773.625,729.5 L3774,729.5 L3774.375,729.5 L3775,730.0156 L3775,730.5 L3775,732.5 L3775,732.9844 L3774.375,733.5 L3774.375,733.5 L3774,733.5 L3773.625,733.5 L3773,732.9844 L3773,732.9844 L3773,732.5 L3772,732.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="63" x="3787.5" y="736.4102">Conversion</text><!--MD5=[1c40a9495d7098c3b845044b099123dc]
-class Month--><rect codeLine="8" fill="#F8F8FF" height="297.0469" id="Month" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="246" x="3143" y="583"/><ellipse cx="3245.25" cy="599" fill="#EB937F" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M3243.75,600 L3243.75,602 L3247.75,602 L3247.75,601 L3247.75,600.5156 L3248.375,600 L3248.75,600 L3249.125,600 L3249.75,600.5156 L3249.75,601 L3249.75,604 L3241.75,604 L3241.2656,604 L3240.75,603.375 L3240.75,603 L3240.75,602.625 L3241.2656,602 L3241.75,602 L3241.75,602 L3241.75,596 L3241.75,596 L3241.2656,596 L3240.75,595.375 L3240.75,595 L3240.75,594.625 L3241.2656,594 L3241.75,594 L3249.75,594 L3249.75,597 L3249.75,597.4844 L3249.125,598 L3248.75,598 L3248.375,598 L3247.75,597.4844 L3247.75,597 L3247.75,596 L3243.75,596 L3243.75,598 L3244.75,598 L3244.75,597.5156 L3244.75,597.5156 L3245.375,597 L3245.75,597 L3246.125,597 L3246.75,597.5156 L3246.75,598 L3246.75,600 L3246.75,600.4844 L3246.125,601 L3246.125,601 L3245.75,601 L3245.375,601 L3244.75,600.4844 L3244.75,600.4844 L3244.75,600 L3243.75,600 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="33" x="3265.75" y="603.9102">Month</text><line style="stroke:#000000;stroke-width:1.5;" x1="3144" x2="3388" y1="615" y2="615"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="53" x="3163" y="630.4189">JANUARY,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="3163" y="644.2549">FEBRUARY,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="40" x="3163" y="658.0908">MARCH,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="32" x="3163" y="671.9268">APRIL,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="27" x="3163" y="685.7627">MAY,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="28" x="3163" y="699.5986">JUNE,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="29" x="3163" y="713.4346">JULY,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="46" x="3163" y="727.2705">AUGUST,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="62" x="3163" y="741.1064">SEPTEMBER,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="52" x="3163" y="754.9424">OCTOBER,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="60" x="3163" y="768.7783">NOVEMBER,</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="57" x="3163" y="782.6143">DECEMBER;</text><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="0" x="3166" y="796.4502"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3151" y="802.8672"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="94" x="3163" y="810.2861">value: string «final»</text><polygon fill="none" points="3154,815.7031,3150,821.7031,3158,821.7031" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="220" x="3163" y="824.1221">BY_VALUE: Map&lt;string, Month&gt; «static final»</text><line style="stroke:#000000;stroke-width:1.5;" x1="3144" x2="3388" y1="830.5391" y2="830.5391"/><ellipse cx="3154" cy="841.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="119" x="3163" y="845.958">this(value: string): Month</text><ellipse cx="3154" cy="855.375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="3163" y="859.7939">getValue(): string</text><ellipse cx="3154" cy="869.2109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="112" x="3163" y="873.6299">of(value: string): Month</text><!--MD5=[5b4460e97222b45c9cf25eacd4639dbc]
-class Food--><rect codeLine="29" fill="#F8F8FF" height="186.3594" id="Food" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="343" x="3094.5" y="204"/><ellipse cx="3247.75" cy="220" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M3249.75,216.5 Q3249.9531,216 3250.1875,215.75 Q3250.4219,215.5 3250.6875,215.5 Q3251.1563,215.5 3251.4531,215.7813 Q3251.75,216.0625 3251.75,216.7188 L3251.75,218.2813 Q3251.75,218.9375 3251.4688,219.2188 Q3251.1875,219.5 3250.75,219.5 Q3250.3594,219.5 3250.1094,219.3281 Q3249.8594,219.1563 3249.75,218.7031 Q3249.7031,218.3906 3249.5313,218.2188 Q3249.2188,217.8906 3248.6563,217.7031 Q3248.0938,217.5 3247.5313,217.5 Q3246.8281,217.5 3246.2344,217.7813 Q3245.6563,218.0625 3245.2031,218.6875 Q3244.75,219.3125 3244.75,220.1719 L3244.75,221.0938 Q3244.75,222.125 3245.5938,222.8125 Q3246.4375,223.5 3247.9375,223.5 Q3248.8281,223.5 3249.4531,223.2969 Q3249.8125,223.1875 3250.2188,222.8281 Q3250.4844,222.625 3250.625,222.5625 Q3250.7656,222.5 3250.9375,222.5 Q3251.2656,222.5 3251.5,222.7656 Q3251.75,223.0156 3251.75,223.375 Q3251.75,223.7188 3251.4063,224.125 Q3250.9063,224.7188 3250.1094,225.0469 Q3249.0625,225.5 3247.7813,225.5 Q3246.2813,225.5 3245.0781,224.9063 Q3244.1094,224.4375 3243.4219,223.4219 Q3242.75,222.4063 3242.75,221.2031 L3242.75,220.1094 Q3242.75,218.8594 3243.3438,217.7656 Q3243.9531,216.6719 3245,216.0938 Q3246.0625,215.5 3247.25,215.5 Q3247.9688,215.5 3248.5938,215.75 Q3249.2188,216 3249.75,216.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="28" x="3268.25" y="224.9102">Food</text><line style="stroke:#000000;stroke-width:1.5;" x1="3095.5" x2="3436.5" y1="236" y2="236"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3102.5" y="244"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="3114.5" y="251.4189">name: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3102.5" y="257.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="54" x="3114.5" y="265.2549">type: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3102.5" y="271.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="113" x="3114.5" y="279.0908">availability: List&lt;Month&gt;</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3102.5" y="285.5078"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="41" x="3114.5" y="292.9268">days: int</text><line style="stroke:#000000;stroke-width:1.5;" x1="3095.5" x2="3436.5" y1="299.3438" y2="299.3438"/><ellipse cx="3105.5" cy="310.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="3114.5" y="314.7627">this(): Food</text><ellipse cx="3105.5" cy="324.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="317" x="3114.5" y="328.5986">this(name: string, type: string, availability: Month[], days: int): Food</text><ellipse cx="3105.5" cy="338.0156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="3114.5" y="342.4346">getName(): string</text><ellipse cx="3105.5" cy="351.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="80" x="3114.5" y="356.2705">getType(): string</text><ellipse cx="3105.5" cy="365.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="138" x="3114.5" y="370.1064">getAvailability(): List&lt;Month&gt;</text><ellipse cx="3105.5" cy="379.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="65" x="3114.5" y="383.9424">getDays(): int</text><!--MD5=[d2e6106559dafc949421a6043d9dcf94]
-class ConversionRequest--><rect codeLine="41" fill="#F8F8FF" height="186.3594" id="ConversionRequest" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="165" x="3512.5" y="204"/><ellipse cx="3537.85" cy="220" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M3539.85,216.5 Q3540.0531,216 3540.2875,215.75 Q3540.5219,215.5 3540.7875,215.5 Q3541.2563,215.5 3541.5531,215.7813 Q3541.85,216.0625 3541.85,216.7188 L3541.85,218.2813 Q3541.85,218.9375 3541.5688,219.2188 Q3541.2875,219.5 3540.85,219.5 Q3540.4594,219.5 3540.2094,219.3281 Q3539.9594,219.1563 3539.85,218.7031 Q3539.8031,218.3906 3539.6313,218.2188 Q3539.3188,217.8906 3538.7563,217.7031 Q3538.1938,217.5 3537.6313,217.5 Q3536.9281,217.5 3536.3344,217.7813 Q3535.7563,218.0625 3535.3031,218.6875 Q3534.85,219.3125 3534.85,220.1719 L3534.85,221.0938 Q3534.85,222.125 3535.6938,222.8125 Q3536.5375,223.5 3538.0375,223.5 Q3538.9281,223.5 3539.5531,223.2969 Q3539.9125,223.1875 3540.3188,222.8281 Q3540.5844,222.625 3540.725,222.5625 Q3540.8656,222.5 3541.0375,222.5 Q3541.3656,222.5 3541.6,222.7656 Q3541.85,223.0156 3541.85,223.375 Q3541.85,223.7188 3541.5063,224.125 Q3541.0063,224.7188 3540.2094,225.0469 Q3539.1625,225.5 3537.8813,225.5 Q3536.3813,225.5 3535.1781,224.9063 Q3534.2094,224.4375 3533.5219,223.4219 Q3532.85,222.4063 3532.85,221.2031 L3532.85,220.1094 Q3532.85,218.8594 3533.4438,217.7656 Q3534.0531,216.6719 3535.1,216.0938 Q3536.1625,215.5 3537.35,215.5 Q3538.0688,215.5 3538.6938,215.75 Q3539.3188,216 3539.85,216.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="110" x="3554.15" y="224.9102">ConversionRequest</text><line style="stroke:#000000;stroke-width:1.5;" x1="3513.5" x2="3676.5" y1="236" y2="236"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3520.5" y="244"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="3532.5" y="251.4189">type: Conversion</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3520.5" y="257.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="76" x="3532.5" y="265.2549">quantity: double</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="3520.5" y="271.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="3532.5" y="279.0908">food: string</text><line style="stroke:#000000;stroke-width:1.5;" x1="3513.5" x2="3676.5" y1="285.5078" y2="285.5078"/><ellipse cx="3523.5" cy="296.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="103" x="3532.5" y="300.9268">ConversionRequest()</text><ellipse cx="3523.5" cy="310.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="108" x="3532.5" y="314.7627">getType(): Conversion</text><ellipse cx="3523.5" cy="324.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="129" x="3532.5" y="328.5986">setType(type: Conversion)</text><ellipse cx="3523.5" cy="338.0156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="101" x="3532.5" y="342.4346">getQuantity(): double</text><ellipse cx="3523.5" cy="351.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="139" x="3532.5" y="356.2705">setQuantity(quantity: double)</text><ellipse cx="3523.5" cy="365.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="80" x="3532.5" y="370.1064">getFood(): string</text><ellipse cx="3523.5" cy="379.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="103" x="3532.5" y="383.9424">setFood(food: String)</text><!--MD5=[7a8d595371ab9daaf52d0e5d2894fa96]
-class FoodElement--><rect codeLine="56" fill="#F8F8FF" height="158.6875" id="FoodElement" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="389" x="2630.5" y="955"/><ellipse cx="2783.75" cy="971" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M2785.75,967.5 Q2785.9531,967 2786.1875,966.75 Q2786.4219,966.5 2786.6875,966.5 Q2787.1563,966.5 2787.4531,966.7813 Q2787.75,967.0625 2787.75,967.7188 L2787.75,969.2813 Q2787.75,969.9375 2787.4688,970.2188 Q2787.1875,970.5 2786.75,970.5 Q2786.3594,970.5 2786.1094,970.3281 Q2785.8594,970.1563 2785.75,969.7031 Q2785.7031,969.3906 2785.5313,969.2188 Q2785.2188,968.8906 2784.6563,968.7031 Q2784.0938,968.5 2783.5313,968.5 Q2782.8281,968.5 2782.2344,968.7813 Q2781.6563,969.0625 2781.2031,969.6875 Q2780.75,970.3125 2780.75,971.1719 L2780.75,972.0938 Q2780.75,973.125 2781.5938,973.8125 Q2782.4375,974.5 2783.9375,974.5 Q2784.8281,974.5 2785.4531,974.2969 Q2785.8125,974.1875 2786.2188,973.8281 Q2786.4844,973.625 2786.625,973.5625 Q2786.7656,973.5 2786.9375,973.5 Q2787.2656,973.5 2787.5,973.7656 Q2787.75,974.0156 2787.75,974.375 Q2787.75,974.7188 2787.4063,975.125 Q2786.9063,975.7188 2786.1094,976.0469 Q2785.0625,976.5 2783.7813,976.5 Q2782.2813,976.5 2781.0781,975.9063 Q2780.1094,975.4375 2779.4219,974.4219 Q2778.75,973.4063 2778.75,972.2031 L2778.75,971.1094 Q2778.75,969.8594 2779.3438,968.7656 Q2779.9531,967.6719 2781,967.0938 Q2782.0625,966.5 2783.25,966.5 Q2783.9688,966.5 2784.5938,966.75 Q2785.2188,967 2785.75,967.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="74" x="2804.25" y="975.9102">FoodElement</text><line style="stroke:#000000;stroke-width:1.5;" x1="2631.5" x2="3018.5" y1="987" y2="987"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2638.5" y="995"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="96" x="2650.5" y="1002.4189">insertionDate: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2638.5" y="1008.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="108" x="2650.5" y="1016.2549">peremptionDate: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2638.5" y="1022.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="2650.5" y="1030.0908">quantity: int</text><line style="stroke:#000000;stroke-width:1.5;" x1="2631.5" x2="3018.5" y1="1036.5078" y2="1036.5078"/><ellipse cx="2641.5" cy="1047.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="92" x="2650.5" y="1051.9268">this(): FoodElement</text><ellipse cx="2641.5" cy="1061.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="363" x="2650.5" y="1065.7627">this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement</text><ellipse cx="2641.5" cy="1075.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="119" x="2650.5" y="1079.5986">getInsertionDate(): string</text><ellipse cx="2641.5" cy="1089.0156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="131" x="2650.5" y="1093.4346">getPeremptionDate(): string</text><ellipse cx="2641.5" cy="1102.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="80" x="2650.5" y="1107.2705">getQuantity(): int</text><!--MD5=[e0607e5db672e42405157a428355459f]
-class FridgeFood--><rect codeLine="67" fill="#F8F8FF" height="172.5234" id="FridgeFood" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="315" x="2685.5" y="645"/><ellipse cx="2807.25" cy="661" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M2809.25,657.5 Q2809.4531,657 2809.6875,656.75 Q2809.9219,656.5 2810.1875,656.5 Q2810.6563,656.5 2810.9531,656.7813 Q2811.25,657.0625 2811.25,657.7188 L2811.25,659.2813 Q2811.25,659.9375 2810.9688,660.2188 Q2810.6875,660.5 2810.25,660.5 Q2809.8594,660.5 2809.6094,660.3281 Q2809.3594,660.1563 2809.25,659.7031 Q2809.2031,659.3906 2809.0313,659.2188 Q2808.7188,658.8906 2808.1563,658.7031 Q2807.5938,658.5 2807.0313,658.5 Q2806.3281,658.5 2805.7344,658.7813 Q2805.1563,659.0625 2804.7031,659.6875 Q2804.25,660.3125 2804.25,661.1719 L2804.25,662.0938 Q2804.25,663.125 2805.0938,663.8125 Q2805.9375,664.5 2807.4375,664.5 Q2808.3281,664.5 2808.9531,664.2969 Q2809.3125,664.1875 2809.7188,663.8281 Q2809.9844,663.625 2810.125,663.5625 Q2810.2656,663.5 2810.4375,663.5 Q2810.7656,663.5 2811,663.7656 Q2811.25,664.0156 2811.25,664.375 Q2811.25,664.7188 2810.9063,665.125 Q2810.4063,665.7188 2809.6094,666.0469 Q2808.5625,666.5 2807.2813,666.5 Q2805.7813,666.5 2804.5781,665.9063 Q2803.6094,665.4375 2802.9219,664.4219 Q2802.25,663.4063 2802.25,662.2031 L2802.25,661.1094 Q2802.25,659.8594 2802.8438,658.7656 Q2803.4531,657.6719 2804.5,657.0938 Q2805.5625,656.5 2806.75,656.5 Q2807.4688,656.5 2808.0938,656.75 Q2808.7188,657 2809.25,657.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="63" x="2827.75" y="665.9102">FridgeFood</text><line style="stroke:#000000;stroke-width:1.5;" x1="2686.5" x2="2999.5" y1="677" y2="677"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2693.5" y="685"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="2705.5" y="692.4189">name: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2693.5" y="698.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="2705.5" y="706.2549">products: Map&lt;UUID, FoodElement&gt;</text><line style="stroke:#000000;stroke-width:1.5;" x1="2686.5" x2="2999.5" y1="712.6719" y2="712.6719"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2693.5" y="720.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="85" x="2705.5" y="728.0908">this(): FridgeFood</text><ellipse cx="2696.5" cy="737.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="289" x="2705.5" y="741.9268">this(name: string, products: List&lt;FoodElement&gt;): FridgeFood</text><ellipse cx="2696.5" cy="751.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="2705.5" y="755.7627">getName(): string</text><ellipse cx="2696.5" cy="765.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="166" x="2705.5" y="769.5986">getProducts(): List&lt;FoodELement&gt;</text><ellipse cx="2696.5" cy="779.0156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="200" x="2705.5" y="783.4346">getProducts2(): Map&lt;UUID, FoodElement&gt;</text><ellipse cx="2696.5" cy="792.8516" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="193" x="2705.5" y="797.2705">addProduct(element: FoodElement): void</text><ellipse cx="2696.5" cy="806.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="246" x="2705.5" y="811.1064">addAllProducts(elements: List&lt;FoodElement&gt;): void</text><!--MD5=[77b5f01160ad3737fe81e7d68034323d]
-class FridgeFoodBuilder--><rect codeLine="79" fill="#F8F8FF" height="144.8516" id="FridgeFoodBuilder" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="309" x="2710.5" y="224.5"/><ellipse cx="2809.75" cy="240.5" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M2811.75,237 Q2811.9531,236.5 2812.1875,236.25 Q2812.4219,236 2812.6875,236 Q2813.1563,236 2813.4531,236.2813 Q2813.75,236.5625 2813.75,237.2188 L2813.75,238.7813 Q2813.75,239.4375 2813.4688,239.7188 Q2813.1875,240 2812.75,240 Q2812.3594,240 2812.1094,239.8281 Q2811.8594,239.6563 2811.75,239.2031 Q2811.7031,238.8906 2811.5313,238.7188 Q2811.2188,238.3906 2810.6563,238.2031 Q2810.0938,238 2809.5313,238 Q2808.8281,238 2808.2344,238.2813 Q2807.6563,238.5625 2807.2031,239.1875 Q2806.75,239.8125 2806.75,240.6719 L2806.75,241.5938 Q2806.75,242.625 2807.5938,243.3125 Q2808.4375,244 2809.9375,244 Q2810.8281,244 2811.4531,243.7969 Q2811.8125,243.6875 2812.2188,243.3281 Q2812.4844,243.125 2812.625,243.0625 Q2812.7656,243 2812.9375,243 Q2813.2656,243 2813.5,243.2656 Q2813.75,243.5156 2813.75,243.875 Q2813.75,244.2188 2813.4063,244.625 Q2812.9063,245.2188 2812.1094,245.5469 Q2811.0625,246 2809.7813,246 Q2808.2813,246 2807.0781,245.4063 Q2806.1094,244.9375 2805.4219,243.9219 Q2804.75,242.9063 2804.75,241.7031 L2804.75,240.6094 Q2804.75,239.3594 2805.3438,238.2656 Q2805.9531,237.1719 2807,236.5938 Q2808.0625,236 2809.25,236 Q2809.9688,236 2810.5938,236.25 Q2811.2188,236.5 2811.75,237 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="102" x="2830.25" y="245.4102">FridgeFoodBuilder</text><line style="stroke:#000000;stroke-width:1.5;" x1="2711.5" x2="3018.5" y1="256.5" y2="256.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2718.5" y="264.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="37" x="2730.5" y="271.9189">id: UUID</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2718.5" y="278.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="2730.5" y="285.7549">name: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2718.5" y="292.1719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="171" x="2730.5" y="299.5908">products: Map&lt;UUID, FoodElement&gt;</text><line style="stroke:#000000;stroke-width:1.5;" x1="2711.5" x2="3018.5" y1="306.0078" y2="306.0078"/><ellipse cx="2721.5" cy="317.0078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="167" x="2730.5" y="321.4268">withId(id: UUID): FridgeFoodBuilder</text><ellipse cx="2721.5" cy="330.8438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="208" x="2730.5" y="335.2627">withName(name: string): FridgeFoodBuilder</text><ellipse cx="2721.5" cy="344.6797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="283" x="2730.5" y="349.0986">withProducts(food: List&lt;FoodElement&gt;): FridgeFoodBuilder</text><ellipse cx="2721.5" cy="358.5156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="153" x="2730.5" y="362.9346">createFridgeFood(): FridgeFood</text><!--MD5=[c9ef6e4a1f125fa16f79b13998e09161]
-class UpdateResponse--><rect codeLine="89" fill="#F8F8FF" height="117.1797" id="UpdateResponse" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="329" x="2306.5" y="238.5"/><ellipse cx="2417.75" cy="254.5" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M2419.75,251 Q2419.9531,250.5 2420.1875,250.25 Q2420.4219,250 2420.6875,250 Q2421.1563,250 2421.4531,250.2813 Q2421.75,250.5625 2421.75,251.2188 L2421.75,252.7813 Q2421.75,253.4375 2421.4688,253.7188 Q2421.1875,254 2420.75,254 Q2420.3594,254 2420.1094,253.8281 Q2419.8594,253.6563 2419.75,253.2031 Q2419.7031,252.8906 2419.5313,252.7188 Q2419.2188,252.3906 2418.6563,252.2031 Q2418.0938,252 2417.5313,252 Q2416.8281,252 2416.2344,252.2813 Q2415.6563,252.5625 2415.2031,253.1875 Q2414.75,253.8125 2414.75,254.6719 L2414.75,255.5938 Q2414.75,256.625 2415.5938,257.3125 Q2416.4375,258 2417.9375,258 Q2418.8281,258 2419.4531,257.7969 Q2419.8125,257.6875 2420.2188,257.3281 Q2420.4844,257.125 2420.625,257.0625 Q2420.7656,257 2420.9375,257 Q2421.2656,257 2421.5,257.2656 Q2421.75,257.5156 2421.75,257.875 Q2421.75,258.2188 2421.4063,258.625 Q2420.9063,259.2188 2420.1094,259.5469 Q2419.0625,260 2417.7813,260 Q2416.2813,260 2415.0781,259.4063 Q2414.1094,258.9375 2413.4219,257.9219 Q2412.75,256.9063 2412.75,255.7031 L2412.75,254.6094 Q2412.75,253.3594 2413.3438,252.2656 Q2413.9531,251.1719 2415,250.5938 Q2416.0625,250 2417.25,250 Q2417.9688,250 2418.5938,250.25 Q2419.2188,250.5 2419.75,251 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="98" x="2438.25" y="259.4102">UpdateResponse</text><line style="stroke:#000000;stroke-width:1.5;" x1="2307.5" x2="2634.5" y1="270.5" y2="270.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2314.5" y="278.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="37" x="2326.5" y="285.9189">id: UUID</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2314.5" y="292.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="85" x="2326.5" y="299.7549">fridgeFood: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="2314.5" y="306.1719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="55" x="2326.5" y="313.5908">quantity: int</text><line style="stroke:#000000;stroke-width:1.5;" x1="2307.5" x2="2634.5" y1="320.0078" y2="320.0078"/><ellipse cx="2317.5" cy="331.0078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="114" x="2326.5" y="335.4268">this(): UpdateResponse</text><ellipse cx="2317.5" cy="344.8438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="303" x="2326.5" y="349.2627">this(id: UUID, fridgeFood: string, quantity: int): UpdateResponse</text><!--MD5=[677ce0b882d995a8bf20c89872664731]
-class DeleteResponse--><rect codeLine="97" fill="#F8F8FF" height="103.3438" id="DeleteResponse" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="264" x="1967" y="245.5"/><ellipse cx="2047.75" cy="261.5" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M2049.75,258 Q2049.9531,257.5 2050.1875,257.25 Q2050.4219,257 2050.6875,257 Q2051.1563,257 2051.4531,257.2813 Q2051.75,257.5625 2051.75,258.2188 L2051.75,259.7813 Q2051.75,260.4375 2051.4688,260.7188 Q2051.1875,261 2050.75,261 Q2050.3594,261 2050.1094,260.8281 Q2049.8594,260.6563 2049.75,260.2031 Q2049.7031,259.8906 2049.5313,259.7188 Q2049.2188,259.3906 2048.6563,259.2031 Q2048.0938,259 2047.5313,259 Q2046.8281,259 2046.2344,259.2813 Q2045.6563,259.5625 2045.2031,260.1875 Q2044.75,260.8125 2044.75,261.6719 L2044.75,262.5938 Q2044.75,263.625 2045.5938,264.3125 Q2046.4375,265 2047.9375,265 Q2048.8281,265 2049.4531,264.7969 Q2049.8125,264.6875 2050.2188,264.3281 Q2050.4844,264.125 2050.625,264.0625 Q2050.7656,264 2050.9375,264 Q2051.2656,264 2051.5,264.2656 Q2051.75,264.5156 2051.75,264.875 Q2051.75,265.2188 2051.4063,265.625 Q2050.9063,266.2188 2050.1094,266.5469 Q2049.0625,267 2047.7813,267 Q2046.2813,267 2045.0781,266.4063 Q2044.1094,265.9375 2043.4219,264.9219 Q2042.75,263.9063 2042.75,262.7031 L2042.75,261.6094 Q2042.75,260.3594 2043.3438,259.2656 Q2043.9531,258.1719 2045,257.5938 Q2046.0625,257 2047.25,257 Q2047.9688,257 2048.5938,257.25 Q2049.2188,257.5 2049.75,258 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="94" x="2068.25" y="266.4102">DeleteResponse</text><line style="stroke:#000000;stroke-width:1.5;" x1="1968" x2="2230" y1="277.5" y2="277.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1975" y="285.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="37" x="1987" y="292.9189">id: UUID</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1975" y="299.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="85" x="1987" y="306.7549">fridgeFood: string</text><line style="stroke:#000000;stroke-width:1.5;" x1="1968" x2="2230" y1="313.1719" y2="313.1719"/><ellipse cx="1978" cy="324.1719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="110" x="1987" y="328.5908">this(): DeleteResponse</text><ellipse cx="1978" cy="338.0078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="238" x="1987" y="342.4268">this(id: UUID, fridgeFood: string): DeleteResponse</text><!--MD5=[91ffdd76f1c8795364bfc7c752e5da6a]
-class Ingredient--><rect codeLine="106" fill="#F8F8FF" height="131.0156" id="Ingredient" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="240" x="1027" y="666"/><ellipse cx="1115.25" cy="682" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M1117.25,678.5 Q1117.4531,678 1117.6875,677.75 Q1117.9219,677.5 1118.1875,677.5 Q1118.6563,677.5 1118.9531,677.7813 Q1119.25,678.0625 1119.25,678.7188 L1119.25,680.2813 Q1119.25,680.9375 1118.9688,681.2188 Q1118.6875,681.5 1118.25,681.5 Q1117.8594,681.5 1117.6094,681.3281 Q1117.3594,681.1563 1117.25,680.7031 Q1117.2031,680.3906 1117.0313,680.2188 Q1116.7188,679.8906 1116.1563,679.7031 Q1115.5938,679.5 1115.0313,679.5 Q1114.3281,679.5 1113.7344,679.7813 Q1113.1563,680.0625 1112.7031,680.6875 Q1112.25,681.3125 1112.25,682.1719 L1112.25,683.0938 Q1112.25,684.125 1113.0938,684.8125 Q1113.9375,685.5 1115.4375,685.5 Q1116.3281,685.5 1116.9531,685.2969 Q1117.3125,685.1875 1117.7188,684.8281 Q1117.9844,684.625 1118.125,684.5625 Q1118.2656,684.5 1118.4375,684.5 Q1118.7656,684.5 1119,684.7656 Q1119.25,685.0156 1119.25,685.375 Q1119.25,685.7188 1118.9063,686.125 Q1118.4063,686.7188 1117.6094,687.0469 Q1116.5625,687.5 1115.2813,687.5 Q1113.7813,687.5 1112.5781,686.9063 Q1111.6094,686.4375 1110.9219,685.4219 Q1110.25,684.4063 1110.25,683.2031 L1110.25,682.1094 Q1110.25,680.8594 1110.8438,679.7656 Q1111.4531,678.6719 1112.5,678.0938 Q1113.5625,677.5 1114.75,677.5 Q1115.4688,677.5 1116.0938,677.75 Q1116.7188,678 1117.25,678.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="55" x="1135.75" y="686.9102">Ingredient</text><line style="stroke:#000000;stroke-width:1.5;" x1="1028" x2="1266" y1="698" y2="698"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1035" y="706"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="1047" y="713.4189">name: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1035" y="719.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="71" x="1047" y="727.2549">quantity: string</text><line style="stroke:#000000;stroke-width:1.5;" x1="1028" x2="1266" y1="733.6719" y2="733.6719"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1035" y="741.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="1047" y="749.0908">this(): Ingredient</text><ellipse cx="1038" cy="758.5078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="214" x="1047" y="762.9268">this(name: string, quantity: string): Ingredient</text><ellipse cx="1038" cy="772.3438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="1047" y="776.7627">getName(): string</text><ellipse cx="1038" cy="786.1797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="96" x="1047" y="790.5986">getQuantity(): string</text><!--MD5=[20418cb98520644da1e87dc0310aa74a]
-class Recipe--><rect codeLine="115" fill="#F8F8FF" height="421.5703" id="Recipe" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="869" x="296.5" y="86"/><ellipse cx="707.25" cy="102" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M709.25,98.5 Q709.4531,98 709.6875,97.75 Q709.9219,97.5 710.1875,97.5 Q710.6563,97.5 710.9531,97.7813 Q711.25,98.0625 711.25,98.7188 L711.25,100.2813 Q711.25,100.9375 710.9688,101.2188 Q710.6875,101.5 710.25,101.5 Q709.8594,101.5 709.6094,101.3281 Q709.3594,101.1563 709.25,100.7031 Q709.2031,100.3906 709.0313,100.2188 Q708.7188,99.8906 708.1563,99.7031 Q707.5938,99.5 707.0313,99.5 Q706.3281,99.5 705.7344,99.7813 Q705.1563,100.0625 704.7031,100.6875 Q704.25,101.3125 704.25,102.1719 L704.25,103.0938 Q704.25,104.125 705.0938,104.8125 Q705.9375,105.5 707.4375,105.5 Q708.3281,105.5 708.9531,105.2969 Q709.3125,105.1875 709.7188,104.8281 Q709.9844,104.625 710.125,104.5625 Q710.2656,104.5 710.4375,104.5 Q710.7656,104.5 711,104.7656 Q711.25,105.0156 711.25,105.375 Q711.25,105.7188 710.9063,106.125 Q710.4063,106.7188 709.6094,107.0469 Q708.5625,107.5 707.2813,107.5 Q705.7813,107.5 704.5781,106.9063 Q703.6094,106.4375 702.9219,105.4219 Q702.25,104.4063 702.25,103.2031 L702.25,102.1094 Q702.25,100.8594 702.8438,99.7656 Q703.4531,98.6719 704.5,98.0938 Q705.5625,97.5 706.75,97.5 Q707.4688,97.5 708.0938,97.75 Q708.7188,98 709.25,98.5 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="39" x="727.75" y="106.9102">Recipe</text><line style="stroke:#000000;stroke-width:1.5;" x1="297.5" x2="1164.5" y1="118" y2="118"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="126"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="316.5" y="133.4189">name: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="139.8359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="89" x="316.5" y="147.2549">steps: List&lt;string&gt;</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="153.6719"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="316.5" y="161.0908">servings: int</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="167.5078"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="72" x="316.5" y="174.9268">preparation: int</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="181.3438"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="58" x="316.5" y="188.7627">difficulty: int</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="195.1797"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="48" x="316.5" y="202.5986">link: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="209.0156"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="129" x="316.5" y="216.4346">ingredient: List&lt;Ingredient&gt;</text><line style="stroke:#000000;stroke-width:1.5;" x1="297.5" x2="1164.5" y1="222.8516" y2="222.8516"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="304.5" y="230.8516"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="64" x="316.5" y="238.2705">this(): Recipe</text><ellipse cx="307.5" cy="247.6875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="843" x="316.5" y="252.1064">this(name: string, steps: List&lt;string&gt;, servings: string, duration: string, difficulty: string, link: string, avis: string, ratingfract: string, ingredients: List&lt;Ingredient&gt;): MarmitonRecipe</text><ellipse cx="307.5" cy="261.5234" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="99" x="316.5" y="265.9424">getServings(): string</text><ellipse cx="307.5" cy="275.3594" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="167" x="316.5" y="279.7783">setServings(servings: string): void</text><ellipse cx="307.5" cy="289.1953" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="98" x="316.5" y="293.6143">getDifficulty(): string</text><ellipse cx="307.5" cy="303.0313" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="165" x="316.5" y="307.4502">setDifficulty(difficulty: string): void</text><ellipse cx="307.5" cy="316.8672" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="158" x="316.5" y="321.2861">getIngredients(): List&lt;Ingredient&gt;</text><ellipse cx="307.5" cy="330.7031" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="237" x="316.5" y="335.1221">setIngredients(ingredients: List&lt;Ingredient&gt;): void</text><ellipse cx="307.5" cy="344.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="75" x="316.5" y="348.958">getLink(): string</text><ellipse cx="307.5" cy="358.375" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="116" x="316.5" y="362.7939">setLink(link: string): void</text><ellipse cx="307.5" cy="372.2109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="316.5" y="376.6299">getName(): string</text><ellipse cx="307.5" cy="386.0469" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="135" x="316.5" y="390.4658">setName(name: string): void</text><ellipse cx="307.5" cy="399.8828" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="109" x="316.5" y="404.3018">getRatingfract(): string</text><ellipse cx="307.5" cy="413.7188" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="192" x="316.5" y="418.1377">setRatingfract(ratingfract: string): string</text><ellipse cx="307.5" cy="427.5547" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="78" x="316.5" y="431.9736">getAvis(): string</text><ellipse cx="307.5" cy="441.3906" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="124" x="316.5" y="445.8096">setAvis(avis: string): void</text><ellipse cx="307.5" cy="455.2266" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="113" x="316.5" y="459.6455">getSteps(): List&lt;string&gt;</text><ellipse cx="307.5" cy="469.0625" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="202" x="316.5" y="473.4814">setSteps(steps: List&lt;string&gt;): List&lt;string&gt;</text><ellipse cx="307.5" cy="482.8984" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="95" x="316.5" y="487.3174">getPreparation(): int</text><ellipse cx="307.5" cy="496.7344" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="176" x="316.5" y="501.1533">setPreparation(duration: string): void</text><!--MD5=[0ced848d3865889bfc7c7ee5bbe01f5f]
-class MarmitonRecipe--><rect codeLine="146" fill="#F8F8FF" height="297.0469" id="MarmitonRecipe" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="646" x="1241" y="148.5"/><ellipse cx="1514.75" cy="164.5" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M1516.75,161 Q1516.9531,160.5 1517.1875,160.25 Q1517.4219,160 1517.6875,160 Q1518.1563,160 1518.4531,160.2813 Q1518.75,160.5625 1518.75,161.2188 L1518.75,162.7813 Q1518.75,163.4375 1518.4688,163.7188 Q1518.1875,164 1517.75,164 Q1517.3594,164 1517.1094,163.8281 Q1516.8594,163.6563 1516.75,163.2031 Q1516.7031,162.8906 1516.5313,162.7188 Q1516.2188,162.3906 1515.6563,162.2031 Q1515.0938,162 1514.5313,162 Q1513.8281,162 1513.2344,162.2813 Q1512.6563,162.5625 1512.2031,163.1875 Q1511.75,163.8125 1511.75,164.6719 L1511.75,165.5938 Q1511.75,166.625 1512.5938,167.3125 Q1513.4375,168 1514.9375,168 Q1515.8281,168 1516.4531,167.7969 Q1516.8125,167.6875 1517.2188,167.3281 Q1517.4844,167.125 1517.625,167.0625 Q1517.7656,167 1517.9375,167 Q1518.2656,167 1518.5,167.2656 Q1518.75,167.5156 1518.75,167.875 Q1518.75,168.2188 1518.4063,168.625 Q1517.9063,169.2188 1517.1094,169.5469 Q1516.0625,170 1514.7813,170 Q1513.2813,170 1512.0781,169.4063 Q1511.1094,168.9375 1510.4219,167.9219 Q1509.75,166.9063 1509.75,165.7031 L1509.75,164.6094 Q1509.75,163.3594 1510.3438,162.2656 Q1510.9531,161.1719 1512,160.5938 Q1513.0625,160 1514.25,160 Q1514.9688,160 1515.5938,160.25 Q1516.2188,160.5 1516.75,161 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="90" x="1535.25" y="169.4102">MarmitonRecipe</text><line style="stroke:#000000;stroke-width:1.5;" x1="1242" x2="1886" y1="180.5" y2="180.5"/><polygon fill="none" points="1252,187.5,1248,193.5,1256,193.5" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="48" x="1261" y="195.9189">link: string</text><polygon fill="none" points="1252,201.3359,1248,207.3359,1256,207.3359" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="59" x="1261" y="209.7549">name: string</text><polygon fill="none" points="1252,215.1719,1248,221.1719,1256,221.1719" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="1261" y="223.5908">ratingfract: string</text><polygon fill="none" points="1252,229.0078,1248,235.0078,1256,235.0078" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="53" x="1261" y="237.4268">avis: string</text><polygon fill="none" points="1252,242.8438,1248,248.8438,1256,248.8438" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="89" x="1261" y="251.2627">steps: List&lt;string&gt;</text><polygon fill="none" points="1252,256.6797,1248,262.6797,1256,262.6797" style="stroke:#1963A0;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="88" x="1261" y="265.0986">preparation: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1249" y="271.5156"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="75" x="1261" y="278.9346">servings: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1249" y="285.3516"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="74" x="1261" y="292.7705">difficulty: string</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1249" y="299.1875"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="129" x="1261" y="306.6064">ingredient: List&lt;Ingredient&gt;</text><line style="stroke:#000000;stroke-width:1.5;" x1="1242" x2="1886" y1="313.0234" y2="313.0234"/><rect fill="#F24D5C" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="1249" y="321.0234"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="103" x="1261" y="328.4424">this(): MamitonRecipe</text><ellipse cx="1252" cy="337.8594" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="620" x="1261" y="342.2783">this(name: string, steps: List&lt;string&gt;, servings: int, preparation: int, difficulty: int, link: string, ingredients: List&lt;Ingredient&gt;): Recipe</text><ellipse cx="1252" cy="351.6953" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="1261" y="356.1143">getName(): string</text><ellipse cx="1252" cy="365.5313" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="113" x="1261" y="369.9502">getSteps(): List&lt;string&gt;</text><ellipse cx="1252" cy="379.3672" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="83" x="1261" y="383.7861">getServings(): int</text><ellipse cx="1252" cy="393.2031" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="95" x="1261" y="397.6221">getPreparation(): int</text><ellipse cx="1252" cy="407.0391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="82" x="1261" y="411.458">getDifficulty(): int</text><ellipse cx="1252" cy="420.875" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="75" x="1261" y="425.2939">getLink(): string</text><ellipse cx="1252" cy="434.7109" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="158" x="1261" y="439.1299">getIngredients(): List&lt;Ingredient&gt;</text><!--MD5=[c1225a769dcb0c0de5d73f43c51a1c59]
-class ShoppingElement--><rect codeLine="169" fill="#F8F8FF" height="144.8516" id="ShoppingElement" rx="5" ry="5" style="stroke:#000000;stroke-width:1.5;" width="165" x="56.5" y="224.5"/><ellipse cx="86.8" cy="240.5" fill="#6495ED" rx="11" ry="11" style="stroke:#000000;stroke-width:1.0;"/><path d="M88.8,237 Q89.0031,236.5 89.2375,236.25 Q89.4719,236 89.7375,236 Q90.2063,236 90.5031,236.2813 Q90.8,236.5625 90.8,237.2188 L90.8,238.7813 Q90.8,239.4375 90.5188,239.7188 Q90.2375,240 89.8,240 Q89.4094,240 89.1594,239.8281 Q88.9094,239.6563 88.8,239.2031 Q88.7531,238.8906 88.5813,238.7188 Q88.2688,238.3906 87.7063,238.2031 Q87.1438,238 86.5813,238 Q85.8781,238 85.2844,238.2813 Q84.7063,238.5625 84.2531,239.1875 Q83.8,239.8125 83.8,240.6719 L83.8,241.5938 Q83.8,242.625 84.6438,243.3125 Q85.4875,244 86.9875,244 Q87.8781,244 88.5031,243.7969 Q88.8625,243.6875 89.2688,243.3281 Q89.5344,243.125 89.675,243.0625 Q89.8156,243 89.9875,243 Q90.3156,243 90.55,243.2656 Q90.8,243.5156 90.8,243.875 Q90.8,244.2188 90.4563,244.625 Q89.9563,245.2188 89.1594,245.5469 Q88.1125,246 86.8313,246 Q85.3313,246 84.1281,245.4063 Q83.1594,244.9375 82.4719,243.9219 Q81.8,242.9063 81.8,241.7031 L81.8,240.6094 Q81.8,239.3594 82.3938,238.2656 Q83.0031,237.1719 84.05,236.5938 Q85.1125,236 86.3,236 Q87.0188,236 87.6438,236.25 Q88.2688,236.5 88.8,237 Z " fill="#000000"/><text fill="#6495ED" font-family="sans-serif" font-size="12" lengthAdjust="spacing" textLength="99" x="104.2" y="245.4102">ShoppingElement</text><line style="stroke:#000000;stroke-width:1.5;" x1="57.5" x2="220.5" y1="256.5" y2="256.5"/><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="64.5" y="264.5"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="60" x="76.5" y="271.9189">name: String</text><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1.0;" width="6" x="64.5" y="278.3359"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="76" x="76.5" y="285.7549">quantity: double</text><line style="stroke:#000000;stroke-width:1.5;" x1="57.5" x2="220.5" y1="292.1719" y2="292.1719"/><ellipse cx="67.5" cy="303.1719" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="90" x="76.5" y="307.5908">ShoppingElement()</text><ellipse cx="67.5" cy="317.0078" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="84" x="76.5" y="321.4268">getName(): String</text><ellipse cx="67.5" cy="330.8438" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="110" x="76.5" y="335.2627">setName(name: String)</text><ellipse cx="67.5" cy="344.6797" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="107" x="76.5" y="349.0986">getQuantity(): quantity</text><ellipse cx="67.5" cy="358.5156" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacing" textLength="139" x="76.5" y="362.9346">setQuantity(quantity: double)</text><!--MD5=[6106dcfe4fdf91603c7a4cc3cd9649bb]
-link Food to Month--><path codeLine="180" d="M3266,402.25 C3266,402.25 3266,513.92 3266,569.43 " fill="none" id="Food-Month" style="stroke:#808080;stroke-width:1.0;"/><polygon fill="#808080" points="3266,582.67,3270,573.67,3266,577.67,3262,573.67,3266,582.67" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="3266" x2="3266" y1="577.67" y2="569.67"/><polygon fill="#808080" points="3266,390.25,3262,396.25,3266,402.25,3270,396.25,3266,390.25" style="stroke:#808080;stroke-width:1.0;"/><!--MD5=[112f3da8c6383ae5da94a301743be34e]
-link FridgeFood to FoodElement--><path codeLine="182" d="M2837.1576,830.3288 C2837.1576,830.3288 2832.58,906.77 2830.49,941.65 " fill="none" id="FridgeFood-FoodElement" style="stroke:#808080;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="2829.71,954.75,2834.2367,946.003,2830.0065,949.7588,2826.2508,945.5286,2829.71,954.75" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="2830.0065" x2="2830.485" y1="949.7588" y2="941.77"/><polygon fill="#808080" points="2837.87,818.35,2833.5209,824.102,2837.1576,830.3288,2841.5067,824.5769,2837.87,818.35" style="stroke:#808080;stroke-width:1.0;"/><!--MD5=[e208bf03ede8e5002566c7caeec8a293]
-link FridgeFoodBuilder to FridgeFood--><path codeLine="183" d="M2860.7335,381.8847 C2860.7335,381.8847 2851.85,556.44 2848.04,631.44 " fill="none" id="FridgeFoodBuilder-FridgeFood" style="stroke:#808080;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="2847.37,644.65,2851.8198,635.8637,2847.6227,639.6564,2843.83,635.4593,2847.37,644.65" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="2847.6227" x2="2848.025" y1="639.6564" y2="631.67"/><polygon fill="#808080" points="2861.34,369.9,2857.0419,375.6902,2860.7335,381.8847,2865.0316,376.0945,2861.34,369.9" style="stroke:#808080;stroke-width:1.0;"/><!--MD5=[73397702d5ab903d439abfe1e8256bff]
-link Recipe to Ingredient--><path codeLine="185" d="M941.5289,516.8785 C941.5289,516.8785 1038.31,617.5 1075.66,656.33 " fill="none" id="Recipe-Ingredient" style="stroke:#808080;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="1084.92,665.96,1081.5637,656.7007,1081.4538,662.3565,1075.798,662.2466,1084.92,665.96" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="1081.4538" x2="1075.91" y1="662.3565" y2="656.595"/><polygon fill="#808080" points="933.21,508.23,934.4866,515.3272,941.5289,516.8785,940.2523,509.7813,933.21,508.23" style="stroke:#808080;stroke-width:1.0;"/><!--MD5=[531b3285ef77dc32f62e92b852ac5ca8]
-link MarmitonRecipe to Ingredient--><path codeLine="186" d="M1413.3277,454.2655 C1413.3277,454.2655 1271.74,601.12 1218.61,656.23 " fill="none" id="MarmitonRecipe-Ingredient" style="stroke:#808080;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="1209.27,665.91,1218.3948,662.2036,1212.7389,662.3091,1212.6334,656.6532,1209.27,665.91" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="1212.7389" x2="1218.295" y1="662.3091" y2="656.555"/><polygon fill="#808080" points="1421.66,445.63,1414.6153,447.1703,1413.3277,454.2655,1420.3724,452.7252,1421.66,445.63" style="stroke:#808080;stroke-width:1.0;"/><!--MD5=[73258d32ee6298ed9cbb61e25555adec]
-link ConversionRequest to Conversion--><path codeLine="188" d="M3645.2708,401.0353 C3645.2708,401.0353 3763.98,644.37 3792.79,703.42 " fill="none" id="ConversionRequest-Conversion" style="stroke:#808080;stroke-width:1.0;stroke-dasharray:7.0,7.0;"/><polygon fill="#808080" points="3798.6,715.32,3798.2448,705.4776,3796.4058,710.8272,3791.0562,708.9882,3798.6,715.32" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="3796.4058" x2="3792.895" y1="710.8272" y2="703.635"/><polygon fill="#FFFFFF" points="3640.01,390.25,3639.0453,397.3963,3645.2708,401.0353,3646.2355,393.8891,3640.01,390.25" style="stroke:#808080;stroke-width:1.0;"/><!--MD5=[117c3607f987d0fdbe786545ffa728b4]
-@startuml model
-!include ../style/commons.style
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="533px" preserveAspectRatio="none" style="width:582px;height:533px;" version="1.1" viewBox="0 0 582 533" width="582px" zoomAndPan="magnify"><defs/><g><rect fill="#F8F8FF" height="390.2188" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="241.5" y="117.9609"/><rect fill="#F8F8FF" height="322.5156" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="416.5" y="148.3125"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="22" x2="22" y1="85.6094" y2="526.1797"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="246.5" x2="246.5" y1="85.6094" y2="526.1797"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="421" x2="421" y1="85.6094" y2="526.1797"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="29" x="5" y="82.5332">User</text><ellipse cx="22.5" cy="15" fill="#F8F8FF" rx="8" ry="8" style="stroke:#6495ED;stroke-width:2.0;"/><path d="M22.5,23 L22.5,50 M9.5,31 L35.5,31 M22.5,50 L9.5,65 M22.5,50 L35.5,65 " fill="none" style="stroke:#6495ED;stroke-width:2.0;"/><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="56" x="218.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="225.5" y="74.5332">: Front</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="53" x="395" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="402" y="74.5332">: Back</text><rect fill="#F8F8FF" height="390.2188" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="241.5" y="117.9609"/><rect fill="#F8F8FF" height="322.5156" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="416.5" y="148.3125"/><polygon fill="#808080" points="229.5,113.9609,239.5,117.9609,229.5,121.9609,233.5,117.9609" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="22.5" x2="235.5" y1="117.9609" y2="117.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="29.5" y="113.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="155" x="40.5" y="113.1045">cliquer sur "Ajout au Frigo"</text><polygon fill="#808080" points="404.5,144.3125,414.5,148.3125,404.5,152.3125,408.5,148.3125" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="251.5" x2="410.5" y1="148.3125" y2="148.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="258.5" y="143.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="65" x="269.5" y="143.4561">GET /foods</text><polygon fill="#808080" points="262.5,174.6641,252.5,178.6641,262.5,182.6641,258.5,178.6641" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="256.5" x2="415.5" y1="178.6641" y2="178.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="268.5" y="173.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="102" x="279.5" y="173.8076">liste des légumes</text><polygon fill="#808080" points="33.5,205.0156,23.5,209.0156,33.5,213.0156,29.5,209.0156" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="27.5" x2="240.5" y1="209.0156" y2="209.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="39.5" y="204.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="147" x="50.5" y="204.1592">afficher liste des légumes</text><polygon fill="#808080" points="229.5,235.3672,239.5,239.3672,229.5,243.3672,233.5,239.3672" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="22.5" x2="235.5" y1="239.3672" y2="239.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="29.5" y="234.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="121" x="40.5" y="234.5107">chercher le légume X</text><polygon fill="#808080" points="33.5,265.7188,23.5,269.7188,33.5,273.7188,29.5,269.7188" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="27.5" x2="240.5" y1="269.7188" y2="269.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="39.5" y="264.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="98" x="50.5" y="264.8623">afficher légume X</text><polygon fill="#808080" points="229.5,296.0703,239.5,300.0703,229.5,304.0703,233.5,300.0703" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="22.5" x2="235.5" y1="300.0703" y2="300.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="29.5" y="295.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="139" x="40.5" y="295.2139">appuyer sur le "+" 2 fois</text><polygon fill="#808080" points="33.5,326.4219,23.5,330.4219,33.5,334.4219,29.5,330.4219" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="27.5" x2="240.5" y1="330.4219" y2="330.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="39.5" y="325.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="184" x="50.5" y="325.5654">afficher 2 quantités du légume x</text><polygon fill="#808080" points="229.5,356.7734,239.5,360.7734,229.5,364.7734,233.5,360.7734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="22.5" x2="235.5" y1="360.7734" y2="360.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="29.5" y="355.917">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="137" x="40.5" y="355.917">cliquer sur "Enregistrer"</text><polygon fill="#808080" points="404.5,387.125,414.5,391.125,404.5,395.125,408.5,391.125" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="251.5" x2="410.5" y1="391.125" y2="391.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="258.5" y="386.2686">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="123" x="276.5" y="386.2686">POST /fridge/addition</text><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="426.5" x2="468.5" y1="421.4766" y2="421.4766"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="468.5" x2="468.5" y1="421.4766" y2="434.4766"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="427.5" x2="468.5" y1="434.4766" y2="434.4766"/><polygon fill="#808080" points="437.5,430.4766,427.5,434.4766,437.5,438.4766,433.5,434.4766" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="433.5" y="416.6201">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="124" x="451.5" y="416.6201">addToFridge(foodList)</text><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="251.5" x2="293.5" y1="469.8281" y2="469.8281"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="293.5" x2="293.5" y1="469.8281" y2="482.8281"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="246.5" x2="293.5" y1="482.8281" y2="482.8281"/><polygon fill="#808080" points="256.5,478.8281,246.5,482.8281,256.5,486.8281,252.5,482.8281" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="258.5" y="464.9717">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="130" x="276.5" y="464.9717">rediriger vers le "Frigo"</text><polygon fill="#808080" points="33.5,504.1797,23.5,508.1797,33.5,512.1797,29.5,508.1797" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="27.5" x2="245.5" y1="508.1797" y2="508.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="39.5" y="503.3232">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="83" x="57.5" y="503.3232">afficher le frigo</text><!--MD5=[06465215517be6f964282271182cf624]
+@startuml addToFridgeSystem
+    !include ../style/commons.style
 
-package service.food{
-    enum Conversion{}
-}
-package model {
-    package food {
-        enum Month {
-            JANUARY,
-            FEBRUARY,
-            MARCH,
-            APRIL,
-            MAY,
-            JUNE,
-            JULY,
-            AUGUST,
-            SEPTEMBER,
-            OCTOBER,
-            NOVEMBER,
-            DECEMBER;
+    actor User
+    autonumber
 
-            - value: string <<final>>
-            ~ BY_VALUE: Map<string, Month> <<static final>>
-            + this(value: string): Month
-            + getValue(): string
-            + of(value: string): Month
-        }
-    
-        class Food {
-            - name: string
-            - type: string
-            - availability: List<Month>
-            - days: int
-            + this(): Food
-            + this(name: string, type: string, availability: Month[], days: int): Food
-            + getName(): string
-            + getType(): string
-            + getAvailability(): List<Month>
-            + getDays(): int
-        }
-        class ConversionRequest{
-            - type: Conversion
-            - quantity: double
-            - food: string
-            + ConversionRequest()
-            + getType(): Conversion
-            + setType(type: Conversion)
-            + getQuantity(): double
-            + setQuantity(quantity: double)
-            + getFood(): string
-            + setFood(food: String)
-        }
-    }
+    participant ": Front" as frontend
+    participant ": Back" as backend
 
-    package fridge {
-        class FoodElement {
-            - insertionDate: string
-            - peremptionDate: string
-            - quantity: int
-            + this(): FoodElement
-            + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
-            + getInsertionDate(): string
-            + getPeremptionDate(): string
-            + getQuantity(): int
-        }
-
-        class FridgeFood {
-            - name: string
-            - products: Map<UUID, FoodElement>
-            - this(): FridgeFood
-            + this(name: string, products: List<FoodElement>): FridgeFood
-            + getName(): string
-            + getProducts(): List<FoodELement>
-            + getProducts2(): Map<UUID, FoodElement>
-            + addProduct(element: FoodElement): void
-            + addAllProducts(elements: List<FoodElement>): void
-        }
-
-        class FridgeFoodBuilder {
-            - id: UUID
-            - name: string
-            - products: Map<UUID, FoodElement>
-            + withId(id: UUID): FridgeFoodBuilder
-            + withName(name: string): FridgeFoodBuilder
-            + withProducts(food: List<FoodElement>): FridgeFoodBuilder
-            + createFridgeFood(): FridgeFood
-        }
-
-        class UpdateResponse {
-            - id: UUID
-            - fridgeFood: string
-            - quantity: int
-            + this(): UpdateResponse
-            + this(id: UUID, fridgeFood: string, quantity: int): UpdateResponse
-        }
-
-        class DeleteResponse {
-            - id: UUID
-            - fridgeFood: string
-            + this(): DeleteResponse
-            + this(id: UUID, fridgeFood: string): DeleteResponse
-        }
-    }
-
-    package recipe {
-        class Ingredient {
-            - name: string
-            - quantity: string
-            - this(): Ingredient
-            + this(name: string, quantity: string): Ingredient
-            + getName(): string
-            + getQuantity(): string
-        }
-
-        class Recipe {
-            - name: string 
-            - steps: List<string> 
-            - servings: int 
-            - preparation: int 
-            - difficulty: int 
-            - link: string
-            - ingredient: List<Ingredient>
-            - this(): Recipe
-            + this(name: string, steps: List<string>, servings: string, duration: string, difficulty: string, link: string, avis: string, ratingfract: string, ingredients: List<Ingredient>): MarmitonRecipe
-            + getServings(): string
-            + setServings(servings: string): void
-            + getDifficulty(): string
-            + setDifficulty(difficulty: string): void
-            + getIngredients(): List<Ingredient>
-            + setIngredients(ingredients: List<Ingredient>): void
-            + getLink(): string
-            + setLink(link: string): void
-            + getName(): string
-            + setName(name: string): void
-            + getRatingfract(): string
-            + setRatingfract(ratingfract: string): string
-            + getAvis(): string
-            + setAvis(avis: string): void
-            + getSteps(): List<string>
-            + setSteps(steps: List<string>): List<string>
-            + getPreparation(): int
-            + setPreparation(duration: string): void
-        }
-
-        package external {
-            class MarmitonRecipe {
-                ~ link: string
-                ~ name: string 
-                ~ ratingfract: string
-                ~ avis: string
-                ~ steps: List<string> 
-                ~ preparation: string
-                - servings: string
-                - difficulty: string
-                - ingredient: List<Ingredient>
-                - this(): MamitonRecipe
-                + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
-                + getName(): string
-                + getSteps(): List<string>
-                + getServings(): int
-                + getPreparation(): int
-                + getDifficulty(): int
-                + getLink(): string
-                + getIngredients(): List<Ingredient>
-            }
-        }
-    }
-    package shopping{
-        class ShoppingElement{
-            - name: String
-            - quantity: double
-            + ShoppingElement()
-            + getName(): String
-            + setName(name: String)
-            + getQuantity(): quantity
-            + setQuantity(quantity: double)
-        }
-    }
-
-    Food *- -> Month
-
-    FridgeFood *..> FoodElement
-    FridgeFoodBuilder *..> FridgeFood
-
-    Recipe *..> Ingredient
-    MarmitonRecipe *..> Ingredient
-
-    ConversionRequest o..> Conversion
-}
+    User -> frontend: cliquer sur "Ajout au Frigo"
+    activate frontend
+    frontend -> backend: GET /foods
+    activate backend
+    backend - -> frontend: liste des légumes
+    User <- - frontend: afficher liste des légumes
+    User -> frontend: chercher le légume X
+    User <- - frontend: afficher légume X
+    User -> frontend: appuyer sur le "+" 2 fois
+    User <- - frontend: afficher 2 quantités du légume x
+    User -> frontend: cliquer sur "Enregistrer"
+    frontend -> backend: POST /fridge/addition
+    backend - -> backend: addToFridge(foodList)
+    frontend - -> frontend: rediriger vers le "Frigo"
+    deactivate backend
+    User <- - frontend: afficher le frigo
+    deactivate frontend
     
 @enduml
 
-@startuml model
+@startuml addToFridgeSystem
 
 skinparam nodesep 75
 skinparam ranksep 75
@@ -281,200 +91,36 @@ skinparam note {
  BorderColor         CornFlowerBlue
 }
 
-package service.food{
-    enum Conversion{}
-}
-package model {
-    package food {
-        enum Month {
-            JANUARY,
-            FEBRUARY,
-            MARCH,
-            APRIL,
-            MAY,
-            JUNE,
-            JULY,
-            AUGUST,
-            SEPTEMBER,
-            OCTOBER,
-            NOVEMBER,
-            DECEMBER;
+    actor User
+    autonumber
 
-            - value: string <<final>>
-            ~ BY_VALUE: Map<string, Month> <<static final>>
-            + this(value: string): Month
-            + getValue(): string
-            + of(value: string): Month
-        }
-    
-        class Food {
-            - name: string
-            - type: string
-            - availability: List<Month>
-            - days: int
-            + this(): Food
-            + this(name: string, type: string, availability: Month[], days: int): Food
-            + getName(): string
-            + getType(): string
-            + getAvailability(): List<Month>
-            + getDays(): int
-        }
-        class ConversionRequest{
-            - type: Conversion
-            - quantity: double
-            - food: string
-            + ConversionRequest()
-            + getType(): Conversion
-            + setType(type: Conversion)
-            + getQuantity(): double
-            + setQuantity(quantity: double)
-            + getFood(): string
-            + setFood(food: String)
-        }
-    }
+    participant ": Front" as frontend
+    participant ": Back" as backend
 
-    package fridge {
-        class FoodElement {
-            - insertionDate: string
-            - peremptionDate: string
-            - quantity: int
-            + this(): FoodElement
-            + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
-            + getInsertionDate(): string
-            + getPeremptionDate(): string
-            + getQuantity(): int
-        }
-
-        class FridgeFood {
-            - name: string
-            - products: Map<UUID, FoodElement>
-            - this(): FridgeFood
-            + this(name: string, products: List<FoodElement>): FridgeFood
-            + getName(): string
-            + getProducts(): List<FoodELement>
-            + getProducts2(): Map<UUID, FoodElement>
-            + addProduct(element: FoodElement): void
-            + addAllProducts(elements: List<FoodElement>): void
-        }
-
-        class FridgeFoodBuilder {
-            - id: UUID
-            - name: string
-            - products: Map<UUID, FoodElement>
-            + withId(id: UUID): FridgeFoodBuilder
-            + withName(name: string): FridgeFoodBuilder
-            + withProducts(food: List<FoodElement>): FridgeFoodBuilder
-            + createFridgeFood(): FridgeFood
-        }
-
-        class UpdateResponse {
-            - id: UUID
-            - fridgeFood: string
-            - quantity: int
-            + this(): UpdateResponse
-            + this(id: UUID, fridgeFood: string, quantity: int): UpdateResponse
-        }
-
-        class DeleteResponse {
-            - id: UUID
-            - fridgeFood: string
-            + this(): DeleteResponse
-            + this(id: UUID, fridgeFood: string): DeleteResponse
-        }
-    }
-
-    package recipe {
-        class Ingredient {
-            - name: string
-            - quantity: string
-            - this(): Ingredient
-            + this(name: string, quantity: string): Ingredient
-            + getName(): string
-            + getQuantity(): string
-        }
-
-        class Recipe {
-            - name: string 
-            - steps: List<string> 
-            - servings: int 
-            - preparation: int 
-            - difficulty: int 
-            - link: string
-            - ingredient: List<Ingredient>
-            - this(): Recipe
-            + this(name: string, steps: List<string>, servings: string, duration: string, difficulty: string, link: string, avis: string, ratingfract: string, ingredients: List<Ingredient>): MarmitonRecipe
-            + getServings(): string
-            + setServings(servings: string): void
-            + getDifficulty(): string
-            + setDifficulty(difficulty: string): void
-            + getIngredients(): List<Ingredient>
-            + setIngredients(ingredients: List<Ingredient>): void
-            + getLink(): string
-            + setLink(link: string): void
-            + getName(): string
-            + setName(name: string): void
-            + getRatingfract(): string
-            + setRatingfract(ratingfract: string): string
-            + getAvis(): string
-            + setAvis(avis: string): void
-            + getSteps(): List<string>
-            + setSteps(steps: List<string>): List<string>
-            + getPreparation(): int
-            + setPreparation(duration: string): void
-        }
-
-        package external {
-            class MarmitonRecipe {
-                ~ link: string
-                ~ name: string 
-                ~ ratingfract: string
-                ~ avis: string
-                ~ steps: List<string> 
-                ~ preparation: string
-                - servings: string
-                - difficulty: string
-                - ingredient: List<Ingredient>
-                - this(): MamitonRecipe
-                + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
-                + getName(): string
-                + getSteps(): List<string>
-                + getServings(): int
-                + getPreparation(): int
-                + getDifficulty(): int
-                + getLink(): string
-                + getIngredients(): List<Ingredient>
-            }
-        }
-    }
-    package shopping{
-        class ShoppingElement{
-            - name: String
-            - quantity: double
-            + ShoppingElement()
-            + getName(): String
-            + setName(name: String)
-            + getQuantity(): quantity
-            + setQuantity(quantity: double)
-        }
-    }
-
-    Food *- -> Month
-
-    FridgeFood *..> FoodElement
-    FridgeFoodBuilder *..> FridgeFood
-
-    Recipe *..> Ingredient
-    MarmitonRecipe *..> Ingredient
-
-    ConversionRequest o..> Conversion
-}
+    User -> frontend: cliquer sur "Ajout au Frigo"
+    activate frontend
+    frontend -> backend: GET /foods
+    activate backend
+    backend - -> frontend: liste des légumes
+    User <- - frontend: afficher liste des légumes
+    User -> frontend: chercher le légume X
+    User <- - frontend: afficher légume X
+    User -> frontend: appuyer sur le "+" 2 fois
+    User <- - frontend: afficher 2 quantités du légume x
+    User -> frontend: cliquer sur "Enregistrer"
+    frontend -> backend: POST /fridge/addition
+    backend - -> backend: addToFridge(foodList)
+    frontend - -> frontend: rediriger vers le "Frigo"
+    deactivate backend
+    User <- - frontend: afficher le frigo
+    deactivate frontend
     
 @enduml
 
-PlantUML version 1.2021.01(Tue Feb 02 07:55:08 UTC 2021)
+PlantUML version 1.2021.00(Sun Jan 10 11:25:05 CET 2021)
 (GPL source distribution)
-Java Runtime: OpenJDK Runtime Environment
-JVM: OpenJDK 64-Bit Server VM
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
 Default Encoding: Cp1252
 Language: fr
 Country: FR
