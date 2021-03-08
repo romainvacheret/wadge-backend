@@ -52,7 +52,7 @@ public class JsonSepecificRecipeDao implements ISpecificRecipeDao {
 	}
 	@Override
 	public List<Recipe> getDoneRecipes() {
-		return favorites.values().stream().collect(Collectors.toList());
+		return donerecipes.values().stream().collect(Collectors.toList());
 	}
 	
 	@Override
@@ -67,7 +67,7 @@ public class JsonSepecificRecipeDao implements ISpecificRecipeDao {
 	public void writeDoneRecipe(Recipe recipe) {
 		donerecipes.put(recipe.getLink(),recipe);
 		try {
-			mapper.writeValue(Paths.get(FILE_FAVORITE).toFile(),donerecipes.values());
+			mapper.writeValue(Paths.get(FILE_DONE_RECIPE).toFile(),donerecipes.values());
 		}
 		catch (IOException e){logger.log(Level.FINE, e.getMessage(), e);}
 	}
