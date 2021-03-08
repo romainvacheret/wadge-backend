@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="283px" preserveAspectRatio="none" style="width:1260px;height:283px;" version="1.1" viewBox="0 0 1260 283" width="1260px" zoomAndPan="magnify"><defs/><g><rect fill="#F8F8FF" height="220.0156" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="28" y="47.6094"/><rect fill="#F8F8FF" height="145.3125" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="248" y="69.9609"/><rect fill="#F8F8FF" height="100.9609" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="385" y="100.3125"/><rect fill="#F8F8FF" height="46.6094" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="1094.5" y="140.6641"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="33" x2="33" y1="37.6094" y2="276.625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="252.5" x2="252.5" y1="37.6094" y2="276.625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="390" x2="390" y1="37.6094" y2="276.625"/><line style="stroke:#6495ED;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1099" x2="1099" y1="139.6172" y2="276.625"/><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="56" x="5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="42" x="12" y="26.5332">: Front</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="53" x="226.5" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="39" x="233.5" y="26.5332">: Back</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="128" x="326" y="5"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114" x="333" y="26.5332">: RecipeController</text><rect fill="#F8F8FF" height="220.0156" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="28" y="47.6094"/><rect fill="#F8F8FF" height="145.3125" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="248" y="69.9609"/><rect fill="#F8F8FF" height="100.9609" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="385" y="100.3125"/><rect fill="#F8F8FF" height="46.6094" style="stroke:#6495ED;stroke-width:1.0;" width="10" x="1094.5" y="140.6641"/><polygon fill="#808080" points="236,65.9609,246,69.9609,236,73.9609,240,69.9609" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="38" x2="242" y1="69.9609" y2="69.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="191" x="45" y="65.1045">POST /recipes/addtoDoneRecipe</text><polygon fill="#808080" points="373,96.3125,383,100.3125,373,104.3125,377,100.3125" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="258" x2="379" y1="100.3125" y2="100.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="108" x="265" y="95.4561">addToDone(recipe)</text><polygon fill="#808080" points="933,126.6641,943,130.6641,933,134.6641,937,130.6641" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="395" x2="939" y1="130.6641" y2="130.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="526" x="402" y="125.8076">RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)</text><rect fill="#F8F8FF" height="31.6094" rx="5" ry="5" style="stroke:#6495ED;stroke-width:1.5;" width="309" x="945" y="108.3125"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="295" x="952" y="129.8457">RecipeController.recipeService: RecipeService</text><polygon fill="#808080" points="1082.5,169.2734,1092.5,173.2734,1082.5,177.2734,1086.5,173.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;" x1="395" x2="1088.5" y1="173.2734" y2="173.2734"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="134" x="402" y="168.417">addDoneRecipe(recipe)</text><polygon fill="#808080" points="406,183.2734,396,187.2734,406,191.2734,402,187.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="400" x2="1098.5" y1="187.2734" y2="187.2734"/><polygon fill="#808080" points="269,197.2734,259,201.2734,269,205.2734,265,201.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="263" x2="389" y1="201.2734" y2="201.2734"/><polygon fill="#808080" points="49,211.2734,39,215.2734,49,219.2734,45,215.2734" style="stroke:#808080;stroke-width:1.0;"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="43" x2="252" y1="215.2734" y2="215.2734"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="38" x2="80" y1="245.625" y2="245.625"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="80" x2="80" y1="245.625" y2="258.625"/><line style="stroke:#808080;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="39" x2="80" y1="258.625" y2="258.625"/><polygon fill="#808080" points="49,254.625,39,258.625,49,262.625,45,258.625" style="stroke:#808080;stroke-width:1.0;"/><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="153" x="45" y="240.7686">Traiter les données reçues</text><!--MD5=[620575e9202eb80e3b8e0888163c19f3]
+@startuml recipesSearch
+    !include ../style/commons.style
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": RecipeController" as rc
+
+    activate ft
+    ft -> bk : POST /recipes/addtoDoneRecipe
+    activate bk
+    bk -> rc : addToDone(recipe)
+    activate rc
+    create "RecipeController.recipeService: RecipeService" as rs
+    rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)
+    activate rs
+    rc -> rs : addDoneRecipe(recipe)
+    rs - -> rc
+    deactivate rs
+    rc - -> bk
+    deactivate rc
+    bk - -> ft
+    deactivate bk
+    ft <- - ft: Traiter les données reçues
+
+@enduml
+
+@startuml recipesSearch
+
+skinparam nodesep 75
+skinparam ranksep 75
+hide empty members
+
+skinparam noteFontSize 10
+skinparam noteFontName Courier
+
+skinparam monochrome  false
+skinparam shadowing   false
+skinparam roundcorner 10
+skinparam linetype polyline
+
+skinparam class {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam state {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+    fontColor       CornFlowerBlue
+}
+
+skinparam object {
+    BackgroundColor GhostWhite
+    ArrowColor      Gray
+    BorderColor     Black
+}
+
+skinparam package<<Layout>> {
+  borderColor         Transparent
+  backgroundColor     Transparent
+  fontColor           Transparent
+  stereotypeFontColor Transparent
+}
+
+skinparam sequence {
+	ArrowColor                  Gray
+  LifeLineBorderColor         CornFlowerBlue
+  LifeLineBackgroundColor     GhostWhite
+	ParticipantBorderColor      CornFlowerBlue
+	ParticipantBackgroundColor  GhostWhite
+  ActorBorderColor            CornFlowerBlue
+	ActorBackgroundColor        GhostWhite
+  BoxBorderColor         CornFlowerBlue
+  BoxBackgroundColor         GhostWhite
+}
+
+skinparam stereotypeCBackgroundColor CornflowerBlue
+
+hide footbox
+hide empty members
+
+skinparam note {
+ BackgroundColor GhostWhite
+ BorderColor         CornFlowerBlue
+}
+
+    participant ": Front" as ft
+    participant ": Back" as bk
+    participant ": RecipeController" as rc
+
+    activate ft
+    ft -> bk : POST /recipes/addtoDoneRecipe
+    activate bk
+    bk -> rc : addToDone(recipe)
+    activate rc
+    create "RecipeController.recipeService: RecipeService" as rs
+    rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)
+    activate rs
+    rc -> rs : addDoneRecipe(recipe)
+    rs - -> rc
+    deactivate rs
+    rc - -> bk
+    deactivate rc
+    bk - -> ft
+    deactivate bk
+    ft <- - ft: Traiter les données reçues
+
+@enduml
+
+PlantUML version 1.2021.01(Tue Feb 02 07:55:08 UTC 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: fr
+Country: FR
+--></g></svg>

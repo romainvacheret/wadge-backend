@@ -37,7 +37,7 @@ public class ShoppingService {
     
     public Set<Ingredient> addToShoppingList(Set<Ingredient> elements) {
         elements.stream().forEach(element -> {
-            // The element is contained in food_list or not
+            
             Optional<Food> food = foodService.getFoodFromString(Ingredient.extractName(element));
             String previousName = element.getName();
             if(food.isPresent()) {
@@ -60,12 +60,11 @@ public class ShoppingService {
                 // Unparsable strings ex: "un brin", "une feuille"...
             }
             
-            // uncountable elements ex: salt, pepper...
+         
             if(quantity == -1) {
                 quantity = 0;
             }
-
-            // Adds to the previous value if existed
+            
             Ingredient previousValue = shoppingList.get(element.getName());
             if(previousValue != null) {
                 String x = String.format("%.1f", Double.parseDouble(previousValue.getQuantity()) + quantity).replace(",", ".");

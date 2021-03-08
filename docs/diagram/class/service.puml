@@ -99,6 +99,11 @@ package service {
                 + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
                 + getRecipesFromMarmiton(query: string): List<Recipe>
                 + getRecipeIngredient(recipe: Recipe): Map<String, String>
+                + getFavoriesRecipes():List<Recipe>
+                + addFavoriteRecipe(Recipe recipe):void
+                + deleteFavoriteRecipe(String link ):List<Recipe>
+                + getDoneRecipes():List<Recipe>
+                + addDoneRecipe(Recipe recipe):void
                 + selectRecipes(param: Parameter): List<Recipe>
             }
 
@@ -160,7 +165,10 @@ SelectionWithFridge o..> FridgeService
 
 UserListSelection *--> Recipe
 
+@enduml
+
 ShoppingService o..> FoodService
 ShoppingService *..> Ingredient
 
 @enduml
+

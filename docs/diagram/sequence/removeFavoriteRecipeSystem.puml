@@ -1,0 +1,24 @@
+@startuml addToFridgeSystem
+    !include ../style/commons.style
+
+    actor User
+    autonumber
+
+    participant ": Front" as frontend
+    participant ": Back" as backend
+
+ User -> frontend: cliquer sur "Recettes"
+
+        activate frontend
+        frontend -> backend: GET /recipes
+        activate backend
+        backend --> frontend: liste  des recettes
+        frontend --> User: afficher la liste des recettes
+    User -> frontend: decocher sur le button favori
+    frontend -> backend: POST /recettes/removeFavoriteRecipe
+    backend --> backend: removeFavorite(recipe)
+    User <-- frontend: decolorer le boutton favori de la rectte supprimée au favoris
+    deactivate backend
+    deactivate frontend
+
+@enduml

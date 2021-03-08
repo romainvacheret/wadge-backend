@@ -9,10 +9,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import wadge.model.recipe.Recipe;
 import wadge.service.fridge.FridgeService;
@@ -46,4 +43,29 @@ public class RecipeController {
     public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 
     }
+    @GetMapping(path="/recipes/favorites")
+	public List<Recipe> getFavoriteList(){
+    	return recipeService.getFavoriesRecipes();
+    }
+   
+    @PostMapping(path="/recipes/addFavorite")
+	public void addFavorite(@RequestBody Recipe recipe){
+    	   recipeService.addFavoriteRecipe(recipe);
+    
+    }
+    @PostMapping(path = "/recipes/removeFavorite")
+	public List<Recipe> removeFavorite(@RequestBody Recipe recipe){
+    	return recipeService.deleteFavoriteRecipe(recipe.getLink());
+    	
+    }
+	@GetMapping(path="/recipes/doneRecipes")
+	public List<Recipe> getDoneList(){
+		return recipeService.getDoneRecipes();
+	}
+	
+	@PostMapping(path="/recipes/addtoDoneRecipe")
+	public void addToDone(@RequestBody Recipe recipe){
+		recipeService.addDoneRecipe(recipe);
+		
+	}
 } 
