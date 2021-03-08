@@ -1,5 +1,4 @@
 package wadge.dao.impl;
-
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -7,11 +6,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.springframework.stereotype.Repository;
@@ -46,10 +41,6 @@ public class JsonRecipeDao implements IRecipeDao {
         this.recipes.addAll(recipes);
         return this.recipes;
     }
-<<<<<<< HEAD
-   
-=======
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
     
 
 }

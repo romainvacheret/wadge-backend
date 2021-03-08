@@ -31,7 +31,8 @@ public class RecipeService {
     private final IRecipeDao recipeDao;
     private final FridgeService fridgeService;
     private final IExternalRecipeDao marmitonDao;
-    private final ISpecificRecipeDao favoriteDao,doneRecipeDao;
+    private final ISpecificRecipeDao favoriteDao;
+    private final ISpecificRecipeDao        doneRecipeDao;
   
     @Autowired
     public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao,
@@ -77,15 +78,13 @@ public class RecipeService {
         } else if(param.equals(Parameter.EVERYTHING)) {
             return getAllRecipes();
         }
-<<<<<<< HEAD
+
         else if(param.equals(Parameter.FAVORITE)){
             return getFavoriesRecipes();
         }
         else if(param.equals(Parameter.REALISE)){
             return getDoneRecipes();
         }
-=======
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
 
         Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 
         Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
@@ -95,7 +94,7 @@ public class RecipeService {
 
         return selection.select(predicate).sort(comparator);
     }
-<<<<<<< HEAD
+
     public List<Recipe> getFavoriesRecipes(){
         return favoriteDao.getRecipes();
     }
@@ -112,8 +111,5 @@ public class RecipeService {
     public void addDoneRecipe(Recipe recipe){
         doneRecipeDao.writeRecipe(recipe);
     }
-=======
-  
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
     
 }

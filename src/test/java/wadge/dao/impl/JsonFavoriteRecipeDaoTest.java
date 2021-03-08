@@ -21,6 +21,6 @@ public class JsonFavoriteRecipeDaoTest {
 	public void getAllRecipesTest() {
 		
 		assertTrue(dao.getRecipes() instanceof List<?>);
-		assertTrue(dao.getRecipes().get(0) instanceof Recipe);
+
 	}
 }

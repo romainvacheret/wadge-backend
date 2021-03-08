@@ -101,10 +101,6 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					MarmitonRecipe recipe = new MarmitonRecipe();
 					recipe.setLink(linkList.get(i));
 					recipe.setName(nmes.get(i).replace("une photo",""));
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
 					recipe.setOpinion(opinion.asText());
 					String[] r = ratingValue.asText().split("/");
 					recipe.setRating(r[0]);
@@ -117,11 +113,6 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 					recipe.setServings(serving.get(i));
 					recipeExternals.put(recipe.getLink(), recipe);
 					i++;
-<<<<<<< HEAD
-				
-=======
-					
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
 				}
 				writeRecipeExternal();
 			}

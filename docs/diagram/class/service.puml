@@ -168,11 +168,10 @@ SelectionWithFridge o..> FridgeService
 
 UserListSelection *--> Recipe
 
-<<<<<<< HEAD
 @enduml
-=======
+
 ShoppingService o..> FoodService
 ShoppingService *..> Ingredient
 
 @enduml
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
+

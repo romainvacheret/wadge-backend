@@ -1,0 +1,26 @@
+@startuml recipesSystem
+    !include ../style/commons.style
+
+    autonumber
+    actor User
+    participant ": Front" as frontend
+    participant ": Back" as backend
+
+    User -> frontend: cliquer sur "Recettes"
+    User -> frontend: selectionner filtrage "Toutes les recettes"
+    activate frontend
+    frontend -> backend: GET /recipes
+    activate backend
+    backend --> frontend: liste  des recettes
+    frontend --> User: afficher la liste des recettes
+
+    User -> frontend: sélectionner filtrage "Tri avec mes recettes realiseés"
+    frontend -> backend: GET /recipes/doneRecipes
+    backend -->backend :selectRecipes(REALISE)
+    backend --> frontend: liste  des recettes realisees
+    frontend --> User: afficher la liste des recettes realisees
+    deactivate backend
+
+    deactivate frontend
+
+@endum

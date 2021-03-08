@@ -69,16 +69,13 @@ package api {
         + getRecipesUsingListFood(listFood : JsonNode): List<Recipe>
         + getRecipesFromMarmiton(ingredients: JsonNode): List<Recipe>
         + getRecipesIngredients(recipes : Recipe): Map<String, String>
-<<<<<<< HEAD
         + addFavorie( recipe:Recipe):void
         + removeFavorite(recipe:Recipe ):List<Recipe>
         + getDoneList():List<Recipe>
         + getFavorieList():List<Recipe>
         + addToDone( recipe:Recipe):void
-
-=======
         + getSelectedRecipes(node: Map<String,Parameter>): List<Recipe>
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
+
     }
   
     class GoogleController {
@@ -108,11 +105,10 @@ RecipeController *--> Recipe
 RecipeController o..> RecipeService
 RecipeController o..> FridgeService
 
-<<<<<<< HEAD
 @enduml
-=======
+
 ShoppingController o..> ShoppingService
 ShoppingController *..> Ingredient
 
 @enduml
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
+

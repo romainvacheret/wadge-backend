@@ -13,7 +13,7 @@
     create "RecipeController.recipeService: RecipeService" as rs
     rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)
     activate rs
-    rc -> rs : getFavoriesRecipes()
+    rc -> rs : getRecipes()
     rs --> rc
     deactivate rs
     rc --> bk
