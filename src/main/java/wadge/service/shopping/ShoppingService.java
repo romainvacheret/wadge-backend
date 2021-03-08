@@ -57,7 +57,7 @@ public class ShoppingService {
                     quantity = Double.parseDouble(element.getQuantity());
                 }
             } catch(NumberFormatException e) {
-            
+                // Unparsable strings ex: "un brin", "une feuille"...
             }
             
          

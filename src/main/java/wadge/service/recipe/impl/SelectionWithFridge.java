@@ -51,7 +51,7 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
             products.get(RecallType.FOURTEEN_DAYS).stream().forEach(product -> addToSet(nameSet, product, 1));
             products.get(RecallType.OTHER).stream().forEach(product -> addToSet(nameSet, product, 1));
         } catch (NullPointerException e) {
-        
+            // No food for the given RecallType
         }
     }
 
