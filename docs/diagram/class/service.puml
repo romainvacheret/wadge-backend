@@ -99,15 +99,12 @@ package service {
                 + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
                 + getRecipesFromMarmiton(query: string): List<Recipe>
                 + getRecipeIngredient(recipe: Recipe): Map<String, String>
-<<<<<<< HEAD
                 + getFavoriesRecipes():List<Recipe>
                 + addFavoriteRecipe(Recipe recipe):void
                 + deleteFavoriteRecipe(String link ):List<Recipe>
                 + getDoneRecipes():List<Recipe>
                 + addDoneRecipe(Recipe recipe):void
-=======
                 + selectRecipes(param: Parameter): List<Recipe>
->>>>>>> 1a40a11248b5dac4e21389bd5ec723a3c1230602
             }
 
             class SelectionWithFridge extends AbstractRecipeSelection {

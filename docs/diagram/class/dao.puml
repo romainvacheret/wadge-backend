@@ -52,10 +52,13 @@ package dao {
             toRecipe(recipes: List<MarmitonRecipe>): List<Recipe>
         }
         interface ISpecificRecipeDao{
-           getRecipes(): List<Recipe>
-	       writeRecipe( recipe:Recipe) :void
-	       addRecipe(recipes:List<Recipe> ):void
-	       deletefromRecipe( link:String ):void
+           getFavoritesRecipes():List<Recipe>
+          	getDoneRecipes():List<Recipe>
+          	 writeFavoriteRecipe(Recipe recipe) :void
+          	writeDoneRecipe(Recipe recipe) :void
+          	addRecipeFavorite(List<Recipe> recipes):void
+           addRecipeDone(List<Recipe> recipes):	void
+          	deletefavoriteRecipe(String link ):void
         }
     }
 
@@ -94,7 +97,10 @@ package dao {
             - ObjectMapper mapper << final >>
         	- favorites :Map<String,Recipe> <<static final>>
         	~ FILE_FAVORITE :String <<static final >>
-        	- recipes :List<Recipe>
+        	- doneRecipes :Map<String,Recipe> <<static final>>
+            - recipes :List<Recipe>
+             ~ FILE_DONE_RECIPE :String <<static final >>
+        	- recipesDone :List<Recipe>
         	+ this()
         }
         class JsonDoneRecipeDao implements ISpecificRecipeDao {
