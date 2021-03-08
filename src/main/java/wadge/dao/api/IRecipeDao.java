@@ -7,6 +7,5 @@ import wadge.model.recipe.Recipe;
 public interface IRecipeDao {
     List<Recipe> getAllRecipes();
     List<Recipe> addAllRecipes(List<Recipe> recipes);
-
-  
+ 
 }

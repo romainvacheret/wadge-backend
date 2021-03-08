@@ -50,8 +50,19 @@ image::./diagram/out/emptyFridgeSystem.svg[]
 image::./diagram/out/scaleToUnitSystem.svg[]
 === Conversion d'une unité en poids
 image::./diagram/out/scaleToWeightSystem.svg[]
+=== Ajout d'une recette au favories
+image::./diagram/out/addFavoriteRecipeSystem.svg[]
+=== liste des recettes favorites
+image::./diagram/out/recipeFavoriteSystem.svg[]
+=== Suppression d'une recette favorite
+image::./diagram/out/removeFavoriteRecipeSystem.svg[]
+=== Ajout d'une recette réalisée
+image::./diagram/out/addDoneRecipeSystem.svg[]
+=== liste des recettes réalisées
+image::./diagram/out/recipeDoneSystem.svg[]
 
 == Différents diagrammes de séquences (internes)
+
 === Carte
 image::./diagram/out/map.svg[]
 === Liste des aliments en fonction d'un mois donné
@@ -70,7 +81,20 @@ image::./diagram/out/recipesFilterByList.svg[]
 image::./diagram/out/recipesSearch.svg[]
 === Ajout d'aliments au frigo
 image::./diagram/out/addToFridge.svg[]
+=== Suppression d'aliemnt du frigo
+image::./diagram/out/updateFridge.svg[]
+=== Ajout d'une recette au favories
+image::./diagram/out/addFavoriteRecipe.svg[]
+=== liste des recettes favorites
+image::./diagram/out/recipeFavorites.svg[]
+=== Suppression d'une recette favorite
+image::./diagram/out/removeFavoriteRecipe.svg[]
+=== Ajout d'une recette realisee
+image::./diagram/out/addDoneRecipe.svg[]
+=== liste des recettes réalisées
+image::./diagram/out/recipeDone.svg[]
 === Suppression d'aliment du frigo
 image::./diagram/out/updateFridge.svg[]
 === Ajout d'une balance de conversion
 image::./diagram/out/scale.svg[]
+
