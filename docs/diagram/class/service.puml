@@ -117,14 +117,6 @@ package service {
         }
     }
 
-    package map {
-        class MapService {
-            - KEY: string <<static final>>
-            + jsonToFile(fileName: string, json: JSONObject): void
-            + request(lat: double, lng: double): JSONObject
-            + parseJSON(json: JSONArray): JSONArray
-        }
-    }
     package shopping{
 
         class ShoppingService{
