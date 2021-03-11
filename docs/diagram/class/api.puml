@@ -16,10 +16,6 @@ package model {
     }
 }
 
-package service.map {
-    class MapService {}
-}
-
 package com.fasterxml.jackson.databind {
     class ObjectMapper {}
     class JsonNode {}
@@ -36,6 +32,7 @@ package service.fridge {
 package service.recipe {
     class RecipeService {}
 }
+
 package service.shopping{
     class ShoppingService{}
 }
@@ -77,10 +74,7 @@ package api {
         + getSelectedRecipes(node: Map<String,Parameter>): List<Recipe>
 
     }
-  
-    class GoogleController {
-        + getCloseShops(lat: double, lng: double): ResponseEntity<JSONObject>
-    }    
+     
     class ShoppingController{
         - shoppingService: ShoppingService <<Final>>
         + this(shoppingService: ShoppingService): ShoppingController
@@ -90,8 +84,6 @@ package api {
 
     }
 }
-
-GoogleController o..> MapService
 
 FoodController *--> Food
 FoodController o..> FoodService
@@ -105,10 +97,7 @@ RecipeController *--> Recipe
 RecipeController o..> RecipeService
 RecipeController o..> FridgeService
 
-@enduml
-
 ShoppingController o..> ShoppingService
 ShoppingController *..> Ingredient
-
 @enduml
 
