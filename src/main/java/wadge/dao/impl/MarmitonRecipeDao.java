@@ -63,7 +63,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 				List<String> linkList = new ArrayList<>();
 				List<String> steps = new ArrayList<>();
 				List<String> preparation = new ArrayList<>();
-				List<String> serving = new ArrayList<>();
+				List<String> serving = new ArrayList<>();  //ToDO
 				List<String> difficluty = new ArrayList<>();
 				Map<Integer, List<Ingredient>> ingredients = new HashMap<>();
 				List<String> nmes = new ArrayList<>();
@@ -84,17 +84,20 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						difficluty.add(diff.asText());
 						List<String> qt=new ArrayList<>();
 						List<String> mames=new ArrayList<>();
-						List<HtmlElement> q=pageLink.getByXPath("//div[@class='item-list__item']/div[@class='item__quantity show-icon']//span[@class='quantity']");
-						List<HtmlElement>  n= pageLink.getByXPath("//div[@class='item-list__item']/div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");
-						q.stream().forEach(qte->qt.add(qte.asText()));
-						n.stream().forEach(nme-> mames.add(nme.asText()));
+						// ToDo resolve generate exception
+						//List<HtmlElement> q=pageLink.getByXPath("//div[@class='item-list__item']/div[@class='item__quantity show-icon']//span[@class='quantity']");
+						// //ToDO impossible to get
+						//List<HtmlElement>  n= pageLink.getByXPath("//div[@class='item-list__item']/div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");
+						//q.stream().forEach(qte->qt.add(qte.asText()));
+					
+						//n.stream().forEach(nme-> mames.add(nme.asText()));
 						List<Ingredient> ingrediens = new ArrayList<>();
-						for (int j = 0; j < nmes.size(); j++) { ingrediens.add(new Ingredient( mames.get(j), qt.get(j)));}
-						ingredients.put(i,ingrediens);
+						// TODo AFTER SUCCES GET INGREDIENTS
+						/*for (int j = 0; j < nmes.size(); j++) { ingrediens.add(new Ingredient( mames.get(j), qt.get(j)));}
+						ingredients.put(i,ingrediens);*/
 						i++;
 						
 					}
-					System.out.println("la longeur"+i);
 				}
 				if (!recipes.isEmpty()) {
 					int i = 0;
@@ -111,12 +114,14 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						String prepa=preparation.get(i).replace("Temps Total : ","");
 						recipe.setPreparation(prepa);
 						recipe.setDifficulty(difficluty.get(i));
+						//ToDo
 					    // recipe.setIngredients(ingredients.get(i));
 					    //recipe.setServings(serving.get(i));
 						recipeExternals.put(recipe.getLink(), recipe);
 						i++;
-						System.out.println("la recette"+recipe);
-						//recipeExternals.put(recipe.getLink(), recipe);
+						//ToDo console with Ctl+f "la recette"
+						System.out.println("la recette :"+recipe);
+						//recipeExternals.put(recipe.getLink(), recipe); ToDo after get all arttibute with succces
 					}
 					writeRecipeExternal();
 				}

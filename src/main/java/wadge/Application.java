@@ -12,6 +12,7 @@ public class Application {
     public static MarmitonRecipeDao m=new MarmitonRecipeDao();
 
     public static void main(String[] args) {
+        //view Console ToDo To remove after
         m.recipeExternalsFromUrl("tomate)");
        
         SpringApplication.run(Application.class, args);
