@@ -45,7 +45,9 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 		mapper=new ObjectMapper();
 		recipeExternals=new HashMap<>();
 	}
-	public void recipeExternal(String search) {
+	@Override
+	public List<MarmitonRecipe> recipeExternalsFromUrl(String search) {
+		
 			try (WebClient client = new WebClient()) {
 				client.getOptions().setCssEnabled(false);
 				client.getOptions().setJavaScriptEnabled(false);
@@ -82,8 +84,8 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						difficluty.add(diff.asText());
 						List<String> qt=new ArrayList<>();
 						List<String> mames=new ArrayList<>();
-						List<HtmlElement> q=pageLink.getByXPath("//div[@class='item__quantity show-icon']//span[@class='quantity']");
-						List<HtmlElement> n=pageLink.getByXPath("//div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");
+						List<HtmlElement> q=pageLink.getByXPath("//div[@class='item-list__item']/div[@class='item__quantity show-icon']//span[@class='quantity']");
+						List<HtmlElement>  n= pageLink.getByXPath("//div[@class='item-list__item']/div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");
 						q.stream().forEach(qte->qt.add(qte.asText()));
 						n.stream().forEach(nme-> mames.add(nme.asText()));
 						List<Ingredient> ingrediens = new ArrayList<>();
@@ -109,27 +111,20 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						String prepa=preparation.get(i).replace("Temps Total : ","");
 						recipe.setPreparation(prepa);
 						recipe.setDifficulty(difficluty.get(i));
-					   // recipe.setIngredients(ingredients.get(i));
+					    // recipe.setIngredients(ingredients.get(i));
 					    //recipe.setServings(serving.get(i));
 						recipeExternals.put(recipe.getLink(), recipe);
 						i++;
 						System.out.println("la recette"+recipe);
-						recipeExternals.put(recipe.getLink(), recipe);
-						i++;
-						System.out.println(recipe);
+						//recipeExternals.put(recipe.getLink(), recipe);
 					}
-					//writeRecipeExternal();
+					writeRecipeExternal();
 				}
 			} catch (Exception e) {
 				logger.log(Level.FINE, e.getMessage(), e);
 			}
-		//return recipeExternals.values().stream().collect(Collectors.toList());
+		return recipeExternals.values().stream().collect(Collectors.toList());
 		}
-		
-	@Override
-	public List<MarmitonRecipe> recipeExternalsFromUrl(String search) {
-		return  null;
-	}
 	
 	public List<Recipe> toRecipe(List<MarmitonRecipe> recipes) {
 		return recipes.stream().filter(recipe -> !recipe.getPreparation().equals(""))

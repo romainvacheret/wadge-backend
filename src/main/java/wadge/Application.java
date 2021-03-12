@@ -12,7 +12,7 @@ public class Application {
     public static MarmitonRecipeDao m=new MarmitonRecipeDao();
 
     public static void main(String[] args) {
-        m.recipeExternal("tomate)");
+        m.recipeExternalsFromUrl("tomate)");
        
         SpringApplication.run(Application.class, args);
     }
