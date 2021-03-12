@@ -30,7 +30,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	Map<String,MarmitonRecipe> recipeExternals;
 	static final String FILE_NAME = "recipeExternal.json";
 	static final String BASE_URL = "https://www.marmiton.org/recettes/recherche.aspx?aqt=";
-	static final String URL = "https://www.marmiton.org/";
+	static final String URL = "https://www.marmiton.org";
 	private static Logger logger = Logger.getLogger(MarmitonRecipeDao.class.getName());
 	@Override
 	public void writeRecipeExternal() {
@@ -45,81 +45,90 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 		mapper=new ObjectMapper();
 		recipeExternals=new HashMap<>();
 	}
-	
+	public void recipeExternal(String search) {
+			try (WebClient client = new WebClient()) {
+				client.getOptions().setCssEnabled(false);
+				client.getOptions().setJavaScriptEnabled(false);
+				HtmlPage page = client.getPage(BASE_URL + URLEncoder.encode(search, "UTF-8"));
+				List<HtmlElement> recipes = page.getByXPath("//div[@class='CardResultstyle__Layout-sc-1cct3mj-1 kIyuTI']");
+				List<HtmlElement> opinion = page.getByXPath("//div[@class='RecipeCardResultstyle__RatingNumber-sc-30rwkm-3 jtNPhW']");
+				List<HtmlElement> ratingValue= page.getByXPath("//div[@class='RatingStarstyle__Rating-sc-11eskgd-0 joYcJz']/span[@class='MuiTypography-root MuiTypography-caption']");
+				List<String> rt=new ArrayList<>();
+				ratingValue.stream().forEach(htmlElement -> rt.add(htmlElement.asText()));
+				List<String> op=new ArrayList<>();
+				opinion.stream().forEach(htmlElement -> op.add(htmlElement.asText()));
+				List<HtmlAnchor> recipesLink = page.getByXPath("//div[@class='SearchResultsstyle__Layout-sc-1gofnyi-0 fuwQUX']//a[@class='SearchResultsstyle__SearchCardResult-sc-1gofnyi-2 gQpFpv']");
+				List<String> linkList = new ArrayList<>();
+				List<String> steps = new ArrayList<>();
+				List<String> preparation = new ArrayList<>();
+				List<String> serving = new ArrayList<>();
+				List<String> difficluty = new ArrayList<>();
+				Map<Integer, List<Ingredient>> ingredients = new HashMap<>();
+				List<String> nmes = new ArrayList<>();
+				
+				if (!recipesLink.isEmpty()) {
+					int i = 0;
+					for (HtmlAnchor htmlItem : recipesLink) {
+						linkList.add(URL + htmlItem.getHrefAttribute());
+						HtmlPage pageLink = client.getPage(URL + htmlItem.getHrefAttribute());
+						List<HtmlElement> ns = pageLink.getByXPath("//div[@class='mrtn-modal--with-head-picture__title-container']//p[@class='mrtn-modal-sub-title__container']//span['mrtn-modal-sub-title']");
+						nmes.add(ns.stream().map(HtmlElement::asText).collect(Collectors.joining()));
+						List<HtmlElement> stp = pageLink.getByXPath("//div[@class='recipe-step-list']/div[@class='recipe-step-list__container']");
+						String stps = stp.stream().map(HtmlElement::asText).collect(Collectors.joining());
+						steps.add(stps);
+						HtmlElement prepa=pageLink.getFirstByXPath("//div[@class='recipe-preparation__time']/div[@class='time__total']");
+						preparation.add(prepa.asText());
+						HtmlElement diff=(HtmlElement) pageLink.getByXPath("//div[@class='recipe-primary']/div[@class='recipe-primary__item']").get(1);
+						difficluty.add(diff.asText());
+						List<String> qt=new ArrayList<>();
+						List<String> mames=new ArrayList<>();
+						List<HtmlElement> q=pageLink.getByXPath("//div[@class='item__quantity show-icon']//span[@class='quantity']");
+						List<HtmlElement> n=pageLink.getByXPath("//div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");
+						q.stream().forEach(qte->qt.add(qte.asText()));
+						n.stream().forEach(nme-> mames.add(nme.asText()));
+						List<Ingredient> ingrediens = new ArrayList<>();
+						for (int j = 0; j < nmes.size(); j++) { ingrediens.add(new Ingredient( mames.get(j), qt.get(j)));}
+						ingredients.put(i,ingrediens);
+						i++;
+						
+					}
+					System.out.println("la longeur"+i);
+				}
+				if (!recipes.isEmpty()) {
+					int i = 0;
+					for (HtmlElement htmlItem : recipes) {
+						System.out.println("dans le deuxieme for des recettes");
+						MarmitonRecipe recipe = new MarmitonRecipe();
+						recipe.setLink(linkList.get(i));
+						recipe.setName(nmes.get(i));
+						recipe.setOpinion(op.get(i));
+						String[] rting = rt.get(i).split("/");
+						recipe.setRating(rting[0]);
+						recipe.setRatingfract("/5");
+						recipe.setSteps(Arrays.asList(steps.get(i).split("\\.")));
+						String prepa=preparation.get(i).replace("Temps Total : ","");
+						recipe.setPreparation(prepa);
+						recipe.setDifficulty(difficluty.get(i));
+					   // recipe.setIngredients(ingredients.get(i));
+					    //recipe.setServings(serving.get(i));
+						recipeExternals.put(recipe.getLink(), recipe);
+						i++;
+						System.out.println("la recette"+recipe);
+						recipeExternals.put(recipe.getLink(), recipe);
+						i++;
+						System.out.println(recipe);
+					}
+					//writeRecipeExternal();
+				}
+			} catch (Exception e) {
+				logger.log(Level.FINE, e.getMessage(), e);
+			}
+		//return recipeExternals.values().stream().collect(Collectors.toList());
+		}
+		
 	@Override
 	public List<MarmitonRecipe> recipeExternalsFromUrl(String search) {
-		try (WebClient client = new WebClient()) {
-			client.getOptions().setCssEnabled(false);
-			client.getOptions().setJavaScriptEnabled(false);
-			HtmlPage page = client.getPage(BASE_URL + URLEncoder.encode(search, "UTF-8"));
-			List<HtmlElement> recipes = page.getByXPath("//div[@class='CardResultstyle__Layout-sc-1cct3mj-1 kIyuTI']");
-			List<HtmlAnchor> recipesLink = page.getByXPath("//div[@class='SearchResultsstyle__Layout-sc-1gofnyi-0 fuwQUX']//a[@class='SearchResultsstyle__SearchCardResult-sc-1gofnyi-2 gQpFpv']");
-			List<String> linkList = new ArrayList<>();
-			List<String> steps = new ArrayList<>();
-			List<String> preparation = new ArrayList<>();
-			List<String> serving = new ArrayList<>();
-			List<String> difficluty = new ArrayList<>();
-			Map<Integer, List<Ingredient>> ingredients = new HashMap<>();
-			List<String> nmes=new ArrayList<>();
-			if (!recipesLink.isEmpty()) {
-				
-				int i = 0;
-				for (HtmlAnchor htmlItem : recipesLink) {
-					
-					linkList.add(htmlItem.getHrefAttribute());
-					HtmlPage pageLink = client.getPage(URL + htmlItem.getHrefAttribute());
-					List<HtmlElement> name=pageLink.getByXPath("//p[@class='mrtn-modal-sub-title__container']//span['mrtn-modal-sub-title']");
-					nmes.add(name.stream().map(HtmlElement::asText).collect(Collectors.joining()));
-					List<HtmlElement> stp = pageLink.getByXPath("//ol[@class='recipe-preparation__list']");
-					String stps = stp.stream().map(HtmlElement::asText).collect(Collectors.joining());
-					steps.add(stps);
-					List<HtmlElement> p = pageLink.getByXPath("//div[@class='recipe-infos__timmings__total-time title-4']");
-					preparation.add(p.stream().map(HtmlElement::asText).collect(Collectors.joining()));
-					List<HtmlElement> srv = pageLink.getByXPath("//span[@class='title-2 recipe-infos__quantity__value']");
-					serving.add(srv.stream().map(HtmlElement::asText).collect(Collectors.joining()));
-					List<HtmlElement> diff = pageLink.getByXPath("//span[@class='recipe-infos__item-title']");
-					difficluty.add(diff.stream().map(HtmlElement::asText).collect(Collectors.joining()));
-					List<String> names = new ArrayList<>();
-					List<String> qt = new ArrayList<>();
-					List<HtmlElement> qte = pageLink.getByXPath("//span[@class='recipe-ingredient-qt']");
-					qte.stream().forEach(q -> qt.add(q.asText()));
-					List<HtmlElement> n = pageLink.getByXPath("//span[@class='ingredient']");
-					n.stream().forEach(nme -> names.add(nme.asText()));
-					List<Ingredient> ingrediens = new ArrayList<>();
-					for (int j = 0; j < names.size(); j++) {
-						ingrediens.add(new Ingredient(names.get(j), qt.get(j)));
-					}
-					ingredients.put(i, ingrediens);
-					i++;
-				}
-			}
-			int i = 0;
-			if (!recipes.isEmpty()) {
-				for (HtmlElement htmlItem : recipes) {
-					HtmlElement ratingValue = htmlItem.getFirstByXPath("//span[@class='MuiTypography-root MuiTypography-caption']");
-					HtmlElement opinion = htmlItem.getFirstByXPath("//div[@class='RecipeCardResultstyle__RatingNumber-sc-30rwkm-3 jtNPhW']");
-					MarmitonRecipe recipe = new MarmitonRecipe();
-					recipe.setLink(linkList.get(i));
-					recipe.setName(nmes.get(i).replace("une photo",""));
-					recipe.setOpinion(opinion.asText());
-					String[] r = ratingValue.asText().split("/");
-					recipe.setRating(r[0]);
-					recipe.setRatingfract("/5");
-					recipe.setSteps(Arrays.asList(steps.get(i).split("\\.")));
-					recipe.setIngredients(ingredients.get(i));
-					String prepa=preparation.get(i).replace("Temps Total : ","");
-					recipe.setPreparation(prepa);
-					recipe.setDifficulty(difficluty.get(i));
-					recipe.setServings(serving.get(i));
-					recipeExternals.put(recipe.getLink(), recipe);
-					i++;
-				}
-				writeRecipeExternal();
-			}
-		} catch (Exception e) {
-			logger.log(Level.FINE, e.getMessage(), e);
-		}
-		return recipeExternals.values().stream().collect(Collectors.toList());
+		return  null;
 	}
 	
 	public List<Recipe> toRecipe(List<MarmitonRecipe> recipes) {
