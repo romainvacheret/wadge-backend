@@ -13,6 +13,9 @@ import wadge.dao.api.IFoodDao;
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
 import wadge.model.food.Month;
+import wadge.model.recipe.Ingredient;
+import wadge.model.recipe.Ingredient.Unit;
+import wadge.service.food.FoodHelper.Conversion;
 
 @Service
 public class FoodService {
@@ -48,5 +51,48 @@ public class FoodService {
             Optional.of(FoodHelper.convert(request.getType(), f.get(), request.getQuantity())) :
             Optional.empty();
     }
-   
+
+    public double getUnits(Ingredient ingredient) {
+        double rtr = 0;
+        double ingQuantity;
+        final Unit unit = Ingredient.getUnit(ingredient.getName());
+        try {
+            ingQuantity = Double.parseDouble(ingredient.getQuantity());
+        } catch(NumberFormatException e) {
+            ingQuantity = -1;
+        }
+        final Optional<Food> food = getFoodFromString(Ingredient.extractName(ingredient));
+
+        if(ingQuantity == -1){
+            rtr = 0;
+        } else {
+            if(unit.equals(Unit.NONE)) {
+                rtr = ingQuantity;
+            } else {
+                final double quantity = unit.equals(Unit.G) ? ingQuantity : ingQuantity * 1000;
+                rtr =   food.isPresent() ? FoodHelper.convert(Conversion.G_TO_UNIT, food.get(), quantity) :
+                    quantity / 100;
+            }
+    }
+
+        
+
+        return rtr;
+
+        // The name has been changed if is in food_list
+        
+        // double quantity = 0;
+        // // The element's unit is Kg, g or neither one
+        // try {
+        //     if(!unit.equals(Unit.NONE)) {
+        //         quantity = Double.parseDouble(element.getQuantity());
+        //         quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
+        //         quantity = FoodHelper.convert(Conversion.G_TO_UNIT, food.get(), quantity);
+        //     } else {
+        //         quantity = Double.parseDouble(element.getQuantity());
+        //     }
+        // } catch(NumberFormatException e) {
+        //     // Unparsable strings ex: "un brin", "une feuille"...
+        // }
+    }   
 }
