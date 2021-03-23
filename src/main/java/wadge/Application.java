@@ -13,8 +13,9 @@ public class Application {
 
     public static void main(String[] args) {
         //view Console ToDo To remove after
-        m.recipeExternalsFromUrl("tomate)");
-       
+    
+        //m.recipeNosRecetteFromUrl("tomate)");
         SpringApplication.run(Application.class, args);
+     
     }
 }

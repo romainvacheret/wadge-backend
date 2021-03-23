@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,6 +33,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	static final String FILE_NAME = "recipeExternal.json";
 	static final String BASE_URL = "https://www.marmiton.org/recettes/recherche.aspx?aqt=";
 	static final String URL = "https://www.marmiton.org";
+	static  final String SEARCH_URL="https://www.petitbilly.com/nos-recettes/?recherche=";
 	private static Logger logger = Logger.getLogger(MarmitonRecipeDao.class.getName());
 	@Override
 	public void writeRecipeExternal() {
@@ -44,6 +47,91 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	public MarmitonRecipeDao(){
 		mapper=new ObjectMapper();
 		recipeExternals=new HashMap<>();
+	}
+	@Override
+	public void recipeNosRecetteFromUrl(String search) {
+		
+		try (WebClient client = new WebClient()) {
+			System.out.println("try la methode url");
+			client.getOptions().setCssEnabled(false);
+			client.getOptions().setJavaScriptEnabled(false);
+			HtmlPage page = client.getPage(SEARCH_URL + search);
+			System.out.println("le search: "+SEARCH_URL + search);
+			List<HtmlAnchor> recipesLink = page.getByXPath(".//section[@class='recipe-list']/div[@class='container']/a[@class='recipe-item']");
+			List<HtmlElement> recipesName= page.getByXPath(".//section[@class='recipe-list']/div[@class='container']/a[@class='recipe-item']//h2[@class='recipe-item__title']");
+			List<String> linkList = new ArrayList<>();
+			List<String> nmes = new ArrayList<>();
+			Map<Integer,List<String>> steps = new HashMap<>();
+			List<String> serving = new ArrayList<>();
+			List<String> preparation = new ArrayList<>();
+			Map<Integer, List<Ingredient>> ingredients = new HashMap<>();
+			System.out.println("la methode url");
+			if (!recipesLink.isEmpty()) {
+				System.out.println("pas vide le premier if");
+				int i = 0;
+				for (HtmlAnchor htmlItem : recipesLink) {
+					linkList.add(htmlItem.getHrefAttribute());
+					System.out.println("le lien:"+linkList.get(i));
+					HtmlPage pageLink = client.getPage(htmlItem.getHrefAttribute());
+					HtmlElement prepa = pageLink.getFirstByXPath("//div[@class='recipe-content__preparation']//div[@class='recipe-content__preparation__time']");
+					preparation.add(prepa.asText());
+					List<HtmlElement> stp= pageLink.getByXPath("//div[@class='recipe-content__preparation']//ol[@class='recipe-content__preparation__steps']//li");
+					List<String> stps = stp.stream().map(HtmlElement::asText).collect(Collectors.toList());
+					steps.put(i,stps);
+					HtmlElement srving = pageLink.getFirstByXPath("//div[@class='recipe-content__ingredients__container']//div[@class='recipe-content__ingredients__people']");
+				    serving.add(srving.asText());
+					List<HtmlElement> ingredient = pageLink.getByXPath("//div[@class='recipe-content__ingredients__container']//div[@class='recipe-content__ingredients__list']//li[@class='recipe-content__ingredients__item']");
+					List<String> igrds=ingredient.stream().map(HtmlElement::asText).collect(Collectors.toList());
+					List<String> mames=new ArrayList<>();
+					List<String> qt=new ArrayList<>();
+					Pattern p = Pattern.compile("\\d+");
+					igrds.forEach(igd->{
+						mames.add(igd);
+						Matcher m = p.matcher(igd);
+							if(m.find()) {
+								qt.add(m.group());
+							}
+							else{
+								qt.add("");
+						}});
+					
+					List<Ingredient> ingrediens = new ArrayList<>();
+					for (int j = 0; j < nmes.size(); j++) { ingrediens.add(new Ingredient( mames.get(j), qt.get(j)));}
+					ingredients.put(i,ingrediens);
+					i++;
+				}
+				System.out.println("le nombre :"+i);
+			}
+			if(linkList.isEmpty()){System.out.println("est vide");}
+			if (!recipesName.isEmpty()) {
+				int i=0;
+				for (HtmlElement htmlItem : recipesName) {
+					nmes.add(htmlItem.asText());
+					MarmitonRecipe recipe = new MarmitonRecipe();
+					recipe.setLink(linkList.get(i));
+					recipe.setName(nmes.get(i));
+					//recipe.setOpinion(op.get(i));
+					//recipe.setRating(rting[0]);
+					recipe.setRatingfract("/5");
+					recipe.setSteps(steps.get(i));
+					//String prepa=preparation.get(i).replace("Temps Total : ","");
+					recipe.setPreparation(preparation.get(i));
+					//recipe.setDifficulty(difficluty.get(i));
+					recipe.setServings(serving.get(i));
+					recipe.setIngredients(ingredients.get(i));
+					recipeExternals.put(recipe.getLink(), recipe);
+					i++;
+					
+					System.out.println("la recette :"+recipe);
+				}
+				System.out.println("le nombre :"+i);
+			}
+			writeRecipeExternal();
+		}
+		catch(Exception e){
+			
+			}
+		//return this.recipeExternals.values().stream().collect(Collectors.toList());
 	}
 	@Override
 	public List<MarmitonRecipe> recipeExternalsFromUrl(String search) {
@@ -102,7 +190,6 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 				if (!recipes.isEmpty()) {
 					int i = 0;
 					for (HtmlElement htmlItem : recipes) {
-						System.out.println("dans le deuxieme for des recettes");
 						MarmitonRecipe recipe = new MarmitonRecipe();
 						recipe.setLink(linkList.get(i));
 						recipe.setName(nmes.get(i));
@@ -121,7 +208,9 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						i++;
 						//ToDo console with Ctl+f "la recette"
 						System.out.println("la recette :"+recipe);
-						//recipeExternals.put(recipe.getLink(), recipe); ToDo after get all arttibute with succces
+						
+						// ToDo after get arttibute with succces
+						//recipeExternals.put(recipe.getLink(), recipe);
 					}
 					writeRecipeExternal();
 				}
