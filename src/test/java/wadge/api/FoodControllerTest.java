@@ -4,6 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,17 @@ public class FoodControllerTest {
     public void getFridgeListTest() {
         assertTrue(controller.getAllFood() instanceof List<?>);
         assertTrue(controller.getAllFood().get(0) instanceof Food);
+    }
+    
+    @Test
+    public void getFoodFromMonthTest(){
+        String month = "january";
+        assertTrue(controller.getFoodFromMonth(month) instanceof List<?>);
+    }
+
+    @Test
+    public void getFoodFromMonthByDays(){
+        String month = "may";
+        assertTrue(controller.getFoodFromMonth(month) instanceof List<?>);
     }
 }
