@@ -29,16 +29,6 @@ public class MarmitonRecipeDaoTest {
 		assertTrue(marmitonRecipeDao.recipeExternalsFromUrl("tomate") instanceof List<?>);
 		assertTrue(marmitonRecipeDao.recipeExternalsFromUrl("tomate").get(0) instanceof  MarmitonRecipe);
 	}
-	@Test
-	public void xpath() throws Exception {
-		
-		try (final WebClient webClient = new WebClient()) {
-			
-			final HtmlPage page = webClient.getPage("https://www.marmiton.org");
-			
-			assertTrue(page.getByXPath("//div")instanceof List<?>);
-			assertTrue((HtmlElement) page.getByXPath("//div[@calss='sc-gTgzIj gnFbSu']").get(0) instanceof HtmlElement);
-		}
-	}
+
 	
 }
