@@ -21,6 +21,7 @@ import wadge.dao.api.IRecipeDao;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
 import wadge.model.recipe.external.MarmitonRecipe;
+import wadge.service.food.FoodService;
 import wadge.service.fridge.FridgeService;
 import wadge.service.recipe.api.AbstractRecipeSelection;
 import wadge.service.recipe.api.IRecipeSelection;
@@ -32,14 +33,16 @@ public class RecipeService {
     private final FridgeService fridgeService;
     private final IExternalRecipeDao marmitonDao;
     private final ISpecificRecipeDao specificRecipeDao;
+    private final FoodService foodService;
   
     @Autowired
     public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao,
-                         @Qualifier("jsonSepecificRecipeDao") ISpecificRecipeDao specificRecipeDao) {
+                         @Qualifier("jsonSepecificRecipeDao") ISpecificRecipeDao specificRecipeDao, FoodService foodService) {
         this.recipeDao = recipeDao;
         this.fridgeService = fridgeService;
         this.marmitonDao = recipeExternalDao;
         this.specificRecipeDao=specificRecipeDao;
+        this.foodService = foodService;
 
     }
 
@@ -89,6 +92,16 @@ public class RecipeService {
         Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
 
         Set<Recipe> recipes = recipeDao.getAllRecipes().stream().collect(Collectors.toSet());
+        if(param.equals(Parameter.BY_UNIT)) {
+            List<Map.Entry<Recipe, Double>> m = recipes.stream().map(recipe -> 
+                Map.entry(
+                    recipe, 
+                    recipe.getIngredients().stream().map(foodService::getUnits).reduce(0.0, Double::sum)
+                )
+            ).collect(Collectors.toList());
+            m.stream().forEach(mm -> System.out.println(String.format("%s : %f", mm.getKey().getName(), mm.getValue())));
+            return m.stream().sorted((m1, m2) -> Double.compare(m1.getValue(), m2.getValue())).map(Map.Entry<Recipe, Double>::getKey).collect(Collectors.toList());
+        }
         IRecipeSelection selection = new RecipeSelection(recipes);
 
         return selection.select(predicate).sort(comparator);
