@@ -147,7 +147,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			recipe.getName(),
 			recipe.getSteps(),
 			Integer.valueOf(recipe.getServings()),
-			50,
+			MarmitonRecipeHelper.timeToMinutes(recipe.getPreparation()),
 			MarmitonRecipeHelper.convertDifficulty(recipe.getDifficulty()),
 			Double.valueOf(recipe.getRating()),
 			recipe.getLink(),

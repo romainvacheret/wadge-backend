@@ -4,23 +4,16 @@ public class MarmitonRecipeHelper {
     private MarmitonRecipeHelper() {}
 
     public static int timeToMinutes(String time) {
-    	if(time.contains("1 h"))
-    		return    60;
-	    else {
-		    String[] arr = time.split(" ");
-		    String[] arr2 = arr[0].split("h");
-		    if (arr2.length == 2) {
-		    	if(!arr2[0].equals("1"))
-			        return 60 + Integer.valueOf(arr2[1]);
-		    	else
-			    return Integer.valueOf(arr2[1]) * 60;
-		    } else {
-		    	String[] min=arr2[0].split(" ");
-			    return Integer.valueOf(min[0]);
-		    }
-	    }
-	    
-	    
+		String[] arr = time.replace("\n", "").split(" ");
+		String[] arr2 = arr[0].split("h");
+		int result = Integer.valueOf(arr2[0].replace(" ", ""));
+		if(arr2.length == 2 || arr[1].contains("h")) {
+			result *= 60;
+			if(arr2.length == 2) {
+				result += Integer.valueOf(arr2[1]);
+			}
+		}
+		return result;
 	}
 
 	public static int convertDifficulty(String difficulty) {
