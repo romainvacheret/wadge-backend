@@ -9,6 +9,6 @@ public interface IExternalRecipeDao {
 	void writeRecipeExternal();
 	List<MarmitonRecipe> recipeExternalsFromUrl(String search);
 	List<Recipe> toRecipe(List<MarmitonRecipe> recipes);
-	void recipeNosRecetteFromUrl(String search);
+	
 	
 }
