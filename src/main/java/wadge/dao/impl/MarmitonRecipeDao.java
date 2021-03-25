@@ -32,7 +32,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	static final String FILE_NAME = "recipeExternal.json";
 	static final String BASE_URL = "https://www.marmiton.org/recettes/recherche.aspx?aqt=";
 	static final String URL = "https://www.marmiton.org";
-	private final static Logger logger = Logger.getLogger(MarmitonRecipeDao.class.getName());
+	private static Logger logger = Logger.getLogger(MarmitonRecipeDao.class.getName());
 	@Override
 	public void writeRecipeExternal() {
 		try {
@@ -123,6 +123,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						recipe.setRatingfract("/5");
 						recipe.setSteps(Arrays.asList(steps.get(i).split("\\.")));
 						String prepa=preparation.get(i).replace("Temps Total : ","");
+						prepa.replace("\n","");
 						recipe.setPreparation(prepa);
 						recipe.setDifficulty(difficluty.get(i));
 					    recipe.setIngredients(ingredients.get(i));
@@ -146,7 +147,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 			recipe.getName(),
 			recipe.getSteps(),
 			Integer.valueOf(recipe.getServings()),
-			MarmitonRecipeHelper.timeToMinutes(recipe.getPreparation()),
+			50,
 			MarmitonRecipeHelper.convertDifficulty(recipe.getDifficulty()),
 			Double.valueOf(recipe.getRating()),
 			recipe.getLink(),
