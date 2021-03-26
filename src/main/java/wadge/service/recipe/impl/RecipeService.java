@@ -114,7 +114,7 @@ public class RecipeService {
         specificRecipeDao.writeFavoriteRecipe(recipe);
     }
     public List<Recipe> deleteFavoriteRecipe(String link ){
-        specificRecipeDao.deletefavoriteRecipe(link);
+        specificRecipeDao.deleteFavoriteRecipe(link);
        return specificRecipeDao.getFavoritesRecipes();
     }
     public List<Recipe> getDoneRecipes(){

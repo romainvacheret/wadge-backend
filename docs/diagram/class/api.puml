@@ -62,21 +62,20 @@ package api {
         - recipeService: RecipeService <<final>>
         + this(recipeService: RecipeService, fridgeService: FridgeService): RecipeController
         + getAllRecipes(): List<Recipe>
-        + getRecipesUsingFridge(): List<Recipe>
-        + getRecipesUsingListFood(listFood : JsonNode): List<Recipe>
         + getRecipesFromMarmiton(ingredients: JsonNode): List<Recipe>
-        + getRecipesIngredients(recipes : Recipe): Map<String, String>
-        + addFavorie( recipe:Recipe):void
-        + removeFavorite(recipe:Recipe ):List<Recipe>
+        + getRecipesIngredient(recipes : Recipe): Map<String, String>
+        + addFavorite(recipe: Recipe):void
+        + removeFavorite(recipe: Recipe):List<Recipe>
         + getDoneList():List<Recipe>
-        + getFavorieList():List<Recipe>
-        + addToDone( recipe:Recipe):void
+        + getFavoriteList():List<Recipe>
+        + addToDone(recipe: Recipe):void
         + getSelectedRecipes(node: Map<String,Parameter>): List<Recipe>
 
     }
      
     class ShoppingController{
         - shoppingService: ShoppingService <<Final>>
+        - mapper: ObjectMapper
         + this(shoppingService: ShoppingService): ShoppingController
         + getShoppingList(): Set<Ingredient>
         + addToShoppingList(node: JsonNode): Set<Ingredient>

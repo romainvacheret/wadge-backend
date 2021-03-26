@@ -15,25 +15,25 @@ import java.util.stream.Collectors;
 
 public class JsonSepecificRecipeDao implements ISpecificRecipeDao {
 	private final ObjectMapper mapper;
-	private final Map<String, Recipe> donerecipes;
+	private final Map<String, Recipe> doneRecipes;
 	static final String FILE_DONE_RECIPE="done_recipe.json";
 	private final Map<String,Recipe> favorites;
 	static final String FILE_FAVORITE="favorites.json";
 	private static Logger logger = Logger.getLogger(JsonSepecificRecipeDao.class.getName());
 	private final List<Recipe> recipes;
-	private final List<Recipe> recipesdone;
+	private final List<Recipe> recipesDone;
 	public JsonSepecificRecipeDao(){
 		mapper=new ObjectMapper();
 		favorites=new HashMap<>();
 		recipes = new ArrayList<>();
-		donerecipes=new HashMap<>();
-		recipesdone = new ArrayList<>();
+		doneRecipes=new HashMap<>();
+		recipesDone = new ArrayList<>();
 		
 		try {
 			recipes.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_FAVORITE).toFile(), Recipe[].class)));
 			addRecipeFavorite(recipes);
-			recipesdone.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_DONE_RECIPE).toFile(), Recipe[].class)));
-			addRecipeDone(recipesdone);
+			recipesDone.addAll(Arrays.asList(mapper.readValue(Paths.get(FILE_DONE_RECIPE).toFile(), Recipe[].class)));
+			addRecipeDone(recipesDone);
 		} catch (IOException e) {
 			logger.log(Level.FINE, e.getMessage(), e);
 		}
@@ -44,7 +44,7 @@ public class JsonSepecificRecipeDao implements ISpecificRecipeDao {
 	}
 	@Override
 	public void addRecipeDone(List<Recipe> recipes){
-		recipesdone.stream().forEach(recipe -> donerecipes.put(recipe.getLink(),recipe));
+		recipesDone.stream().forEach(recipe -> doneRecipes.put(recipe.getLink(),recipe));
 	}
 	@Override
 	public List<Recipe> getFavoritesRecipes() {
@@ -52,7 +52,7 @@ public class JsonSepecificRecipeDao implements ISpecificRecipeDao {
 	}
 	@Override
 	public List<Recipe> getDoneRecipes() {
-		return donerecipes.values().stream().collect(Collectors.toList());
+		return doneRecipes.values().stream().collect(Collectors.toList());
 	}
 	
 	@Override
@@ -65,15 +65,15 @@ public class JsonSepecificRecipeDao implements ISpecificRecipeDao {
 	}
 	@Override
 	public void writeDoneRecipe(Recipe recipe) {
-		donerecipes.put(recipe.getLink(),recipe);
+		doneRecipes.put(recipe.getLink(),recipe);
 		try {
-			mapper.writeValue(Paths.get(FILE_DONE_RECIPE).toFile(),donerecipes.values());
+			mapper.writeValue(Paths.get(FILE_DONE_RECIPE).toFile(),doneRecipes.values());
 		}
 		catch (IOException e){logger.log(Level.FINE, e.getMessage(), e);}
 	}
 	
 	@Override
-	public void deletefavoriteRecipe(String link) {
+	public void deleteFavoriteRecipe(String link) {
 		favorites.remove(link);
 		try {
 			mapper.writeValue(Paths.get(FILE_FAVORITE).toFile(),favorites.values());
