@@ -20,11 +20,6 @@ import wadge.model.recipe.Recipe;
 public class RecipeServiceTest {
     @Autowired
     private RecipeService service;
-    @Before
-    public void setUp() {
-        IRecipeDao dao = new JsonRecipeDao();
-        service = new RecipeService(dao, null, null,null);
-    }
     
     @Test
     public void getAllFoodTest() {
