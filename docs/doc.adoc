@@ -32,8 +32,6 @@ image::./diagram/out/api.png[]
 Enfin, le package `api` est l'intermédiaire entre le code métier et l'utilisateur.
 
 == Différents diagrammes de séquences (système)
-=== Carte
-image::./diagram/out/mapSystem.svg[]
 === Liste des aliments en fonction d'un mois donné
 image::./diagram/out/monthFilterSystem.svg[]
 === Liste des aliments à manger aux différents dates
@@ -63,8 +61,6 @@ image::./diagram/out/recipeDoneSystem.svg[]
 
 == Différents diagrammes de séquences (internes)
 
-=== Carte
-image::./diagram/out/map.svg[]
 === Liste des aliments en fonction d'un mois donné
 image::./diagram/out/monthFilter.svg[]
 === Liste des aliments en fonction d'un mois donné trié en fonction des péremptions

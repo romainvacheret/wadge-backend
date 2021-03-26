@@ -2,6 +2,7 @@ package wadge.dao.impl;
 
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 import java.util.List;
 
@@ -28,6 +29,8 @@ public class MarmitonRecipeDaoTest {
 	public void getRecipefromUrlTest(){
 		assertTrue(marmitonRecipeDao.recipeExternalsFromUrl("tomate") instanceof List<?>);
 		assertTrue(marmitonRecipeDao.recipeExternalsFromUrl("tomate").get(0) instanceof  MarmitonRecipe);
+		assertNotEquals(marmitonRecipeDao.recipeExternalsFromUrl("tomate").get(0),marmitonRecipeDao.recipeExternalsFromUrl("tomate").get(1));
+
 	}
 
 	
