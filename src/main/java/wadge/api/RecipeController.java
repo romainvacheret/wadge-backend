@@ -44,7 +44,7 @@ public class RecipeController {
         return recipeService.selectRecipes(node.get("selection")); 
     }
     @GetMapping(path="/recipes")
-    List<Recipe> getAllRecipes(){
+    public  List<Recipe> getAllRecipes(){
     	return recipeService.getAllRecipes();
     }
     @GetMapping(path="/recipes/favorites")
