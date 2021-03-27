@@ -20,6 +20,7 @@ public class MarmitonRecipeDaoTest {
 	@Autowired
 	private MarmitonRecipeDao marmitonRecipeDao;
 	
+	
 	@Test
 	public void getRecipefromUrlTest(){
 		assertTrue(marmitonRecipeDao.recipeExternalsFromUrl("tomate") instanceof List<?>);
@@ -27,5 +28,6 @@ public class MarmitonRecipeDaoTest {
 		assertNotEquals(marmitonRecipeDao.recipeExternalsFromUrl("tomate").get(0),marmitonRecipeDao.recipeExternalsFromUrl("tomate").get(1));
 
 	}
+
 	
 }

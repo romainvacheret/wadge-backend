@@ -43,6 +43,10 @@ public class RecipeController {
     public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 
     }
+    @GetMapping(path="/recipes")
+    public  List<Recipe> getAllRecipes(){
+    	return recipeService.getAllRecipes();
+    }
     @GetMapping(path="/recipes/favorites")
 	public List<Recipe> getFavoriteList(){
     	return recipeService.getFavoriesRecipes();
@@ -59,7 +63,7 @@ public class RecipeController {
     	
     }
 	@GetMapping(path="/recipes/doneRecipes")
-	public List<Recipe> getDoneList(){
+	public List<Recipe> getDoneRecipeList(){
 		return recipeService.getDoneRecipes();
 	}
 	

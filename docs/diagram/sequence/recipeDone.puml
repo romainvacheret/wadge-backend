@@ -8,7 +8,7 @@
     activate ft
     ft -> bk : GET /recipes/doneRecipes
     activate bk
-    bk -> rc :getDoneList()
+    bk -> rc :getDoneRecipeList()
     activate rc
     create "RecipeController.recipeService: RecipeService" as rs
     rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)

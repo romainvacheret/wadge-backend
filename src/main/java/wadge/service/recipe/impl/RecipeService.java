@@ -77,17 +77,7 @@ public class RecipeService {
     public List<Recipe> selectRecipes(Parameter param) {
         if(param.equals(Parameter.USING_FRIDGE)) {
             return getRecipesUsingFridge(); 
-        } else if(param.equals(Parameter.EVERYTHING)) {
-            return getAllRecipes();
         }
-
-        else if(param.equals(Parameter.FAVORITE)){
-            return getFavoriesRecipes();
-        }
-        else if(param.equals(Parameter.REALISE)){
-            return getDoneRecipes();
-        }
-
         Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 
         Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
 
@@ -99,7 +89,6 @@ public class RecipeService {
                     recipe.getIngredients().stream().map(foodService::getUnits).reduce(0.0, Double::sum)
                 )
             ).collect(Collectors.toList());
-            m.stream().forEach(mm -> System.out.println(String.format("%s : %f", mm.getKey().getName(), mm.getValue())));
             return m.stream().sorted((m1, m2) -> Double.compare(m1.getValue(), m2.getValue())).map(Map.Entry<Recipe, Double>::getKey).collect(Collectors.toList());
         }
         IRecipeSelection selection = new RecipeSelection(recipes);
