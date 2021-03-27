@@ -28,5 +28,6 @@ public class UpdateResponseTest {
         assertEquals(3, updateResponse.getQuantity());
         assertNotEquals(u1, updateResponse);
         assertNotEquals(u3, updateResponse);
+        assertNotEquals(u2,updateResponse);
     }
 }
