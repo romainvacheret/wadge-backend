@@ -78,21 +78,5 @@ public class FoodService {
         
 
         return rtr;
-
-        // The name has been changed if is in food_list
-        
-        // double quantity = 0;
-        // // The element's unit is Kg, g or neither one
-        // try {
-        //     if(!unit.equals(Unit.NONE)) {
-        //         quantity = Double.parseDouble(element.getQuantity());
-        //         quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
-        //         quantity = FoodHelper.convert(Conversion.G_TO_UNIT, food.get(), quantity);
-        //     } else {
-        //         quantity = Double.parseDouble(element.getQuantity());
-        //     }
-        // } catch(NumberFormatException e) {
-        //     // Unparsable strings ex: "un brin", "une feuille"...
-        // }
     }   
 }

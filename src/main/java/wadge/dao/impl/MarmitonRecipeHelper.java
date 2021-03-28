@@ -6,7 +6,7 @@ public class MarmitonRecipeHelper {
     public static int timeToMinutes(String time) {
 		String[] arr = time.replace("\n", "").split(" ");
 		String[] arr2 = arr[0].split("h");
-		int result = Integer.valueOf(arr2[0].replace(" ", ""));
+		int result = Integer.parseInt(arr2[0].replace(" ", ""));
 		if(arr2.length == 2 || arr[1].contains("h")) {
 			result *= 60;
 			if(arr2.length == 2) {

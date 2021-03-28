@@ -87,7 +87,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 						difficluty.add(diff.asText());
 						
 						List<HtmlElement> q=pageLink.getByXPath("//div[@class='item__ingredient']//span[@class='ingredient-full show-text']");
-						List<HtmlElement>  n= pageLink.getByXPath("//div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");//("//div[@class='item-list__item item-prog']//div[@class='item__ingredient']");
+						List<HtmlElement>  n= pageLink.getByXPath("//div[@class='item__ingredient']//span[@class='ingredient-name show-icon']");
 						List<String> qt=new ArrayList<>();
 						q.forEach(qte->qt.add(qte.asText()));
 						List<String> mames=new ArrayList<>();
