@@ -11,7 +11,7 @@
     bk -> rc : addToDone(recipe)
     activate rc
     create "RecipeController.recipeService: RecipeService" as rs
-    rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao,favoriteRecipeDao,doneRecipeDao)
+    rc -> rs : RecipeService(recipeDao, fridgeDao, recipeExternalDao, specificRecipeDao)
     activate rs
     rc -> rs : addDoneRecipe(recipe)
     rs --> rc
@@ -20,7 +20,7 @@
     deactivate rc
     bk --> ft
     deactivate bk
-    ft <-- ft: Traiter les données reçues
+
 
 @enduml
 

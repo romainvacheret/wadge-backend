@@ -44,20 +44,21 @@ package dao {
 
         interface IRecipeDao {
             getAllRecipes(): List<Recipe>
+            getAllRecipes(recipes: List<Recipe>): List<Recipe>
         }
 
         interface IExternalRecipeDao {
             writeRecipeExternal(): void
-            recipeExternalFromUrl(search: string): List<MarmitonRecipe>
+            recipeExternalsFromUrl(search: string): List<MarmitonRecipe>
             toRecipe(recipes: List<MarmitonRecipe>): List<Recipe>
         }
         interface ISpecificRecipeDao{
-           getFavoritesRecipes():List<Recipe>
-          	getDoneRecipes():List<Recipe>
-          	 writeFavoriteRecipe(Recipe recipe) :void
+            getFavoritesRecipes():List<Recipe>
+            getDoneRecipes():List<Recipe>
+          	writeFavoriteRecipe(Recipe recipe) :void
           	writeDoneRecipe(Recipe recipe) :void
           	addRecipeFavorite(List<Recipe> recipes):void
-           addRecipeDone(List<Recipe> recipes):	void
+            addRecipeDone(List<Recipe> recipes):	void
           	deletefavoriteRecipe(String link ):void
         }
     }
@@ -66,54 +67,47 @@ package dao {
         class JsonFoodDao implements IFoodDao {
             - food: List<Food> <<final>>
             - mapper: ObjectMapper <<final>>
-            ~ FILE_NAME: List<Food> <<static final>>
+            ~ FILE_NAME: String <<static final>>
             + this(): JsonFoodDao
         }
 
         class JsonFridgeDao implements IFridgeDao {
             - fridge: List<FridgeFood> <<final>>
             - mapper: ObjectMapper <<final>>
-            ~ FILE_NAME: List<Food> <<static final>>
+            ~ FILE_NAME: String <<static final>>
             + this(): JsonFridgeDao
         }
 
         class JsonRecipeDao implements IRecipeDao {
             - recipes: List<Recipe> <<final>>
             - mapper: ObjectMapper <<final>>
-            ~ FILE_NAME: List<Food> <<static final>>
+            ~ FILE_NAME: String <<static final>>
             + this(): JsonFridgeDao
         }
 
         class MarmitonRecipeDao implements IExternalRecipeDao {
-            - mapper: ObjectMapper <final>
+            - mapper: ObjectMapper <<final>>
             ~ recipeExternals: Map<string, MarmitonRecipe>
             ~ FILE_NAME: String <<static final>>
-            ~ BASE_URL: string <<static final>>
-            ~ URL: string <<static final>>
+            ~ BASE_URL: String <<static final>>
+            ~ URL: String <<static final>>
             + this(): MarmitonRecipeDao
-            - timeToMinute(time: string): int
+            toRecipe:(recipes: List<MarmitonRecipe) List<Recipe>
         }
-        class JsonFavoriteRecipeDao implements ISpecificRecipeDao {
-            - ObjectMapper mapper << final >>
-        	- favorites :Map<String,Recipe> <<static final>>
-        	~ FILE_FAVORITE :String <<static final >>
-        	- doneRecipes :Map<String,Recipe> <<static final>>
-            - recipes :List<Recipe>
-             ~ FILE_DONE_RECIPE :String <<static final >>
-        	- recipesDone :List<Recipe>
-        	+ this()
+        class JsonSpecificRecipeDao implements ISpecificRecipeDao {
+            - mapper: ObjectMapper <<final>>
+        	- favorites: Map<String,Recipe> <<static final>>
+        	~ FILE_FAVORIT: String <<static final >>
+        	- doneRecipes: Map<String,Recipe> <<static final>>
+            - recipes: List<Recipe>
+             ~ FILE_DONE_RECIPE: String <<static final >>
+        	- recipesDone: List<Recipe>
+        	+ this(): JsonFavoriteRecipeDao
         }
-        class JsonDoneRecipeDao implements ISpecificRecipeDao {
-            -  ObjectMapper mapper <<final>>
-            - doneRecipes :Map<String,Recipe> <<static final>>
-            - recipes :List<Recipe>
-            ~ FILE_DONE_RECIPE :String <<static final >>
-            + this()
-         }
         class MarmitonRecipeHelper{
-            - MarmitonRecipeHelper()
-            + timeToMinutes(time: String): int <<Static>>
-            + convertDifficulty(difficulty: String): int <<Static>>
+            - this(): MarmitonRecipeHelper
+            + timeToMinutes(time: String): int <<static>>
+            + convertDifficulty(difficulty: String): int <<static>>
         }
     }
 }
@@ -131,9 +125,6 @@ IExternalRecipeDao *..> Recipe
 IExternalRecipeDao *..> MarmitonRecipe
 
 ISpecificRecipeDao *..>Recipe
-JsonFavoriteRecipeDao *..>Recipe
-JsonFavoriteRecipeDao o..> ObjectMapper
-
-JsonDoneRecipeDao *..>Recipe
-JsonDoneRecipeDao o..> ObjectMapper
+JsonSpecificRecipeDao *..>Recipe
+JsonSpecificRecipeDao o..> ObjectMapper
 @enduml

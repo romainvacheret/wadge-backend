@@ -41,8 +41,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      # - name: Jacoco report generation
-      #   run: ./gradlew jacocoTestReport coveralls
+      - name: Jacoco report generation
+        run: ./gradlew jacocoTestReport # coveralls
       # - name: Publish to coveralls.io
       #   uses: coverallsapp/github-action@master
       #   with:
@@ -50,3 +50,10 @@ jobs:
       #     path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
       # - name: Send report to Coveralls
       #   run: curl -F 'json_file=@build/coveralls/report.json' 'https://coveralls.io/api/v1/jobs'
+      - name: Code coverage with CodeCov
+        uses: codecov/codecov-action@v1
+        with:
+            token: ${{ secrets.CODECOV_TOKEN }}  
+            file: ./build/reports/jacoco/test/jacocoTestReport.xml
+            fail_ci_if_error: true
+            verbose: true

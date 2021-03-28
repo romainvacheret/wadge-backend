@@ -21,6 +21,14 @@ public class RecipeComparatorFactory {
                 rtr = Collections.reverseOrder(Comparator.comparingDouble(Recipe::getRating));
                 break;
 
+            case BY_INGREDIENTS:
+                rtr = (r1, r2) -> Integer.compare(r1.getIngredients().size(), r2.getIngredients().size());
+                break;
+
+            // case BY_UNIT:
+            //     rtr = (r1, r2) -> Integer.compare()
+            //     break;
+
             default:
                 rtr = Comparator.comparing(Recipe::getName);
         }

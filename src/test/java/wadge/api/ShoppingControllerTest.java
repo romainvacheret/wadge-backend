@@ -1,8 +1,8 @@
-package wadge.service.recipe.impl;
+package wadge.api;
 
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
+import java.util.Set;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,17 +10,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import wadge.model.recipe.Recipe;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RecipeServiceTest {
+public class ShoppingControllerTest {
     @Autowired
-    private RecipeService service;
-    
+    private ShoppingController controller;
+
     @Test
-    public void getAllFoodTest() {
-        assertTrue(service.getAllRecipes() instanceof List<?>);
-        assertTrue(service.getAllRecipes().get(0) instanceof Recipe);
+    public void getShoppinListTest() {
+        assertTrue(controller.getShoppingList() instanceof Set<?>);
     }
 }

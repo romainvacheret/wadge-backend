@@ -26,36 +26,38 @@ package model.recipe {
 package service {
     package food {
         class FoodHelper{
-            - FoodHelper()
-            fromUnitToG(food: Food, quantity: double): double
-            fromGtoUnit(food: Food, quantity: double): double
-            + convert(type: Conversion, food: Food, quantity: double): double
+            - this(): FoodHelper
+            + enum Conversion {UNIT_TO_G, G_TO_UNIT}
+            + fromUnitToG(food: Food, quantity: double): double <<static>>
+            + fromGtoUnit(food: Food, quantity: double): double <<static>>
+            + convert(type: Conversion, food: Food, quantity: double): double <<static>>
         }
-        enum Conversion {
-                UNIT_TO_G, G_TO_UNIT
-        }
+        
         class FoodService {
-            - foodDao: IFoodDao <<static>>
+            - foodDao: IFoodDao <<final>>
             + this(dao: FoodDao): FoodService
             + getAllFood(): List<Food>
             + getFoodFromGivenMonth(month: Month): List<Food>
             + sortByDays(food: List<Food>): List<Food>
             + getFoodFromString(string: String): Optional<Food>
             + convert(request: ConversionRequest): Optional<Double>
+            + getUnits(ingredient: Ingredient): double
         }
     }
 
     package fridge {
         class FridgeService {
-            - fridgeDao: IFridgeDao <<static>>
-            + this(dao: FridgeDao): FridgeService
-            + getAllFridge(): List<FridgeFood>
-            + getExpirationList(): List<FridgeFood>
+            - fridgeDao: IFridgeDao <<final>>
+            - foodService: FoodService
+            + enum RecallType { TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FOURTEEN_DAYS, EXPIRED, OTHER;}
+            + this(fridgeDao: IFridgeDao, foodService: FoodService): FridgeService
             + addAllToFridge(food: List<FridgeFood>): boolean
-            + updateFridge(updateList: List<UpdateResponse>)        
-            + deleteUsingId(ids: Set<Map.Entry<UUID, string>>): List<FridgeFood>
+            + getAllFridge(): List<FridgeFood>
             - getExpirationDateFromPredicate(): List<FridgeFood>
-            - isInFridge(ingredient : Ingredient): String
+            + getExpirationList(): List<FridgeFood>
+            + updateFridge(updateList: List<UpdateResponse>): List<FridgeFood>
+            + deleteUsingId(ids: Set<Map.Entry<UUID, string>>): List<FridgeFood>
+            + isInFridge(ingredient : Ingredient): String
         }
 
         class FoodElementPredicatesFactory {
@@ -67,10 +69,6 @@ package service {
             + getInstance(): FoodElementPredicatesFactory <<static>>
             + dateProcessing(date: string): long
             - getPredicate(type: RecallType): Predicate<FoodElement>
-        }
-        
-        enum RecallType {
-            TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FOURTEEN_DAYS, EXPIRED, OTHER;
         }
     }
 
@@ -89,14 +87,21 @@ package service {
                 + sort(comparator: Comparator<Map.Entry<Integer, Recipe>>): List<Recipe> <<abstract>>
             }
             
+            interface IFridgeValueCalcuation {
+                compute(recipe: Recipe, fridge: Map<RecallType,FridgeFood>): double
+            }
         }
         package impl {
             class RecipeService {
-                - recipeDao: IRecipeDao <<static>>
-                + this(dao: IRecipeDao): RecipeService
+                - recipeDao: IRecipeDao <<final>>
+                - fridgeService: FridgeService <<final>>
+                - marmitonDao: IExternalRecipeDao
+                - specificRecipeDao: ISpecificRecipeDao
+                - foodService: FoodService
+                + this(dao: IRecipeDao, fridgeService: FridgeService, recipeExternalDao: IExternalRecipeDao, specificRecipeDao: ISpecificRecipeDao, foodService: FoodService): RecipeService
                 + getAllRecipes(): List<Recipe>
+                ~ recipeScoring: Function<Recipe, Integer>
                 + getRecipesUsingFridge(products: Map<RecallType, List<string>>): List<Recipe>
-                + getRecipesUsingUserList(userSelection : List<String>): List<Recipe>
                 + getRecipesFromMarmiton(query: string): List<Recipe>
                 + getRecipeIngredient(recipe: Recipe): Map<String, String>
                 + getFavoriesRecipes():List<Recipe>
@@ -109,22 +114,32 @@ package service {
 
             class SelectionWithFridge extends AbstractRecipeSelection {
                 ~ scoringMap: Map<string, Integer> <<static>>
+                + addToSet(mySet: Set<String>, key: String, value: Integer): void
+                + defineScoringMap(products: Map<RecallType, List<String>>): void
                 ~ ingredientScoring: Function<Ingredient, Optional<Integer>>
                 ~ recipeScoring: Function<List<Ingredient>, Integer>
                 ~ recipeToEntry: BiFunction<Recipe, ToIntFunction<Recipe>>
                 + this(recipes: Set<Recipe>, fridgeService: FridgeService): SelectionWithFridge
             }
+
+            class RecipeComparatorFactory {
+                - this(): RecipeComparatorFactory
+                + getComparator(parameter: Parameter): Comparator<Recipe> <<static>>
+            }
+
+            class RecipePredicateFactory {
+                - this(): RecipePredicateFactory
+                + getPredicate(prameter: Parameter): Predicate<Recipe> <<static>>
+            }
+
+            class RecipeSelection implements IRecipeSelection {
+                - recipes: List<Recipe>
+                + enum Parameter { BY_DIFFICULTY, BY_RATING, USING_FRIDGE, EVERYTHING,FAVORITE,REALISE, BY_INGREDIENTS, BY_UNIT}
+                + this(recipes: Set<Recipe>): RecipeSelection
+            }
         }
     }
 
-    package map {
-        class MapService {
-            - KEY: string <<static final>>
-            + jsonToFile(fileName: string, json: JSONObject): void
-            + request(lat: double, lng: double): JSONObject
-            + parseJSON(json: JSONArray): JSONArray
-        }
-    }
     package shopping{
 
         class ShoppingService{
@@ -142,30 +157,40 @@ FoodService o--> IFoodDao
 FoodService *..> Food
 FoodService *..> Month
 FoodService o--> ConversionRequest
+FoodService o--> Ingredient
 
-FoodHelper o..> Conversion
+FoodHelper o..> Food
 
 FridgeService o--> IFridgeDao
-FridgeService o..> FoodElementPredicatesFactory
-FridgeService *--> FridgeFood
-FridgeService *--> FoodElement
-FridgeService *..> FoodElement
-FridgeService o..> UpdateResponse
+FridgeService o--> FoodService
+FridgeService o--> FridgeFood
+FridgeService o--> Ingredient
 
 FoodElementPredicatesFactory *..> FoodElement
-FoodElementPredicatesFactory o..> RecallType
+FoodElementPredicatesFactory o..> FridgeService
 
 RecipeService o--> IRecipeDao
 RecipeService *..> Recipe
-RecipeService o..> RecallType
-RecipeService o.> SelectionWithFridge
+RecipeService o..> FridgeService
+RecipeService o..> SelectionWithFridge
+RecipeService o--> FridgeService
+RecipeService o--> IExternalRecipeDao
+RecipeService o--> ISpecificRecipeDao
+RecipeService o--> FoodService
+RecipeService o--> RecipeSelection
 
 SelectionWithFridge *--> Recipe
 SelectionWithFridge o..> FridgeService
+SelectionWithFridge o--> FridgeService
+SelectionWithFridge o--> FridgeService
 
-UserListSelection *--> Recipe
+RecipeComparatorFactory o--> RecipeSelection
+RecipeComparatorFactory o--> Recipe
 
-@enduml
+RecipePredicateFactory o--> RecipeSelection
+RecipePredicateFactory o--> Recipe
+
+RecipeSelection *--> Recipe
 
 ShoppingService o..> FoodService
 ShoppingService *..> Ingredient

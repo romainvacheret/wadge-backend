@@ -10,4 +10,5 @@ public interface IExternalRecipeDao {
 	List<MarmitonRecipe> recipeExternalsFromUrl(String search);
 	List<Recipe> toRecipe(List<MarmitonRecipe> recipes);
 	
+	
 }
