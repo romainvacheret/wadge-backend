@@ -94,3 +94,54 @@ image::./diagram/out/updateFridge.svg[]
 === Ajout d'une balance de conversion
 image::./diagram/out/scale.svg[]
 
+== Repartition du travail
+*_Fanny Lourioux:_*
+
+Durant le projet je me suis occupée de l'affichage du site : barre de navigation, organisation des fruits et légumes en onglets, affichage des recettes (en accordéon), pas à pas des recettes (stepper)
+
+Ce semestre j’ai travaillé essentiellement le front. En effet j’ai pris pas mal de temps pour harmoniser et organiser le visuel et l’interface graphique. (Harmonisation des couleurs, ajout d’icônes...)
+
+J’ai travaillé au début sur la suppression des aliments dans le frigo (back avec Romain), pour laquelle nous avons eu du mal au premier semestre.
+
+J’ai aussi travaillé sur l’affichage pas à pas des recettes, et la sélection des ingrédients utilisés (avec Trystan). Ainsi que la gestion des aliments possédés dans les ingrédients des recettes (front et back), j’ai ensuite travaillé avec Trystan sur cette même feature (front et back) afin de l’améliorer après avoir travaillé sur la gestion des unités avec Romain (recherche du poids des ingrédients + modification du JSON). Enfin j’ai travaillé sur la balance du site (front).
+
+J’ai réalisé quelques tests et j’ai aussi travaillé sur les diagrammes. De plus j’ai résolu certains bugs notamment l’ajout en favoris qui se faisait à chaque fois qu’on cliquait sur une recette.
+
+
+*_Trystan Roches:_*
+
+Pour cette partie du Projet j’ai réalisé deux fonctionnalités principales.  
+
+La première consistait à rediriger après les étapes d’une recette l’utilisateur vers le frigo puis de lui afficher les aliments qu’il avait coché pendant sa recette. Cela permet à l’utilisateur de ne pas les oublier et d’enlever la bonne quantité de chaque aliment de son frigo.
+
+La deuxième consistait à afficher les aliments d’une recette en couleur, en fonction du frigo. Si l’aliment est présent en quantité suffisante il apparait « vert ». S’il est présent mais en quantité insuffisante il sera « orange », s’il n’est pas présent dans le frigo il est « rouge » et enfin s’il n’est pas traité comme un aliment du site il est « noir » (défaut).
+
+En plus de ses fonctionnalités j’ai aidé Fanny Lourioux sur la réalisation des étapes d’une recette (la recette est coupée en étape, il faut appuyer sur un bouton pour passer d’une étape à l’autre) surtout sur l’aspect Front.
+
+J’ai aussi réalisé quelques modifications moins importantes comme l’aspect de chaque page plus ergonomique avec des titres centrées et en couleurs. Ainsi que l’ajout d’un bouton sticky dans la page Ajout au frigo (le bouton ne reste plus en haut il « suit » l’utilisateur). J’ai aussi réalisé avec Fanny Lourioux une barre de recherche d’aliments dans la page des recettes qui sera ensuite réutilisée pour la recherche sur Marmiton. J'ai automatisé la réalisation des recettes (avant l’utilisateur devait appuyer sur un bouton pour ajputer chaque recette en tant que "réalisée").
+
+En plus de ces fonctionnalités j’ai résolu quelques Bugs comme la redirection entre la page des recettes et des étapes ou encore la modification du scrapper de Marmiton (car le site avait changé de forme). Et j'ai fait des tests des controllers et des Dao (ex: dans la classe JsonSpecificRecipeDaoTest pour s'assurer du type de retour des fonctionnalités getDoneRecipes (recettes réalisés) et getFavoriteRecipe (recettes favoris)).
+
+*_Maodo Laba Sow :_*
+
+Tout au long du projet j’ai effectué ces taches suivantes :
+J’ai ajouté une barre de recherche pour rechercher des aliments à ajouter dans le frigo
+.Barre de recherche pour rechercher des recettes en fonction de nombre de personnes 
+.Récupération des recettes externes à partir du site marmiton
+.Ajout des recettes favorites
+.Ajout des recettes réalisées
+
+*_Romain Vacheret :_*
+
+Ce semestre j'ai travaillé sur différents éléments, le principal est le tri de recettes. En effet cette feature est celle qui m'a demandé le plus de travail. Une fois qu'une liste de recettes est présentée à l'utilisateur, celui-ci a plusieurs options de tri. Celles-ci sont : le contenu du frigo, la difficulté de réalisation, la note attribuée par les utilisateurs, le nombre d'ingrédients et le nombre d'unités d'aliments. Toutes ne sont pas de simples tris, certaines éliminent les éléments n'étant pas intéressants. Par exemple, si l'utilisateur choisit le tri en fonction du contenu de son frigo, toutes les recettes n'ayant aucun aliments en commun avec celui-ci ne sont pas affichées.
+
+Plus haut, j'ai mentionné le nombre d'unités d'aliments. C'est également une feature dont je me suis occupé. Pour être plus précis, il s'agit d'uniformiser les différentes unités utilisées dans des recettes provenant de diverses sources. Parfois, les quantités sont données par unité (une tomate, deux carottes...), parfois il s'agit d'unités de mesure telles que le gramme ou le kilogramme. Nous avons donc mis en place un sytème de conversion permetant à l'utilisateur de mieux s'y retrouver.
+
+Egalement mentionné précédement, le frigo de l'utilisateur. Celui-ci peut y ajouter ou supprimer des unités d'aliments (une fois de plus, la conversion permet de faciliter l'utilisation des différentes features). Ce frigo a majoritairement été réalisé lors du premier semestre. Au second, j'ai ajouté une feature essentielle qui est la suppression, qui n'était pas disponible au préalable. J'ai également fait un ajout mineur au frigo, deux boutons permettant de supprimer en une seule fois l'ensemble des aliments périmés ou bien de tous les aliments du frigo.
+
+Enfin, la dernière feature majeure que j'ai réalisé est une liste de course. Une fois une recette choisie, l'utilisateur peut regarder quels sont les aliments lui manquant et les ajouter à sa liste de course. Il peut ensuite aller la consulter sur une page séparée et supprimer les aliments achetés au fur et à mesure.
+
+Je précise qu'à l'exception de la gestion des unités dans l'application pour laquelle je n'ai fait que le back end, les autres features ont été réalisées en intégralité.
+J'ai également apporté mon aide pour la réalisation de diverses autres features ou résolution de bugs.
+
+Pour la partie de tests, j'ai ajouté des tests unitaires sur le back end au fur et à mesure de la progression de l'application. Pour la partie front end, j'ai réalisé l'ensemble des tests. Contrairement au back end, ceux-ci sont des tests d'intégrations utilisant donc les résultats reçus du serveur. De même que les tests unitaires, j'ai mise à jour la documentation (diagrammes de classe et de séquence entre autres) tout à long du projet.
