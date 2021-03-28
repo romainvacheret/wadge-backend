@@ -7,7 +7,7 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=sqale_index)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=RomainVacheret_Wadge-BackEnd&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=RomainVacheret_Wadge-BackEnd)
-[![Coverage Status](https://coveralls.io/repos/github/RomainVacheret/Wadge-BackEnd/badge.svg?branch=master)](https://coveralls.io/github/RomainVacheret/Wadge-BackEnd?branch=master)
+[![codecov](https://codecov.io/gh/RomainVacheret/Wadge-BackEnd/branch/master/graph/badge.svg?token=5HD33M3ONC)](https://codecov.io/gh/RomainVacheret/Wadge-BackEnd)
 
 # Que faisons nous ?
 Une application proposant des recettes de cuisine à partir de fruits et légumes de saison tout en prennant en compte ce que vous possédez déjà dans votre frigo !

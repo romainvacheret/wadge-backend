@@ -25,10 +25,6 @@ public class RecipeComparatorFactory {
                 rtr = (r1, r2) -> Integer.compare(r1.getIngredients().size(), r2.getIngredients().size());
                 break;
 
-            // case BY_UNIT:
-            //     rtr = (r1, r2) -> Integer.compare()
-            //     break;
-
             default:
                 rtr = Comparator.comparing(Recipe::getName);
         }
