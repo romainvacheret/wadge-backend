@@ -108,13 +108,18 @@ public class FridgeService {
             Optional<FridgeFood> fridgeFood = fridge.stream().filter(f -> f.getName().equals(option.get().getName())).findFirst();
             if(fridgeFood.isPresent() && !fridgeFood.get().getProducts().isEmpty()){
                 Ingredient i = new Ingredient(option.get().getName(), ingredient.getQuantity());
-                if(!unit.equals(Unit.NONE)) {
-                    quantity = Double.parseDouble(i.getQuantity());
-                    quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
-                    quantity = FoodHelper.convert(Conversion.G_TO_UNIT, option.get(), quantity);
-                }else{
-                    quantity = Double.parseDouble(ingredient.getQuantity());
+                try {
+                    if(!unit.equals(Unit.NONE)) {
+                        quantity = Double.parseDouble(i.getQuantity());
+                        quantity = unit.equals(Unit.G) ? quantity : quantity * 1000;
+                        quantity = FoodHelper.convert(Conversion.G_TO_UNIT, option.get(), quantity);
+                    }else{
+                        quantity = Double.parseDouble(ingredient.getQuantity());
+                    }
+                } catch(NumberFormatException e) {
+                    // empty string, let quantity to 0
                 }
+                
                 int fridgeSum = fridgeFood.get().getProducts().stream().map(FoodElement::getQuantity).reduce(0,Integer::sum);
                 return fridgeSum >= quantity ? "present" : "partiellement";
             }

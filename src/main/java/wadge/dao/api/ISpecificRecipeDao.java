@@ -11,6 +11,6 @@ public interface ISpecificRecipeDao {
 	void writeDoneRecipe(Recipe recipe) ;
 	void addRecipeFavorite(List<Recipe> recipes);
 	void addRecipeDone(List<Recipe> recipes);
-	void deletefavoriteRecipe(String link );
+	void deleteFavoriteRecipe(String link );
 	
 }

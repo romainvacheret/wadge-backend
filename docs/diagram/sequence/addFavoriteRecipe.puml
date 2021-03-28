@@ -20,6 +20,6 @@
     deactivate rc
     bk --> ft
     deactivate bk
-    ft <-- ft: Traiter les données reçues
+
 
 @enduml

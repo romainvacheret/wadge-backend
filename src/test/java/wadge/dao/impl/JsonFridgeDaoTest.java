@@ -3,6 +3,8 @@ package wadge.dao.impl;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -30,4 +32,19 @@ public class JsonFridgeDaoTest {
     //     fail("TODO");
     //     // TODO
     // }
-}
+
+    @Test
+    public void getFridgeTest(){
+        assertTrue(dao.getFridge() instanceof Map<?,?>);
+    }
+    @Test
+    public void getFridgeFoodTest(){
+        String fridgeFood = "tomate";
+        assertTrue(dao.getFridgeFood(fridgeFood) instanceof FridgeFood);
+    }
+    @Test
+    public void getFridgeFoodFromNameTest(){
+        String fridgeFood = "tomate";
+        assertTrue(dao.getFridgeFoodFromName(fridgeFood) instanceof Optional<?>);
+    }
+    }

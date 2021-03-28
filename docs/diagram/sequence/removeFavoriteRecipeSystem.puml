@@ -17,8 +17,9 @@
     User -> frontend: decocher sur le button favori
     frontend -> backend: POST /recettes/removeFavoriteRecipe
     backend --> backend: removeFavorite(recipe)
-    User <-- frontend: decolorer le boutton favori de la rectte supprimée au favoris
     deactivate backend
+    User <-- frontend: decolorer le boutton favori de la rectte supprimée au favoris
+
     deactivate frontend
 
 @enduml

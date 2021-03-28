@@ -1,5 +1,6 @@
 package wadge.service.fridge;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.model.fridge.FridgeFood;
+import wadge.model.recipe.Ingredient;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -24,6 +26,14 @@ public class FridgeServiceTest {
         assertTrue(service.getAllFridge().get(0) instanceof FridgeFood);
     }
 
+    @Test
+    public void isInFridge() {
+        Ingredient ing = new Ingredient();
+        ing.setName("poisson");
+        ing.setQuantity("2");
+        assertEquals("default",service.isInFridge(ing));
+    }
+
     // @Test
     // public void addAllToFridge() {
     //     fail("TODO");
@@ -35,4 +45,6 @@ public class FridgeServiceTest {
     //     fail("TODO");
     //     //TODO
     // }
+
+
 }

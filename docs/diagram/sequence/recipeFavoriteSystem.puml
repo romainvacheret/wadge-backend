@@ -7,18 +7,14 @@
     participant ": Back" as backend
 
     User -> frontend: cliquer sur "Recettes"
-    User -> frontend: selectionner filtrage "Toutes les recettes"
+    User -> frontend: selectionner filtrage " recettes favorites"
     activate frontend
-    frontend -> backend: GET /recipes
+    frontend -> backend: GET /favoriteRecipes
     activate backend
-    backend --> frontend: liste  des recettes
-    frontend --> User: afficher la liste des recettes
-
-    User -> frontend: sélectionner filtrage "Tri avec mes recettes favoris"
-    frontend -> backend: GET /recipes/addFavoriterecipe
-    backend --> frontend: liste  des recettes favoris
-    frontend --> User: afficher la liste des recettes favoris
+    backend --> frontend: liste  des recettes favorites
     deactivate backend
+    frontend --> User: afficher la liste des recettes favorites
+
     deactivate frontend
 
 @endum

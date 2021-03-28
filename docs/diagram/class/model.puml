@@ -20,57 +20,68 @@ package model {
             NOVEMBER,
             DECEMBER;
 
-            - value: string <<final>>
-            ~ BY_VALUE: Map<string, Month> <<static final>>
-            + this(value: string): Month
-            + getValue(): string
-            + of(value: string): Month
+            - value: String <<final>>
+            ~ BY_VALUE: Map<String, Month> <<static final>>
+            + this(value: String): Month
+            + getValue(): String
+            + of(value: String): Month
         }
     
         class Food {
-            - name: string
-            - type: string
+            - name: String
+            - type: String
             - availability: List<Month>
             - days: int
+            - weight: int
+            - bulk: boolean
             + this(): Food
-            + this(name: string, type: string, availability: Month[], days: int): Food
-            + getName(): string
-            + getType(): string
+            + this(name: String, type: String, availability: Month[], days: int, weight: int, bulk: boolean): Food
+            + getName(): String
+            + getType(): String
             + getAvailability(): List<Month>
             + getDays(): int
+            + getWeight: int
+            + getBulk: boolean
         }
         class ConversionRequest{
             - type: Conversion
             - quantity: double
-            - food: string
-            + ConversionRequest()
+            - food: String
+            + this():ConversionRequest
             + getType(): Conversion
-            + setType(type: Conversion)
+            + setType(type: Conversion): void
             + getQuantity(): double
-            + setQuantity(quantity: double)
-            + getFood(): string
-            + setFood(food: String)
+            + setQuantity(quantity: double): void
+            + getFood(): String
+            + setFood(food: String): void
         }
     }
 
     package fridge {
         class FoodElement {
-            - insertionDate: string
-            - peremptionDate: string
+            - id: UUID
+            - insertionDate: String
+            - peremptionDate: String
             - quantity: int
             + this(): FoodElement
-            + this(insertionDate: string, peremptionDate: string, quantity: int): FoodElement
-            + getInsertionDate(): string
-            + getPeremptionDate(): string
+            + this(insertionDate: String, peremptionDate: String, quantity: int): FoodElement
+            + this(id: UUID, insertionDate: String, peremptionDate: String, quantity: int): FoodElement
+            + getID(): UUID
+            + getInsertionDate(): String
+            + getPeremptionDate(): String
             + getQuantity(): int
+            + setQuantity(quantity: int): void
         }
 
         class FridgeFood {
-            - name: string
+            - id: UUID
+            - name: String
             - products: Map<UUID, FoodElement>
             - this(): FridgeFood
-            + this(name: string, products: List<FoodElement>): FridgeFood
-            + getName(): string
+            + this(name: String, products: List<FoodElement>): FridgeFood
+            + this(id: UUID, name: String, products: List<FoodElement>): FridgeFood
+            + getID(): UUID
+            + getName(): String
             + getProducts(): List<FoodELement>
             + getProducts2(): Map<UUID, FoodElement>
             + addProduct(element: FoodElement): void
@@ -79,90 +90,111 @@ package model {
 
         class FridgeFoodBuilder {
             - id: UUID
-            - name: string
+            - name: String
             - products: Map<UUID, FoodElement>
             + withId(id: UUID): FridgeFoodBuilder
-            + withName(name: string): FridgeFoodBuilder
+            + withName(name: String): FridgeFoodBuilder
             + withProducts(food: List<FoodElement>): FridgeFoodBuilder
             + createFridgeFood(): FridgeFood
         }
 
         class UpdateResponse {
             - id: UUID
-            - fridgeFood: string
+            - fridgeFood: String
             - quantity: int
             + this(): UpdateResponse
-            + this(id: UUID, fridgeFood: string, quantity: int): UpdateResponse
+            + this(id: UUID, fridgeFood: String, quantity: int): UpdateResponse
+            + getId: UUID
+            + setId(id: UUID): void
+            + getFridgeFood(): String
+            + setFridgeFood(fridgeFood: String): void
+            + getQuantity(): int
+            + setQuantity(quantity: int): void
         }
 
         class DeleteResponse {
             - id: UUID
-            - fridgeFood: string
+            - fridgeFood: String
             + this(): DeleteResponse
-            + this(id: UUID, fridgeFood: string): DeleteResponse
+            + this(id: UUID, fridgeFood: String): DeleteResponse
+            + getId: UUID
+            + setId(id: UUID): void
+            + getFridgeFood(): String
+            + setFridgeFood(fridgeFood: String): void
         }
     }
 
     package recipe {
         class Ingredient {
-            - name: string
-            - quantity: string
+            - name: String
+            - quantity: String
             - this(): Ingredient
-            + this(name: string, quantity: string): Ingredient
-            + getName(): string
-            + getQuantity(): string
+            + this(name: String, quantity: String): Ingredient
+            + getName(): String
+            + getQuantity(): String
+            + setName(name: String): void
+            + setQuantity(quantity: String): void
+            + enum Unit {KG, G, NONE}
+            + getUnit(name: String): Unit <<static>>
+            + extractName(ingredient: Ingredient): String <<static>>
         }
 
         class Recipe {
-            - name: string 
-            - steps: List<string> 
+            - name: String 
+            - steps: List<String> 
             - servings: int 
             - preparation: int 
             - difficulty: int 
-            - link: string
-            - ingredient: List<Ingredient>
+            - rating: double
+            - link: String
+            - ingredients: List<Ingredient>
             - this(): Recipe
-            + this(name: string, steps: List<string>, servings: string, duration: string, difficulty: string, link: string, avis: string, ratingfract: string, ingredients: List<Ingredient>): MarmitonRecipe
-            + getServings(): string
-            + setServings(servings: string): void
-            + getDifficulty(): string
-            + setDifficulty(difficulty: string): void
+            + this(name: String, steps: List<String>, servings: String, duration: String, difficulty: String, link: String, avis: String, ratingfract: String, ingredients: List<Ingredient>): MarmitonRecipe
+            + getServings(): String
+            + getDifficulty(): String
             + getIngredients(): List<Ingredient>
-            + setIngredients(ingredients: List<Ingredient>): void
-            + getLink(): string
-            + setLink(link: string): void
-            + getName(): string
-            + setName(name: string): void
-            + getRatingfract(): string
-            + setRatingfract(ratingfract: string): string
-            + getAvis(): string
-            + setAvis(avis: string): void
-            + getSteps(): List<string>
-            + setSteps(steps: List<string>): List<string>
+            + getLink(): String
+            + getName(): String
+            + getRating(): double
+            + getSteps(): List<String>
             + getPreparation(): int
-            + setPreparation(duration: string): void
         }
 
         package external {
             class MarmitonRecipe {
-                ~ link: string
-                ~ name: string 
-                ~ ratingfract: string
-                ~ avis: string
-                ~ steps: List<string> 
-                ~ preparation: string
-                - servings: string
-                - difficulty: string
-                - ingredient: List<Ingredient>
-                - this(): MamitonRecipe
-                + this(name: string, steps: List<string>, servings: int, preparation: int, difficulty: int, link: string, ingredients: List<Ingredient>): Recipe
-                + getName(): string
-                + getSteps(): List<string>
-                + getServings(): int
-                + getPreparation(): int
-                + getDifficulty(): int
-                + getLink(): string
+                ~ link: String
+                ~ name: String 
+                ~ ratingfract: String
+                ~ opinion: String
+                ~ steps: List<String> 
+                ~ preparation: String
+                - servings: String
+                - difficulty: String
+                - ingredients: List<Ingredient>
+                - rating: String
+                + this(): MamitonRecipe
+                + this(link: String, name: String, steps: List<Sting>, duration: String, difficulty: String, opinion: String, ratingfract: String, rating: String, ingredients: List<Ingredients>)
+                + getServings(): String
+                + setServings(servings: String): void
+                + getRating(): String
+                + setRating(rating: String): void
+                + getDifficulty(): String
+                + setDifficulty(difficulty: String): void
                 + getIngredients(): List<Ingredient>
+                + setIngredients(ingredients: List<Ingredient>): void
+                + getLink(): String
+                + setLink(link: String): void
+                + getName(): String
+                + setName(name: String): void
+                + getRatingfract(): String
+                + setRatingfract(ratingfract: String): void
+                + getOpinion(): String
+                + setOpinion(opinion: String): void
+                + getSteps(): List<String>
+                + setSteps(steps: List<String>): void
+                + getPreparation(): String
+                + setPreparation(duration: String)
+                
             }
         }
     }
@@ -170,7 +202,7 @@ package model {
         class ShoppingElement{
             - name: String
             - quantity: double
-            + ShoppingElement()
+            + this(): ShoppingElement
             + getName(): String
             + setName(name: String)
             + getQuantity(): quantity
