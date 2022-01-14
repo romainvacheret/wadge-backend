@@ -62,6 +62,7 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     implementation 'org.springdoc:springdoc-openapi-maven-plugin:1.1'
     implementation 'net.sourceforge.htmlunit:htmlunit:2.36.0'

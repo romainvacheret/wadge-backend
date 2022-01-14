@@ -13,7 +13,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
-import wadge.model.food.Month;
+// import wadge.model.food.Month;
+import java.time.Month;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

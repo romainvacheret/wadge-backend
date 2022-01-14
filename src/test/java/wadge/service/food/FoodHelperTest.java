@@ -3,12 +3,12 @@ package wadge.service.food;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
-
+import java.time.Month;
 import org.junit.Before;
 import org.junit.Test;
 
 import wadge.model.food.Food;
-import wadge.model.food.Month;
+// import wadge.model.food.Month;
 import wadge.service.food.FoodHelper.Conversion;
 
 public class FoodHelperTest {

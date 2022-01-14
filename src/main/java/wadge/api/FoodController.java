@@ -41,7 +41,7 @@ public class FoodController {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
-       return foodService.getFoodFromGivenMonth(Month.valueOf(month));
+       return foodService.getFoodFromGivenMonth(java.time.Month.valueOf(month));
     }
 
     @GetMapping(path="/foods/{month}/days")
@@ -49,7 +49,7 @@ public class FoodController {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
-       return foodService.sortByDays(foodService.getFoodFromGivenMonth(Month.valueOf(month)));
+       return foodService.sortByDays(foodService.getFoodFromGivenMonth(java.time.Month.valueOf(month)));
     }  
 
     @PostMapping(path="/foods/scale") 

@@ -3,42 +3,34 @@ package wadge.service.food;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import wadge.dao.api.IFoodDao;
+import lombok.AllArgsConstructor;
+import wadge.dao.FoodRepository;
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
-import wadge.model.food.Month;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Ingredient.Unit;
 import wadge.service.food.FoodHelper.Conversion;
 
 @Service
+@AllArgsConstructor
 public class FoodService {
-    private final IFoodDao foodDao;
-
-    @Autowired
-    public FoodService(@Qualifier("jsonFoodDao") IFoodDao foodDao) {
-        this.foodDao = foodDao;
-    }
+    private final FoodRepository repository;
 
     public List<Food> getAllFood() {
-        return foodDao.getAllFoods();
+        return repository.findAll();
     }
 
-    public List<Food> getFoodFromGivenMonth(Month month) {
-        List<Food> foods = foodDao.getAllFoods();
-        
-        return foods.stream().filter(food ->
-                food.getAvailability().contains(month)).collect(Collectors.toList());
+    public List<Food> getFoodFromGivenMonth(java.time.Month month) {
+        return getAllFood().stream()
+            .filter(food -> food.getAvailability()
+            .contains(month)).toList();
     }
 
     public List<Food> sortByDays(List<Food> food) {
-        return food.stream().sorted(Comparator.comparing(Food::getDays)).collect(Collectors.toList());
+        return repository.findAll().stream().sorted(Comparator.comparing(Food::getDays)).toList();
     }  
 
     public Optional<Food> getFoodFromString(String string) {
@@ -52,6 +44,7 @@ public class FoodService {
             Optional.empty();
     }
 
+    // TODO -> refactor
     public double getUnits(Ingredient ingredient) {
         double rtr = 0;
         double ingQuantity;
@@ -74,8 +67,6 @@ public class FoodService {
                     quantity / 100;
             }
     }
-
-        
 
         return rtr;
     }   
