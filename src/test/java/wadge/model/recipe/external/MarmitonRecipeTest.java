@@ -11,10 +11,19 @@ public class MarmitonRecipeTest {
 
 	@Before
 	public void setUp(){
-		marmitonRecipe=new MarmitonRecipe(
-			"/link", "name", List.of("step1","step2"), "8", "40 min", "facile","sur 5 avis",
-			"/5", "4.8", List.of(new Ingredient("ingredint_1","1"), new Ingredient("ingredient_2","2"))
-		);
+		marmitonRecipe = MarmitonRecipe.builder()
+			.name("name")
+			.link("/link")
+			.steps(List.of("step1","step2"))
+			.servings("8")
+			.preparation("40 mins")
+			.difficulty("facile")
+			.opinion("sur 5 avis")
+			.ratingfract("/5")
+			.rating("4.8")
+			.ingredients(List.of(new Ingredient("ingredint_1","1"), 
+				new Ingredient("ingredient_2","2")))
+			.build();
 	}
 
 	@Test

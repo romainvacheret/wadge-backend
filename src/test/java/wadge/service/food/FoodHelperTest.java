@@ -2,6 +2,8 @@ package wadge.service.food;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,9 +18,30 @@ public class FoodHelperTest {
 
     @Before
     public void setUp() {
-        f1 = new Food("abricot", "legume", new Month[] {Month.JUNE, Month.JULY, Month.AUGUST}, 7, 55, false);
-        f2 = new Food("amande", "fruit", new Month[] {Month.SEPTEMBER, Month.OCTOBER}, 150, 100, true);
-        f3 = new Food("noisette", "fruit", new Month[] {Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER}, 60, 100, true);
+        f1 = Food.builder()
+                .name("abricot")
+                .type("legume")
+                .availability(List.of(Month.JUNE, Month.JULY, Month.AUGUST))
+                .days(7)
+                .weight(55)
+                .bulk(true)
+                .build();
+        f2 = Food.builder()
+                .name("amande")
+                .type("legume")
+                .availability(List.of(Month.SEPTEMBER, Month.OCTOBER))
+                .days(150)
+                .weight(100)
+                .bulk(true)
+                .build();
+        f3 = Food.builder()
+                .name("noisette")
+                .type("fruit")
+                .availability(List.of(Month.SEPTEMBER, Month.OCTOBER))
+                .days(60)
+                .weight(100)
+                .bulk(true)
+                .build();
     }
     
     @Test

@@ -47,9 +47,25 @@ public class FoodServiceTest {
     public void sortByDays() {
         List<Food> food = new ArrayList<>();
         List<Food> foodT = new ArrayList<>();
-        Month[] months = {Month.MARCH,Month.APRIL};
-        Food carotte = new Food("carotte", "legume", months, 15,60 ,false);
-        Food courgette = new Food("courgette", "legume", months, 7,80 ,false);
+        List<Month> months = List.of(Month.MARCH, Month.APRIL);
+        Food carotte = Food.builder()
+                        .name("carotte")
+                        .type("legume")
+                        .availability(months)
+                        .days(15)
+                        .weight(60)
+                        .bulk(false)
+                        .build();
+
+        Food courgette = Food.builder()
+                        .name("courgette")
+                        .type("legume")
+                        .availability(months)
+                        .days(15)
+                        .weight(60)
+                        .bulk(false)
+                        .build();
+
         food.add(carotte);
         food.add(courgette);
 
@@ -61,9 +77,16 @@ public class FoodServiceTest {
     @Test
     public void getFoodFromString() {
         String str = "amandes";
-        Month[] m = {Month.SEPTEMBER, Month.OCTOBER};
-        Food amande = new Food("amande", "fruit", m, 150,100 ,true);
-        Optional<Food> f = Optional.of(amande);
+        List<Month> months = List.of(Month.MARCH, Month.APRIL);
+        Food carotte = Food.builder()
+                        .name("carotte")
+                        .type("legume")
+                        .availability(months)
+                        .days(15)
+                        .weight(60)
+                        .bulk(false)
+                        .build();
+        Optional<Food> f = Optional.of(carotte);
         assertEquals(f,service.getFoodFromString(str));
     }
 
