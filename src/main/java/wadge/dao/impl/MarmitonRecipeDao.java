@@ -143,6 +143,7 @@ public class MarmitonRecipeDao implements IExternalRecipeDao {
 	public List<Recipe> toRecipe(List<MarmitonRecipe> recipes) {
 		return recipes.stream().filter(recipe -> !recipe.getPreparation().equals(""))
           .map(recipe -> new Recipe(
+			  1,
 			recipe.getName(),
 			recipe.getSteps(),
 			Integer.valueOf(recipe.getServings()),

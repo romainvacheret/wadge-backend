@@ -2,6 +2,9 @@ package wadge.model.recipe;
 
 import java.util.List;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +13,12 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@Document
 @NoArgsConstructor
 @AllArgsConstructor
 public class Recipe {
+    @EqualsAndHashCode.Exclude
+    private @Id long id;
     private String name;
     private List<String> steps;
     private int servings;

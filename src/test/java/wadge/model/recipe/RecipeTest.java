@@ -13,6 +13,7 @@ public class RecipeTest {
     @Before
     public void setUp() {
         recipe = new Recipe(
+            1L,
             "Name", 
             List.of("Step 1", "Step 2", "Step 3"), 
             4, 
