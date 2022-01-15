@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UpdateResponse {
     @EqualsAndHashCode.Exclude
-    private UUID id;
+    private long id; // FoodElement's Id
     private String fridgeFood;
     private int quantity;
 }

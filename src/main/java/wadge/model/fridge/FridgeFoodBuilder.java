@@ -10,11 +10,11 @@ import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPOJOBuilder(buildMethodName="createFridgeFood", withPrefix="with")
 public class FridgeFoodBuilder {
-    private UUID id;
+    private Long id;
     private String name;
     private Map<UUID, FoodElement> products;
 
-    public FridgeFoodBuilder withId(UUID id) {
+    public FridgeFoodBuilder withId(Long id) {
         this.id = id;
         return this;
     }
@@ -25,13 +25,16 @@ public class FridgeFoodBuilder {
     }
 
     public FridgeFoodBuilder withProducts(List<FoodElement> food) {
-        this.products = food.stream().map(product -> Map.entry(product.getId(), product))
+        /*this.products = food.stream().map(product -> Map.entry(product.getId(), product))
             .collect(Collectors.toMap(Map.Entry<UUID, FoodElement>::getKey, Map.Entry<UUID, FoodElement>::getValue));
-        
+
+
+         */
         return this;
     }
 
     public FridgeFood createFridgeFood() {
-        return id != null ? new FridgeFood(id, name, products) : new FridgeFood(name, products);
+        return null;
+        // return id != null ? new FridgeFood(id, name, products) : new FridgeFood(name, products);
     }
 }

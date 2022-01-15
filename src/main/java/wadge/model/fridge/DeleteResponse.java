@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DeleteResponse {
-    private UUID id;
+    private Long id;
     private String fridgeFood;
 }

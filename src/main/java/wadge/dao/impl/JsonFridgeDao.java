@@ -73,7 +73,7 @@ public class JsonFridgeDao implements IFridgeDao {
     
     @Override
     public boolean insertFridgeFood(UUID id, FridgeFood food) {
-        food.setId(id);
+        food.setId(1L);
         fridge.put(food.getName(), food);
         return true;
     }
@@ -113,14 +113,14 @@ public class JsonFridgeDao implements IFridgeDao {
     
     @Override
     public void deleteFromFridge(String food, UUID id) {
-        this.fridge.get(food).getProducts2().remove(id);
+        this.fridge.get(food).getProducts().remove(id);
         saveData();
     }
 
     @Override
     public void deleteUsingId(Set<Map.Entry<UUID, String>> ids) {
         ids.stream().forEach(entry ->
-            fridge.get(entry.getValue()).getProducts2().remove(entry.getKey())
+            fridge.get(entry.getValue()).getProducts().remove(entry.getKey())
         );
         saveData();
     }
