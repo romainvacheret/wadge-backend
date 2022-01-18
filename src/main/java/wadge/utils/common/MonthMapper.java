@@ -9,14 +9,14 @@ public class MonthMapper {
 			case "fevrier" -> Month.FEBRUARY;
 			case "mars" -> Month.MARCH;
 			case "avril" -> Month.APRIL;
-			case "mai" -> Month.MARCH;
+			case "mai" -> Month.MAY;
 			case "juin" -> Month.JUNE;
 			case "juillet" -> Month.JULY;
 			case "aout" -> Month.AUGUST;
-			case "september" -> Month.SEPTEMBER;
+			case "septembre" -> Month.SEPTEMBER;
 			case "octobre" -> Month.OCTOBER;
 			case "novembre" -> Month.NOVEMBER;
-			case "decembe" -> Month.DECEMBER;
+			case "decembre" -> Month.DECEMBER;
 			default -> Month.JANUARY;
 		};
 	}

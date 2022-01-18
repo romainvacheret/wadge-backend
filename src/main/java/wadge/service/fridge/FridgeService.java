@@ -153,6 +153,9 @@ public class FridgeService {
                 .filter(food -> food.getName().equals(foodName))
                 .findFirst();
     }
+    public Optional<FridgeFood> getFridgeFoodFromId(final long id) {
+        return repository.findById(id);
+    }
 
 /*
     public List<FridgeFood> updateFridge(List<UpdateResponse> updateList) {
