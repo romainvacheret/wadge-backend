@@ -13,7 +13,7 @@ public abstract class AbstractRecipeSelection {
     protected Set<Recipe> recipes;
     protected List<Map.Entry<Integer, Recipe>> scores;
 
-    public abstract AbstractRecipeSelection compute(ToIntFunction<Recipe> func);
-    public abstract AbstractRecipeSelection filter(IntPredicate predicate);
-    public abstract List<Recipe> sort(Comparator<Map.Entry<Integer, Recipe>> comparator);
+    public abstract AbstractRecipeSelection compute(final ToIntFunction<Recipe> func);
+    public abstract AbstractRecipeSelection filter(final IntPredicate predicate);
+    public abstract List<Recipe> sort(final Comparator<Map.Entry<Integer, Recipe>> comparator);
 }

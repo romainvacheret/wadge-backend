@@ -3,6 +3,7 @@ package wadge.utils.common;
 import java.time.Month;
 
 public class MonthMapper {
+	// TODO refactor -> use interface
 	public Month fromFrench(final String month) {
 		return switch(month.toLowerCase()) {
 			case "janvier" -> Month.JANUARY;
@@ -16,8 +17,7 @@ public class MonthMapper {
 			case "septembre" -> Month.SEPTEMBER;
 			case "octobre" -> Month.OCTOBER;
 			case "novembre" -> Month.NOVEMBER;
-			case "decembre" -> Month.DECEMBER;
-			default -> Month.JANUARY;
+			default -> Month.DECEMBER;
 		};
 	}
 }

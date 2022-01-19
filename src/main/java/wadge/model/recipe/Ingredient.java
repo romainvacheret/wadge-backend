@@ -17,7 +17,7 @@ public class Ingredient {
 
     public enum Unit { KG, G, NONE }
 
-    public static Unit getUnit(String name) {
+    public static Unit getUnit(final String name) {
         Unit rtr = Unit.NONE;
         if(name.startsWith("kg de")) {
             rtr = Unit.KG;
@@ -28,8 +28,8 @@ public class Ingredient {
         return rtr;
     }
 
-    public static String extractName(Ingredient ingredient) {
-        String[] arr = ingredient.getName().split(" de ");
+    public static String extractName(final Ingredient ingredient) {
+        final String[] arr = ingredient.getName().split(" de ");
         return arr[arr.length - 1];
     }
 }

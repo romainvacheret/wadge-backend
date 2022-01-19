@@ -5,6 +5,7 @@ import java.util.Set;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,16 +19,10 @@ import wadge.service.shopping.ShoppingService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@AllArgsConstructor
 public class ShoppingController {
-    
     private final ShoppingService shoppingService;
-    private ObjectMapper mapper;
-
-    @Autowired
-    public ShoppingController(ShoppingService shoppingService) {
-        this.shoppingService = shoppingService;
-        mapper = new ObjectMapper();
-    }
+    private final ObjectMapper mapper = new ObjectMapper();
 
     @GetMapping(path="/shopping_list")
     public Set<Ingredient> getShoppingList(){
@@ -35,14 +30,14 @@ public class ShoppingController {
     }
 
     @PostMapping(path="/shopping_list")
-    public Set<Ingredient> addToShoppingList(@RequestBody JsonNode node) {
-        Set<Ingredient> elements = Set.of(mapper.convertValue(node, Ingredient[].class));
+    public Set<Ingredient> addToShoppingList(@RequestBody final JsonNode node) {
+        final Set<Ingredient> elements = Set.of(mapper.convertValue(node, Ingredient[].class));
         return shoppingService.addToShoppingList(elements);
     }
 
     @DeleteMapping(path="/shopping_list")
-    public Set<Ingredient> deleteFromShoppingList(@RequestBody JsonNode node) {
-        Set<String> elements = Set.of(mapper.convertValue(node, String[].class));
+    public Set<Ingredient> deleteFromShoppingList(@RequestBody final JsonNode node) {
+        final Set<String> elements = Set.of(mapper.convertValue(node, String[].class));
         return shoppingService.deleteFromShoppingList(elements);
     }
 } 

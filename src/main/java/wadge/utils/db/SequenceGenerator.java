@@ -1,5 +1,6 @@
 package wadge.utils.db;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -9,13 +10,9 @@ import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 @Component
+@AllArgsConstructor
 public class SequenceGenerator {
     private final MongoTemplate mongoTemplate;
-
-    @Autowired
-    public SequenceGenerator(final MongoTemplate mongoTemplate) {
-        this.mongoTemplate = mongoTemplate;
-    }
 
     public long generateSequence(final String sequenceName) {
         final Criteria criteria = Criteria.where("_id").is(sequenceName);
@@ -26,10 +23,10 @@ public class SequenceGenerator {
             .returnNew(true)
             .upsert(true);
         final DataBaseSequence sequence =  mongoTemplate.findAndModify(
-                query,
-                update,
-                options,
-                DataBaseSequence.class);
+            query,
+            update,
+            options,
+            DataBaseSequence.class);
 
         return sequence == null ? 1 : sequence.getSequence();
     }

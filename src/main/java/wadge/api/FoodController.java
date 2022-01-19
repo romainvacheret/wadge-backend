@@ -1,11 +1,13 @@
 package wadge.api;
 
+import java.time.Month;
 import java.util.List;
 import java.util.Optional;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,20 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
-import wadge.model.food.Month;
 import wadge.service.food.FoodService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@AllArgsConstructor
 public class FoodController {
     private final FoodService foodService;
-    private final ObjectMapper mapper;
-
-    @Autowired
-    public FoodController(FoodService foodService) {
-        this.foodService = foodService;
-        this.mapper = new ObjectMapper();
-    }
+    private final ObjectMapper mapper = new ObjectMapper();
 
     @GetMapping(path="/foods")
     public List<Food> getAllFood() {
@@ -41,7 +37,7 @@ public class FoodController {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
-       return foodService.getFoodFromGivenMonth(java.time.Month.valueOf(month));
+       return foodService.getFoodFromGivenMonth(Month.valueOf(month));
     }
 
     @GetMapping(path="/foods/{month}/days")
@@ -49,13 +45,12 @@ public class FoodController {
         if (month.length() != 0) {
             month = month.toUpperCase();
         }
-       return foodService.sortByDays(foodService.getFoodFromGivenMonth(java.time.Month.valueOf(month)));
+       return foodService.sortByDays(foodService.getFoodFromGivenMonth(Month.valueOf(month)));
     }  
 
     @PostMapping(path="/foods/scale") 
-    public Optional<Double> convert(@RequestBody JsonNode node) {
-        ConversionRequest request = mapper.convertValue(node, ConversionRequest.class);
+    public Optional<Double> convert(@RequestBody final JsonNode node) {
+        final ConversionRequest request = mapper.convertValue(node, ConversionRequest.class);
         return foodService.convert(request);
     }
-    
 }

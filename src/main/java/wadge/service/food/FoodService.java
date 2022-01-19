@@ -1,5 +1,6 @@
 package wadge.service.food;
 
+import java.time.Month;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
@@ -23,38 +24,41 @@ public class FoodService {
         return repository.findAll();
     }
 
-    public List<Food> getFoodFromGivenMonth(java.time.Month month) {
+    public List<Food> getFoodFromGivenMonth(final Month month) {
         return getAllFood().stream()
             .filter(food -> food.getAvailability()
             .contains(month)).toList();
     }
 
-    public List<Food> sortByDays(List<Food> food) {
-        return repository.findAll().stream().sorted(Comparator.comparing(Food::getDays)).toList();
+    public List<Food> sortByDays(final List<Food> food) {
+        return food.stream().sorted(Comparator.comparing(Food::getDays)).toList();
     }  
 
-    public Optional<Food> getFoodFromString(String string) {
+    // TODO refactor -> should no longer be used
+    @Deprecated
+    public Optional<Food> getFoodFromString(final String string) {
         return getAllFood().stream().filter(food -> string.contains(food.getName())).findFirst();
     }
 
-    public Optional<Double> convert(ConversionRequest request) {
-        Optional<Food> f = getFoodFromString(request.getFood());
-         return  f.isPresent() ?
-            Optional.of(FoodHelper.convert(request.getType(), f.get(), request.getQuantity())) :
+    public Optional<Double> convert(final ConversionRequest request) {
+        final Optional<Food> food = getFoodFromString(request.getFood());
+         return  food.isPresent() ?
+            Optional.of(FoodHelper.convert(request.getType(), food.get(), request.getQuantity())) :
             Optional.empty();
     }
 
     // TODO -> refactor
-    public double getUnits(Ingredient ingredient) {
+    public double getUnits(final Ingredient ingredient) {
         double rtr = 0;
         double ingQuantity;
         final Unit unit = Ingredient.getUnit(ingredient.getName());
+        final Optional<Food> food = getFoodFromString(Ingredient.extractName(ingredient));
+
         try {
             ingQuantity = Double.parseDouble(ingredient.getQuantity());
         } catch(NumberFormatException e) {
             ingQuantity = -1;
         }
-        final Optional<Food> food = getFoodFromString(Ingredient.extractName(ingredient));
 
         if(ingQuantity == -1){
             rtr = 0;
@@ -66,7 +70,7 @@ public class FoodService {
                 rtr =   food.isPresent() ? FoodHelper.convert(Conversion.G_TO_UNIT, food.get(), quantity) :
                     quantity / 100;
             }
-    }
+        }
 
         return rtr;
     }   

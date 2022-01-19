@@ -6,6 +6,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,35 +18,34 @@ import wadge.service.food.FoodHelper;
 import wadge.service.food.FoodHelper.Conversion;
 
 @Service
+@AllArgsConstructor
 public class ShoppingService {
-     Map<String, Ingredient> shoppingList = new HashMap<>();
-    private FoodService foodService;
-
-    @Autowired
-    public ShoppingService(FoodService foodService) {
-        this.foodService = foodService;
-    }
+    // TODO -> add DB
+    private final Map<String, Ingredient> shoppingList = new HashMap<>();
+    private final FoodService foodService;
 
     public Set<Ingredient> getShoppingList() {
         return shoppingList.values().stream().collect(Collectors.toSet());
     }
 
-    public Set<Ingredient> deleteFromShoppingList(Set<String> elements) {
+    public Set<Ingredient> deleteFromShoppingList(final Set<String> elements) {
         elements.stream().forEach(name -> shoppingList.remove(name));
         return getShoppingList();
     }
-    
-    public Set<Ingredient> addToShoppingList(Set<Ingredient> elements) {
+
+    // TODO -> refactor
+    public Set<Ingredient> addToShoppingList(final Set<Ingredient> elements) {
         elements.stream().forEach(element -> {
             
-            Optional<Food> food = foodService.getFoodFromString(Ingredient.extractName(element));
-            String previousName = element.getName();
+            final Optional<Food> food = foodService.getFoodFromString(Ingredient.extractName(element));
+            final String previousName = element.getName();
             if(food.isPresent()) {
                 element.setName(food.get().getName());
             }
 
             // The name has been changed if is in food_list
-            Unit unit = Ingredient.getUnit(previousName);
+            final Unit unit = Ingredient.getUnit(previousName);
+            final Ingredient previousValue = shoppingList.get(element.getName());
             double quantity = 0;
             // The element's unit is Kg, g or neither one
             try {
@@ -56,23 +56,16 @@ public class ShoppingService {
                 } else {
                     quantity = Double.parseDouble(element.getQuantity());
                 }
-            } catch(NumberFormatException e) {
-                // Unparsable strings ex: "un brin", "une feuille"...
+            } catch(NumberFormatException e) { // Unparsable strings ex: "un brin", "une feuille"...
+                e.printStackTrace();
             }
-            
-         
+
             if(quantity == -1) {
                 quantity = 0;
             }
-            
-            Ingredient previousValue = shoppingList.get(element.getName());
-            if(previousValue != null) {
-                String x = String.format("%.1f", Double.parseDouble(previousValue.getQuantity()) + quantity).replace(",", ".");
-                element.setQuantity(x);
-            } else {
-                String x = String.format("%.1f", quantity).replace(",", ".");
-                element.setQuantity(x);
-            }
+
+            final Double value = previousValue == null ? quantity : Double.parseDouble(previousValue.getQuantity());
+            final String quantityAsString = String.format("%.1f", value).replace(",", ".") ;
 
             shoppingList.put(element.getName(), element);
         });

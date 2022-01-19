@@ -16,8 +16,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-// @JsonIgnoreProperties(value={ "getProducts2" })
-// @JsonDeserialize(builder=FridgeFoodBuilder.class)
 @Data
 @Builder
 @Document
@@ -29,24 +27,11 @@ public class FridgeFood {
     private String name;
     private Map<Long, FoodElement> products;
 
-    public FridgeFood(String name, Map<Long, FoodElement> products) {
-        this.name = name;
-        this.products = products;
-    }
-
-    // @JsonDeserialize
-    // public List<FoodElement> getProducts() { 
-    //     return this.products.values().stream().toList();
-    // }
-
-    // @JsonIgnore
-    // public Map<Long, FoodElement> getProducts2() { return this.products; }
-
-    public void addProduct(FoodElement element) {
+    public void addProduct(final FoodElement element) {
         products.put(element.getId(), element);
     }
 
-    public void addAllProducts(List<FoodElement> elements) {
+    public void addAllProducts(final List<FoodElement> elements) {
         elements.stream().forEach(this::addProduct);
     }
 }
