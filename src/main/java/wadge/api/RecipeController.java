@@ -3,8 +3,6 @@ package wadge.api;
 import java.util.List;
 import java.util.Map;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,7 +15,6 @@ import wadge.service.recipe.impl.RecipeService;
 @AllArgsConstructor
 public class RecipeController {   
     private final RecipeService recipeService;
-    private final ObjectMapper mapper = new ObjectMapper();
 
     // TODO refactor -> rename + change map types
     @PostMapping(path = "/recipes/ingredient")

@@ -35,7 +35,7 @@ public class FoodService {
     }  
 
     // TODO refactor -> should no longer be used
-    @Deprecated
+    @Deprecated(since="19/01/2022")
     public Optional<Food> getFoodFromString(final String string) {
         return getAllFood().stream().filter(food -> string.contains(food.getName())).findFirst();
     }
