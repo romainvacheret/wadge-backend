@@ -3,7 +3,6 @@ package wadge.api;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
-import org.springframework.data.mongodb.util.BsonUtils;
 import org.springframework.web.bind.annotation.*;
 import wadge.model.fridge.*;
 import wadge.service.fridge.FridgeService;
@@ -23,14 +22,12 @@ public class FridgeController {
 
     @GetMapping(path="/fridge")
     public List<FridgeFood> getAllFridge() {
-        
-        // return fridgeService.getAllFridge();
         // TODO -> never used? fridge always retrieved using "/alerts"?
         return fridgeService.getAllFridge();
     }
 
     @PostMapping(path = "/fridge")
-    public void addAllToFridge(@RequestBody JsonNode food) {
+    public void addAllToFridge(@RequestBody final JsonNode food) {
         final List<LoadedFridgeFood> list = Arrays.asList(this.mapper.convertValue(food, LoadedFridgeFood[].class));
         fridgeService.addAllToFridge(list.stream()
             .map(foodElement -> foodElement.
@@ -43,17 +40,15 @@ public class FridgeController {
         fridgeService.emptyFridge();
     }
 
+    // TODO refactor -> change String to RecallType
     @GetMapping(path = "/alerts")
     public Map<String, List<FridgeFood>> getExpirationAlerts() {
-        final Map<String, List<FridgeFood>> result = new HashMap<>();
-        Arrays.asList(RecallType.values()).forEach(type -> 
-            result.put(type.toString(), fridgeService.getExpirationList(type))
-        );
-        return result;
+        return Arrays.stream(RecallType.values()).collect(Collectors.toMap(
+            RecallType::toString, fridgeService::getExpirationList));
     }
 
     @PutMapping(path = "/fridge")
-    public List<FridgeFood> deleteFromFridge(@RequestBody JsonNode food) {
+    public List<FridgeFood> updateFromFridge(@RequestBody final JsonNode food) {
         final List<FoodElementUpdateResponse> updateList = Arrays.asList(
                 this.mapper.convertValue(food, FoodElementUpdateResponse[].class));
 

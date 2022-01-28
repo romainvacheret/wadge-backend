@@ -8,7 +8,6 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,19 +33,17 @@ public class FoodController {
 
     @GetMapping(path="/foods/{month}")
     public List<Food> getFoodFromMonth(@PathVariable String month) {
-        if (month.length() != 0) {
-            month = month.toUpperCase();
-        }
-       return foodService.getFoodFromGivenMonth(Month.valueOf(month));
+       try {
+           return foodService.getFoodFromGivenMonth(Month.valueOf(month.toUpperCase()));
+       } catch(IllegalArgumentException e) {
+          return List.of() ;
+       }
     }
 
     @GetMapping(path="/foods/{month}/days")
     public List<Food> getFoodFromMonthByDays(@PathVariable String month) {
-        if (month.length() != 0) {
-            month = month.toUpperCase();
-        }
-       return foodService.sortByDays(foodService.getFoodFromGivenMonth(Month.valueOf(month)));
-    }  
+        return foodService.sortByDays(getFoodFromMonth(month));
+    }
 
     @PostMapping(path="/foods/scale") 
     public Optional<Double> convert(@RequestBody final JsonNode node) {

@@ -1,19 +1,14 @@
 package wadge.api;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import wadge.model.recipe.Recipe;
-import wadge.service.fridge.FridgeService;
 import wadge.service.recipe.impl.RecipeSelection.Parameter;
 import wadge.service.recipe.impl.RecipeService;
 

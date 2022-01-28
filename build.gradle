@@ -66,6 +66,7 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     implementation 'org.springdoc:springdoc-openapi-maven-plugin:1.1'
     implementation 'net.sourceforge.htmlunit:htmlunit:2.36.0'
+    implementation 'org.jsoup:jsoup:1.14.3'
     // compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
     // compile 'io.github.cdimascio:dotenv-java:2.2.0'
     compileOnly 'org.projectlombok:lombok'
@@ -77,9 +78,8 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+    testImplementation 'org.mockito:mockito-core:3.+'
 
     //Open Api 3
     // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui

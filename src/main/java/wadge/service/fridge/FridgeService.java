@@ -31,20 +31,22 @@ public class FridgeService {
     public enum RecallType {
         TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FOURTEEN_DAYS, EXPIRED, OTHER;
     }
-
     public void addToFridge(final FridgeFood food) {
-        if(food.getId() == null) {
-            food.setId(sequenceGenerator.generateSequence("fridgefood_sequence"));
-            repository.insert(food);
-        } else {
-            repository.findById(food.getId()).ifPresentOrElse(
-                optnl -> optnl.addAllProducts(food.getProducts().values().stream().toList()),
-                () -> repository.insert(food));
-        }
+        getFridgeFoodFromName(food.getName())
+            .ifPresentOrElse(fridgeFood -> {
+                fridgeFood.addAllProducts(
+                    fridgeFood.getProducts().values().stream().toList());
+                    repository.save(fridgeFood);
+                },
+                    () -> {
+                        food.setId(sequenceGenerator.generateSequence("fridgefood_sequence"));
+                        repository.insert(food);
+                    });
     }
 
     public void addAllToFridge(final List<FridgeFood> foodList) {
         foodList.stream().forEach(this::addToFridge);
+        foodList.stream().forEach(fridgeFood -> addToFridge(fridgeFood));
     }
 
     public List<FridgeFood> getAllFridge() {
@@ -55,7 +57,7 @@ public class FridgeService {
         return (List<FridgeFood>) repository.findAll().stream().map(food -> {
             final Map<Long, FoodElement> futureElements = food.getProducts().values().stream()
                     .filter(predicate)
-                    .collect(Collectors.toMap(element -> element.getId(), element -> element));
+                    .collect(Collectors.toMap(FoodElement::getId, element -> element));
 
             return futureElements.isEmpty() ? Optional.empty() :
                 Optional.ofNullable(FridgeFood.builder()
@@ -89,6 +91,7 @@ public class FridgeService {
     }
 
     // TODO refactor -> should no longer be used
+    @Deprecated
     public Optional<FridgeFood> getFridgeFoodFromName(final String foodName) {
         return getAllFridge().stream()
                 .filter(food -> food.getName().equals(foodName))
@@ -99,7 +102,7 @@ public class FridgeService {
         return repository.findById(id);
     }
 
-    // TODO -> refactor
+    // TODO refactor -> change String to Enum
     public String isInFridge(final Ingredient ingredient) {
         final Unit unit = Ingredient.getUnit(ingredient.getName());
         double quantity = 0;

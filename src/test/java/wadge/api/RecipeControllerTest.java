@@ -1,34 +1,72 @@
-// package wadge.api;
+package wadge.api;
 
-// import static org.junit.Assert.assertTrue;
+import org.junit.Ignore;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import wadge.model.recipe.Recipe;
+import wadge.service.recipe.impl.RecipeService;
 
-// import java.util.List;
-
-// import org.junit.Before;
-// import org.junit.Test;
-// import org.springframework.beans.factory.annotation.Autowired;
-
-// import wadge.dao.api.IRecipeDao;
-// import wadge.dao.impl.JsonRecipeDao;
-// import wadge.model.recipe.Recipe;
-// import wadge.service.recipe.impl.RecipeService;
-
-// public class RecipeControllerTest {
-//     private RecipeController controller;
-
-//     @Autowired private RecipeController recipeController;
+import static org.mockito.Mockito.verify;
 
 
-//     @Before
-//     public void setUp() {
-//         IRecipeDao dao = new JsonRecipeDao();
-//         RecipeService service = new RecipeService(dao, null, null);
-//         controller = new RecipeController(service, null);
-//     }
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
+class RecipeControllerTest {
+    @Mock
+    private RecipeService recipeService;
+    private RecipeController underTest;
 
-//     @Test
-//     public void getRecipesTest() {
-//         assertTrue(controller.getAllRecipes() instanceof List<?>);
-//         assertTrue(controller.getAllRecipes().get(0) instanceof Recipe);
-//     }
-// }
+    @BeforeEach
+    void setUp() {
+        underTest = new RecipeController(recipeService);
+    }
+
+    @Test
+    void getRecipesIngredient() {
+        underTest.getRecipesIngredient(Recipe.builder().build());
+        verify(recipeService).getRecipeIngredient(Recipe.builder().build());
+    }
+
+    @Test
+    @Ignore
+    void getSelectedRecipes() {
+    }
+
+    @Test
+    void getAllRecipes() {
+        underTest.getAllRecipes();
+        verify(recipeService).getAllRecipes();
+    }
+
+    @Test
+    @Ignore
+    void getFavoriteList() {
+    }
+
+    @Test
+    @Ignore
+    void addFavorite() {
+    }
+
+    @Test
+    @Ignore
+    void removeFavorite() {
+    }
+
+    @Test
+    @Ignore
+    void getDoneRecipeList() {
+    }
+
+    @Test
+    @Ignore
+    void addToDone() {
+    }
+}

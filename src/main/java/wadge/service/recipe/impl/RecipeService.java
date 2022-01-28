@@ -32,7 +32,6 @@ public class RecipeService {
         return repository.findAll();
     }
 
-    // TODO refactor -> no longer used?
     final ToIntFunction<Recipe> recipeScoring = recipe -> recipe.getIngredients().stream().map(SelectionWithFridge.ingredientScoring)
             .filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
 

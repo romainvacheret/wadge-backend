@@ -60,12 +60,10 @@ public class ShoppingService {
                 e.printStackTrace();
             }
 
-            if(quantity == -1) {
-                quantity = 0;
-            }
-
-            final Double value = previousValue == null ? quantity : Double.parseDouble(previousValue.getQuantity());
+            final Double value = previousValue == null ? (quantity <= 0 ? 0 : quantity) :
+                    Double.parseDouble(previousValue.getQuantity());
             final String quantityAsString = String.format("%.1f", value).replace(",", ".") ;
+            element.setQuantity(quantityAsString);
 
             shoppingList.put(element.getName(), element);
         });
