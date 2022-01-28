@@ -18,12 +18,9 @@ public class RecipeListScraper extends AbstractPageScraper {
     }
 
     private Optional<MarmitonRecipe> scrapRecipe(final String url) {
-        System.out.println("ici");
-        System.out.println(url);
         try {
             return Optional.ofNullable(new RecipeScraper(url).scrap());
         } catch (IOException e) {
-            e.printStackTrace();
             return Optional.empty();
         }
     }
@@ -36,7 +33,7 @@ public class RecipeListScraper extends AbstractPageScraper {
             .map(doc::selectXpath)
             .map(element -> String.format(
                 marmitonUrl,
-                    element.first().attr("href")).replace("\"", ""))
+                element.first().attr("href")).replace("\"", ""))
             .toList();
     }
 
@@ -51,55 +48,5 @@ public class RecipeListScraper extends AbstractPageScraper {
     public static void main(String[] args) throws IOException {
         final RecipeListScraper scraper = new RecipeListScraper("https://www.marmiton.org/recettes/recherche.aspx?aqt=gateau&page=6");
         System.out.println(scraper.scrap());
-        List.of("https://www.marmiton.org/recettes/recherche.aspx?aqt=gateau&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=butternut&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=quiche&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=patate-douce&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=poireaux&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=verrine&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=courgette&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=saute-de-porc&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=galette-des-rois&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=chou-vert&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=pomme-terre&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=mascarpone&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=roti-de-porc&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=chou-rouge&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=riz&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=aubergine&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=radis-noir&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=plat-leger&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=chou-blanc&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=fenouil&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=blanquette-de-veau&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=potimarron&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=celeri-rave&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=cabillaud&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=salade&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=rouelle-de-porc&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=cuisses-de-poulet&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=recette-rapide-et-facile&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=nouille-chinoise&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=pois-casses&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=marinade-poulet&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=cr%C3%8Apes&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=chou-chinois&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=wraps&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=haricot-vert&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=poivron&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=cookies&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=bruschetta&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=soupe-au-blender&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=pizza&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=tiramisu&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=dessert-leger&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=banane&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=samoussa&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=rhum-arrang%C3%89&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=recette-cookeo&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=escalope-de-dinde&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=sushi&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=boudin-blanc&page=%d",
-                "https://www.marmiton.org/recettes/recherche.aspx?aqt=quiche-lorraine");
     }
 }

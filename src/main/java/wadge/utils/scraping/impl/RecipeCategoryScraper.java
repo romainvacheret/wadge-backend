@@ -24,17 +24,13 @@ public class RecipeCategoryScraper extends AbstractPageScraper {
                 .forEach(index -> {
                     final RecipeListScraper scraper;
                     final String x = String.format(url + "&page=%d", index);
-                    System.out.println(x);
                     try {
                         scraper = new RecipeListScraper(x);
-                        recipeList.addAll((List<MarmitonRecipe>) scraper.scrap()); // TODO refactor -> avoid casting
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                        recipeList.addAll(scraper.scrap());
+                    } catch (IOException e) {}
                 });
-        } catch(Exception e) {
-            e.printStackTrace();
-        }// TODO check exception
+        } catch(Exception e) {} // TODO check exception
+
 
         return recipeList;
     }

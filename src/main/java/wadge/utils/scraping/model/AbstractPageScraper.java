@@ -10,7 +10,6 @@ public abstract class AbstractPageScraper implements PageScraper {
     protected final Document doc;
 
     protected AbstractPageScraper(final String url) throws IOException {
-        System.out.println(url);
         this.url = url;
         doc = Jsoup.connect(url).get();
     }
@@ -25,4 +24,5 @@ public abstract class AbstractPageScraper implements PageScraper {
             return "";
         }
     }
+
 }
