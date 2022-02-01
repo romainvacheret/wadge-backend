@@ -1,7 +1,6 @@
 package wadge.utils.db;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.FindAndModifyOptions;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class SequenceGenerator {
     private final MongoTemplate mongoTemplate;
 
-    public long generateSequence(final String sequenceName) {
+    public synchronized long generateSequence(final String sequenceName) {
         final Criteria criteria = Criteria.where("_id").is(sequenceName);
         final Query query = new Query(criteria);
         final Update update = new Update().inc("sequence", 1);
