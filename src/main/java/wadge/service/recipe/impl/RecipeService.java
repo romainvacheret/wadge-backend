@@ -16,7 +16,6 @@ import wadge.service.food.FoodService;
 import wadge.service.fridge.FridgeService;
 import wadge.service.recipe.api.IRecipeSelection;
 import wadge.service.recipe.impl.RecipeSelection.Parameter;
-import wadge.utils.db.SequenceGenerator;
 
 
 @Service
