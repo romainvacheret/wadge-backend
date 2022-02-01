@@ -22,7 +22,7 @@ import wadge.utils.scraping.model.PageScraper;
 public class RecipeConfig {
     private final SequenceGenerator sequenceGenerator;
     // Can be changed to the user's convenience
-    private final int THREAD_COUNT = 2;
+    private final int THREAD_COUNT = 1;
 
     @Bean
     CommandLineRunner recipeCommandLineRunner(final RecipeRepository repository) {

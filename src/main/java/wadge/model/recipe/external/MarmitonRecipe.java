@@ -41,6 +41,7 @@ public class MarmitonRecipe {
 			.preparation(fromStringToInt(preparation))
 			.servings(fromStringToInt(servings))
 			.difficulty(fromStringToInt(difficulty))
+			.steps(steps)
 			.ingredients(ingredients)
 			.build();
 	}
