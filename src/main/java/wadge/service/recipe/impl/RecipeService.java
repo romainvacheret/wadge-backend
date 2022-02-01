@@ -1,11 +1,6 @@
 package wadge.service.recipe.impl;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
@@ -14,12 +9,15 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import wadge.dao.RecipeRepository;
+import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
+import wadge.model.recipe.RecipeTag;
 import wadge.service.food.FoodService;
 import wadge.service.fridge.FridgeService;
-import wadge.service.recipe.api.AbstractRecipeSelection;
 import wadge.service.recipe.api.IRecipeSelection;
 import wadge.service.recipe.impl.RecipeSelection.Parameter;
+import wadge.utils.db.SequenceGenerator;
+
 
 @Service
 @AllArgsConstructor
@@ -32,20 +30,23 @@ public class RecipeService {
         return repository.findAll();
     }
 
-    final ToIntFunction<Recipe> recipeScoring = recipe -> recipe.getIngredients().stream().map(SelectionWithFridge.ingredientScoring)
-            .filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
+    final ToIntFunction<Recipe> recipeScoring = recipe -> recipe.getIngredients().stream()
+        .map(SelectionWithFridge.ingredientScoring)
+        .filter(Optional::isPresent)
+        .map(Optional::get)
+        .reduce(0, Integer::sum);
 
     public List<Recipe> getRecipesUsingFridge() {
-        final AbstractRecipeSelection sel = new SelectionWithFridge(getAllRecipes()
-                .stream().collect(Collectors.toSet()), fridgeService);
-        return sel.compute(recipeScoring).
-                filter(x -> x > 0).sort(Collections.reverseOrder(Map.Entry.comparingByKey()));
+        return new SelectionWithFridge(new HashSet<>(getAllRecipes()), fridgeService)
+            .compute(recipeScoring)
+            .filter(x -> x > 0)
+            .sort(Collections.reverseOrder(Map.Entry.comparingByKey()));
     }
 
     public Map<String, String> getRecipeIngredient(final Recipe recipe) {
         return recipe.getIngredients().stream().collect(Collectors.toMap(
-                ingredient -> ingredient.getName(),
-                ingredient -> fridgeService.isInFridge(ingredient)));
+            Ingredient::getName,
+            fridgeService::isInFridge));
     }
 
     // TODO -> refactor
@@ -65,30 +66,36 @@ public class RecipeService {
                     recipe, 
                     recipe.getIngredients().stream().map(foodService::getUnits).reduce(0.0, Double::sum)
                 )
-            ).collect(Collectors.toList());
-            return m.stream().sorted((m1, m2) -> Double.compare(m1.getValue(), m2.getValue())).map(Map.Entry<Recipe, Double>::getKey).collect(Collectors.toList());
+            ).toList();
+
+            return m.stream()
+                .sorted(Comparator.comparingDouble(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .toList();
         }
 
         return selection.select(predicate).sort(comparator);
     }
 
-    public List<Recipe> getFavoritesRecipes(){
-        return List.of();
+    // ---- Tagged recipes ----
+
+    public List<Recipe> getTaggedRecipes(final RecipeTag tag) {
+        return repository.findAll().stream()
+            .filter(recipe -> recipe.getTags().contains(tag))
+            .toList();
     }
 
-    // TODO
-    public void addFavoriteRecipe(final Recipe recipe) {}
-
-    // TODO
-    public List<Recipe> deleteFavoriteRecipe(final String link ){
-        return List.of();
+    public void addTagToRecipe(final long id, final RecipeTag tag) {
+        repository.findById(id).ifPresent(recipe -> {
+            recipe.getTags().add(tag);
+            repository.save(recipe);
+        });
     }
 
-    // TODO
-    public List<Recipe> getDoneRecipes() {
-        return List.of();
+    public void removeTagToRecipe(final long id, final RecipeTag tag) {
+        repository.findById(id).ifPresent(recipe -> {
+            recipe.getTags().remove(tag);
+            repository.save(recipe);
+        });
     }
-
-    // TODO
-    public void addDoneRecipe(final Recipe recipe) {}
 }

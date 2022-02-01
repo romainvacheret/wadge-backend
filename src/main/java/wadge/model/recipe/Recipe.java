@@ -1,6 +1,8 @@
 package wadge.model.recipe;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -29,4 +31,5 @@ public class Recipe {
     @EqualsAndHashCode.Exclude
     private String link;
     private List<Ingredient> ingredients;
+    private Set<RecipeTag> tags = new HashSet<>();
 }

@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import wadge.model.recipe.Recipe;
+import wadge.model.recipe.RecipeTag;
 import wadge.service.recipe.impl.RecipeSelection.Parameter;
 import wadge.service.recipe.impl.RecipeService;
 
@@ -35,28 +36,20 @@ public class RecipeController {
 
     // TODO refactor -> change logic for "special" recipes
 
-    @GetMapping(path="/recipes/favorites")
-	public List<Recipe> getFavoriteList(){
-    	return recipeService.getFavoritesRecipes();
-    }
-   
-    @PostMapping(path="/recipes/addFavorite")
-	public void addFavorite(@RequestBody final Recipe recipe){
-    	   recipeService.addFavoriteRecipe(recipe);
+    // ---- Tagged Recipes ----
+
+    @GetMapping(path="/recipes/tagged/{tag}")
+    public List<Recipe> getRecipesFromTag(@PathVariable final RecipeTag tag) {
+        return recipeService.getTaggedRecipes(tag);
     }
 
-    @PostMapping(path = "/recipes/removeFavorite")
-	public List<Recipe> removeFavorite(@RequestBody final Recipe recipe){
-    	return recipeService.deleteFavoriteRecipe(recipe.getLink());
+    @PostMapping(path="/recipes/{id}/tagged/{tag}")
+    public void addTagToRecipe(@PathVariable final long id, @PathVariable final RecipeTag tag) {
+        recipeService.addTagToRecipe(id, tag);
     }
 
-	@GetMapping(path="/recipes/doneRecipes")
-	public List<Recipe> getDoneRecipeList(){
-		return recipeService.getDoneRecipes();
-	}
-	
-	@PostMapping(path="/recipes/addtoDoneRecipe")
-	public void addToDone(@RequestBody final Recipe recipe){
-		recipeService.addDoneRecipe(recipe);
-	}
-} 
+    @DeleteMapping(path="/recipes/{id}/tagged/{tag}")
+    public void removeTagToRecipe(@PathVariable final long id, @PathVariable final RecipeTag tag) {
+        recipeService.removeTagToRecipe(id, tag);
+    }
+}

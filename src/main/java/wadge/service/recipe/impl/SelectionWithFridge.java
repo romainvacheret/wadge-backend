@@ -29,17 +29,17 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
         
         scoringMap.clear();
         defineScoringMap(Arrays.asList(RecallType.values()).stream()
-                .map((RecallType type) ->
-                    Map.entry(type, fridgeService.getExpirationList(type))
-                ).map(entry -> Map.entry(
-                    entry.getKey(),
-                    entry.getValue().stream().
-                        map(FridgeFood::getName).collect(Collectors.toList())))
-                .collect(Collectors.toMap(
-                    Map.Entry<RecallType,
-                    List<String>>::getKey,
-                    Map.Entry<RecallType,
-                    List<String>>::getValue)));
+            .map((RecallType type) ->
+                Map.entry(type, fridgeService.getExpirationList(type))
+            ).map(entry -> Map.entry(
+                entry.getKey(),
+                entry.getValue().stream().
+                    map(FridgeFood::getName).toList()))
+            .collect(Collectors.toMap(
+                Map.Entry<RecallType,
+                List<String>>::getKey,
+                Map.Entry<RecallType,
+                List<String>>::getValue)));
     }
 
     void addToSet(final Set<String> mySet, final String key, final Integer value) {
@@ -69,27 +69,23 @@ public class SelectionWithFridge extends AbstractRecipeSelection {
             .map(Map.Entry::getValue)
             .findFirst();
 
-    // TODO refactor -> no longer used?
-    ToIntFunction<List<Ingredient>> recipeScoring = ingredients -> ingredients.stream().map(ingredientScoring)
-            .filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
-
     final BiFunction<Recipe, ToIntFunction<Recipe>, Map.Entry<Integer, Recipe>> recipeToEntry = (recipe, func) ->
         Map.entry(func.applyAsInt(recipe), recipe);
 
     @Override   
     public AbstractRecipeSelection compute(final ToIntFunction<Recipe> func) {
-        scores = recipes.stream().map(recipe -> recipeToEntry.apply(recipe, func)).collect(Collectors.toList());
+        scores = recipes.stream().map(recipe -> recipeToEntry.apply(recipe, func)).toList();
         return this;
     }
 
     @Override
     public AbstractRecipeSelection filter(final IntPredicate predicate) {
-        scores = scores.stream().filter(score -> predicate.test(score.getKey())).collect(Collectors.toList());
+        scores = scores.stream().filter(score -> predicate.test(score.getKey())).toList();
         return this;
     }
 
     @Override
     public List<Recipe> sort(final Comparator<Map.Entry<Integer, Recipe>> comparator) {
-        return scores.stream().sorted(comparator).map(Map.Entry::getValue).collect(Collectors.toList());
+        return scores.stream().sorted(comparator).map(Map.Entry::getValue).toList();
     }
 }
