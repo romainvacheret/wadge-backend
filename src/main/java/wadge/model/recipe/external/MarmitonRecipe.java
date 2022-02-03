@@ -14,8 +14,8 @@ import wadge.model.recipe.Recipe;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MarmitonRecipe {
-	private String link ;
-	private String name ;
+	private String link;
+	private String name;
 	private String ratingfract;
 	private String opinion;
 	private List<String> steps;
@@ -33,6 +33,16 @@ public class MarmitonRecipe {
 		}
 	}
 
+	int convertDifficulty(final String difficulty) {
+		return switch(difficulty.toLowerCase()) {
+			case "facile" -> 2;
+			case "très facile" -> 1;
+			case "moyenne" -> 3;
+			case "difficile" -> 4;
+			default -> -1;
+		};
+	}
+
 	public Recipe toRecipe() {
 		return Recipe.builder()
 			.link(link)
@@ -40,7 +50,7 @@ public class MarmitonRecipe {
 			.rating(fromStringToInt(rating))
 			.preparation(fromStringToInt(preparation))
 			.servings(fromStringToInt(servings))
-			.difficulty(fromStringToInt(difficulty))
+			.difficulty(convertDifficulty(difficulty))
 			.steps(steps)
 			.ingredients(ingredients)
 			.build();

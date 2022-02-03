@@ -1,7 +1,7 @@
 from typing import NoReturn
 
 from src.profile import Profile
-from src.selection import RecipeSelector, RandomRecipeSelector
+from src.selection import RecipeSelector
 
 
 class User:
@@ -21,5 +21,6 @@ class User:
     def to_dict(self) -> dict:
         return {
             'name': self.name,
-            'recipes': self.selected_recipes
+            'recipes': self.selected_recipes,
+            'category': self.profile.name.upper()
         }
