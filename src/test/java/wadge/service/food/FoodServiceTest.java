@@ -8,16 +8,17 @@ import java.util.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
-// import wadge.model.food.Month;
 import java.time.Month;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@DataMongoTest
 public class FoodServiceTest {
     @Autowired
     private FoodService service;

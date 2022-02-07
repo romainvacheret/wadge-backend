@@ -13,14 +13,14 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.service.food.FoodService;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
 @ExtendWith(MockitoExtension.class)
+@DataMongoTest
 public class FoodControllerTest {
     @Mock
     private FoodService foodService;
