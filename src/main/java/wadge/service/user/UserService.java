@@ -1,11 +1,24 @@
 package wadge.service.user;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.type.CollectionType;
 import lombok.AllArgsConstructor;
+import org.apache.http.Header;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicHeader;
 import org.springframework.stereotype.Service;
 import wadge.dao.UserRepository;
 import wadge.model.data.User;
+import wadge.model.recipe.Recipe;
 import wadge.utils.db.SequenceGenerator;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @Service
@@ -22,5 +35,29 @@ public class UserService {
        repository.saveAll(users.stream()
            .peek(user -> user.setId(sequenceGenerator.generateSequence("user_sequence")))
            .toList());
+   }
+
+   public List<Recipe> computeKnn() throws IOException {
+       final HttpClient client = HttpClients.createDefault();
+       final HttpPost post = new HttpPost("http://localhost:5000/knn");
+       final ObjectMapper mapper = new ObjectMapper();
+       final String usersAsString = mapper.writeValueAsString(getUsers().stream().limit(1).toList());
+       final Header headers[] = {
+               new BasicHeader("Content-type", "application/json"),
+               new BasicHeader("Accept", "application/json")
+       };
+       final String bodyAsString = String.format("{\"target\": 1, \"users\":%s}", usersAsString);
+
+       post.setHeaders(headers);
+       post.setEntity(new StringEntity(bodyAsString, "UTF-8"));
+
+       final HttpResponse response = client.execute(post);
+       final HttpEntity entity = response.getEntity();
+       final String result = new String(entity.getContent().readAllBytes(), StandardCharsets.UTF_8);
+       final CollectionType listRecipeType = mapper.getTypeFactory()
+           .constructCollectionType(List.class, Recipe.class);
+       final List<Recipe> recipes = mapper.readValue(result, listRecipeType);
+
+       return recipes;
    }
 }

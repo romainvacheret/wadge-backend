@@ -6,8 +6,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 import wadge.model.data.User;
+import wadge.model.recipe.Recipe;
 import wadge.service.user.UserService;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -27,5 +29,10 @@ public class UserController {
     @GetMapping("/users")
     public List<User> getUsers() {
         return service.getUsers();
+    }
+
+    @GetMapping("/users/knn")
+    public List<Recipe> computeKnn() throws IOException {
+        return service.computeKnn();
     }
 }
