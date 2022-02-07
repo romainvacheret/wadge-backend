@@ -13,6 +13,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.springframework.stereotype.Service;
 import wadge.dao.UserRepository;
+import wadge.model.data.ScoredRecipe;
 import wadge.model.data.User;
 import wadge.model.recipe.Recipe;
 import wadge.utils.db.SequenceGenerator;
@@ -20,6 +21,7 @@ import wadge.utils.db.SequenceGenerator;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -37,11 +39,19 @@ public class UserService {
            .toList());
    }
 
+   public List<ScoredRecipe> getScoredRecipesForGivenUser(final String name) {
+       final Optional<User> user =  getUsers().stream()
+        .filter(u -> u.getName().equals(name)).findFirst();
+
+
+       return user.isEmpty() ? List.of() : user.get().getRecipes();
+   }
+
    public List<Recipe> computeKnn() throws IOException {
        final HttpClient client = HttpClients.createDefault();
        final HttpPost post = new HttpPost("http://localhost:5000/knn");
        final ObjectMapper mapper = new ObjectMapper();
-       final String usersAsString = mapper.writeValueAsString(getUsers().stream().limit(1).toList());
+       final String usersAsString = mapper.writeValueAsString(getUsers());
        final Header headers[] = {
                new BasicHeader("Content-type", "application/json"),
                new BasicHeader("Accept", "application/json")
