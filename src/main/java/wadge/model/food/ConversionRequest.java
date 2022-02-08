@@ -1,12 +1,12 @@
 package wadge.model.food;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import wadge.service.food.FoodHelper.Conversion;
 
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class ConversionRequest {
     private Conversion type;

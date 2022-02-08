@@ -4,11 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
 import java.time.Month;
-import org.junit.Before;
-import org.junit.Test;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import wadge.model.food.Food;
-// import wadge.model.food.Month;
 import wadge.service.food.FoodHelper.Conversion;
 
 class FoodHelperTest {
@@ -16,7 +15,7 @@ class FoodHelperTest {
     private Food f2;
     private Food f3;
 
-    @Before
+    @BeforeEach
     void setUp() {
         f1 = Food.builder()
                 .name("abricot")
