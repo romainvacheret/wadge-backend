@@ -9,9 +9,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.service.fridge.FridgeService;
@@ -21,9 +21,9 @@ import wadge.utils.db.SequenceGenerator;
 @ExtendWith(MockitoExtension.class)
 @DataMongoTest
 class FridgeControllerTest {
-    @Mock
+    @MockBean
     private FridgeService fridgeService;
-    @Mock
+    @MockBean
     private SequenceGenerator sequenceGenerator;
     private FridgeController underTest;
 
