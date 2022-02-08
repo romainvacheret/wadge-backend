@@ -9,7 +9,7 @@ def load_recipes(filename: str) -> list[dict]:
 			return load(file)
 
 if __name__ == '__main__':
-	recipes = load_recipes('./recipes.json')
+	recipes = requests.get('http://localhost:8080/recipes').json()
 	user_initializer = UserInitializer()
 	users = user_initializer.initialize(recipes)
 	users_as_dict = [user.to_dict() for user in users]

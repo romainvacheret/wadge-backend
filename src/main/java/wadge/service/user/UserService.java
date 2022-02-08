@@ -12,6 +12,7 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.springframework.stereotype.Service;
+import wadge.dao.RecipeRepository;
 import wadge.dao.UserRepository;
 import wadge.model.data.ScoredRecipe;
 import wadge.model.data.User;
@@ -27,6 +28,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserService {
    private final UserRepository repository;
+   private final RecipeRepository recipeRepository;
    private final SequenceGenerator sequenceGenerator;
 
    public List<User> getUsers() {
@@ -65,9 +67,13 @@ public class UserService {
        final HttpEntity entity = response.getEntity();
        final String result = new String(entity.getContent().readAllBytes(), StandardCharsets.UTF_8);
        final CollectionType listRecipeType = mapper.getTypeFactory()
-           .constructCollectionType(List.class, Recipe.class);
-       final List<Recipe> recipes = mapper.readValue(result, listRecipeType);
+           .constructCollectionType(List.class, Long.class);
+       final List<Long> recipesIds = mapper.readValue(result, listRecipeType);
 
-       return recipes;
+       return recipesIds.stream()
+            .map(recipeRepository::findById)
+            .filter(Optional::isPresent)
+            .map(Optional::get)
+            .toList();
    }
 }
