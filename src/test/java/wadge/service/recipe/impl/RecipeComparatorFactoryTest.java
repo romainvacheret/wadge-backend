@@ -15,10 +15,10 @@ import wadge.service.recipe.impl.RecipeSelection.Parameter;
 @RunWith(SpringRunner.class)
 @SpringBootTest
     
-public class RecipeComparatorFactoryTest {
+class RecipeComparatorFactoryTest {
 
     @Test
-    public void getComparatorTest() {
+    void getComparatorTest() {
         List.of(Parameter.values()).stream().forEach(
             param -> assertTrue(RecipeComparatorFactory.getComparator(param) instanceof Comparator<?>));
     }

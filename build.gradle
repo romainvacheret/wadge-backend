@@ -7,8 +7,8 @@
  */
 
 plugins {
-    id 'org.springframework.boot' version '2.3.3.RELEASE'
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
+    id 'org.springframework.boot' version '2.6.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 
     // Apply the java plugin to add support for Java
     id 'java'
@@ -62,26 +62,32 @@ dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:29.0-jre'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.3'
     implementation 'org.springdoc:springdoc-openapi-maven-plugin:1.1'
     implementation 'net.sourceforge.htmlunit:htmlunit:2.36.0'
-    compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
-    compile 'io.github.cdimascio:dotenv-java:2.2.0'
+    implementation 'org.jsoup:jsoup:1.14.3'
+    implementation 'org.apache.httpcomponents:httpclient:4.5.13'
+    // compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1'
+    // compile 'io.github.cdimascio:dotenv-java:2.2.0'
+    compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+
+
 
     asciidoctorGems 'rubygems:rouge:3.15.0'
 
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.13'
-
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
-
+    testImplementation 'org.mockito:mockito-core:3.+'
 
     //Open Api 3
     // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui
-    compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.0'
+    // compile group: 'org.springdoc', name: 'springdoc-openapi-ui', version: '1.5.0'
     // https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-data-rest
-    compile group: 'org.springdoc', name: 'springdoc-openapi-data-rest', version: '1.5.0'
+    // compile group: 'org.springdoc', name: 'springdoc-openapi-data-rest', version: '1.5.0'
 
 
 }

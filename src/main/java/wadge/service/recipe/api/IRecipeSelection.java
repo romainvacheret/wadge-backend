@@ -7,6 +7,6 @@ import java.util.function.Predicate;
 import wadge.model.recipe.Recipe;
 
 public interface IRecipeSelection {
-    IRecipeSelection select(Predicate<Recipe> predicate);
-    List<Recipe> sort(Comparator<Recipe> comparator);
+    IRecipeSelection select(final Predicate<Recipe> predicate);
+    List<Recipe> sort(final Comparator<Recipe> comparator);
 }

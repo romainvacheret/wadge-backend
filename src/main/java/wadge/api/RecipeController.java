@@ -1,75 +1,55 @@
 package wadge.api;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import wadge.model.recipe.Recipe;
-import wadge.service.fridge.FridgeService;
+import wadge.model.recipe.RecipeTag;
 import wadge.service.recipe.impl.RecipeSelection.Parameter;
 import wadge.service.recipe.impl.RecipeService;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
+@AllArgsConstructor
 public class RecipeController {   
     private final RecipeService recipeService;
 
-    @Autowired
-    public RecipeController(RecipeService recipeService, FridgeService fridgeService) {
-        this.recipeService = recipeService;
-    }
-
-    @PostMapping(path = "/recipes/search")
-	public List<Recipe> getRecipesFromMarmiton(@RequestBody JsonNode ingredients) {
-		ObjectMapper mapper = new ObjectMapper();
-		List<String> list = Arrays.asList(mapper.convertValue(ingredients, String[].class));
-		String query = list.stream().collect(Collectors.joining("-"));
-		return this.recipeService.getRecipesFromMarmiton(query);
-	}
-
+    // TODO refactor -> rename + change map types
     @PostMapping(path = "/recipes/ingredient")
-    public Map<String, String> getRecipesIngredient(@RequestBody Recipe recipes) {
+    public Map<String, String> getRecipesIngredient(@RequestBody final Recipe recipes) {
         return recipeService.getRecipeIngredient(recipes);
     }
 
+    // TODO refactor -> change map types
     @PostMapping(path="/recipes")
-    public List<Recipe> getSelectedRecipes(@RequestBody Map<String, Parameter> node) {
+    public List<Recipe> getSelectedRecipes(@RequestBody final Map<String, Parameter> node) {
         return recipeService.selectRecipes(node.get("selection")); 
     }
+
     @GetMapping(path="/recipes")
     public  List<Recipe> getAllRecipes(){
     	return recipeService.getAllRecipes();
     }
-    @GetMapping(path="/recipes/favorites")
-	public List<Recipe> getFavoriteList(){
-    	return recipeService.getFavoriesRecipes();
+
+    // TODO refactor -> change logic for "special" recipes
+
+    // ---- Tagged Recipes ----
+
+    @GetMapping(path="/recipes/tagged/{tag}")
+    public List<Recipe> getRecipesFromTag(@PathVariable final RecipeTag tag) {
+        return recipeService.getTaggedRecipes(tag);
     }
-   
-    @PostMapping(path="/recipes/addFavorite")
-	public void addFavorite(@RequestBody Recipe recipe){
-    	   recipeService.addFavoriteRecipe(recipe);
-    
+
+    @PostMapping(path="/recipes/{id}/tagged/{tag}")
+    public void addTagToRecipe(@PathVariable final long id, @PathVariable final RecipeTag tag) {
+        recipeService.addTagToRecipe(id, tag);
     }
-    @PostMapping(path = "/recipes/removeFavorite")
-	public List<Recipe> removeFavorite(@RequestBody Recipe recipe){
-    	return recipeService.deleteFavoriteRecipe(recipe.getLink());
-    	
+
+    @DeleteMapping(path="/recipes/{id}/tagged/{tag}")
+    public void removeTagToRecipe(@PathVariable final long id, @PathVariable final RecipeTag tag) {
+        recipeService.removeTagToRecipe(id, tag);
     }
-	@GetMapping(path="/recipes/doneRecipes")
-	public List<Recipe> getDoneRecipeList(){
-		return recipeService.getDoneRecipes();
-	}
-	
-	@PostMapping(path="/recipes/addtoDoneRecipe")
-	public void addToDone(@RequestBody Recipe recipe){
-		recipeService.addDoneRecipe(recipe);
-		
-	}
-} 
+}

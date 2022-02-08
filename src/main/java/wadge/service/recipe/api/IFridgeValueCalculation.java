@@ -8,5 +8,5 @@ import wadge.service.fridge.FridgeService.RecallType;
 
 @FunctionalInterface
 public interface IFridgeValueCalculation {
-    double compute(Recipe recipe, Map<RecallType, FridgeFood> fridge);
+    double compute(final Recipe recipe, final Map<RecallType, FridgeFood> fridge);
 }
