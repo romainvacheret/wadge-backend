@@ -37,7 +37,10 @@ public class UserService {
 
    public void createUsers(final List<User> users) {
        repository.saveAll(users.stream()
-           .peek(user -> user.setId(sequenceGenerator.generateSequence("user_sequence")))
+           .map(user -> {
+               user.setId(sequenceGenerator.generateSequence("user_sequence"));
+               return user;
+           })
            .toList());
    }
 
@@ -54,7 +57,7 @@ public class UserService {
        final HttpPost post = new HttpPost("http://localhost:5000/knn");
        final ObjectMapper mapper = new ObjectMapper();
        final String usersAsString = mapper.writeValueAsString(getUsers());
-       final Header headers[] = {
+       final Header[] headers = {
                new BasicHeader("Content-type", "application/json"),
                new BasicHeader("Accept", "application/json")
        };

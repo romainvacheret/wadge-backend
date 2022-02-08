@@ -46,7 +46,6 @@ public class FridgeService {
 
     public void addAllToFridge(final List<FridgeFood> foodList) {
         foodList.stream().forEach(this::addToFridge);
-        foodList.stream().forEach(fridgeFood -> addToFridge(fridgeFood));
     }
 
     public List<FridgeFood> getAllFridge() {

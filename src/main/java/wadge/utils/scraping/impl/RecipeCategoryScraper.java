@@ -23,24 +23,20 @@ public class RecipeCategoryScraper extends AbstractPageScraper {
                 .boxed()
                 .forEach(index -> {
                     final RecipeListScraper scraper;
-                    final String x = String.format(url + "&page=%d", index);
+                    final String x = String.format("%s&page=%d", url, index);
                     try {
                         scraper = new RecipeListScraper(x);
                         recipeList.addAll(scraper.scrap());
-                    } catch (IOException e) {}
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 });
-        } catch(Exception e) {} // TODO check exception
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
 
 
         return recipeList;
-    }
-
-    public static void main(String[] args) throws IOException {
-        final String url = "https://www.marmiton.org/recettes/recherche.aspx?aqt=gateau";
-        final RecipeCategoryScraper scraper = new RecipeCategoryScraper(url);
-        final List<MarmitonRecipe> recipeList = scraper.scrap();
-        System.out.println(recipeList.size());
-        System.out.println(recipeList);
     }
 }
 

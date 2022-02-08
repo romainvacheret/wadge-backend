@@ -22,7 +22,7 @@ import wadge.service.fridge.FridgeService.RecallType;
 import wadge.service.recipe.api.AbstractRecipeSelection;
 
 public class SelectionWithFridge extends AbstractRecipeSelection {
-    final static Map<String, Integer> scoringMap = new HashMap<>();
+    static final Map<String, Integer> scoringMap = new HashMap<>();
 
     public SelectionWithFridge(final Set<Recipe> recipes, final FridgeService fridgeService) {
         this.recipes = recipes;

@@ -21,7 +21,7 @@ import wadge.service.food.FoodService;
 @RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
 @DataMongoTest
-public class FoodControllerTest {
+class FoodControllerTest {
     @Mock
     private FoodService foodService;
     private FoodController underTest;
@@ -41,7 +41,7 @@ public class FoodControllerTest {
     }
 
     @Test
-    public void getFoodFromMonth(){
+    void getFoodFromMonth(){
         monthList.stream().forEach(monthAsString -> {
             final Month month = Month.valueOf(monthAsString) ;
             underTest.getFoodFromMonth(monthAsString);
@@ -52,13 +52,13 @@ public class FoodControllerTest {
     // TODO Add values to improve tests
 
     @Test
-    public void getFoodFromMonthException() {
+    void getFoodFromMonthException() {
         assertEquals(List.of(), underTest.getFoodFromMonth("test"));
     }
 
     @Test
     @Ignore
-    public void getFoodFromMonthByDays(){
+    void getFoodFromMonthByDays(){
     }
 
     @Test

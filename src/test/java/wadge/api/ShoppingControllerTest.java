@@ -14,12 +14,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DataMongoTest
-public class ShoppingControllerTest {
+class ShoppingControllerTest {
     @Autowired
     private ShoppingController controller;
 
     @Test
-    public void getShoppinListTest() {
+    void getShoppinListTest() {
         assertTrue(controller.getShoppingList() instanceof Set<?>);
     }
 }

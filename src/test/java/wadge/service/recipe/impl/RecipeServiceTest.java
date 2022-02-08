@@ -16,12 +16,12 @@ import wadge.model.recipe.Recipe;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DataMongoTest
-public class RecipeServiceTest {
+class RecipeServiceTest {
     @Autowired
     private RecipeService service;
     
     @Test
-    public void getAllFoodTest() {
+    void getAllFoodTest() {
         assertTrue(service.getAllRecipes() instanceof List<?>);
         assertTrue(service.getAllRecipes().get(0) instanceof Recipe);
     }

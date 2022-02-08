@@ -7,7 +7,6 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import wadge.model.food.Food;
@@ -20,7 +19,6 @@ import wadge.service.food.FoodHelper.Conversion;
 @Service
 @AllArgsConstructor
 public class ShoppingService {
-    // TODO -> add DB
     private final Map<String, Ingredient> shoppingList = new HashMap<>();
     private final FoodService foodService;
 
@@ -29,7 +27,7 @@ public class ShoppingService {
     }
 
     public Set<Ingredient> deleteFromShoppingList(final Set<String> elements) {
-        elements.stream().forEach(name -> shoppingList.remove(name));
+        elements.stream().forEach(shoppingList::remove);
         return getShoppingList();
     }
 

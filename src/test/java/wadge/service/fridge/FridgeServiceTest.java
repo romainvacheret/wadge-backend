@@ -18,18 +18,18 @@ import wadge.model.recipe.Ingredient;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DataMongoTest
-public class FridgeServiceTest {
+class FridgeServiceTest {
     @Autowired
     private FridgeService service;
 
     @Test
-    public void getAllFoodTest() {
+    void getAllFoodTest() {
         assertTrue(service.getAllFridge() instanceof List<?>);
         assertTrue(service.getAllFridge().get(0) instanceof FridgeFood);
     }
 
     @Test
-    public void isInFridge() {
+    void isInFridge() {
         Ingredient ing = new Ingredient();
         ing.setName("poisson");
         ing.setQuantity("2");

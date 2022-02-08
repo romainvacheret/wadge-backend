@@ -25,7 +25,7 @@ public class LoadedFridgeFood {
                     return element;
                 })
                 .collect(Collectors.toMap(
-                    element -> element.getId(),
+                    FoodElement::getId,
                     element -> element))
             ).build();
     }

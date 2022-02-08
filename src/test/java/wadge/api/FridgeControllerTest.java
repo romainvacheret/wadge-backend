@@ -20,7 +20,7 @@ import wadge.utils.db.SequenceGenerator;
 @RunWith(SpringRunner.class)
 @ExtendWith(MockitoExtension.class)
 @DataMongoTest
-public class FridgeControllerTest {
+class FridgeControllerTest {
     @Mock
     private FridgeService fridgeService;
     @Mock

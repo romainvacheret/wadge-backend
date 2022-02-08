@@ -24,8 +24,11 @@ public record ScrapingTask(RecipeRepository repository,
         getScraper().ifPresent(scraper ->
             repository.saveAll(scraper.scrap().stream()
                 .map(MarmitonRecipe::toRecipe)
-                .peek(recipe -> recipe.setId(
-                    sequenceGenerator.generateSequence("recipe_sequence")))
+                .map(recipe -> {
+                    recipe.setId(
+                            sequenceGenerator.generateSequence("recipe_sequence"));
+                    return recipe;
+                })
                 .filter(recipe -> !recipe.getName().equals("")) // Sponsored recipes
                 .toList())
         );

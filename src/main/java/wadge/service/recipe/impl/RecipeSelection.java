@@ -18,17 +18,17 @@ public class RecipeSelection implements IRecipeSelection {
 
     // TODO -> refactor ?
     public RecipeSelection(final Set<Recipe> recipes) {
-        this.recipes = recipes.stream().collect(Collectors.toList());
+        this.recipes = recipes.stream().toList();
     }
 
 	@Override
 	public IRecipeSelection select(final Predicate<Recipe> predicate) {
-		recipes = recipes.stream().filter(predicate).collect(Collectors.toList());
+		recipes = recipes.stream().filter(predicate).toList();
         return this;
 	}
 
 	@Override
 	public List<Recipe> sort(final Comparator<Recipe> comparator) {
-		return recipes.stream().sorted(comparator).collect(Collectors.toList());
+		return recipes.stream().sorted(comparator).toList();
 	}    
 }

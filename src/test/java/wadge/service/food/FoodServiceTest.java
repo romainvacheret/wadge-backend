@@ -19,18 +19,18 @@ import java.time.Month;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @DataMongoTest
-public class FoodServiceTest {
+class FoodServiceTest {
     @Autowired
     private FoodService service;
 
     @Test
-    public void getAllFoodTest() {
+    void getAllFoodTest() {
         assertTrue(service.getAllFood() instanceof List<?>);
         assertTrue(service.getAllFood().get(0) instanceof Food);
     }
 
     @Test
-    public void testGetFoodFromMonth() {
+    void testGetFoodFromMonth() {
         Month months[] = Month.values();
         Map<Month, List<Food>> results = new HashMap<>();
 
@@ -46,7 +46,7 @@ public class FoodServiceTest {
     }
 
     @Test
-    public void sortByDays() {
+    void sortByDays() {
         List<Food> food = new ArrayList<>();
         List<Food> foodT = new ArrayList<>();
         List<Month> months = List.of(Month.MARCH, Month.APRIL);
@@ -77,7 +77,7 @@ public class FoodServiceTest {
     }
 
     @Test
-    public void getFoodFromString() {
+    void getFoodFromString() {
         String str = "amandes";
         List<Month> months = List.of(Month.MARCH, Month.APRIL);
         Food carotte = Food.builder()
@@ -93,7 +93,7 @@ public class FoodServiceTest {
     }
 
     @Test
-    public void convert() {
+    void convert() {
         ConversionRequest cr = new ConversionRequest();
         cr.setFood("abricot");
         cr.setQuantity(55);

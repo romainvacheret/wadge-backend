@@ -9,20 +9,20 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class RecipeScraper extends AbstractPageScraper {
-    private static final String preparationXPath = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[5]/div[1]/span/p";
-    private static final String nameXPath = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[2]/div[1]/h1";
-    private static final String difficultyXPath = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[5]/div[2]/span/p";
-    private static final String ratingXPath = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span";
-    private static final String servingsXPath = "//*[@id=\"simple-tabpanel-0\"]/div[1]/div[1]/div/span[1]";
-    private static final String opinionXPath = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[2]/div[2]/div[2]/a/span";
-    private static final String ingredientListXPath = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]";
-    private static final String stepListXPath = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/ul";
-    private static final String ingredientQuantityXpath = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/span/div[2]/div/span";
-    private static final String ingredientQuantityXPathSecondCase = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/a/div[2]/div/span";
-    private static final String ingredientQuantityXpathThirdpath = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/div[2]/div/span";
-    private static final String ingredientNameXPath = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/span/div[2]/span/span[2]";
-    private static final String ingredientNameXPathSecondCase = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/a/div[2]/span/span[2]";
-    private static final String ingredientNameXPathThirdCase = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/div[2]/span/span[2]";
+    private static final String PREPARATION_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[5]/div[1]/span/p";
+    private static final String NAME_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[2]/div[1]/h1";
+    private static final String DIFFICULTY_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[5]/div[2]/span/p";
+    private static final String RATING_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/span";
+    private static final String SERVINGS_XPATH = "//*[@id=\"simple-tabpanel-0\"]/div[1]/div[1]/div/span[1]";
+    private static final String OPINION_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/div[2]/div[2]/div[2]/a/span";
+    private static final String INGREDIENT_LIST_XPATH = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]";
+    private static final String STEP_LIST_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div/div[1]/div[1]/ul";
+    private static final String INGREDIENT_QUANTITY_XPATH = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/span/div[2]/div/span";
+    private static final String INGREDIENT_QUANTITY_XPATH_SECOND_CASE = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/a/div[2]/div/span";
+    private static final String INGREDIENT_QUANTITY_XPATH_THIRD_CASE = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/div[2]/div/span";
+    private static final String INGREDIENT_NAME_XPATH = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/span/div[2]/span/span[2]";
+    private static final String INGREDIENT_NAME_XPATH_SECOND_CASE = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/span/a/div[2]/span/span[2]";
+    private static final String INGREDIENT_NAME_XPATH_THIRD_CASE = "//*[@id=\"simple-tabpanel-0\"]/div[2]/div/div/div/div[2]/div[%d]/div/div[2]/span/span[2]";
 
     public RecipeScraper(final String url) throws IOException {
         super(url);
@@ -38,17 +38,17 @@ public class RecipeScraper extends AbstractPageScraper {
 
     @Override
     public MarmitonRecipe scrap() {
-        final String name = getValueFromXPath(nameXPath);
-        final String preparation = getValueFromXPath(preparationXPath).replace("&nbsp", " ");
-        final String difficulty = getValueFromXPath(difficultyXPath);
-        final String fullRating = getValueFromXPath(ratingXPath);
+        final String name = getValueFromXPath(NAME_XPATH);
+        final String preparation = getValueFromXPath(PREPARATION_XPATH).replace("&nbsp", " ");
+        final String difficulty = getValueFromXPath(DIFFICULTY_XPATH);
+        final String fullRating = getValueFromXPath(RATING_XPATH);
         final String rating = getSubString(fullRating, "/", 0);
         final String ratingFract = getSubString(fullRating, "/", 1);
-        final String servings = getValueFromXPath(servingsXPath);
-        final String opinion = getValueFromXPath(opinionXPath).split(" ")[0];
+        final String servings = getValueFromXPath(SERVINGS_XPATH);
+        final String opinion = getValueFromXPath(OPINION_XPATH).split(" ")[0];
 
-        final int ingredientsCount = doc.selectXpath(ingredientListXPath).get(0).childrenSize();
-        final int stepsCount = doc.selectXpath(stepListXPath).get(0).childrenSize();
+        final int ingredientsCount = doc.selectXpath(INGREDIENT_LIST_XPATH).get(0).childrenSize();
+        final int stepsCount = doc.selectXpath(STEP_LIST_XPATH).get(0).childrenSize();
         final List<Ingredient> ingredients = scrapIngredients(ingredientsCount);
         final List<String> steps = scrapSteps(stepsCount);
 
@@ -76,16 +76,16 @@ public class RecipeScraper extends AbstractPageScraper {
 
     protected Ingredient scrapIngredient(final int ingredientIndex) {
 
-        String name = getValueFromXPath(getCompletedXPath(ingredientNameXPath, ingredientIndex));
-        String quantity = getValueFromXPath(getCompletedXPath(ingredientQuantityXpath, ingredientIndex));
+        String name = getValueFromXPath(getCompletedXPath(INGREDIENT_NAME_XPATH, ingredientIndex));
+        String quantity = getValueFromXPath(getCompletedXPath(INGREDIENT_QUANTITY_XPATH, ingredientIndex));
 
         if(name.equals("")) {
-             name = getValueFromXPath(getCompletedXPath(ingredientNameXPathSecondCase, ingredientIndex));
-             quantity = getValueFromXPath(getCompletedXPath(ingredientQuantityXPathSecondCase, ingredientIndex));
+             name = getValueFromXPath(getCompletedXPath(INGREDIENT_NAME_XPATH_SECOND_CASE, ingredientIndex));
+             quantity = getValueFromXPath(getCompletedXPath(INGREDIENT_QUANTITY_XPATH_SECOND_CASE, ingredientIndex));
         }
         if(name.equals("")) {
-            name = getValueFromXPath(getCompletedXPath(ingredientNameXPathThirdCase, ingredientIndex));
-            quantity = getValueFromXPath(getCompletedXPath(ingredientQuantityXpathThirdpath, ingredientIndex));
+            name = getValueFromXPath(getCompletedXPath(INGREDIENT_NAME_XPATH_THIRD_CASE, ingredientIndex));
+            quantity = getValueFromXPath(getCompletedXPath(INGREDIENT_QUANTITY_XPATH_THIRD_CASE, ingredientIndex));
         }
 
         return Ingredient.builder()
@@ -99,11 +99,5 @@ public class RecipeScraper extends AbstractPageScraper {
             .boxed()
             .map(this::scrapIngredient)
             .toList();
-    }
-
-    public static void main(String[] args) throws IOException {
-        final String URL = "https://www.marmiton.org/recettes/recette_soupe-veloutee-de-potimarron-et-pommes-de-terre_41161.aspx";
-        final RecipeScraper scraper = new RecipeScraper(URL);
-        System.out.println(scraper.scrap());
     }
 }

@@ -9,9 +9,9 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 public class RecipeListScraper extends AbstractPageScraper {
-    private static final String recipeListXPath = "//*[@id=\"__next\"]/div[3]/main/div/div[2]/div[1]/div[1]/div[3]";
-    private static final String urlXPath = "//*[@id=\"__next\"]/div[3]/main/div/div[2]/div[1]/div[1]/div[3]/a[%d]";
-    private static final String marmitonUrl = "\"https://www.marmiton.org%s\"";
+    private static final String RECIPE_LIST_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div[2]/div[1]/div[1]/div[3]";
+    private static final String URL_XPATH = "//*[@id=\"__next\"]/div[3]/main/div/div[2]/div[1]/div[1]/div[3]/a[%d]";
+    private static final String MARMITON_URL = "\"https://www.marmiton.org%s\"";
 
     public RecipeListScraper(final String url) throws IOException {
         super(url);
@@ -26,13 +26,13 @@ public class RecipeListScraper extends AbstractPageScraper {
     }
 
     private List<String> scrapRecipesLink() {
-        final int recipeCount = doc.selectXpath(recipeListXPath).get(0).childrenSize();
+        final int recipeCount = doc.selectXpath(RECIPE_LIST_XPATH).get(0).childrenSize();
         return IntStream.range(1, recipeCount + 1)
             .boxed()
-            .map(idx -> getCompletedXPath(urlXPath, idx))
+            .map(idx -> getCompletedXPath(URL_XPATH, idx))
             .map(doc::selectXpath)
             .map(element -> String.format(
-                marmitonUrl,
+                MARMITON_URL,
                 element.first().attr("href")).replace("\"", ""))
             .toList();
     }
