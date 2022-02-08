@@ -1,67 +1,64 @@
 package wadge.service.food;
 
+import java.time.Month;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import wadge.dao.api.IFoodDao;
+import lombok.AllArgsConstructor;
+import wadge.dao.FoodRepository;
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
-import wadge.model.food.Month;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Ingredient.Unit;
 import wadge.service.food.FoodHelper.Conversion;
 
 @Service
+@AllArgsConstructor
 public class FoodService {
-    private final IFoodDao foodDao;
-
-    @Autowired
-    public FoodService(@Qualifier("jsonFoodDao") IFoodDao foodDao) {
-        this.foodDao = foodDao;
-    }
+    private final FoodRepository repository;
 
     public List<Food> getAllFood() {
-        return foodDao.getAllFoods();
+        return repository.findAll();
     }
 
-    public List<Food> getFoodFromGivenMonth(Month month) {
-        List<Food> foods = foodDao.getAllFoods();
-        
-        return foods.stream().filter(food ->
-                food.getAvailability().contains(month)).collect(Collectors.toList());
+    public List<Food> getFoodFromGivenMonth(final Month month) {
+        return getAllFood().stream()
+            .filter(food -> food.getAvailability()
+            .contains(month)).toList();
     }
 
-    public List<Food> sortByDays(List<Food> food) {
-        return food.stream().sorted(Comparator.comparing(Food::getDays)).collect(Collectors.toList());
+    public List<Food> sortByDays(final List<Food> food) {
+        return food.stream().sorted(Comparator.comparing(Food::getDays)).toList();
     }  
 
-    public Optional<Food> getFoodFromString(String string) {
+    // TODO refactor -> should no longer be used
+    @Deprecated(since="19/01/2022")
+    public Optional<Food> getFoodFromString(final String string) {
         return getAllFood().stream().filter(food -> string.contains(food.getName())).findFirst();
     }
 
-    public Optional<Double> convert(ConversionRequest request) {
-        Optional<Food> f = getFoodFromString(request.getFood());
-         return  f.isPresent() ?
-            Optional.of(FoodHelper.convert(request.getType(), f.get(), request.getQuantity())) :
+    public Optional<Double> convert(final ConversionRequest request) {
+        final Optional<Food> food = getFoodFromString(request.getFood());
+         return  food.isPresent() ?
+            Optional.of(FoodHelper.convert(request.getType(), food.get(), request.getQuantity())) :
             Optional.empty();
     }
 
-    public double getUnits(Ingredient ingredient) {
+    // TODO -> refactor
+    public double getUnits(final Ingredient ingredient) {
         double rtr = 0;
         double ingQuantity;
         final Unit unit = Ingredient.getUnit(ingredient.getName());
+        final Optional<Food> food = getFoodFromString(Ingredient.extractName(ingredient));
+
         try {
             ingQuantity = Double.parseDouble(ingredient.getQuantity());
         } catch(NumberFormatException e) {
             ingQuantity = -1;
         }
-        final Optional<Food> food = getFoodFromString(Ingredient.extractName(ingredient));
 
         if(ingQuantity == -1){
             rtr = 0;
@@ -73,9 +70,7 @@ public class FoodService {
                 rtr =   food.isPresent() ? FoodHelper.convert(Conversion.G_TO_UNIT, food.get(), quantity) :
                     quantity / 100;
             }
-    }
-
-        
+        }
 
         return rtr;
     }   

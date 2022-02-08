@@ -16,18 +16,19 @@ public class RecipeSelection implements IRecipeSelection {
         EVERYTHING, BY_DIFFICULTY, BY_RATING, USING_FRIDGE, BY_INGREDIENTS, BY_UNIT
     }
 
-    public RecipeSelection(Set<Recipe> recipes) {
-        this.recipes = recipes.stream().collect(Collectors.toList());
+    // TODO -> refactor ?
+    public RecipeSelection(final Set<Recipe> recipes) {
+        this.recipes = recipes.stream().toList();
     }
 
 	@Override
-	public IRecipeSelection select(Predicate<Recipe> predicate) {
-		recipes = recipes.stream().filter(predicate).collect(Collectors.toList());
+	public IRecipeSelection select(final Predicate<Recipe> predicate) {
+		recipes = recipes.stream().filter(predicate).toList();
         return this;
 	}
 
 	@Override
-	public List<Recipe> sort(Comparator<Recipe> comparator) {
-		return recipes.stream().sorted(comparator).collect(Collectors.toList());
+	public List<Recipe> sort(final Comparator<Recipe> comparator) {
+		return recipes.stream().sorted(comparator).toList();
 	}    
 }

@@ -8,27 +8,29 @@ import java.util.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.model.food.ConversionRequest;
 import wadge.model.food.Food;
-import wadge.model.food.Month;
+import java.time.Month;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class FoodServiceTest {
+@DataMongoTest
+class FoodServiceTest {
     @Autowired
     private FoodService service;
 
     @Test
-    public void getAllFoodTest() {
+    void getAllFoodTest() {
         assertTrue(service.getAllFood() instanceof List<?>);
         assertTrue(service.getAllFood().get(0) instanceof Food);
     }
 
     @Test
-    public void testGetFoodFromMonth() {
+    void testGetFoodFromMonth() {
         Month months[] = Month.values();
         Map<Month, List<Food>> results = new HashMap<>();
 
@@ -44,12 +46,28 @@ public class FoodServiceTest {
     }
 
     @Test
-    public void sortByDays() {
+    void sortByDays() {
         List<Food> food = new ArrayList<>();
         List<Food> foodT = new ArrayList<>();
-        Month[] months = {Month.MARCH,Month.APRIL};
-        Food carotte = new Food("carotte", "legume", months, 15,60 ,false);
-        Food courgette = new Food("courgette", "legume", months, 7,80 ,false);
+        List<Month> months = List.of(Month.MARCH, Month.APRIL);
+        Food carotte = Food.builder()
+                        .name("carotte")
+                        .type("legume")
+                        .availability(months)
+                        .days(15)
+                        .weight(60)
+                        .bulk(false)
+                        .build();
+
+        Food courgette = Food.builder()
+                        .name("courgette")
+                        .type("legume")
+                        .availability(months)
+                        .days(15)
+                        .weight(60)
+                        .bulk(false)
+                        .build();
+
         food.add(carotte);
         food.add(courgette);
 
@@ -59,16 +77,23 @@ public class FoodServiceTest {
     }
 
     @Test
-    public void getFoodFromString() {
+    void getFoodFromString() {
         String str = "amandes";
-        Month[] m = {Month.SEPTEMBER, Month.OCTOBER};
-        Food amande = new Food("amande", "fruit", m, 150,100 ,true);
-        Optional<Food> f = Optional.of(amande);
+        List<Month> months = List.of(Month.MARCH, Month.APRIL);
+        Food carotte = Food.builder()
+                        .name("carotte")
+                        .type("legume")
+                        .availability(months)
+                        .days(15)
+                        .weight(60)
+                        .bulk(false)
+                        .build();
+        Optional<Food> f = Optional.of(carotte);
         assertEquals(f,service.getFoodFromString(str));
     }
 
     @Test
-    public void convert() {
+    void convert() {
         ConversionRequest cr = new ConversionRequest();
         cr.setFood("abricot");
         cr.setQuantity(55);

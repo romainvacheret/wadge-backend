@@ -8,20 +8,20 @@ import org.junit.Test;
 
 import wadge.model.recipe.Ingredient.Unit;
 
-public class IngredientTest {
+class IngredientTest {
     private Ingredient ingredient;
     private Ingredient i1;
     private Ingredient i2;
 
     @Before
-    public void setUp() {
+    void setUp() {
         ingredient = new Ingredient("Ingredient", "42");
         i1 = new Ingredient("kg de tomate", "2");
         i2 = new Ingredient("g de mache", "43");
     }
 
     @Test
-    public void getterSetterTest() {
+    void getterSetterTest() {
         String result = "Ingredient [name=Ingredient, quantity=42]";
         Ingredient i1 = new Ingredient("Ingredient", "42");
         Ingredient i2 = new Ingredient("Ingredient", "43");
@@ -43,14 +43,14 @@ public class IngredientTest {
     }
 
     @Test
-    public void extractNameTest() {
+    void extractNameTest() {
         assertEquals("Ingredient", Ingredient.extractName(ingredient));
         assertEquals("tomate", Ingredient.extractName(i1));
         assertEquals("mache", Ingredient.extractName(i2));
     }
 
     @Test
-    public void getUnitTest() {
+    void getUnitTest() {
         assertEquals(Unit.NONE, Ingredient.getUnit(ingredient.getName()));
         assertEquals(Unit.KG, Ingredient.getUnit(i1.getName()));
         assertEquals(Unit.G, Ingredient.getUnit(i2.getName()));

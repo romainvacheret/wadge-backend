@@ -1,116 +1,100 @@
 package wadge.service.recipe.impl;
 
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Predicate;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import wadge.dao.api.IExternalRecipeDao;
-import wadge.dao.api.ISpecificRecipeDao;
-import wadge.dao.api.IRecipeDao;
+import wadge.dao.RecipeRepository;
 import wadge.model.recipe.Ingredient;
 import wadge.model.recipe.Recipe;
-import wadge.model.recipe.external.MarmitonRecipe;
+import wadge.model.recipe.RecipeTag;
 import wadge.service.food.FoodService;
 import wadge.service.fridge.FridgeService;
-import wadge.service.recipe.api.AbstractRecipeSelection;
 import wadge.service.recipe.api.IRecipeSelection;
 import wadge.service.recipe.impl.RecipeSelection.Parameter;
 
-@Service
-public class RecipeService {
-    private final IRecipeDao recipeDao;
-    private final FridgeService fridgeService;
-    private final IExternalRecipeDao marmitonDao;
-    private final ISpecificRecipeDao specificRecipeDao;
-    private final FoodService foodService;
-  
-    @Autowired
-    public RecipeService(@Qualifier("jsonRecipeDao") IRecipeDao recipeDao, FridgeService fridgeService, @Qualifier("jsonRecipeExtDao") IExternalRecipeDao recipeExternalDao,
-                         @Qualifier("jsonSepecificRecipeDao") ISpecificRecipeDao specificRecipeDao, FoodService foodService) {
-        this.recipeDao = recipeDao;
-        this.fridgeService = fridgeService;
-        this.marmitonDao = recipeExternalDao;
-        this.specificRecipeDao=specificRecipeDao;
-        this.foodService = foodService;
 
-    }
+@Service
+@AllArgsConstructor
+public class RecipeService {
+    private final RecipeRepository repository;
+    private final FridgeService fridgeService;
+    private final FoodService foodService;
 
     public List<Recipe> getAllRecipes() {
-        return recipeDao.getAllRecipes();
+        return repository.findAll();
     }
 
-    ToIntFunction<Recipe> recipeScoring = recipe -> recipe.getIngredients().stream().map(SelectionWithFridge.ingredientScoring)
-            .filter(Optional::isPresent).map(Optional::get).reduce(0, (a, b) -> a + b);
+    final ToIntFunction<Recipe> recipeScoring = recipe -> recipe.getIngredients().stream()
+        .map(SelectionWithFridge.ingredientScoring)
+        .filter(Optional::isPresent)
+        .map(Optional::get)
+        .reduce(0, Integer::sum);
 
     public List<Recipe> getRecipesUsingFridge() {
-        AbstractRecipeSelection sel = new SelectionWithFridge(getAllRecipes().stream().collect(Collectors.toSet()), fridgeService);
-        return sel.compute(recipeScoring).filter(x -> x > 0).sort(Collections.reverseOrder(Map.Entry.comparingByKey()));
+        return new SelectionWithFridge(new HashSet<>(getAllRecipes()), fridgeService)
+            .compute(recipeScoring)
+            .filter(x -> x > 0)
+            .sort(Collections.reverseOrder(Map.Entry.comparingByKey()));
     }
 
-    public List<Recipe> getRecipesFromMarmiton(String query){
-		List<MarmitonRecipe> x = marmitonDao.recipeExternalsFromUrl(query);
-        recipeDao.addAllRecipes(marmitonDao.toRecipe(x));
-		return recipeDao.getAllRecipes();
-		
-	}
-
-    public Map<String, String> getRecipeIngredient(Recipe recipe) {
-        List<Ingredient> list = recipe.getIngredients();
-        Map<String, String> isPresentList = new HashMap<>();
-        list.forEach(food -> 
-            isPresentList.put(food.getName(),fridgeService.isInFridge(food))
-        );
-        return isPresentList;
+    public Map<String, String> getRecipeIngredient(final Recipe recipe) {
+        return recipe.getIngredients().stream().collect(Collectors.toMap(
+            Ingredient::getName,
+            fridgeService::isInFridge));
     }
 
-    public List<Recipe> selectRecipes(Parameter param) {
+    // TODO -> refactor
+    public List<Recipe> selectRecipes(final Parameter param) {
         if(param.equals(Parameter.USING_FRIDGE)) {
             return getRecipesUsingFridge(); 
         }
-        Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0); 
-        Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
 
-        Set<Recipe> recipes = recipeDao.getAllRecipes().stream().collect(Collectors.toSet());
+        final Predicate<Recipe> predicate = RecipePredicateFactory.getPredicate(param, 0);
+        final Comparator<Recipe> comparator = RecipeComparatorFactory.getComparator(param);
+        final Set<Recipe> recipes = getAllRecipes().stream().collect(Collectors.toSet());
+        final IRecipeSelection selection = new RecipeSelection(recipes);
+
         if(param.equals(Parameter.BY_UNIT)) {
-            List<Map.Entry<Recipe, Double>> m = recipes.stream().map(recipe -> 
+            final List<Map.Entry<Recipe, Double>> m = recipes.stream().map(recipe ->
                 Map.entry(
                     recipe, 
                     recipe.getIngredients().stream().map(foodService::getUnits).reduce(0.0, Double::sum)
                 )
-            ).collect(Collectors.toList());
-            return m.stream().sorted((m1, m2) -> Double.compare(m1.getValue(), m2.getValue())).map(Map.Entry<Recipe, Double>::getKey).collect(Collectors.toList());
+            ).toList();
+
+            return m.stream()
+                .sorted(Comparator.comparingDouble(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .toList();
         }
-        IRecipeSelection selection = new RecipeSelection(recipes);
 
         return selection.select(predicate).sort(comparator);
     }
 
-    public List<Recipe> getFavoriesRecipes(){
-        return specificRecipeDao.getFavoritesRecipes();
+    // ---- Tagged recipes ----
+
+    public List<Recipe> getTaggedRecipes(final RecipeTag tag) {
+        return repository.findAll().stream()
+            .filter(recipe -> recipe.getTags().contains(tag))
+            .toList();
     }
-    public void addFavoriteRecipe(Recipe recipe){
-        specificRecipeDao.writeFavoriteRecipe(recipe);
+
+    public void addTagToRecipe(final long id, final RecipeTag tag) {
+        repository.findById(id).ifPresent(recipe -> {
+            recipe.getTags().add(tag);
+            repository.save(recipe);
+        });
     }
-    public List<Recipe> deleteFavoriteRecipe(String link ){
-        specificRecipeDao.deleteFavoriteRecipe(link);
-       return specificRecipeDao.getFavoritesRecipes();
+
+    public void removeTagToRecipe(final long id, final RecipeTag tag) {
+        repository.findById(id).ifPresent(recipe -> {
+            recipe.getTags().remove(tag);
+            repository.save(recipe);
+        });
     }
-    public List<Recipe> getDoneRecipes(){
-        return specificRecipeDao.getDoneRecipes();
-    }
-    public void addDoneRecipe(Recipe recipe){
-        specificRecipeDao.writeDoneRecipe(recipe);
-    }
-    
 }

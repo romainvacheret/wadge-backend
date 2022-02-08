@@ -9,7 +9,7 @@ import wadge.service.recipe.impl.RecipeSelection.Parameter;
 public class RecipePredicateFactory {
     private RecipePredicateFactory() {}
     
-    public static Predicate<Recipe> getPredicate(Parameter parameter, double minimum) {
+    public static Predicate<Recipe> getPredicate(final Parameter parameter, double minimum) {
         if(minimum < 0) {
             minimum = 0;
         }

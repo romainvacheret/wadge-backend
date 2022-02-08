@@ -14,9 +14,9 @@ import wadge.service.recipe.impl.RecipeSelection.Parameter;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class RecipePredicateFactoryTest {
+class RecipePredicateFactoryTest {
     @Test
-    public void getComparatorTest() {
+    void getComparatorTest() {
         List.of(Parameter.values()).stream().forEach(
             param -> assertTrue(RecipePredicateFactory.getPredicate(param, 0) instanceof Predicate<?>));
     }
