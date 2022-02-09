@@ -44,9 +44,4 @@ public class RecipeListScraper extends AbstractPageScraper {
             .flatMap(Optional::stream)
             .toList();
     }
-
-    public static void main(String[] args) throws IOException {
-        final RecipeListScraper scraper = new RecipeListScraper("https://www.marmiton.org/recettes/recherche.aspx?aqt=gateau&page=6");
-        System.out.println(scraper.scrap());
-    }
 }
