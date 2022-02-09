@@ -31,17 +31,28 @@ public class FridgeService {
     public enum RecallType {
         TWO_DAYS, FIVE_DAYS, SEVEN_DAYS, FOURTEEN_DAYS, EXPIRED, OTHER;
     }
+
     public void addToFridge(final FridgeFood food) {
         getFridgeFoodFromName(food.getName())
             .ifPresentOrElse(fridgeFood -> {
-                fridgeFood.addAllProducts(
-                    fridgeFood.getProducts().values().stream().toList());
-                    repository.save(fridgeFood);
-                },
-                    () -> {
-                        food.setId(sequenceGenerator.generateSequence("fridgefood_sequence"));
-                        repository.insert(food);
-                    });
+                final FoodElement foodElement = food.getProducts().values().stream().toList().get(0);
+                final Optional<FoodElement> optnl = fridgeFood.getProducts().values().stream()
+                .filter(product -> product.getInsertionDate().equals(
+                    foodElement.getInsertionDate()
+                )).findFirst();
+
+                optnl.ifPresentOrElse(optn -> { // If same date
+                    final FoodElement previous = optnl.get();
+                    previous.setQuantity(previous.getQuantity() + foodElement.getQuantity());
+                }, () -> fridgeFood.addAllProducts(
+                    food.getProducts().values().stream().toList())
+                );
+                repository.save(fridgeFood);
+            },
+            () -> {
+                food.setId(sequenceGenerator.generateSequence("fridgefood_sequence"));
+                repository.insert(food);
+            });
     }
 
     public void addAllToFridge(final List<FridgeFood> foodList) {
