@@ -37,9 +37,9 @@ public class FridgeService {
             .ifPresentOrElse(fridgeFood -> {
                 final FoodElement foodElement = food.getProducts().values().stream().toList().get(0);
                 final Optional<FoodElement> optnl = fridgeFood.getProducts().values().stream()
-                .filter(product -> product.getInsertionDate().equals(
-                    foodElement.getInsertionDate()
-                )).findFirst();
+                    .filter(product -> product.getInsertionDate().equals(
+                        foodElement.getInsertionDate()
+                    )).findFirst();
 
                 optnl.ifPresentOrElse(optn -> { // If same date
                     final FoodElement previous = optnl.get();
@@ -56,13 +56,14 @@ public class FridgeService {
     }
 
     public void addAllToFridge(final List<FridgeFood> foodList) {
-        foodList.stream().forEach(this::addToFridge);
+        foodList.forEach(this::addToFridge);
     }
 
     public List<FridgeFood> getAllFridge() {
         return repository.findAll();
     }
 
+    @SuppressWarnings("unchecked")
     private List<FridgeFood> getExpirationDateFromPredicate(final Predicate<FoodElement> predicate) {
         return (List<FridgeFood>) repository.findAll().stream().map(food -> {
             final Map<Long, FoodElement> futureElements = food.getProducts().values().stream()
@@ -100,12 +101,10 @@ public class FridgeService {
         });
     }
 
-    // TODO refactor -> should no longer be used
-    @Deprecated
     public Optional<FridgeFood> getFridgeFoodFromName(final String foodName) {
         return getAllFridge().stream()
-                .filter(food -> food.getName().equals(foodName))
-                .findFirst();
+            .filter(food -> food.getName().equals(foodName))
+            .findFirst();
     }
 
     public Optional<FridgeFood> getFridgeFoodFromId(final long id) {
@@ -122,7 +121,7 @@ public class FridgeService {
         if(optional.isPresent()){
             final Food food = optional.get();
             final Optional<FridgeFood> fridgeFood = fridge.stream().
-                    filter(f -> f.getName().equals(food.getName())).findFirst();
+                filter(f -> f.getName().equals(food.getName())).findFirst();
 
             if(fridgeFood.isPresent() && !fridgeFood.get().getProducts().isEmpty()){
                 final Ingredient i = new Ingredient(food.getName(), ingredient.getQuantity());

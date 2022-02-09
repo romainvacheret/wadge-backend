@@ -41,11 +41,6 @@ class RecipeControllerTest {
     }
 
     @Test
-    @Ignore
-    void getSelectedRecipes() {
-    }
-
-    @Test
     void getAllRecipes() {
         underTest.getAllRecipes();
         verify(recipeService).getAllRecipes();

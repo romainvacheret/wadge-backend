@@ -1,31 +1,48 @@
 package wadge.service.fridge;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.verify;
 
-import java.util.List;
 
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import wadge.model.fridge.FridgeFood;
+import wadge.dao.FridgeFoodRepository;
 import wadge.model.recipe.Ingredient;
+import wadge.service.food.FoodService;
+import wadge.utils.db.SequenceGenerator;
 
 @RunWith(SpringRunner.class)
-@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 @DataMongoTest
 class FridgeServiceTest {
-    @Autowired
-    private FridgeService service;
+    @MockBean
+    private FoodService foodService;
+    @MockBean
+    private FridgeFoodRepository fridgeFoodRepository;
+    @Mock
+    private SequenceGenerator sequenceGenerator;
+    private FridgeService underTest;
+
+    @BeforeEach
+    public void setUp() {
+        underTest = new FridgeService(
+            foodService,
+            fridgeFoodRepository,
+            sequenceGenerator);
+    }
 
     @Test
-    void getAllFoodTest() {
-        assertTrue(service.getAllFridge() instanceof List<?>);
-        assertTrue(service.getAllFridge().get(0) instanceof FridgeFood);
+    void getAllFridge() {
+        underTest.getAllFridge();
+        verify(fridgeFoodRepository).findAll();
     }
 
     @Test
@@ -33,7 +50,7 @@ class FridgeServiceTest {
         Ingredient ing = new Ingredient();
         ing.setName("poisson");
         ing.setQuantity("2");
-        assertEquals("default",service.isInFridge(ing));
+        assertEquals("default",underTest.isInFridge(ing));
     }
 
     // @Test
