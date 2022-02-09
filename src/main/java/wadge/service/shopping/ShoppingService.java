@@ -19,6 +19,7 @@ import wadge.service.food.FoodHelper.Conversion;
 @Service
 @AllArgsConstructor
 public class ShoppingService {
+    // Add to DB
     private final Map<String, Ingredient> shoppingList = new HashMap<>();
     private final FoodService foodService;
 

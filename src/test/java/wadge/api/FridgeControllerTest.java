@@ -4,7 +4,6 @@ import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -39,11 +38,6 @@ class FridgeControllerTest {
     }
 
     @Test
-    @Ignore
-    void addAllToFridge() {
-    }
-
-    @Test
     void emptyFridge() {
         underTest.emptyFridge();
         verify(fridgeService).emptyFridge();
@@ -55,10 +49,5 @@ class FridgeControllerTest {
         Arrays.stream(FridgeService.RecallType.values()).forEach(
             recallType -> verify(fridgeService).getExpirationList(recallType)
         );
-    }
-
-    @Test
-    @Ignore
-    void updateFromFridge() {
     }
 }

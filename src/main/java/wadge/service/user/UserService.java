@@ -7,8 +7,10 @@ import org.apache.http.Header;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.springframework.stereotype.Service;
@@ -52,31 +54,34 @@ public class UserService {
        return user.isEmpty() ? List.of() : user.get().getRecipes();
    }
 
-   public List<Recipe> computeKnn() throws IOException {
-       final HttpClient client = HttpClients.createDefault();
-       final HttpPost post = new HttpPost("http://localhost:5000/knn");
-       final ObjectMapper mapper = new ObjectMapper();
-       final String usersAsString = mapper.writeValueAsString(getUsers());
-       final Header[] headers = {
+   public List<Recipe> computeKnn() {
+       try (final CloseableHttpClient client = HttpClients.createDefault()) {
+           final HttpPost post = new HttpPost("http://localhost:5000/knn");
+           final ObjectMapper mapper = new ObjectMapper();
+           final String usersAsString = mapper.writeValueAsString(getUsers());
+           final Header[] headers = {
                new BasicHeader("Content-type", "application/json"),
                new BasicHeader("Accept", "application/json")
-       };
-       final String bodyAsString = String.format("{\"target\": 1, \"users\":%s}", usersAsString);
+           };
+           final String bodyAsString = String.format("{\"target\": 1, \"users\":%s}", usersAsString);
 
-       post.setHeaders(headers);
-       post.setEntity(new StringEntity(bodyAsString, "UTF-8"));
+           post.setHeaders(headers);
+           post.setEntity(new StringEntity(bodyAsString, "UTF-8"));
 
-       final HttpResponse response = client.execute(post);
-       final HttpEntity entity = response.getEntity();
-       final String result = new String(entity.getContent().readAllBytes(), StandardCharsets.UTF_8);
-       final CollectionType listRecipeType = mapper.getTypeFactory()
-           .constructCollectionType(List.class, Long.class);
-       final List<Long> recipesIds = mapper.readValue(result, listRecipeType);
+           final HttpResponse response = client.execute(post);
+           final HttpEntity entity = response.getEntity();
+           final String result = new String(entity.getContent().readAllBytes(), StandardCharsets.UTF_8);
+           final CollectionType listRecipeType = mapper.getTypeFactory()
+               .constructCollectionType(List.class, Long.class);
+           final List<Long> recipesIds = mapper.readValue(result, listRecipeType);
 
-       return recipesIds.stream()
-            .map(recipeRepository::findById)
-            .filter(Optional::isPresent)
-            .map(Optional::get)
-            .toList();
+           return recipesIds.stream()
+               .map(recipeRepository::findById)
+               .filter(Optional::isPresent)
+               .map(Optional::get)
+               .toList();
+       } catch(IOException e) {
+           return List.of();
+       }
    }
 }

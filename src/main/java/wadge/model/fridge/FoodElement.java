@@ -15,6 +15,6 @@ public class FoodElement {
         @EqualsAndHashCode.Exclude
         private long id;
         private String insertionDate;
-        private String peremptionDate; // TODO -> change to expirationDate;
+        private String peremptionDate;
         private int quantity;
 }

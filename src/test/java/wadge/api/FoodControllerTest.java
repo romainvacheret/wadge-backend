@@ -1,11 +1,18 @@
 package wadge.api;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 import java.time.Month;
 import java.util.List;
+import java.util.Optional;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.JsonNodeCreator;
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -17,7 +24,8 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import wadge.FakeRepository;
-import wadge.model.food.Food;
+import wadge.model.food.ConversionRequest;
+import wadge.service.food.FoodHelper;
 import wadge.service.food.FoodService;
 
 @RunWith(SpringRunner.class)
@@ -46,7 +54,7 @@ class FoodControllerTest {
     }
 
     @Test
-    void getFoodFromMonth(){
+    void getFoodFromMonth() {
         MonthList.stream().forEach(MonthAsString -> {
             final Month month = Month.valueOf(MonthAsString) ;
             underTest.getFoodFromMonth(MonthAsString);
@@ -55,13 +63,13 @@ class FoodControllerTest {
     }
 
     @Test
-    void getFoodFromMonthByDays(){
-        underTest.getFoodFromMonthByDays("JULY");
-        verify(foodService).sortByDays(underTest.getFoodFromMonth("JULY"));
+    void getFoodFromMonthException() {
+        assertEquals(List.of(), underTest.getFoodFromMonthByDays("not a valid month"));
     }
 
     @Test
-    @Ignore
-    void convert() {
+    void getFoodFromMonthByDays(){
+        underTest.getFoodFromMonthByDays("JULY");
+        verify(foodService).sortByDays(underTest.getFoodFromMonth("JULY"));
     }
 }

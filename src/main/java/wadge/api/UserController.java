@@ -19,7 +19,7 @@ import java.util.List;
 @AllArgsConstructor
 public class UserController {
     private final UserService service;
-    private final ObjectMapper mapper;
+    private final ObjectMapper mapper = new ObjectMapper();
 
     @PostMapping("/users")
     public void createUsers(@RequestBody final JsonNode node) {
@@ -33,7 +33,7 @@ public class UserController {
     }
 
     @GetMapping("/users/knn")
-    public List<Recipe> computeKnn() throws IOException {
+    public List<Recipe> computeKnn() {
         return service.computeKnn();
     }
 

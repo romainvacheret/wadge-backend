@@ -7,7 +7,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.List;
 
-import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -50,13 +49,6 @@ class RecipeServiceTest {
     }
 
     @Test
-    @Ignore
-    void getRecipesUsingFridge() {
-        underTest.getRecipesUsingFridge();
-    }
-
-
-    @Test
     void getTaggedRecipe() {
         final List<Recipe> result = underTest.getTaggedRecipes(RecipeTag.FAVORITE);
         assertEquals(1, result.size());
@@ -64,23 +56,10 @@ class RecipeServiceTest {
             .allMatch(recipe -> recipe.getTags().contains(RecipeTag.FAVORITE)));
     }
 
-    /*
-    @Test
-    @Ignore
-    void addTagToRecipe() {
-        final Recipe recipe = underTest.getAllRecipes().get(1);
-        assertTrue(recipe.getTags().isEmpty());
-        underTest.addTagToRecipe(2, RecipeTag.DONE);
-        assertTrue(underTest.getTaggedRecipes(RecipeTag.DONE).get(0).getTags().contains(RecipeTag.DONE));
-    }
-
-     */
-
     @Test
     void removeTagToRecipe() {
         assertTrue(underTest.getAllRecipes().get(0).getTags().contains(RecipeTag.FAVORITE));
         underTest.removeTagToRecipe(1, RecipeTag.FAVORITE);
         verify(recipeRepository).findById(1L);
     }
-
 }

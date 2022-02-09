@@ -34,8 +34,6 @@ public class FoodService {
         return food.stream().sorted(Comparator.comparing(Food::getDays)).toList();
     }  
 
-    // TODO refactor -> should no longer be used
-    @Deprecated(since="19/01/2022")
     public Optional<Food> getFoodFromString(final String string) {
         return getAllFood().stream().filter(food -> string.contains(food.getName())).findFirst();
     }
